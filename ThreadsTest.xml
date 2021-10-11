@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="ThreadsTestSuite" verbose="0" data-provider-thread-count = "2">
+	<test name="ThreadsTest-CH">
+		<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class name="com.atc.seleniumframework.tests.ThreadsTest">
+			</class>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [NegativeTestSuite]">
+  <test thread-count="5" verbose="5" name="NegativeSharpIDTest-CH(failed)">
+    <parameter name="password" value="Testing123#$"/>
+    <parameter name="sharpID" value="100000007"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="expectedMessage" value="Estas credenciales no coinciden con nuestros registros."/>
+    <classes>
+      <class name="com.atc.seleniumframework.NegativeLoginTests">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="negativeTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.atc.seleniumframework.NegativeLoginTests -->
+    </classes>
+  </test> <!-- NegativeSharpIDTest-CH(failed) -->
+  <test thread-count="5" verbose="5" name="NegativePasswordTest-CH(failed)">
+    <parameter name="password" value="Testing123#2"/>
+    <parameter name="sharpID" value="100000001"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="expectedMessage" value="Estas credenciales no coinciden con nuestros registros."/>
+    <classes>
+      <class name="com.atc.seleniumframework.NegativeLoginTests">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="negativeTest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.atc.seleniumframework.NegativeLoginTests -->
+    </classes>
+  </test> <!-- NegativePasswordTest-CH(failed) -->
+</suite> <!-- Failed suite [NegativeTestSuite] -->

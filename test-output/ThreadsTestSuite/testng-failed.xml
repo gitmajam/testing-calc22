@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [ThreadsTestSuite]">
+  <test thread-count="5" name="ThreadsTest-CH(failed)">
+    <classes>
+      <class name="com.atc.seleniumframework.tests.ThreadsTest">
+        <methods>
+          <include name="threadsTest" invocation-numbers="0 3 1 2"/>
+        </methods>
+      </class> <!-- com.atc.seleniumframework.tests.ThreadsTest -->
+    </classes>
+  </test> <!-- ThreadsTest-CH(failed) -->
+</suite> <!-- Failed suite [ThreadsTestSuite] -->

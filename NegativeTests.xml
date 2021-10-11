@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="NegativeLoginTestSuite" verbose="1" data-provider-thread-count = "5">
+	<test name="NegativeLoginTest-CH">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class
+				name="com.atc.seleniumframework.tests.NegativeLoginTests">
+			</class>
+		</classes>
+	</test>
+</suite>

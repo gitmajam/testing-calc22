@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="PositiveTestSuite" verbose="10" data-provider-thread-count = "5">
+	<test name="PositiveLoginTest-CH">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="com.atc.seleniumframework.tests.PositiveLoginTests" />
+		</classes>
+	</test>
+</suite>
