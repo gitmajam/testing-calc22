@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" verbose="10" name="Failed suite [PositiveTestSuite]" data-provider-thread-count="5">
+<suite guice-stage="DEVELOPMENT" verbose="10" name="Failed suite [PositiveTestSuite]">
   <test thread-count="5" verbose="10" name="PositiveLoginTest-CH(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
@@ -9,7 +9,7 @@
           <include name="setUp"/>
           <include name="createBrowserFactory"/>
           <include name="tearDown"/>
-          <include name="logInTest" invocation-numbers="0"/>
+          <include name="logInTest" invocation-numbers="1 0"/>
         </methods>
       </class> <!-- com.atc.seleniumframework.tests.PositiveLoginTests -->
     </classes>

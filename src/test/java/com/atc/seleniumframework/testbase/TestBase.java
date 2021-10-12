@@ -22,6 +22,8 @@ public class TestBase {
 	protected String testMethodName;
 
 	@BeforeTest(alwaysRun = true)
+	
+	/** create a Browser driver factory it lets run several test in parallel*/
 	public void createBrowserFactory() {
 		factory = new BrowserDriverFactory();
 	}
@@ -29,20 +31,22 @@ public class TestBase {
 	@Parameters({ "browser" })
 	@BeforeMethod(alwaysRun = true)
 	public void setUp(Method method, @Optional("chrome") String browser, ITestContext ctx) {
+		
+		/* this lines create a new instance of a logger to write out the status during the script execution */
 		String testName = ctx.getCurrentXmlTest().getName();
 		log = LogManager.getLogger(testName);
-		factory.createDriver(browser, log);
-		factory.getDriver().manage().window().maximize();
-		
 		this.testSuiteName = ctx.getSuite().getName();
 		this.testName = testName;
 		this.testMethodName = method.getName();
+
+		/* factory creates a new instance of webdriver "browser" */
+		factory.createDriver(browser, log);
+		factory.getDriver().manage().window().maximize();
 	}
 
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
-		log.info("Close driver" + "drive: " + factory.getDriver().hashCode());
 		// Close browser
-		factory.getDriver().quit();
+		//factory.getDriver().quit();
 	}
 }

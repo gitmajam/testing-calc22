@@ -7,6 +7,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserDriverFactory {
 
+	/**
+	 * static variable that relates an specific webdriver instance with a thread, it
+	 * is like a dictionary
+	 */
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
 	public void createDriver(String browser, Logger log) {
@@ -30,9 +34,10 @@ public class BrowserDriverFactory {
 			break;
 		}
 		// Create driver
-		log.info("Factory crea driver: " + driver.get().hashCode());
+		log.info(driver.get().hashCode() + " Factory crea driver: ");
 	}
 
+	/** this method returns the driver related with the current thread */
 	public WebDriver getDriver() {
 		return driver.get();
 	}

@@ -22,6 +22,7 @@ public class BasePageObject {
 	public BasePageObject(WebDriver driver, Logger log) {
 		this.driver = driver;
 		this.log = log;
+		/* pagefactory lets handle more easily the web elements through annotations "FindBy" */
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -44,7 +45,7 @@ public class BasePageObject {
 	}
 
 	// Get URL of current page from browser
-	public static String getCurrentUrl(WebDriver driver) {
+	public String getCurrentUrl() {
 		return driver.getCurrentUrl();
 	}
 }

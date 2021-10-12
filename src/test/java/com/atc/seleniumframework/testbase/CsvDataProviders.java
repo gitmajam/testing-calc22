@@ -19,20 +19,25 @@ import com.opencsv.exceptions.CsvValidationException;
 public class CsvDataProviders {
 
 	/**
-	 * this method return an iterator of an array list containing all data sets
+	 * This method return an iterator of an array list containing all data sets
 	 * found in the CSV file, the array contains HashMap objects and each HashMap
 	 * contains pairs made up of a key and its related value.
+	 * 
+	 * for each register the data provider runs an individual test which applies the
+	 * related data to that test.
+	 * 
+	 * if the parallel argument is true then the dataprovider runs test in parallel
+	 * according to the number of register in the csv file.
+	 * 
+	 * if the parallel argument is false then the tests are run sequentially
 	 */
 
 	@DataProvider(name = "csvReader", parallel = true)
 	public static Iterator<Object[]> csvReader(Method method) {
 		List<Object[]> list = new ArrayList<Object[]>();
-		String pathname = "src" 
-				+ File.separator + "test" 
-				+ File.separator + "resources" 
-				+ File.separator + "dataproviders" 
-				+ File.separator + method.getDeclaringClass().getSimpleName() 
-				+ File.separator + method.getName() + ".csv";
+		String pathname = "src" + File.separator + "test" + File.separator + "resources" + File.separator
+				+ "dataproviders" + File.separator + method.getDeclaringClass().getSimpleName() + File.separator
+				+ method.getName() + ".csv";
 
 		File file = new File(pathname);
 		try {

@@ -31,7 +31,7 @@ public class NegativeLoginTests extends TestUtilities {
 		SSOLandingPage welcomePage = new SSOLandingPage(factory.getDriver(), log);
 		welcomePage.openPage();
 
-		LoginSharpIdPage loginPage = welcomePage.clickSharpIdButton();
+		LoginSharpIdPage loginPage = welcomePage.loginBySharId();
 
 		// enter credentials
 		loginPage.negativelogin(sharpID, password);

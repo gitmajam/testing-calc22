@@ -27,8 +27,7 @@ public class LoginSharpIdPage extends BasePageObject {
 	}
 
 	public SimplificaHomePage login(String sharpId, String password) {
-		log.info("Executing login with sharpID [" + sharpId + "] and password [" + password + "]" + "drive: "
-				+ driver.hashCode());
+		log.info(driver.hashCode() + " Executing login with sharpID [" + sharpId + "] and password [" + password + "]");
 		this.type(sharpId, sharpIdField);
 		this.type(password, passwordField);
 		this.click(loginButton);
@@ -37,8 +36,8 @@ public class LoginSharpIdPage extends BasePageObject {
 	}
 
 	public void negativelogin(String sharpId, String password) {
-		log.info("Executing negative login with sharpID [" + sharpId + "] and password [" + password + "]" + "drive: "
-				+ driver.hashCode());
+		log.info(driver.hashCode() + " Executing negative login with sharpID [" + sharpId + "] and password [" + password
+				+ "]");
 		this.type(sharpId, sharpIdField);
 		this.type(password, passwordField);
 		this.click(loginButton);

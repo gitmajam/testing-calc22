@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="PositiveTestSuite" verbose="10" data-provider-thread-count = "5">
+<suite name="PositiveTestSuite" verbose="10" data-provider-thread-count = "10">
 	<test name="PositiveLoginTest-CH">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>

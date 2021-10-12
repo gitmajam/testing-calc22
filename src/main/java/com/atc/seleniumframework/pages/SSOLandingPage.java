@@ -24,18 +24,18 @@ public class SSOLandingPage extends BasePageObject {
 	/** Open Welcome page **/
 	public void openPage() {
 		openUrl(pageUrl);
-		log.info("Welcome abre url con driver#: " + driver.hashCode());
+		log.info(driver.hashCode() + " Welcome abre url");
 	}
 
 	public LoginSharpIdPage loginBySharId() {
 		sharpIdButton.click();
-		log.info("Clicking sharpId button driver#: " + driver.hashCode());
+		log.info(driver.hashCode() + " Clicking sharpId button");
 		return new LoginSharpIdPage(driver, log);
 	}
 
 	public LoginEmailPage loginByEmail() {
 		emailButton.click();
-		log.info("Clicking email button driver#: " + driver.hashCode());
+		log.info(driver.hashCode() + " Clicking email button");
 		return new LoginEmailPage(driver, log);
 	}
 }

@@ -25,7 +25,7 @@ public class GeneralUtils {
 	}
 
 	// Wait for given number of seconds for element with given locator to be visible
-	// on the page
+	// on the page, Explicit wait.
 	public static void waitForVisibilityOf(WebElement element, Integer timeOutInSeconds, WebDriver driver) {
 		timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
 		new WebDriverWait(driver, timeOutInSeconds).until(ExpectedConditions.visibilityOf(element));
@@ -34,6 +34,10 @@ public class GeneralUtils {
 	// Waiting for page is whole loaded
 	public static void waitForPageToLoad(WebDriver driver, Logger log) {
 		try {
+			/*
+			 * lambda function, verifies if the document.readyState is complete, has a
+			 * timeout of 30 seconds
+			 */
 			new WebDriverWait(driver, 30).until(webDriver -> ((JavascriptExecutor) webDriver)
 					.executeScript("return document.readyState").equals("complete"));
 		} catch (Exception e) {

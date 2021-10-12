@@ -3,30 +3,35 @@ package com.atc.seleniumframework.pages;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class SimplificaHomePage extends BasePageObject {
-
-	private By profileMenuButton = By.xpath("//button[@id = 'dropdownMenuButton']");
-	private By title = By.xpath("//div[contains(text(),'Simplifica Hub')]");
-	private String pageUrl = "https://auth-dev.somosmaz.com/es/user";
-
+	
+	private String pageUrl = "https://auth-stage.somosmaz.com/es/user";
+	
+	@FindBy(xpath = "//button[@id = 'dropdownMenuButton']")
+	private WebElement profileMenuButton;
+	
+	@FindBy(xpath = "//div[contains(text(),'Simplifica Hub')]")
+	private WebElement title;
+	
 	public SimplificaHomePage(WebDriver driver, Logger log) {
 		super(driver, log);
-		log.info("Executing landing page: "+ driver.hashCode());
 	}
 
-	/** Return text from success message **/
+	/** Return text from title **/
 	public String getTitleText() {
-		return find(title).getText().trim();
+		return title.getText().trim();
 	}
 	/**Get URL variable from PageObject**/
 	public String getPageUrl() {
-		return this.pageUrl;
+		return pageUrl;
 	}
 
 	/** Verification if profile button is visible on the page **/
 	public boolean profileMenuButtonVisible() {
-		return find(profileMenuButton).isDisplayed();
+		return profileMenuButton.isDisplayed();
 	}
 	
 	public void clickProfileMenuButton() {

@@ -68,8 +68,8 @@
 					<suiteXmlFiles>
 						<!-- <suiteXmlFile>ThreadsTest.xml</suiteXmlFile> -->
 						<!-- <suiteXmlFile>NegativeTests.xml</suiteXmlFile> -->
-						<!-- <suiteXmlFile>PositiveTests.xml</suiteXmlFile> -->
-						<suiteXmlFile>${suite}</suiteXmlFile>
+						<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
+<!-- 						<suiteXmlFile>${suite}</suiteXmlFile> -->
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
