@@ -9,7 +9,7 @@
           <include name="setUp"/>
           <include name="createBrowserFactory"/>
           <include name="tearDown"/>
-          <include name="logInTest" invocation-numbers="1 0"/>
+          <include name="logInTest" invocation-numbers="7 8 0 3 5 2 6 9 1 4"/>
         </methods>
       </class> <!-- com.atc.seleniumframework.tests.PositiveLoginTests -->
     </classes>

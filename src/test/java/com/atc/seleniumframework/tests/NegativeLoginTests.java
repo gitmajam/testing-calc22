@@ -8,11 +8,16 @@ import org.testng.asserts.SoftAssert;
 
 import com.atc.seleniumframework.pages.LoginSharpIdPage;
 import com.atc.seleniumframework.pages.SSOLandingPage;
+import com.atc.seleniumframework.pages.SimplificaHomePage;
 import com.atc.seleniumframework.testbase.CsvDataProviders;
 import com.atc.seleniumframework.testbase.TestBase;
 import com.atc.seleniumframework.testbase.TestUtilities;
 
-public class NegativeLoginTests extends TestUtilities {
+public class NegativeLoginTests extends TestBase {
+
+	SSOLandingPage ssoLandingPage;
+	LoginSharpIdPage loginSharpIdPage;
+	SimplificaHomePage simplificaHomePage;
 
 	@Test(dataProvider = "csvReader", dataProviderClass = CsvDataProviders.class)
 	public void negativeLoginTest(Map<String, String> testData) {
@@ -27,25 +32,26 @@ public class NegativeLoginTests extends TestUtilities {
 
 		log.info("Starting negativeLoginTest #" + no + "for" + description);
 
-		/// open main page
-		SSOLandingPage welcomePage = new SSOLandingPage(factory.getDriver(), log);
-		welcomePage.openPage();
+		/// open main page SSOLandingPage
+		ssoLandingPage = new SSOLandingPage(log);
+		ssoLandingPage.openPage(factory.getDriver());
 
-		LoginSharpIdPage loginPage = welcomePage.loginBySharId();
+		// click on sharId button
+		loginSharpIdPage = ssoLandingPage.loginBySharId(factory.getDriver());
 
 		// enter credentials
-		loginPage.negativelogin(sharpID, password);
+		loginSharpIdPage.negativelogin(factory.getDriver(), sharpID, password);
 
 		// wait for error message
-		loginPage.waitForErrorMessage();
-		String actualErrorMessage = loginPage.getErrorMessageText();
+		loginSharpIdPage.waitForErrorMessage(factory.getDriver());
+		String actualErrorMessage = loginSharpIdPage.getErrorMessageText(factory.getDriver());
 
-		// Verification
-		// error message
+		// Verification // error message
 		softAssert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
 				"actualMessage does not contain expectedMessage\nexpectedMessage: " + expectedErrorMessage
 						+ "\nactualMessage: " + actualErrorMessage + "\n");
 
 		softAssert.assertAll();
+
 	}
 }

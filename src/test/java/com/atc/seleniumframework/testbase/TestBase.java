@@ -12,33 +12,34 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-public class TestBase {
+public class TestBase extends TestUtilities{
 
-	protected WebDriver driver;
 	protected Logger log;
 	protected BrowserDriverFactory factory;
-	protected String testSuiteName;
-	protected String testName;
-	protected String testMethodName;
+
 
 	@BeforeTest(alwaysRun = true)
 	
 	/** create a Browser driver factory it lets run several test in parallel*/
-	public void createBrowserFactory() {
+	public void createBrowserFactory(ITestContext ctx) {
+		
+		/* this lines create a new instance of a logger to write out the status during the script execution */
+		this.testName = ctx.getCurrentXmlTest().getName();
+		this.testSuiteName = ctx.getSuite().getName();
+		log = LogManager.getLogger(testName);
+		
+		log.info("Se crea factory");
 		factory = new BrowserDriverFactory();
 	}
 
 	@Parameters({ "browser" })
 	@BeforeMethod(alwaysRun = true)
-	public void setUp(Method method, @Optional("chrome") String browser, ITestContext ctx) {
-		
-		/* this lines create a new instance of a logger to write out the status during the script execution */
-		String testName = ctx.getCurrentXmlTest().getName();
-		log = LogManager.getLogger(testName);
-		this.testSuiteName = ctx.getSuite().getName();
-		this.testName = testName;
+	public void setUp(Method method, @Optional("chrome") String browser) {
+		/* this variable isn't used */
 		this.testMethodName = method.getName();
-
+		
+		log.info("Se ejecuta setup() ");
+		
 		/* factory creates a new instance of webdriver "browser" */
 		factory.createDriver(browser, log);
 		factory.getDriver().manage().window().maximize();
@@ -47,6 +48,6 @@ public class TestBase {
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		// Close browser
-		//factory.getDriver().quit();
+		factory.getDriver().quit();
 	}
 }

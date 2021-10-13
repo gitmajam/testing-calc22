@@ -12,7 +12,7 @@ import com.atc.seleniumframework.testbase.CsvDataProviders;
 import com.atc.seleniumframework.testbase.TestBase;
 import com.atc.seleniumframework.testbase.TestUtilities;
 
-public class PositiveLoginTests extends TestUtilities {
+public class PositiveLoginTests extends TestBase {
 
 	SSOLandingPage ssoLandingPage;
 	LoginSharpIdPage loginSharpIdPage;
@@ -41,30 +41,31 @@ public class PositiveLoginTests extends TestUtilities {
 		String description = testData.get("description");
 
 		// open main page
-		ssoLandingPage = new SSOLandingPage(factory.getDriver(), log);
-		ssoLandingPage.openPage();
-
+		ssoLandingPage = new SSOLandingPage(log);
+		ssoLandingPage.openPage(factory.getDriver());
+		
 		/** takeScreenshot("SSOLandingPage opened", factory.getDriver()); **/
 
 		// click on sharId button
-		loginSharpIdPage = ssoLandingPage.loginBySharId();
-		/*
+		loginSharpIdPage = ssoLandingPage.loginBySharId(factory.getDriver());
+		
+		
 		// enter credentials
-		simplificaHomePage = loginSharpIdPage.login(sharpID, password);
+		simplificaHomePage = loginSharpIdPage.login(factory.getDriver(),sharpID, password);
 
 		// verification // new page URL is expected
-		softAssert.assertEquals(simplificaHomePage.getCurrentUrl(), simplificaHomePage.getPageUrl(),
+		softAssert.assertEquals(simplificaHomePage.getCurrentUrl(factory.getDriver()), simplificaHomePage.getPageUrl(),
 				"[Page url is not equal]");
 
 		// profile button is visible
-		softAssert.assertTrue(simplificaHomePage.profileMenuButtonVisible(), "Profile button is not visible");
+		softAssert.assertTrue(simplificaHomePage.profileMenuButtonVisible(factory.getDriver()), "Profile button is not visible");
 
 		// Successful log in message
-		String actualSuccessMessage = simplificaHomePage.getTitleText();
+		String actualSuccessMessage = simplificaHomePage.getTitleText(factory.getDriver());
 		softAssert.assertTrue(actualSuccessMessage.contains(expectedSuccessMessage),
 				"actualMessage does not contain expectedMessage\nexpectedMessage: " + expectedSuccessMessage
 						+ "\nactualMessage: " + actualSuccessMessage + "\n");
 
-		softAssert.assertAll(); */
+		softAssert.assertAll(); 
 	}
 }

@@ -11,13 +11,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.DataProvider;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 public class CsvDataProviders {
-
+	protected static Logger log;
 	/**
 	 * This method return an iterator of an array list containing all data sets
 	 * found in the CSV file, the array contains HashMap objects and each HashMap
@@ -34,6 +36,8 @@ public class CsvDataProviders {
 
 	@DataProvider(name = "csvReader", parallel = true)
 	public static Iterator<Object[]> csvReader(Method method) {
+		log = LogManager.getLogger("logger csvReader");
+		log.info("Se ejecuta csvReader()");
 		List<Object[]> list = new ArrayList<Object[]>();
 		String pathname = "src" + File.separator + "test" + File.separator + "resources" + File.separator
 				+ "dataproviders" + File.separator + method.getDeclaringClass().getSimpleName() + File.separator

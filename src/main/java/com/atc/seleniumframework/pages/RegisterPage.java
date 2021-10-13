@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class RegisterPage extends BasePageObject {
 
 	public RegisterPage(WebDriver driver, Logger log) {
-		super(driver, log);
+		super(log);
 	}
 
 }

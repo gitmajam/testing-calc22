@@ -7,34 +7,31 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SimplificaHomePage extends BasePageObject {
-	
+
 	private String pageUrl = "https://auth-stage.somosmaz.com/es/user";
-	
-	@FindBy(xpath = "//button[@id = 'dropdownMenuButton']")
-	private WebElement profileMenuButton;
-	
-	@FindBy(xpath = "//div[contains(text(),'Simplifica Hub')]")
-	private WebElement title;
-	
+	private By profileMenuButton = By.xpath("//button[@id = 'dropdownMenuButton']");
+	private By title = By.xpath("//div[contains(text(),'Simplifica Hub')]");
+
 	public SimplificaHomePage(WebDriver driver, Logger log) {
-		super(driver, log);
+		super(log);
 	}
 
 	/** Return text from title **/
-	public String getTitleText() {
-		return title.getText().trim();
+	public String getTitleText(WebDriver driver) {
+		return driver.findElement(title).getText().trim();
 	}
-	/**Get URL variable from PageObject**/
+
+	/** Get URL variable from PageObject **/
 	public String getPageUrl() {
 		return pageUrl;
 	}
 
 	/** Verification if profile button is visible on the page **/
-	public boolean profileMenuButtonVisible() {
-		return profileMenuButton.isDisplayed();
+	public boolean profileMenuButtonVisible(WebDriver driver) {
+		return driver.findElement(profileMenuButton).isDisplayed();
 	}
-	
-	public void clickProfileMenuButton() {
-		click(profileMenuButton);
+
+	public void clickProfileMenuButton(WebDriver driver) {
+		click(driver, profileMenuButton);
 	}
 }

@@ -10,45 +10,42 @@ import com.atc.seleniumframework.utilities.GeneralUtils;
 
 public class LoginSharpIdPage extends BasePageObject {
 
-	@FindBy(xpath = "//input[@id='sharp_id']")
-	private WebElement sharpIdField;
+	private By sharpIdField = By.xpath("//input[@id='sharp_id']");
+	
+	private By passwordField = By.xpath("//input[@id='opass']");
+	
+	private By loginButton = By.xpath("//button[@id='btn-login']");
+	
+	private By errorLoginMessage= By.xpath("//span[@class='text-center']");
 
-	@FindBy(xpath = "//input[@id='opass']")
-	private WebElement passwordField;
 
-	@FindBy(xpath = "//button[@id='btn-login']")
-	private WebElement loginButton;
-
-	@FindBy(xpath = "//span[@class='text-center']")
-	private WebElement errorLoginMessage;
-
-	public LoginSharpIdPage(WebDriver driver, Logger log) {
-		super(driver, log);
+	public LoginSharpIdPage(Logger log) {
+		super(log);
 	}
 
-	public SimplificaHomePage login(String sharpId, String password) {
+	public SimplificaHomePage login(WebDriver driver, String sharpId, String password) {
 		log.info(driver.hashCode() + " Executing login with sharpID [" + sharpId + "] and password [" + password + "]");
-		this.type(sharpId, sharpIdField);
-		this.type(password, passwordField);
-		this.click(loginButton);
+		type(driver,sharpId, sharpIdField);
+		type(driver,password, passwordField);
+		click(driver,loginButton);
 		GeneralUtils.waitForPageToLoad(driver, log);
 		return new SimplificaHomePage(driver, log);
 	}
 
-	public void negativelogin(String sharpId, String password) {
+	public void negativelogin(WebDriver driver,String sharpId, String password) {
 		log.info(driver.hashCode() + " Executing negative login with sharpID [" + sharpId + "] and password [" + password
 				+ "]");
-		this.type(sharpId, sharpIdField);
-		this.type(password, passwordField);
-		this.click(loginButton);
+		type(driver,sharpId, sharpIdField);
+		type(driver,password, passwordField);
+		click(driver,loginButton);
 	}
 
-	public void waitForErrorMessage() {
+	public void waitForErrorMessage(WebDriver driver) {
 		GeneralUtils.waitForVisibilityOf(errorLoginMessage, 5, driver);
 	}
 
-	public String getErrorMessageText() {
-		return errorLoginMessage.getText();
+	public String getErrorMessageText(WebDriver driver) {
+		return driver.findElement(errorLoginMessage).getText();
 	}
 
 }

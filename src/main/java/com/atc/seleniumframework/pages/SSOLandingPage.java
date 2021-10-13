@@ -3,38 +3,31 @@ package com.atc.seleniumframework.pages;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class SSOLandingPage extends BasePageObject {
 
 	private String pageUrl = "https://auth-stage.somosmaz.com";
+	private By sharpIdButton = By.xpath("//button[contains(text(),'NO')]");
+	private By emailButton = By.xpath("//button[contains(text(),'SI')]");
 
-	@FindBy(xpath = "//button[contains(text(),'NO')]")
-	private WebElement sharpIdButton;
-
-	@FindBy(xpath = "//button[contains(text(),'SI')]")
-	private WebElement emailButton;
-
-	public SSOLandingPage(WebDriver driver, Logger log) {
-		super(driver, log);
+	public SSOLandingPage(Logger log) {
+		super(log);
 	}
 
 	/** Open Welcome page **/
-	public void openPage() {
-		openUrl(pageUrl);
-		log.info(driver.hashCode() + " Welcome abre url");
+	public void openPage(WebDriver driver) {
+		openUrl(driver, pageUrl);
+		log.info(driver.hashCode() + " Driver despues de abrir la URL");
 	}
 
-	public LoginSharpIdPage loginBySharId() {
-		sharpIdButton.click();
+	public LoginSharpIdPage loginBySharId(WebDriver driver) {
 		log.info(driver.hashCode() + " Clicking sharpId button");
-		return new LoginSharpIdPage(driver, log);
+		click(driver, sharpIdButton);
+		return new LoginSharpIdPage(log);
 	}
 
-	public LoginEmailPage loginByEmail() {
-		emailButton.click();
+	public LoginEmailPage loginByEmail(WebDriver driver) {
+		click(driver, emailButton);
 		log.info(driver.hashCode() + " Clicking email button");
 		return new LoginEmailPage(driver, log);
 	}

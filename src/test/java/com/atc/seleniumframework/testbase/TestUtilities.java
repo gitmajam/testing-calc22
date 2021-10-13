@@ -10,7 +10,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-public class TestUtilities extends TestBase{
+public class TestUtilities{
+	
+	protected String testSuiteName;
+	protected String testName;
+	protected String testMethodName;
 
 	// Static Sleep
 	protected void sleep(long millis) {

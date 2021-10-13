@@ -6,6 +6,6 @@ import org.openqa.selenium.WebDriver;
 public class PassRegisterPage extends BasePageObject{
 
 	public PassRegisterPage(WebDriver driver, Logger log) {
-		super(driver, log);
+		super(log);
 	}
 }

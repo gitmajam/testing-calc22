@@ -10,7 +10,7 @@ import com.atc.seleniumframework.testbase.CsvDataProviders;
 import com.atc.seleniumframework.testbase.TestBase;
 import com.atc.seleniumframework.testbase.TestUtilities;
 
-public class ThreadsTest extends TestUtilities {
+public class ThreadsTest extends TestBase {
 
 	@Test(dataProvider = "csvReader", dataProviderClass = CsvDataProviders.class)
 	public void threadsTest(Map<String, String> testData) {
@@ -24,11 +24,11 @@ public class ThreadsTest extends TestUtilities {
 		
 		//driver = factory.createDriver();
 		
-		log.info("@Test recibe el driver#: " + driver.hashCode());
+		log.info("@Test recibe el driver#: " + factory.getDriver().hashCode());
 
 		/// open main page
-		SSOLandingPage welcomePage = new SSOLandingPage(factory.getDriver(), log);
-		welcomePage.openPage();
+		SSOLandingPage welcomePage = new SSOLandingPage(log);
+		welcomePage.openPage(factory.getDriver());
 
 	}
 

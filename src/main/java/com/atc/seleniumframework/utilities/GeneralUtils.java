@@ -26,9 +26,9 @@ public class GeneralUtils {
 
 	// Wait for given number of seconds for element with given locator to be visible
 	// on the page, Explicit wait.
-	public static void waitForVisibilityOf(WebElement element, Integer timeOutInSeconds, WebDriver driver) {
+	public static void waitForVisibilityOf(By locator, Integer timeOutInSeconds, WebDriver driver) {
 		timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
-		new WebDriverWait(driver, timeOutInSeconds).until(ExpectedConditions.visibilityOf(element));
+		new WebDriverWait(driver, timeOutInSeconds).until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 	// Waiting for page is whole loaded
