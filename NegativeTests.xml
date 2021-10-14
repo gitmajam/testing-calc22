@@ -5,7 +5,7 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
-				name="com.atc.seleniumframework.tests.NegativeLoginTests">
+				name="com.tribu.seleniumframework.tests.NegativeLoginTests">
 			</class>
 		</classes>
 	</test>

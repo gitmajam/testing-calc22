@@ -4,7 +4,7 @@
 	<test name="ThreadsTest-CH">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="com.atc.seleniumframework.tests.ThreadsTest">
+			<class name="com.tribu.seleniumframework.tests.ThreadsTest">
 			</class>
 		</classes>
 	</test>
