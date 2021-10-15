@@ -2,27 +2,27 @@
 <testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="PositiveTestSuite" duration-ms="19106" started-at="2021-10-14T18:39:31 COT" finished-at="2021-10-14T18:39:51 COT">
+  <suite name="NegativeLoginTestSuite" duration-ms="32371" started-at="2021-10-14T20:03:11 COT" finished-at="2021-10-14T20:03:43 COT">
     <groups>
     </groups>
-    <test name="PositiveLoginTest-CH" duration-ms="19106" started-at="2021-10-14T18:39:31 COT" finished-at="2021-10-14T18:39:51 COT">
-      <class name="com.tribu.seleniumframework.tests.PositiveLoginTests">
-        <test-method status="PASS" signature="createBrowserFactory(org.testng.ITestContext)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="createBrowserFactory" is-config="true" duration-ms="561" started-at="2021-10-14T18:39:31 COT" finished-at="2021-10-14T18:39:32 COT">
+    <test name="NegativeLoginTest-CH" duration-ms="32371" started-at="2021-10-14T20:03:11 COT" finished-at="2021-10-14T20:03:43 COT">
+      <class name="com.tribu.seleniumframework.tests.NegativeLoginTests">
+        <test-method status="PASS" signature="createBrowserFactory(org.testng.ITestContext)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="createBrowserFactory" is-config="true" duration-ms="481" started-at="2021-10-14T20:03:11 COT" finished-at="2021-10-14T20:03:11 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3e11f9e9]]>
+                <![CDATA[org.testng.TestRunner@3fbfa96]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createBrowserFactory -->
-        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="2812" started-at="2021-10-14T18:39:32 COT" finished-at="2021-10-14T18:39:35 COT">
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="1251" started-at="2021-10-14T20:03:11 COT" finished-at="2021-10-14T20:03:13 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tribu.seleniumframework.tests.PositiveLoginTests.logInTest(java.util.Map)]]>
+                <![CDATA[public void com.tribu.seleniumframework.tests.NegativeLoginTests.negativeLoginTest(java.util.Map)]]>
               </value>
             </param>
             <param index="1">
@@ -34,11 +34,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="2688" started-at="2021-10-14T18:39:32 COT" finished-at="2021-10-14T18:39:35 COT">
+        <test-method status="PASS" signature="negativeLoginTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="negativeLoginTest" duration-ms="6578" started-at="2021-10-14T20:03:13 COT" data-provider="csvReader" finished-at="2021-10-14T20:03:19 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tribu.seleniumframework.tests.PositiveLoginTests.logInTest(java.util.Map)]]>
+                <![CDATA[{no=1, description=incorrect sharpID, password=Testing123y$, sharpID=100000001, expectedMessage=Estas credenciales no coinciden con nuestros registros.}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- negativeLoginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="104" started-at="2021-10-14T20:03:19 COT" finished-at="2021-10-14T20:03:19 COT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="620" started-at="2021-10-14T20:03:19 COT" finished-at="2021-10-14T20:03:20 COT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tribu.seleniumframework.tests.NegativeLoginTests.negativeLoginTest(java.util.Map)]]>
               </value>
             </param>
             <param index="1">
@@ -50,11 +65,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="2728" started-at="2021-10-14T18:39:32 COT" finished-at="2021-10-14T18:39:35 COT">
+        <test-method status="PASS" signature="negativeLoginTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="negativeLoginTest" duration-ms="5779" started-at="2021-10-14T20:03:20 COT" data-provider="csvReader" finished-at="2021-10-14T20:03:26 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tribu.seleniumframework.tests.PositiveLoginTests.logInTest(java.util.Map)]]>
+                <![CDATA[{no=2, description=incorrect password, password=Testing123#2, sharpID=100000001, expectedMessage=Estas credenciales no coinciden con nuestros registros.}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- negativeLoginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="76" started-at="2021-10-14T20:03:26 COT" finished-at="2021-10-14T20:03:26 COT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="579" started-at="2021-10-14T20:03:26 COT" finished-at="2021-10-14T20:03:26 COT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tribu.seleniumframework.tests.NegativeLoginTests.negativeLoginTest(java.util.Map)]]>
               </value>
             </param>
             <param index="1">
@@ -66,11 +96,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="2697" started-at="2021-10-14T18:39:32 COT" finished-at="2021-10-14T18:39:35 COT">
+        <test-method status="PASS" signature="negativeLoginTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="negativeLoginTest" duration-ms="5118" started-at="2021-10-14T20:03:26 COT" data-provider="csvReader" finished-at="2021-10-14T20:03:31 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tribu.seleniumframework.tests.PositiveLoginTests.logInTest(java.util.Map)]]>
+                <![CDATA[{no=3, description=incorrect password, password=eesting123#$, sharpID=100000002, expectedMessage=Estas credenciales no coinciden con nuestros registros.}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- negativeLoginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="76" started-at="2021-10-14T20:03:31 COT" finished-at="2021-10-14T20:03:32 COT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="608" started-at="2021-10-14T20:03:32 COT" finished-at="2021-10-14T20:03:32 COT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tribu.seleniumframework.tests.NegativeLoginTests.negativeLoginTest(java.util.Map)]]>
               </value>
             </param>
             <param index="1">
@@ -82,11 +127,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="2988" started-at="2021-10-14T18:39:32 COT" finished-at="2021-10-14T18:39:35 COT">
+        <test-method status="PASS" signature="negativeLoginTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="negativeLoginTest" duration-ms="4775" started-at="2021-10-14T20:03:32 COT" data-provider="csvReader" finished-at="2021-10-14T20:03:37 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tribu.seleniumframework.tests.PositiveLoginTests.logInTest(java.util.Map)]]>
+                <![CDATA[{no=4, description=incorrect sharpID, password=Testing123#$, sharpID=100000008, expectedMessage=Estas credenciales no coinciden con nuestros registros.}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- negativeLoginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="100" started-at="2021-10-14T20:03:37 COT" finished-at="2021-10-14T20:03:37 COT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="setUp" is-config="true" duration-ms="619" started-at="2021-10-14T20:03:37 COT" finished-at="2021-10-14T20:03:38 COT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tribu.seleniumframework.tests.NegativeLoginTests.negativeLoginTest(java.util.Map)]]>
               </value>
             </param>
             <param index="1">
@@ -98,82 +158,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logInTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="logInTest" duration-ms="11567" started-at="2021-10-14T18:39:35 COT" data-provider="csvReader" finished-at="2021-10-14T18:39:46 COT">
+        <test-method status="PASS" signature="negativeLoginTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="negativeLoginTest" duration-ms="5455" started-at="2021-10-14T20:03:38 COT" data-provider="csvReader" finished-at="2021-10-14T20:03:43 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{no=4, description=Qauser4, password=Testing123#$, sharpID=100000004, expectedMessage=Simplifica Hub}]]>
+                <![CDATA[{no=5, description=incorrect password, password=Testing123#2, sharpID=100000004, expectedMessage=Estas credenciales no coinciden con nuestros registros.}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logInTest -->
-        <test-method status="PASS" signature="logInTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="logInTest" duration-ms="10548" started-at="2021-10-14T18:39:35 COT" data-provider="csvReader" finished-at="2021-10-14T18:39:45 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{no=2, description=Qauser2, password=Testing123#$, sharpID=100000002, expectedMessage=Simplifica Hub}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logInTest -->
-        <test-method status="PASS" signature="logInTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="logInTest" duration-ms="15651" started-at="2021-10-14T18:39:35 COT" data-provider="csvReader" finished-at="2021-10-14T18:39:50 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{no=3, description=Qauser3, password=Testing125#$, sharpID=100000003, expectedMessage=Simplifica Hub}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logInTest -->
-        <test-method status="PASS" signature="logInTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="logInTest" duration-ms="13052" started-at="2021-10-14T18:39:35 COT" data-provider="csvReader" finished-at="2021-10-14T18:39:48 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{no=5, description=Qauser5, password=Testing125#$, sharpID=100000005, expectedMessage=Simplifica Hub}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logInTest -->
-        <test-method status="PASS" signature="logInTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="logInTest" duration-ms="14775" started-at="2021-10-14T18:39:35 COT" data-provider="csvReader" finished-at="2021-10-14T18:39:50 COT">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{no=1, description=Qauser1, password=Testing123#$, sharpID=100000001, expectedMessage=Simplifica Hub}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logInTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="80" started-at="2021-10-14T18:39:45 COT" finished-at="2021-10-14T18:39:45 COT">
+        </test-method> <!-- negativeLoginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.NegativeLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="81" started-at="2021-10-14T20:03:43 COT" finished-at="2021-10-14T20:03:43 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="102" started-at="2021-10-14T18:39:46 COT" finished-at="2021-10-14T18:39:46 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="91" started-at="2021-10-14T18:39:48 COT" finished-at="2021-10-14T18:39:48 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="143" started-at="2021-10-14T18:39:50 COT" finished-at="2021-10-14T18:39:50 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@51e2adc7]" name="tearDown" is-config="true" duration-ms="86" started-at="2021-10-14T18:39:50 COT" finished-at="2021-10-14T18:39:51 COT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.tribu.seleniumframework.tests.PositiveLoginTests -->
-    </test> <!-- PositiveLoginTest-CH -->
-  </suite> <!-- PositiveTestSuite -->
+      </class> <!-- com.tribu.seleniumframework.tests.NegativeLoginTests -->
+    </test> <!-- NegativeLoginTest-CH -->
+  </suite> <!-- NegativeLoginTestSuite -->
 </testng-results>
