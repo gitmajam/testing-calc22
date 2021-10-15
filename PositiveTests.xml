@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="PositiveLoginTestSuite" verbose="10" data-provider-thread-count = "10">
 	<test name="PositiveLoginTest-CH">
-		<parameter name="browser" value="firefox"></parameter>
+		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="com.tribu.seleniumframework.tests.PositiveLoginTests" />
 		</classes>
