@@ -23,8 +23,7 @@ public class BrowserDriverFactory {
 		 */		
 		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 		options.addArguments("--no-sandbox");// Bypass OS security model
-		options.setExperimentalOption("useAutomationExtension", false);
-		//options.addArguments("-headless");
+		options.addArguments("--headless");
 		return options;
 	}
 
