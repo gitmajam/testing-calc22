@@ -1,7 +1,0 @@
-com/atc/seleniumframework/tests/NegativeLoginTests.class
-com/atc/seleniumframework/testbase/TestBase.class
-com/atc/seleniumframework/testbase/CsvDataProviders.class
-com/atc/seleniumframework/tests/PositiveLoginTests.class
-com/atc/seleniumframework/testbase/TestUtilities.class
-com/atc/seleniumframework/testbase/BrowserDriverFactory.class
-com/atc/seleniumframework/tests/ThreadsTest.class

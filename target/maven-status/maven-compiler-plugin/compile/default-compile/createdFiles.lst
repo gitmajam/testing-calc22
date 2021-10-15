@@ -1,6 +1,0 @@
-com/atc/seleniumframework/pages/LoginPage.class
-com/atc/seleniumframework/pages/RegisterPage.class
-com/atc/seleniumframework/pages/WelcomePage.class
-com/atc/seleniumframework/pages/BasePageObject.class
-com/atc/seleniumframework/pages/PassRegisterPage.class
-com/atc/seleniumframework/pages/LandingPage.class

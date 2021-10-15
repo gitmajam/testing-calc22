@@ -1,6 +1,0 @@
-no,sharpID,password,expectedMessage,description
-1,100000001,Testing123y$,Estas credenciales no coinciden con nuestros registros.,incorrect sharpID
-2,100000001,Testing123#2,Estas credenciales no coinciden con nuestros registros.,incorrect password
-3,100000002,eesting123#$,Estas credenciales no coinciden con nuestros registros.,incorrect password
-4,100000008,Testing123#$,Estas credenciales no coinciden con nuestros registros.,incorrect sharpID
-5,100000004,Testing123#2,Estas credenciales no coinciden con nuestros registros.,incorrect password
