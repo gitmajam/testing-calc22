@@ -2,23 +2,23 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="PositiveLoginTestSuite" duration-ms="10128" started-at="2021-10-15T00:26:25 COT" finished-at="2021-10-15T00:26:36 COT">
+  <suite name="PositiveLoginTestSuite" duration-ms="7769" started-at="2021-10-15T02:05:15 COT" finished-at="2021-10-15T02:05:22 COT">
     <groups>
     </groups>
-    <test name="PositiveLoginTest-CH" duration-ms="10128" started-at="2021-10-15T00:26:25 COT" finished-at="2021-10-15T00:26:36 COT">
+    <test name="PositiveLoginTest-CH" duration-ms="7769" started-at="2021-10-15T02:05:15 COT" finished-at="2021-10-15T02:05:22 COT">
       <class name="com.tribu.seleniumframework.tests.PositiveLoginTests">
-        <test-method status="PASS" signature="createBrowserFactory(org.testng.ITestContext)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="createBrowserFactory" is-config="true" duration-ms="540" started-at="2021-10-15T00:26:26 COT" finished-at="2021-10-15T00:26:26 COT">
+        <test-method status="PASS" signature="createBrowserFactory(org.testng.ITestContext)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="createBrowserFactory" is-config="true" duration-ms="466" started-at="2021-10-15T02:05:15 COT" finished-at="2021-10-15T02:05:15 COT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@7d0332e1]]>
+                <![CDATA[org.testng.TestRunner@22ee2d0]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createBrowserFactory -->
-        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="setUp" is-config="true" duration-ms="2514" started-at="2021-10-15T00:26:26 COT" finished-at="2021-10-15T00:26:29 COT">
+        <test-method status="PASS" signature="setUp(java.lang.reflect.Method,java.lang.String)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="setUp" is-config="true" duration-ms="1509" started-at="2021-10-15T02:05:15 COT" finished-at="2021-10-15T02:05:17 COT">
           <params>
             <param index="0">
               <value>
@@ -34,7 +34,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logInTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="logInTest" duration-ms="6929" started-at="2021-10-15T00:26:29 COT" data-provider="csvReader" finished-at="2021-10-15T00:26:36 COT">
+        <test-method status="PASS" signature="logInTest(java.util.Map)[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="logInTest" duration-ms="5653" started-at="2021-10-15T02:05:17 COT" data-provider="csvReader" finished-at="2021-10-15T02:05:22 COT">
           <params>
             <param index="0">
               <value>
@@ -45,7 +45,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logInTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="tearDown" is-config="true" duration-ms="71" started-at="2021-10-15T00:26:36 COT" finished-at="2021-10-15T00:26:36 COT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tribu.seleniumframework.tests.PositiveLoginTests@5bcea91b]" name="tearDown" is-config="true" duration-ms="73" started-at="2021-10-15T02:05:22 COT" finished-at="2021-10-15T02:05:22 COT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

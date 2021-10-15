@@ -13,17 +13,18 @@ public class BrowserDriverFactory {
 
 	public static ChromeOptions getChromeOptions() {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--test-type");
-		options.addArguments("disable-infobars");// disabling infobars
-		// options.addArguments("--disable-gpu");// applicable to windows os only
-		options.addArguments("--disable-popup-blocking");
-		options.addArguments("--disable-extensions"); // disabling extensions
-		options.addArguments("start-maximised");// open Browser in maximized mode
+		/*
+		 * options.addArguments("--test-type");
+		 * options.addArguments("disable-infobars");// disabling infobars //
+		 * options.addArguments("--disable-gpu");// applicable to windows os only
+		 * options.addArguments("--disable-popup-blocking");
+		 * options.addArguments("--disable-extensions"); // disabling extensions
+		 * options.addArguments("start-maximised");// open Browser in maximized mode
+		 */		
 		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 		options.addArguments("--no-sandbox");// Bypass OS security model
-		DesiredCapabilities chrome = DesiredCapabilities.chrome();
-		chrome.setJavascriptEnabled(true);
-		options.setCapability(ChromeOptions.CAPABILITY, options);
+		options.setExperimentalOption("useAutomationExtension", false);
+		//options.addArguments("-headless");
 		return options;
 	}
 
@@ -39,9 +40,9 @@ public class BrowserDriverFactory {
 
 		switch (browser) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver/chromedriver");
+			//System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver/chromedriver");
 			// driver.set(new ChromeDriver());
-			//WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(getChromeOptions());
 			break;
 
@@ -55,9 +56,9 @@ public class BrowserDriverFactory {
 
 		default:
 			System.out.println("Do not know how to start: " + browser + ", starting chrome.");
-			System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver/chromedriver");
+			//System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver/chromedriver");
 			// driver.set(new ChromeDriver());
-			//WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		}
