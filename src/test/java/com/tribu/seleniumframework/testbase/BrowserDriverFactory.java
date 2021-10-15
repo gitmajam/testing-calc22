@@ -39,7 +39,7 @@ public class BrowserDriverFactory {
 
 		switch (browser) {
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver");
+			System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver/chromedriver");
 			// driver.set(new ChromeDriver());
 			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(getChromeOptions());
@@ -55,7 +55,7 @@ public class BrowserDriverFactory {
 
 		default:
 			System.out.println("Do not know how to start: " + browser + ", starting chrome.");
-			System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver");
+			System.setProperty("webdriver.chrome.driver","/usr/local/share/chrome_driver/chromedriver");
 			// driver.set(new ChromeDriver());
 			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
