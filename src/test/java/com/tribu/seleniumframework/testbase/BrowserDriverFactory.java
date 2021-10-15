@@ -12,7 +12,7 @@ public class BrowserDriverFactory {
 	 * is like a dictionary
 	 */
 	//private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
-	private static WebDriver driver;
+	public static WebDriver driver;
 	public void createDriver(String browser, Logger log) {
 		browser.toLowerCase();
 

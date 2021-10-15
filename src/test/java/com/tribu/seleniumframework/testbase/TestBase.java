@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -41,7 +42,7 @@ public class TestBase extends TestUtilities {
 		this.testMethodName = method.getName();
 
 		log.info("Se ejecuta setup() ");
-
+	
 		/* factory creates a new instance of webdriver "browser" */
 		factory.createDriver(browser, log);
 		factory.getDriver().manage().window().maximize();
