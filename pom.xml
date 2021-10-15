@@ -45,6 +45,12 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.11.0</version>
 		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.0.3</version>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
@@ -69,7 +75,7 @@
 						<!-- <suiteXmlFile>ThreadsTest.xml</suiteXmlFile> -->
 						<!-- <suiteXmlFile>NegativeTests.xml</suiteXmlFile> -->
 						<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
-<!-- 						<suiteXmlFile>${suite}</suiteXmlFile> -->
+						<!-- <suiteXmlFile>${suite}</suiteXmlFile> -->
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
