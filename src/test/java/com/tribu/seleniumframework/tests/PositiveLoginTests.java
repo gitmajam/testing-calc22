@@ -10,7 +10,6 @@ import com.tribu.seleniumframework.pages.SSOLandingPage;
 import com.tribu.seleniumframework.pages.SimplificaHomePage;
 import com.tribu.seleniumframework.testbase.CsvDataProviders;
 import com.tribu.seleniumframework.testbase.TestBase;
-import com.tribu.seleniumframework.testbase.TestUtilities;
 
 public class PositiveLoginTests extends TestBase {
 
@@ -44,7 +43,7 @@ public class PositiveLoginTests extends TestBase {
 		ssoLandingPage = new SSOLandingPage(log);
 		ssoLandingPage.openPage(factory.getDriver());
 		
-		/** takeScreenshot("SSOLandingPage opened", factory.getDriver()); **/
+		takeScreenshot("SSOLandingPage opened", factory.getDriver());
 
 		// click on sharId button
 		loginSharpIdPage = ssoLandingPage.loginBySharId(factory.getDriver());

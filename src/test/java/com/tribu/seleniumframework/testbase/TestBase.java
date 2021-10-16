@@ -4,8 +4,6 @@ import java.lang.reflect.Method;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,15 +16,15 @@ public class TestBase extends TestUtilities {
 	protected Logger log;
 	protected BrowserDriverFactory factory;
 
-	@BeforeTest(alwaysRun = true)
-
 	/** create a Browser driver factory it lets run several test in parallel */
+	@BeforeTest(alwaysRun = true)
 	public void createBrowserFactory(ITestContext ctx) {
 
 		/*
 		 * this lines create a new instance of a logger to write out the status during
 		 * the script execution
 		 */
+
 		this.testName = ctx.getCurrentXmlTest().getName();
 		this.testSuiteName = ctx.getSuite().getName();
 		log = LogManager.getLogger(testName);
@@ -42,7 +40,7 @@ public class TestBase extends TestUtilities {
 		this.testMethodName = method.getName();
 
 		log.info("Se ejecuta setup() ");
-	
+
 		/* factory creates a new instance of webdriver "browser" */
 		factory.createDriver(browser, log);
 		factory.getDriver().manage().window().maximize();
