@@ -36,7 +36,7 @@ public class TestUtilities{
 				+ File.separator + testName
 				+ File.separator + testMethodName 
 				+ File.separator + getSystemTime() 
-				+ " " + fileName +"test-sreenshoot"+ ".png";
+				+ " " + fileName + ".png";
 		try {
 			FileUtils.copyFile(scrFile, new File(path));
 		} catch (IOException e) {
