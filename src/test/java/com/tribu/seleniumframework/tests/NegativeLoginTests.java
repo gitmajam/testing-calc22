@@ -2,7 +2,6 @@ package com.tribu.seleniumframework.tests;
 
 import java.util.Map;
 
-import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -13,7 +12,6 @@ import com.tribu.seleniumframework.pages.SimplificaHomePage;
 import com.tribu.seleniumframework.testbase.CsvDataProviders;
 import com.tribu.seleniumframework.testbase.TestBase;
 import com.tribu.seleniumframework.testbase.TestsListenerManager;
-import com.tribu.seleniumframework.testbase.TestUtilities;
 
 @Listeners(TestsListenerManager.class)
 public class NegativeLoginTests extends TestBase {
