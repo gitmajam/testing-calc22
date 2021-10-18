@@ -5,14 +5,15 @@
 	<groupId>com.tribu.seleniumframework</groupId>
 	<artifactId>testing-sso</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>testing-sso</name>
+	<!-- <packaging>jar</packaging> -->
+	<name>seleniumframework</name>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>7.4.0</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope> -->
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
@@ -71,14 +72,14 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
-					<testFailureIgnore>false</testFailureIgnore>
+					<!-- <testFailureIgnore>false</testFailureIgnore> -->
 					<properties>
 						<property>
-							<name>usedefaultlisteners</name>
-							<value>true</value> <!-- disabling default listeners is optional -->
+							<!-- <name>usedefaultlisteners</name>
+							<value>true</value> disabling default listeners is optional -->
 						</property>
 					</properties>
-					<reportsDirectory>test-output</reportsDirectory>
+					<!-- <reportsDirectory>test-output</reportsDirectory> -->
 					<suiteXmlFiles>
 						<suiteXmlFile>NegativeTests.xml</suiteXmlFile>
 						<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
