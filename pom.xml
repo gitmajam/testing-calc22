@@ -71,11 +71,11 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
+					<testFailureIgnore>false</testFailureIgnore>
 					<properties>
 						<property>
 							<name>usedefaultlisteners</name>
-							<value>false</value> <!-- disabling default listeners is optional -->
+							<value>true</value> <!-- disabling default listeners is optional -->
 						</property>
 					</properties>
 					<reportsDirectory>test-output</reportsDirectory>
