@@ -75,11 +75,11 @@
 					<!-- <testFailureIgnore>false</testFailureIgnore> -->
 					<properties>
 						<property>
-							<!-- <name>usedefaultlisteners</name>
-							<value>true</value> disabling default listeners is optional -->
+							<name>usedefaultlisteners</name>
+							<value>false</value> <!-- disabling default listeners is optional -->
 						</property>
 					</properties>
-					<!-- <reportsDirectory>test-output</reportsDirectory> -->
+					<reportsDirectory>test-output</reportsDirectory>
 					<suiteXmlFiles>
 						<suiteXmlFile>NegativeTests.xml</suiteXmlFile>
 						<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
