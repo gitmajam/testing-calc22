@@ -2,6 +2,7 @@ package com.tribu.seleniumframework.tests;
 
 import java.util.Map;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -10,7 +11,9 @@ import com.tribu.seleniumframework.pages.SSOLandingPage;
 import com.tribu.seleniumframework.pages.SimplificaHomePage;
 import com.tribu.seleniumframework.testbase.CsvDataProviders;
 import com.tribu.seleniumframework.testbase.TestBase;
+import com.tribu.seleniumframework.testbase.TestsListenerManager;
 
+@Listeners(TestsListenerManager.class)
 public class PositiveLoginTests extends TestBase {
 
 	SSOLandingPage ssoLandingPage;
@@ -42,8 +45,6 @@ public class PositiveLoginTests extends TestBase {
 		// open main page
 		ssoLandingPage = new SSOLandingPage(log);
 		ssoLandingPage.openPage(factory.getDriver());
-		
-		takeScreenshot("SSOLandingPage opened", factory.getDriver());
 
 		// click on sharId button
 		loginSharpIdPage = ssoLandingPage.loginBySharId(factory.getDriver());

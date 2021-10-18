@@ -71,10 +71,15 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value> <!-- disabling default listeners is optional -->
+						</property>
+					</properties>
 					<reportsDirectory>test-output</reportsDirectory>
 					<suiteXmlFiles>
-						<!-- <suiteXmlFile>ThreadsTest.xml</suiteXmlFile> -->
-						<!-- <suiteXmlFile>NegativeTests.xml</suiteXmlFile> -->
+						<suiteXmlFile>NegativeTests.xml</suiteXmlFile>
 						<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
 						<!-- <suiteXmlFile>${suite}</suiteXmlFile> -->
 					</suiteXmlFiles>
