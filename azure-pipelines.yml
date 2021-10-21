@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- checkout: github.com/gitmajam/testframework.git
+- checkout: github://gitmajam/testframework
   submodules: true
   path: /home/vsts/work/1/s/src/test/java/com/tribu/qaselenium
 - task: Maven@3
