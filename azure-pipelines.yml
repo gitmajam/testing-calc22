@@ -4,9 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 resources:
-  repositories: testframework
-  type: github
-  name: gitmajam/testframework
+  repositories: 
+  - repository: testframework
+    type: github
+    name: gitmajam/testframework
 
 trigger:
 - main
