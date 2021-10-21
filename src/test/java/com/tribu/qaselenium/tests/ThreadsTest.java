@@ -1,14 +1,14 @@
 
-package com.tribu.seleniumframework.tests;
+package com.tribu.qaselenium.tests;
 
 import java.util.Map;
 
 import org.testng.annotations.Test;
 
-import com.tribu.seleniumframework.pages.SSOLandingPage;
-import com.tribu.seleniumframework.testbase.CsvDataProviders;
-import com.tribu.seleniumframework.testbase.TestBase;
-import com.tribu.seleniumframework.testbase.TestUtilities;
+import com.tribu.qaselenium.pages.SSOLandingPage;
+import com.tribu.qaselenium.testbase.CsvDataProviders;
+import com.tribu.qaselenium.testbase.TestBase;
+import com.tribu.qaselenium.testbase.TestUtilities;
 
 public class ThreadsTest extends TestBase {
 

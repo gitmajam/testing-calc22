@@ -1,0 +1,3 @@
+[submodule "src/test/java/com/tribu/qaselenium/testframework"]
+	path = src/test/java/com/tribu/qaselenium/testframework
+	url = https://github.com/gitmajam/testframework.git

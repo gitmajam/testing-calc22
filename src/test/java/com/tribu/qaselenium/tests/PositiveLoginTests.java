@@ -1,4 +1,4 @@
-package com.tribu.seleniumframework.tests;
+package com.tribu.qaselenium.tests;
 
 import java.util.Map;
 
@@ -6,12 +6,12 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.tribu.seleniumframework.pages.LoginSharpIdPage;
-import com.tribu.seleniumframework.pages.SSOLandingPage;
-import com.tribu.seleniumframework.pages.SimplificaHomePage;
-import com.tribu.seleniumframework.testbase.CsvDataProviders;
-import com.tribu.seleniumframework.testbase.TestBase;
-import com.tribu.seleniumframework.testbase.TestsListenerManager;
+import com.tribu.qaselenium.pages.LoginSharpIdPage;
+import com.tribu.qaselenium.pages.SSOLandingPage;
+import com.tribu.qaselenium.pages.SimplificaHomePage;
+import com.tribu.qaselenium.testbase.CsvDataProviders;
+import com.tribu.qaselenium.testbase.TestBase;
+import com.tribu.qaselenium.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
 public class PositiveLoginTests extends TestBase {

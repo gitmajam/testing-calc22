@@ -1,4 +1,4 @@
-package com.tribu.seleniumframework.testbase;
+package com.tribu.qaselenium.testbase;
 
 import java.lang.reflect.Method;
 
