@@ -14,9 +14,6 @@ steps:
   submodules: true
   clean: true
   persistCredentials: true
-- checkout: testframework
-  submodules: true
-  path: /home/vsts/work/1/s/src/test/java/com/tribu/qaselenium
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
