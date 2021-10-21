@@ -9,9 +9,9 @@ import org.testng.asserts.SoftAssert;
 import com.tribu.qaselenium.pages.LoginSharpIdPage;
 import com.tribu.qaselenium.pages.SSOLandingPage;
 import com.tribu.qaselenium.pages.SimplificaHomePage;
-import com.tribu.qaselenium.testbase.CsvDataProviders;
-import com.tribu.qaselenium.testbase.TestBase;
-import com.tribu.qaselenium.testbase.TestsListenerManager;
+import com.tribu.qaselenium.testframework.testbase.CsvDataProviders;
+import com.tribu.qaselenium.testframework.testbase.TestBase;
+import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
 public class NegativeLoginTests extends TestBase {

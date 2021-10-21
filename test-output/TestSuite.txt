@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 229.207 s <<< FAILURE! - in TestSuite
+com.tribu.qaselenium.tests.NegativeLoginTests.negativeLoginTest[{no=4, description=incorrect sharpID, password=Testing123#$, sharpID=100000008, expectedMessage=Estas credenciales no coinciden con nuestros registros.}](5)  Time elapsed: 11.794 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[@class='text-center'] (tried for 5 second(s) with 500 milliseconds interval)
+	at com.tribu.qaselenium.tests.NegativeLoginTests.negativeLoginTest(NegativeLoginTests.java:47)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//span[@class='text-center']"}
+  (Session info: headless chrome=94.0.4606.81)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'station', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.19.0-18-amd64', java.version: '1.8.0_292'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: /tmp/.com.google.Chrome.IpRsiB}, goog:chromeOptions: {debuggerAddress: localhost:46165}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2d8af21aa085402d7c058d436fa0896e
+*** Element info: {Using=xpath, value=//span[@class='text-center']}
+	at com.tribu.qaselenium.tests.NegativeLoginTests.negativeLoginTest(NegativeLoginTests.java:47)
+

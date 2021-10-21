@@ -3,13 +3,13 @@
 	data-provider-thread-count="5">
 	<listeners>
 		<listener
-			class-name="com.tribu.seleniumframework.testbase.EmailableTestingReporter" />
+			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
 	</listeners>
 	<test name="NegativeLoginTest-CH">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
-				name="com.tribu.seleniumframework.tests.NegativeLoginTests">
+				name="com.tribu.qaselenium.tests.NegativeLoginTests">
 			</class>
 		</classes>
 	</test>

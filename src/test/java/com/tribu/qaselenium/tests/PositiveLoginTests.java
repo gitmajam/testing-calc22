@@ -9,9 +9,9 @@ import org.testng.asserts.SoftAssert;
 import com.tribu.qaselenium.pages.LoginSharpIdPage;
 import com.tribu.qaselenium.pages.SSOLandingPage;
 import com.tribu.qaselenium.pages.SimplificaHomePage;
-import com.tribu.qaselenium.testbase.CsvDataProviders;
-import com.tribu.qaselenium.testbase.TestBase;
-import com.tribu.qaselenium.testbase.TestsListenerManager;
+import com.tribu.qaselenium.testframework.testbase.CsvDataProviders;
+import com.tribu.qaselenium.testframework.testbase.TestBase;
+import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
 public class PositiveLoginTests extends TestBase {
@@ -48,17 +48,17 @@ public class PositiveLoginTests extends TestBase {
 
 		// click on sharId button
 		loginSharpIdPage = ssoLandingPage.loginBySharId(factory.getDriver());
-		
-		
+
 		// enter credentials
-		simplificaHomePage = loginSharpIdPage.login(factory.getDriver(),sharpID, password);
+		simplificaHomePage = loginSharpIdPage.login(factory.getDriver(), sharpID, password);
 
 		// verification // new page URL is expected
 		softAssert.assertEquals(simplificaHomePage.getCurrentUrl(factory.getDriver()), simplificaHomePage.getPageUrl(),
 				"[Page url is not equal]");
 
 		// profile button is visible
-		softAssert.assertTrue(simplificaHomePage.profileMenuButtonVisible(factory.getDriver()), "Profile button is not visible");
+		softAssert.assertTrue(simplificaHomePage.profileMenuButtonVisible(factory.getDriver()),
+				"Profile button is not visible");
 
 		// Successful log in message
 		String actualSuccessMessage = simplificaHomePage.getTitleText(factory.getDriver());
@@ -66,6 +66,6 @@ public class PositiveLoginTests extends TestBase {
 				"actualMessage does not contain expectedMessage\nexpectedMessage: " + expectedSuccessMessage
 						+ "\nactualMessage: " + actualSuccessMessage + "\n");
 
-		softAssert.assertAll(); 
+		softAssert.assertAll();
 	}
 }
