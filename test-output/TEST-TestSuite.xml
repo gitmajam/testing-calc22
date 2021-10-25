@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="19.111" tests="10" errors="0" skipped="0" failures="5">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="webdriver.chrome.driver" value="/home/marlon/.cache/selenium/chromedriver/linux64/94.0.4606.61/chromedriver"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/marlon/eclipse-workspace/testing-beer-ambassador/target/test-classes:/home/marlon/eclipse-workspace/testing-beer-ambassador/target/classes:/home/marlon/.m2/repository/org/testng/testng/7.4.0/testng-7.4.0.jar:/home/marlon/.m2/repository/com/beust/jcommander/1.78/jcommander-1.78.jar:/home/marlon/.m2/repository/org/webjars/jquery/3.5.1/jquery-3.5.1.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59.jar:/home/marlon/.m2/repository/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15.jar:/home/marlon/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/home/marlon/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar:/home/marlon/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/home/marlon/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/home/marlon/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/home/marlon/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/home/marlon/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/home/marlon/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar:/home/marlon/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar:/home/marlon/.m2/repository/org/apache/logging/log4j/log4j-api/2.14.1/log4j-api-2.14.1.jar:/home/marlon/.m2/repository/org/apache/logging/log4j/log4j-core/2.14.1/log4j-core-2.14.1.jar:/home/marlon/.m2/repository/com/opencsv/opencsv/5.4/opencsv-5.4.jar:/home/marlon/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/home/marlon/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar:/home/marlon/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/home/marlon/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/marlon/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/marlon/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/home/marlon/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/home/marlon/.m2/repository/io/github/bonigarcia/webdrivermanager/5.0.3/webdrivermanager-5.0.3.jar:/home/marlon/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/home/marlon/.m2/repository/com/google/code/gson/gson/2.8.8/gson-2.8.8.jar:/home/marlon/.m2/repository/org/jsoup/jsoup/1.14.2/jsoup-1.14.2.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java/3.2.12/docker-java-3.2.12.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-core/3.2.12/docker-java-core-3.2.12.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-api/3.2.12/docker-java-api-3.2.12.jar:/home/marlon/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar:/home/marlon/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/home/marlon/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/marlon/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar:/home/marlon/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar:/home/marlon/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.64/bcpkix-jdk15on-1.64.jar:/home/marlon/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64.jar:/home/marlon/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-transport-httpclient5/3.2.12/docker-java-transport-httpclient5-3.2.12.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-transport/3.2.12/docker-java-transport-3.2.12.jar:/home/marlon/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.0.3/httpclient5-5.0.3.jar:/home/marlon/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.0.2/httpcore5-5.0.2.jar:/home/marlon/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.jar:/home/marlon/.m2/repository/net/java/dev/jna/jna/5.8.0/jna-5.8.0.jar:/home/marlon/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:"/>
+    <property name="java.vm.vendor" value="AdoptOpenJDK"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Linux"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/amd64"/>
+    <property name="sun.java.command" value="/home/marlon/eclipse-workspace/testing-beer-ambassador/target/surefire/surefirebooter7809701895094548914.jar /home/marlon/eclipse-workspace/testing-beer-ambassador/target/surefire 2021-10-23T23-07-04_732-jvmRun1 surefire6006548099218732480tmp surefire_0819244324177020363tmp"/>
+    <property name="surefire.test.class.path" value="/home/marlon/eclipse-workspace/testing-beer-ambassador/target/test-classes:/home/marlon/eclipse-workspace/testing-beer-ambassador/target/classes:/home/marlon/.m2/repository/org/testng/testng/7.4.0/testng-7.4.0.jar:/home/marlon/.m2/repository/com/beust/jcommander/1.78/jcommander-1.78.jar:/home/marlon/.m2/repository/org/webjars/jquery/3.5.1/jquery-3.5.1.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59.jar:/home/marlon/.m2/repository/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59.jar:/home/marlon/.m2/repository/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15.jar:/home/marlon/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/home/marlon/.m2/repository/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar:/home/marlon/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/home/marlon/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/home/marlon/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/home/marlon/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/home/marlon/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/home/marlon/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar:/home/marlon/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar:/home/marlon/.m2/repository/org/apache/logging/log4j/log4j-api/2.14.1/log4j-api-2.14.1.jar:/home/marlon/.m2/repository/org/apache/logging/log4j/log4j-core/2.14.1/log4j-core-2.14.1.jar:/home/marlon/.m2/repository/com/opencsv/opencsv/5.4/opencsv-5.4.jar:/home/marlon/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/home/marlon/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar:/home/marlon/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/home/marlon/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/marlon/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/marlon/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/home/marlon/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/home/marlon/.m2/repository/io/github/bonigarcia/webdrivermanager/5.0.3/webdrivermanager-5.0.3.jar:/home/marlon/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/home/marlon/.m2/repository/com/google/code/gson/gson/2.8.8/gson-2.8.8.jar:/home/marlon/.m2/repository/org/jsoup/jsoup/1.14.2/jsoup-1.14.2.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java/3.2.12/docker-java-3.2.12.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-core/3.2.12/docker-java-core-3.2.12.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-api/3.2.12/docker-java-api-3.2.12.jar:/home/marlon/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar:/home/marlon/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/home/marlon/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/marlon/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar:/home/marlon/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar:/home/marlon/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.64/bcpkix-jdk15on-1.64.jar:/home/marlon/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.64/bcprov-jdk15on-1.64.jar:/home/marlon/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.30/jcl-over-slf4j-1.7.30.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-transport-httpclient5/3.2.12/docker-java-transport-httpclient5-3.2.12.jar:/home/marlon/.m2/repository/com/github/docker-java/docker-java-transport/3.2.12/docker-java-transport-3.2.12.jar:/home/marlon/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.0.3/httpclient5-5.0.3.jar:/home/marlon/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.0.2/httpcore5-5.0.2.jar:/home/marlon/.m2/repository/commons-codec/commons-codec/1.13/commons-codec-1.13.jar:/home/marlon/.m2/repository/net/java/dev/jna/jna/5.8.0/jna-5.8.0.jar:/home/marlon/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/marlon"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre"/>
+    <property name="basedir" value="/home/marlon/eclipse-workspace/testing-beer-ambassador"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/marlon/eclipse-workspace/testing-beer-ambassador/target/surefire/surefirebooter7809701895094548914.jar"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/resources.jar:/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/rt.jar:/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/jsse.jar:/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/jce.jar:/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/charsets.jar:/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/jfr.jar:/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_292-b10"/>
+    <property name="user.name" value="marlon"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="4.19.0-18-amd64"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/marlon/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-support/issues"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="1.8.0_292"/>
+    <property name="user.dir" value="/home/marlon/eclipse-workspace/testing-beer-ambassador"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="AdoptOpenJDK"/>
+    <property name="java.vm.version" value="25.292-b10"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="negativeLoginTest[{no=5, description=incorrect password, password=Testing123#2, sharpID=100000004, expectedMessage=Estas credenciales no coinciden con nuestros registros.}](1)" classname="com.tribu.qaselenium.tests.NegativeLoginTests" time="5.651">
+    <system-out><![CDATA[[TestNG] [WARN] Ignoring duplicate listener : com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter
+[main] 23:07:06,587 INFO  [NegativeLoginTest-CH] Se crea factory
+[main] 23:07:06,610 INFO  [logger csvReader] Se ejecuta csvReader()
+[TestNG-PoolService-3] 23:07:06,634 INFO  [NegativeLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-4] 23:07:06,634 INFO  [NegativeLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-1] 23:07:06,634 INFO  [NegativeLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-2] 23:07:06,638 INFO  [NegativeLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-0] 23:07:06,639 INFO  [NegativeLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-3] 23:07:08,798 INFO  [NegativeLoginTest-CH] 794908487 Factory crea driver
+[TestNG-PoolService-4] 23:07:08,798 INFO  [NegativeLoginTest-CH] 927389652 Factory crea driver
+[TestNG-PoolService-2] 23:07:08,798 INFO  [NegativeLoginTest-CH] 1608044396 Factory crea driver
+[TestNG-PoolService-1] 23:07:08,799 INFO  [NegativeLoginTest-CH] 555865744 Factory crea driver
+[TestNG-PoolService-1] 23:07:08,930 INFO  [NegativeLoginTest-CH] Starting negativeLoginTest #2forincorrect password
+[TestNG-PoolService-3] 23:07:08,930 INFO  [NegativeLoginTest-CH] Starting negativeLoginTest #4forincorrect ID and password
+[TestNG-PoolService-4] 23:07:08,930 INFO  [NegativeLoginTest-CH] Starting negativeLoginTest #5forincorrect password
+[TestNG-PoolService-2] 23:07:08,931 INFO  [NegativeLoginTest-CH] Starting negativeLoginTest #3forincorrect password
+[TestNG-PoolService-4] 23:07:08,931 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-2] 23:07:08,931 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-3] 23:07:08,931 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-3] 23:07:08,934 INFO  [NegativeLoginTest-CH] 794908487 Welcome abre url
+[TestNG-PoolService-2] 23:07:08,934 INFO  [NegativeLoginTest-CH] 1608044396 Welcome abre url
+[TestNG-PoolService-1] 23:07:08,934 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-1] 23:07:08,934 INFO  [NegativeLoginTest-CH] 555865744 Welcome abre url
+[TestNG-PoolService-4] 23:07:08,934 INFO  [NegativeLoginTest-CH] 927389652 Welcome abre url
+[TestNG-PoolService-0] 23:07:08,979 INFO  [NegativeLoginTest-CH] 301457322 Factory crea driver
+[TestNG-PoolService-0] 23:07:09,091 INFO  [NegativeLoginTest-CH] Starting negativeLoginTest #1forincorrect sharpID
+[TestNG-PoolService-0] 23:07:09,092 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-0] 23:07:09,092 INFO  [NegativeLoginTest-CH] 301457322 Welcome abre url
+[TestNG-PoolService-4] 23:07:11,392 INFO  [NegativeLoginTest-CH] 927389652 Driver despues de abrir la URL
+[TestNG-PoolService-4] 23:07:11,393 INFO  [NegativeLoginTest-CH] 927389652 Clicking sharpId button
+[TestNG-PoolService-4] 23:07:11,612 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-4] 23:07:11,612 INFO  [NegativeLoginTest-CH] 927389652 Executing negative login with sharpID [100000004] and password [Testing123#2]
+[TestNG-PoolService-2] 23:07:12,668 INFO  [NegativeLoginTest-CH] 1608044396 Driver despues de abrir la URL
+[TestNG-PoolService-2] 23:07:12,668 INFO  [NegativeLoginTest-CH] 1608044396 Clicking sharpId button
+[TestNG-PoolService-2] 23:07:12,751 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-2] 23:07:12,751 INFO  [NegativeLoginTest-CH] 1608044396 Executing negative login with sharpID [100000002] and password [eesting123#$]
+[TestNG-PoolService-0] 23:07:14,083 INFO  [NegativeLoginTest-CH] 301457322 Driver despues de abrir la URL
+[TestNG-PoolService-0] 23:07:14,083 INFO  [NegativeLoginTest-CH] 301457322 Clicking sharpId button
+[TestNG-PoolService-0] 23:07:14,225 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-0] 23:07:14,225 INFO  [NegativeLoginTest-CH] 301457322 Executing negative login with sharpID [100000001] and password [Testing123y$]
+[TestNG-PoolService-3] 23:07:14,657 INFO  [NegativeLoginTest-CH] 794908487 Driver despues de abrir la URL
+[TestNG-PoolService-3] 23:07:14,657 INFO  [NegativeLoginTest-CH] 794908487 Clicking sharpId button
+]]></system-out>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SSSSttttaaaarrrrttttiiiinnnnggg g  C CChChhrhrrorooommemmeeeDDDrDrrriiivivvevreeer rr9  499.440...004..644066600.666..166 11(  4((1448b17 8b78f5838ed0b1c69bb4e51e1a80b27582f157813885e4d90b115c6-9brb4eef51se/a0b2r52a171n8c54h9-15h-reefasd/bsr/an4ch6-0h6e@a{d#s1/240604})6 @{#o1n2 0p4o})r otn  p5o7rt1 0307
+3O2n
+Olnlyy  llocoalc caolnn ecctoinonnse acret iaolnlsow aerd.e
+ Pallleaowsee d.se
+e Phltetapsse: //sceher ohtmtepdrs:i/v/erc.hcrhormoemdiruimv.eorrg./scechurromiituy-m.coonrgsi/dseratieocnusrit yf-ocro snsugigdeesrtaitions for suggestio8fn5s8 3on8 ekde0be1c69bb4e51ea025p2i1n71g8 5C4hr9o1m5e-Drreifs/branch-hveear dss/af4e6.06
+@{#1204}) on port 4378
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on ke9ep4i.n0g. 4C6h0r6o.m6e1D r(4i1v8ebr7 8sfa5f8oe3n.8
+se ond 0kbee1pcin6g 9Cbhrbo4meeD5ri1veera sa0f2e5.
+2171854915-refs/branch-heads/4606@{#1204}) on port 28497
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerationsChromeDriver Chwraomse Dsrtiavretre dw assu cscteasrstfeudl lsyu.c
+ce sfsofru lsluyg.g
+estions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+ChromeDriver was started successfully.
+Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 30818
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Oct 23, 2021 11:07:08 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:08 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:08 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:08 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:08 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="negativeLoginTest[{no=3, description=incorrect password, password=eesting123#$, sharpID=100000002, expectedMessage=Estas credenciales no coinciden con nuestros registros.}](2)" classname="com.tribu.qaselenium.tests.NegativeLoginTests" time="6.151">
+    <system-out><![CDATA[[TestNG-PoolService-3] 23:07:14,832 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-3] 23:07:14,832 INFO  [NegativeLoginTest-CH] 794908487 Executing negative login with sharpID [100000008] and password [Testisg123#$]
+[TestNG-PoolService-1] 23:07:15,076 INFO  [NegativeLoginTest-CH] 555865744 Driver despues de abrir la URL
+[TestNG-PoolService-1] 23:07:15,076 INFO  [NegativeLoginTest-CH] 555865744 Clicking sharpId button
+[TestNG-PoolService-1] 23:07:15,235 INFO  [NegativeLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-1] 23:07:15,235 INFO  [NegativeLoginTest-CH] 555865744 Executing negative login with sharpID [100000001] and password [Testing123#4]
+]]></system-out>
+  </testcase>
+  <testcase name="negativeLoginTest[{no=1, description=incorrect sharpID, password=Testing123y$, sharpID=100000001, expectedMessage=Estas credenciales no coinciden con nuestros registros.}](3)" classname="com.tribu.qaselenium.tests.NegativeLoginTests" time="7.575"/>
+  <testcase name="negativeLoginTest[{no=4, description=incorrect ID and password, password=Testisg123#$, sharpID=100000008, expectedMessage=sharp id es inválido.}](4)" classname="com.tribu.qaselenium.tests.NegativeLoginTests" time="7.842"/>
+  <testcase name="negativeLoginTest[{no=2, description=incorrect password, password=Testing123#4, sharpID=100000001, expectedMessage=Estas credenciales no coinciden con nuestros registros.}](5)" classname="com.tribu.qaselenium.tests.NegativeLoginTests" time="8.677"/>
+  <testcase name="logInTest[{no=2, description=Qauser2, password=Testing123#$, sharpID=100000002, expectedMessage=Simplifica Hub}](1)" classname="com.tribu.qaselenium.tests.PositiveLoginTests" time="5.427">
+    <failure message="The following asserts failed:&#10;	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+]]></failure>
+    <system-out><![CDATA[[main] 23:07:17,865 INFO  [PositiveLoginTest-CH] Se crea factory
+[main] 23:07:17,866 INFO  [logger csvReader] Se ejecuta csvReader()
+[TestNG-PoolService-1] 23:07:17,869 INFO  [PositiveLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-0] 23:07:17,869 INFO  [PositiveLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-2] 23:07:17,880 INFO  [PositiveLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-3] 23:07:17,880 INFO  [PositiveLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-4] 23:07:17,881 INFO  [PositiveLoginTest-CH] Se ejecuta setup() 
+[TestNG-PoolService-3] 23:07:18,452 INFO  [PositiveLoginTest-CH] 700995157 Factory crea driver
+[TestNG-PoolService-4] 23:07:18,455 INFO  [PositiveLoginTest-CH] 68839222 Factory crea driver
+[TestNG-PoolService-1] 23:07:18,490 INFO  [PositiveLoginTest-CH] 1444847584 Factory crea driver
+[TestNG-PoolService-2] 23:07:18,493 INFO  [PositiveLoginTest-CH] 942250382 Factory crea driver
+[TestNG-PoolService-0] 23:07:18,519 INFO  [PositiveLoginTest-CH] 1111486709 Factory crea driver
+[TestNG-PoolService-4] 23:07:18,566 INFO  [PositiveLoginTest-CH] Starting Login Test
+[TestNG-PoolService-3] 23:07:18,566 INFO  [PositiveLoginTest-CH] Starting Login Test
+[TestNG-PoolService-3] 23:07:18,566 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-4] 23:07:18,566 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-3] 23:07:18,566 INFO  [PositiveLoginTest-CH] 700995157 Welcome abre url
+[TestNG-PoolService-4] 23:07:18,566 INFO  [PositiveLoginTest-CH] 68839222 Welcome abre url
+[TestNG-PoolService-1] 23:07:18,602 INFO  [PositiveLoginTest-CH] Starting Login Test
+[TestNG-PoolService-1] 23:07:18,602 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-1] 23:07:18,602 INFO  [PositiveLoginTest-CH] 1444847584 Welcome abre url
+[TestNG-PoolService-2] 23:07:18,602 INFO  [PositiveLoginTest-CH] Starting Login Test
+[TestNG-PoolService-2] 23:07:18,604 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-2] 23:07:18,604 INFO  [PositiveLoginTest-CH] 942250382 Welcome abre url
+[TestNG-PoolService-0] 23:07:18,626 INFO  [PositiveLoginTest-CH] Starting Login Test
+[TestNG-PoolService-0] 23:07:18,626 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-0] 23:07:18,627 INFO  [PositiveLoginTest-CH] 1111486709 Welcome abre url
+[TestNG-PoolService-1] 23:07:20,398 INFO  [PositiveLoginTest-CH] 1444847584 Driver despues de abrir la URL
+[TestNG-PoolService-1] 23:07:20,398 INFO  [PositiveLoginTest-CH] 1444847584 Clicking sharpId button
+[TestNG-PoolService-1] 23:07:20,577 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-1] 23:07:20,577 INFO  [PositiveLoginTest-CH] 1444847584 Executing login with sharpID [100000002] and password [Testing123#$]
+[TestNG-PoolService-4] 23:07:20,617 INFO  [PositiveLoginTest-CH] 68839222 Driver despues de abrir la URL
+[TestNG-PoolService-4] 23:07:20,618 INFO  [PositiveLoginTest-CH] 68839222 Clicking sharpId button
+[TestNG-PoolService-4] 23:07:20,771 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-4] 23:07:20,771 INFO  [PositiveLoginTest-CH] 68839222 Executing login with sharpID [100000001] and password [Testing123#$]
+[TestNG-PoolService-3] 23:07:20,773 INFO  [PositiveLoginTest-CH] 700995157 Driver despues de abrir la URL
+[TestNG-PoolService-3] 23:07:20,773 INFO  [PositiveLoginTest-CH] 700995157 Clicking sharpId button
+[TestNG-PoolService-2] 23:07:20,796 INFO  [PositiveLoginTest-CH] 942250382 Driver despues de abrir la URL
+[TestNG-PoolService-2] 23:07:20,797 INFO  [PositiveLoginTest-CH] 942250382 Clicking sharpId button
+[TestNG-PoolService-2] 23:07:20,970 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-2] 23:07:20,970 INFO  [PositiveLoginTest-CH] 942250382 Executing login with sharpID [100000001] and password [Testing123#$]
+[TestNG-PoolService-3] 23:07:20,980 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-3] 23:07:20,980 INFO  [PositiveLoginTest-CH] 700995157 Executing login with sharpID [100000002] and password [Testing123#$]
+[TestNG-PoolService-0] 23:07:21,115 INFO  [PositiveLoginTest-CH] 1111486709 Driver despues de abrir la URL
+[TestNG-PoolService-0] 23:07:21,115 INFO  [PositiveLoginTest-CH] 1111486709 Clicking sharpId button
+[TestNG-PoolService-0] 23:07:21,312 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-0] 23:07:21,312 INFO  [PositiveLoginTest-CH] 1111486709 Executing login with sharpID [100000001] and password [Testing123#$]
+[TestNG-PoolService-1] 23:07:23,508 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-3] 23:07:23,874 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 16862
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 25633
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 18599
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 27599
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+Starting ChromeDriver 94.0.4606.61 (418b78f5838ed0b1c69bb4e51ea0252171854915-refs/branch-heads/4606@{#1204}) on port 32534
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+ChromeDriver was started successfully.
+Oct 23, 2021 11:07:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Oct 23, 2021 11:07:18 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="logInTest[{no=4, description=Qauser2, password=Testing123#$, sharpID=100000002, expectedMessage=Simplifica Hub}](4)" classname="com.tribu.qaselenium.tests.PositiveLoginTests" time="5.867">
+    <failure message="The following asserts failed:&#10;	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+]]></failure>
+    <system-out><![CDATA[[TestNG-PoolService-2] 23:07:24,291 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-4] 23:07:24,357 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+[TestNG-PoolService-0] 23:07:24,424 INFO  [PositiveLoginTest-CH]  Constructor BasePageObject
+]]></system-out>
+  </testcase>
+  <testcase name="logInTest[{no=5, description=Qauser1, password=Testing123#$, sharpID=100000001, expectedMessage=Simplifica Hub}](5)" classname="com.tribu.qaselenium.tests.PositiveLoginTests" time="6.026">
+    <failure message="The following asserts failed:&#10;	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+]]></failure>
+  </testcase>
+  <testcase name="logInTest[{no=3, description=Qauser1, password=Testing123#$, sharpID=100000001, expectedMessage=Simplifica Hub}](5)" classname="com.tribu.qaselenium.tests.PositiveLoginTests" time="6.064">
+    <failure message="The following asserts failed:&#10;	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+]]></failure>
+  </testcase>
+  <testcase name="logInTest[{no=1, description=Qauser1, password=Testing123#$, sharpID=100000001, expectedMessage=Simplifica Hub}](5)" classname="com.tribu.qaselenium.tests.PositiveLoginTests" time="6.112">
+    <failure message="The following asserts failed:&#10;	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+]]></failure>
+  </testcase>
+</testsuite>

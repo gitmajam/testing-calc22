@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 19.111 s <<< FAILURE! - in TestSuite
+com.tribu.qaselenium.tests.PositiveLoginTests.logInTest[{no=2, description=Qauser2, password=Testing123#$, sharpID=100000002, expectedMessage=Simplifica Hub}](1)  Time elapsed: 5.427 s  <<< FAILURE!
+java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+
+com.tribu.qaselenium.tests.PositiveLoginTests.logInTest[{no=4, description=Qauser2, password=Testing123#$, sharpID=100000002, expectedMessage=Simplifica Hub}](4)  Time elapsed: 5.867 s  <<< FAILURE!
+java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+
+com.tribu.qaselenium.tests.PositiveLoginTests.logInTest[{no=5, description=Qauser1, password=Testing123#$, sharpID=100000001, expectedMessage=Simplifica Hub}](5)  Time elapsed: 6.026 s  <<< FAILURE!
+java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+
+com.tribu.qaselenium.tests.PositiveLoginTests.logInTest[{no=3, description=Qauser1, password=Testing123#$, sharpID=100000001, expectedMessage=Simplifica Hub}](5)  Time elapsed: 6.064 s  <<< FAILURE!
+java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+
+com.tribu.qaselenium.tests.PositiveLoginTests.logInTest[{no=1, description=Qauser1, password=Testing123#$, sharpID=100000001, expectedMessage=Simplifica Hub}](5)  Time elapsed: 6.112 s  <<< FAILURE!
+java.lang.AssertionError: 
+The following asserts failed:
+	[Page url is not equal] expected [https://beerpassionperu-stage.somosmaz.com/landing] but found [https://auth-stage.somosmaz.com/es/user]
+	at com.tribu.qaselenium.tests.PositiveLoginTests.logInTest(PositiveLoginTests.java:69)
+

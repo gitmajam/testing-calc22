@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tribu.qaselenium</groupId>
-	<artifactId>testing-sso</artifactId>
+	<artifactId>testing-maz-aprendo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<!-- <packaging>jar</packaging> -->
 	<name>qaselenium</name>
@@ -15,7 +15,7 @@
 			<version>7.4.0</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java  -->
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -73,18 +73,23 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<!-- <testFailureIgnore>false</testFailureIgnore> -->
-					<properties>
-						<property>
-							<name>usedefaultlisteners</name>
-							<value>false</value> <!-- disabling default listeners is optional -->
-						</property>
-					</properties>
-					<reportsDirectory>test-output</reportsDirectory>
 					<suiteXmlFiles>
 						<suiteXmlFile>NegativeTests.xml</suiteXmlFile>
 						<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
 						<!-- <suiteXmlFile>${suite}</suiteXmlFile> -->
 					</suiteXmlFiles>
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value> <!-- disabling default listeners is optional -->
+						</property>
+						<property> <!-- run suites in parallel. -->
+							<name>suitethreadpoolsize</name>
+							<value>2</value>
+						</property>
+					</properties>
+					<reportsDirectory>test-output</reportsDirectory>
+
 				</configuration>
 			</plugin>
 		</plugins>

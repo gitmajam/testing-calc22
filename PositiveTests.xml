@@ -2,13 +2,13 @@
 <suite name="PositiveLoginTestSuite" verbose="5"
 	data-provider-thread-count="5">
 	<listeners>
-		<listener class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
+		<listener
+			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
 	</listeners>
-	<test name="PositiveLoginTest-CH">
+	<test name="PositiveLoginTest-CH" parallel = "methods">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class
-				name="com.tribu.qaselenium.tests.PositiveLoginTests" />
+			<class name="com.tribu.qaselenium.tests.PositiveLoginTests" />
 		</classes>
 	</test>
 </suite>

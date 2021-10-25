@@ -5,9 +5,8 @@
 	<Appenders>
 		<Console name="ConsoleAppender" target="SYSTEM_OUT">
 			<PatternLayout
-				pattern="[%t] %d{HH:mm:ss,SSS} %-5p [%c{1}] %m%n" />
+				pattern="[%t] [%M] %d{HH:mm:ss,SSS} %-5p [%c{1}] %m%n" />
 		</Console>
-
 	</Appenders>
 	<Loggers>
 		<Root level="TRACE">
