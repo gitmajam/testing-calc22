@@ -33,19 +33,19 @@ public class NegativeLoginTests extends TestBase {
 
 		log.info("Starting negativeLoginTest #" + no + "for" + description);
 
-		/// open main page SSOLandingPage
-		ssoLandingPage = new SSOLandingPage(log);
-		ssoLandingPage.openPage(factory.getDriver());
+		// open main page
+		ssoLandingPage = new SSOLandingPage();
+		openUrl(ssoLandingPage,driverFactory.getDriver());
 
 		// click on sharId button
-		loginSharpIdPage = ssoLandingPage.loginBySharId(factory.getDriver());
+		loginSharpIdPage = ssoLandingPage.loginBySharId(driverFactory.getDriver());
 
 		// enter credentials
-		loginSharpIdPage.negativelogin(factory.getDriver(), sharpID, password);
+		loginSharpIdPage.negativelogin(driverFactory.getDriver(),sharpID, password);
 
 		// wait for error message
-		loginSharpIdPage.waitForErrorMessage(factory.getDriver());
-		String actualErrorMessage = loginSharpIdPage.getErrorMessageText(factory.getDriver());
+		loginSharpIdPage.waitForErrorMessage(driverFactory.getDriver());
+		String actualErrorMessage = loginSharpIdPage.getErrorMessageText(driverFactory.getDriver());
 
 		// Verification // error message
 		softAssert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),

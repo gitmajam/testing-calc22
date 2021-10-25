@@ -43,25 +43,25 @@ public class PositiveLoginTests extends TestBase {
 		String description = testData.get("description");
 
 		// open main page
-		ssoLandingPage = new SSOLandingPage(log);
-		ssoLandingPage.openPage(factory.getDriver());
+		ssoLandingPage = new SSOLandingPage();
+		openUrl(ssoLandingPage,driverFactory.getDriver());
 
 		// click on sharId button
-		loginSharpIdPage = ssoLandingPage.loginBySharId(factory.getDriver());
+		loginSharpIdPage = ssoLandingPage.loginBySharId(driverFactory.getDriver());
 
 		// enter credentials
-		simplificaHomePage = loginSharpIdPage.login(factory.getDriver(), sharpID, password);
+		simplificaHomePage = loginSharpIdPage.login(driverFactory.getDriver(),sharpID, password);
 
 		// verification // new page URL is expected
-		softAssert.assertEquals(simplificaHomePage.getCurrentUrl(factory.getDriver()), simplificaHomePage.getPageUrl(),
+		softAssert.assertEquals(simplificaHomePage.getCurrentUrl(driverFactory.getDriver()), simplificaHomePage.getPageUrl(),
 				"[Page url is not equal]");
 
 		// profile button is visible
-		softAssert.assertTrue(simplificaHomePage.profileMenuButtonVisible(factory.getDriver()),
+		softAssert.assertTrue(simplificaHomePage.profileMenuButtonVisible(driverFactory.getDriver()),
 				"Profile button is not visible");
 
 		// Successful log in message
-		String actualSuccessMessage = simplificaHomePage.getTitleText(factory.getDriver());
+		String actualSuccessMessage = simplificaHomePage.getTitleText(driverFactory.getDriver());
 		softAssert.assertTrue(actualSuccessMessage.contains(expectedSuccessMessage),
 				"actualMessage does not contain expectedMessage\nexpectedMessage: " + expectedSuccessMessage
 						+ "\nactualMessage: " + actualSuccessMessage + "\n");
