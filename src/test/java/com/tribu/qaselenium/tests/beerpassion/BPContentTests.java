@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -16,8 +15,6 @@ import com.tribu.qaselenium.pages.sso.SSOLoginP;
 import com.tribu.qaselenium.testframework.testbase.CsvDataProviders;
 import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
-
-import jdk.internal.org.jline.utils.Log;
 
 @Listeners(TestsListenerManager.class)
 public class BPContentTests extends TestBase {
@@ -59,9 +56,10 @@ public class BPContentTests extends TestBase {
 		bpHomeP = bplogin.apply(sharpID, password);
 		bpHomeP.getBPLogo().waitForImage();
 
-		softAssert.assertTrue(bpHomeP.getXpathPartBanner().waitForImage(imgName).verifyImage(), "[Falla Assert - no encuentra banner");
+		softAssert.assertTrue(bpHomeP.getXpathPartBanner().waitForImage(imgName).verifyImage(),
+				"[Falla Assert - no encuentra banner");
 		softAssert.assertAll();
-		
+
 		bpHomeP.getExitButton().click();
 	}
 }

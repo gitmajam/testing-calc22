@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -16,8 +15,6 @@ import com.tribu.qaselenium.pages.sso.SSOLoginP;
 import com.tribu.qaselenium.testframework.testbase.CsvDataProviders;
 import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
-
-import jdk.internal.org.jline.utils.Log;
 
 @Listeners(TestsListenerManager.class)
 public class BPSessionTests extends TestBase {
@@ -66,14 +63,16 @@ public class BPSessionTests extends TestBase {
 				"[Falla Assert - no encuentra boton de notificacion");
 		softAssert.assertTrue(bpHomeP.getSupportButton().isDisplayed(),
 				"[Falla Assert - no encuentra boton de soporte");
-		softAssert.assertTrue(bpHomeP.getProfileButton().waitForImage().isDisplayed(), "[Falla Assert - no encuentra boton de perfil");
+		softAssert.assertTrue(bpHomeP.getProfileButton().waitForImage().isDisplayed(),
+				"[Falla Assert - no encuentra boton de perfil");
 		softAssert.assertTrue(bpHomeP.getTermsConditions().isDisplayed(),
 				"[Falla Assert - no encuentra boton de terminos y condiciones");
 		softAssert.assertTrue(bpHomeP.getBPLogo().isDisplayed(), "[Falla Assert - no encuentra logo");
-		softAssert.assertTrue(bpHomeP.getXpathPartBanner().waitForImage(imgName).isDisplayed(), "[Falla Assert - no encuentra banner");
+		softAssert.assertTrue(bpHomeP.getXpathPartBanner().waitForImage(imgName).isDisplayed(),
+				"[Falla Assert - no encuentra banner");
 		softAssert.assertAll();
-		
+
 		bpHomeP.getExitButton().click();
-		
+
 	}
 }
