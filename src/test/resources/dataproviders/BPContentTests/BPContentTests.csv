@@ -1,0 +1,12 @@
+todo,no,sharpID,password,expectedMessage1,expectedMessage2,testDescription,contentType,imgName
+TRUE,1,100000001,Testing123#$,100000001,,Login Qauser1,banner,test-load-banner
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,bienestarEventos,test-load-bienestarEventos
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,bienestarPilares,test-load-bienestarPilares
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,bienestarProgramas,test-load-bienestarProgramas
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,diversidadArticulos,test-load-diversidadArticulos
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,hubAplicaciones,test-load-hubAplicaciones
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,infografia,test-load-infografia
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,listasEnlaces,test-load-listasEnlaces
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,referenciasMarca,test-load-referenciasMarca
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,video,test-load-video
+FALSE,1,100000001,Testing123#$,100000001,,Login Qauser1,diversidadFoco,test-load-diversidadFoco

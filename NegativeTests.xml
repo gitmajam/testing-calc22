@@ -9,7 +9,7 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
-				name="com.tribu.qaselenium.tests.NegativeLoginTests">
+				name="com.tribu.qaselenium.tests.negative.NegativeTests">
 			</class>
 		</classes>
 	</test>

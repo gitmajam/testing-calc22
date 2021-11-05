@@ -1,14 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="PositiveLoginTestSuite" verbose="5"
 	data-provider-thread-count="5">
-	<listeners>
-		<listener
-			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
-	</listeners>
-	<test name="PositiveLoginTest-CH" parallel = "methods">
+	<listeners> <listener class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" 
+		/> </listeners>
+	<test name="PositiveLoginTest" preserve-order="true"> <!-- parallel = "methods" -->
 		<parameter name="browser" value="chrome"></parameter>
+		<groups>
+			<run>
+				<include name="smoke" />
+				<!-- <exclude name="loadContent"/> -->
+				<exclude name="deleteContent"/>
+			</run>
+		</groups>
 		<classes>
-			<class name="com.tribu.qaselenium.tests.PositiveLoginTests" />
+			<class
+				name="com.tribu.qaselenium.tests.apiba.APILoadContentTests" />
 		</classes>
 	</test>
 </suite>

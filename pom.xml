@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tribu.qaselenium</groupId>
-	<artifactId>testing-maz-aprendo</artifactId>
+	<artifactId>testing-sso</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<!-- <packaging>jar</packaging> -->
 	<name>qaselenium</name>
@@ -74,22 +74,27 @@
 				<configuration>
 					<!-- <testFailureIgnore>false</testFailureIgnore> -->
 					<suiteXmlFiles>
-						<suiteXmlFile>NegativeTests.xml</suiteXmlFile>
-						<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
-						<!-- <suiteXmlFile>${suite}</suiteXmlFile> -->
+					<suiteXmlFile>PositiveTests.xml</suiteXmlFile>
+					<!-- 	<suiteXmlFile>NegativeTests.xml</suiteXmlFile> 
+						<suiteXmlFile>${suite}</suiteXmlFile> -->
 					</suiteXmlFiles>
+					<!-- <test>src.test.java.tribu.qaselenium.tests.PositiveTest#testMethod</test> -->
 					<properties>
+						<!-- <property> <name>testnames</name> <value>${selectedTests}</value> 
+							</property> -->
 						<property>
 							<name>usedefaultlisteners</name>
 							<value>false</value> <!-- disabling default listeners is optional -->
 						</property>
 						<property> <!-- run suites in parallel. -->
-							<name>suitethreadpoolsize</name>
-							<value>2</value>
+							<!-- <name>suitethreadpoolsize</name> <value>2</value> -->
 						</property>
 					</properties>
 					<reportsDirectory>test-output</reportsDirectory>
-
+					<includes>
+						<!-- <include>Sample.java</include> -->
+					</includes>
+					<!-- <groups>unit, integration</groups> -->
 				</configuration>
 			</plugin>
 		</plugins>
