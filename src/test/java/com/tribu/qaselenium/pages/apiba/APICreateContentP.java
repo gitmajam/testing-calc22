@@ -6,13 +6,36 @@ import com.tribu.qaselenium.testframework.pagebase.BasePO;
 
 public class APICreateContentP extends BasePO<APICreateContentP> {
 
-	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/node/add/content";
-
 	// control variables
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
+	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/node/add/content";
 	private By saveButton = By.xpath("//input[@id='edit-submit']");
 	private By messageCreation = By.xpath(
 			"/html//div[@id='page']/div[@class='highlighted']/aside[@role='complementary']//div[@role='contentinfo']");
+	private By addArticleButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/article']/span[@class='label']");
+	private By addBannerButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/content_banner']/span[@class='label']");
+	private By addWellnessEventButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_eventos']/span[@class='label']");
+	private By addWellnessPillarButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_pilares']/span[@class='label']");
+	private By addWellnessProgramsButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_programas']/span[@class='label']");
+	private By addDiversityArticleButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/diversidad_articulos']/span[@class='label']");
+	private By addGalleryButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/galeria']/span[@class='label']");
+	private By addHubAppButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/hub']/span[@class='label']");
+	private By addInfograPhicButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/infografia']/span[@class='label']");
+	private By addLinkListButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/content']/span[@class='label']");
+	private By addBrandRefButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/referencia_marca']/span[@class='label']");
+	private By addVideoButton = By.xpath(
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/video']/span[@class='label']");
 
 	// content variables
 	private By brand = By.xpath("/html//input[@id='edit-field-marca-0-target-id']");
@@ -28,7 +51,11 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By frame = By.tagName("iframe");
 	private By body = By.xpath("//body/p");
 	private By mainImage = By.xpath("//html//input[contains(@id,'edit-field-image-0-upload')]");
-	private By previewMainImage = By.xpath("/html//div[contains(@id,'ajax-wrapper')]//img[@data-drupal-selector='edit-field-image-0-preview']");
+	private By previewMainImage = By
+			.xpath("/html//div[contains(@id,'ajax-wrapper')]//img[@data-drupal-selector='edit-field-image-0-preview']");
+	private By previewHighLImage = By
+			.xpath("/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//img");
+	
 	private By mainImageIcon = By.xpath("//img[contains(@src,'diversidad') and contains(@src,'.jpg')]");
 	private By highLImage = By.xpath("/html//input[@id='edit-field-imagen-destacada-0-upload']");
 	private By miniImage = By.xpath("/html//input[@id='edit-field-imagen-miniatura-0-upload']");
@@ -50,11 +77,12 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By direccion = By.xpath("/html//input[@id='edit-field-direccion-0-value']");
 	private By date = By.xpath("/html//input[@id='edit-field-fecha-0-value-date']");
 	private By phone = By.xpath("/html//input[@id='edit-field-telefono-0-value']");
-	private By urlLink = By.xpath("/html//input[@id='edit-field-link-0-uri']");
+	
 	private By socialUrl = By.xpath("//input[@name='field_referencia_social[0][subform][field_social_url][0][uri]']");
 	private By socialUrlText = By
 			.xpath("//input[@name='field_referencia_social[0][subform][field_social_url][0][title]']");
 	private By link = By.xpath("//input[@id='edit-field-link-0-uri']");
+	private By textLink = By.xpath("/html//input[@id='edit-field-link-0-title']");
 	private By section = By.xpath("//input[@id='edit-field-section-0-target-id']");
 	private By column = By.xpath("//select[@id='edit-field-column']");
 	private By columnItem = By.xpath("/html//select[@id='edit-field-column']//option[@value='1']");
@@ -62,14 +90,16 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By video = By.xpath("/html//input[@id='edit-field-video-open-button']");
 	private By country = By.xpath("//input[@id='edit-field-country-0-target-id']");
 	private By published = By.xpath("//input[@id='edit-status-value']");
-
-	public APICreateContentP getBrand() {
-		this.locator = brand;
+	private By extLink = By.xpath("/html//input[@id='edit-field-enlace-externo-0-uri']");
+	private By textExtLink = By.xpath("/html//input[@id='edit-field-enlace-externo-0-title']");
+//	
+	public APICreateContentP getTextExtLink() {
+		this.locator = textExtLink;
 		return this;
 	}
 
-	public APICreateContentP getTitle() {
-		this.locator = title;
+	public APICreateContentP getExtLink() {
+		this.locator = extLink;
 		return this;
 	}
 
@@ -78,8 +108,83 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 		return this;
 	}
 
+	public APICreateContentP getSaveButton() {
+		this.locator = saveButton;
+		return this;
+	}
+
 	public APICreateContentP getMessageCreation() {
 		this.locator = messageCreation;
+		return this;
+	}
+
+	public APICreateContentP getAddArticleButton() {
+		this.locator = addArticleButton;
+		return this;
+	}
+
+	public APICreateContentP getAddBannerButton() {
+		this.locator = addBannerButton;
+		return this;
+	}
+
+	public APICreateContentP getAddWellnessEventButton() {
+		this.locator = addWellnessEventButton;
+		return this;
+	}
+
+	public APICreateContentP getAddWellnessPillarButton() {
+		this.locator = addWellnessPillarButton;
+		return this;
+	}
+
+	public APICreateContentP getAddWellnessProgramsButton() {
+		this.locator = addWellnessProgramsButton;
+		return this;
+	}
+
+	public APICreateContentP getAddDiversityArticleButton() {
+		this.locator = addDiversityArticleButton;
+		return this;
+	}
+
+	public APICreateContentP getAddGalleryButton() {
+		this.locator = addGalleryButton;
+		return this;
+	}
+
+	public APICreateContentP getAddHubAppButton() {
+		this.locator = addHubAppButton;
+		return this;
+	}
+
+	public APICreateContentP getAddInfograPhicButton() {
+		this.locator = addInfograPhicButton;
+		return this;
+	}
+
+	public APICreateContentP getAddLinkListButton() {
+		this.locator = addLinkListButton;
+		return this;
+	}
+
+	public APICreateContentP getAddBrandRefButton() {
+		this.locator = addBrandRefButton;
+		return this;
+	}
+
+	public APICreateContentP getAddVideoButton() {
+		this.locator = addVideoButton;
+		return this;
+	}
+
+	public APICreateContentP getBrand() {
+		this.locator = brand;
+		return this;
+	}
+
+	public APICreateContentP getTitle() {
+		this.locator = title;
 		return this;
 	}
 
@@ -138,6 +243,11 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 		return this;
 	}
 
+	public APICreateContentP getPreviewMainImage() {
+		this.locator = previewMainImage;
+		return this;
+	}
+
 	public APICreateContentP getMainImageIcon() {
 		this.locator = mainImageIcon;
 		return this;
@@ -145,6 +255,11 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 
 	public APICreateContentP getHighLImage() {
 		this.locator = highLImage;
+		return this;
+	}
+	
+	public APICreateContentP getPreviewHighLImage() {
+		this.locator = previewHighLImage;
 		return this;
 	}
 
@@ -218,8 +333,8 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 		return this;
 	}
 
-	public APICreateContentP getUrlLink() {
-		this.locator = urlLink;
+	public APICreateContentP getTextLink() {
+		this.locator = textLink;
 		return this;
 	}
 
@@ -270,16 +385,6 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 
 	public APICreateContentP getPublished() {
 		this.locator = published;
-		return this;
-	}
-
-	public APICreateContentP getSaveButton() {
-		this.locator = saveButton;
-		return this;
-	}
-	
-	public APICreateContentP getPreviewMainImage() {
-		this.locator = previewMainImage;
 		return this;
 	}
 

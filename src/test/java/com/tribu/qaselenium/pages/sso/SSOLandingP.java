@@ -8,6 +8,12 @@ public class SSOLandingP extends BasePO<SSOLandingP> {
 
 	private By sharpIdButton = By.xpath("//button[contains(text(),'NO')]");
 	private By emailButton = By.xpath("//button[contains(text(),'SI')]");
+	private By abLogo = By.xpath("/html//div[@id='second']//img[@alt='AbInBev']");
+
+	public SSOLandingP getAbLogo() {
+		this.locator = abLogo;
+		return this;
+	}
 
 	public SSOLandingP getSharpIdButton() {
 		this.locator = sharpIdButton;

@@ -123,8 +123,6 @@ public class PBSessionTests extends TestBase {
 		apiCreateContentP = apiHomeP.getMenuContentButton()
 		        .hoverElement()
 		        .getAddContentButton()
-		        .hoverElement()
-		        .getAddBanner()
 		        .click(APICreateContentP::new).get();
 		
 		apiCreateContentP.getTitle().type(titulo)

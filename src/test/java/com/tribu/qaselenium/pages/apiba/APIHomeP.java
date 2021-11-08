@@ -12,7 +12,6 @@ public class APIHomeP extends BasePO<APIHomeP> {
 	private By profileMenuButton = By.xpath("//li/a[contains(text(),'Mi cuenta')]");
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
 	private By addContentButton = By.xpath("//li/a[@href='/node/add']");
-	private By addBanner = By.xpath("//ul[@class='toolbar-menu']//a[@href='/node/add/content_banner']");
 	private By addwellnessEvent = By.xpath("//div/ul[@class='toolbar-menu']//a[@href='/node/add/bienestar_eventos']");
 	private By addwellnessPillar = By.xpath("//div/ul[@class='toolbar-menu']//a[@href='/node/add/bienestar_pilares']");
 	private By addWellnessProgram = By
@@ -42,11 +41,6 @@ public class APIHomeP extends BasePO<APIHomeP> {
 
 	public APIHomeP getAddContentButton() {
 		this.locator = addContentButton;
-		return this;
-	}
-
-	public APIHomeP getAddBanner() {
-		this.locator = addBanner;
 		return this;
 	}
 
