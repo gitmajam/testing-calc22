@@ -1,9 +1,4 @@
 [submodule "testframework"]
 	path = src/test/java/com/tribu/qaselenium/testframework
 	url = ../test-framework
-[submodule "src/test/java/com/tribu/qaselenium/testframefork"]
-	path = src/test/java/com/tribu/qaselenium/testframefork
-	url = ab-inbev@vs-ssh.visualstudio.com:v3/ab-inbev/MAZ_People_Squad/test-framework
-[submodule "src/test/java/com/tribu/qaselenium/testframework"]
-	path = src/test/java/com/tribu/qaselenium/testframework
-	url = ab-inbev@vs-ssh.visualstudio.com:v3/ab-inbev/MAZ_People_Squad/test-framework
+
