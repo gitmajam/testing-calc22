@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.function.BiFunction;
 
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -24,9 +25,12 @@ public class BPContentTests extends TestBase {
 	SSOLoginP ssoLoginP;
 	BPLandingP bpLandingP;
 	BPHomeP bpHomeP;
-
-	String sharpID;
-	String password;
+	
+	String title;
+	String sharpId1;
+	String password1;
+	String sharpId2;
+	String password2;
 	String expectedMessage1;
 	String expectedMessage2;
 	String testDescription;
@@ -41,25 +45,39 @@ public class BPContentTests extends TestBase {
 				.get();
 	};
 
-	@Test(dataProvider = "csvReader", dataProviderClass = CsvDataProviders.class)
-	public void checkBanner(Method method, Map<String, String> testData) {
+	@Test(dataProvider = "csvReaderMethod", dataProviderClass = CsvDataProviders.class, dependsOnGroups = {
+			"loadContent" }, groups = { "smoke", "checkContent" })
+	public void checkContent(Method method, Map<String, String> testData) {
+		log.info("checkMethod");
 		SoftAssert softAssert = new SoftAssert();
 
-		sharpID = testData.get("sharpID");
-		password = testData.get("password");
+		sharpId2 = testData.get("sharpId2");
+		password2 = testData.get("password2");
 		expectedMessage1 = testData.get("expectedMessage1");
 		expectedMessage2 = testData.get("expectedMessage2");
 		testDescription = testData.get("testDescription");
-		imgName = testData.get("imgName");
+		title = testData.get("title");
 
-		// login
-		bpHomeP = bplogin.apply(sharpID, password);
-		bpHomeP.getBPLogo().waitForImage();
+// login
+// bpHomeP = bplogin.apply(sharpId2, password2);
 
-		softAssert.assertTrue(bpHomeP.getXpathPartBanner().waitForImage(imgName).verifyImage(),
-				"[Falla Assert - no encuentra banner");
-		softAssert.assertAll();
+		bpLandingP = openUrlWait(BPLandingP::new).get();
+		ssoLandingP = bpLandingP.getLoginButton().click(SSOLandingP::new).get();
+		Assert.assertTrue(ssoLandingP.getAbLogo().waitForImage().verifyImage(), "[Falla Assert - no encuentra banner");
+		ssoLoginP = ssoLandingP.getSharpIdButton().click(SSOLoginP::new).get();
 
-		bpHomeP.getExitButton().click();
+		/*
+		 * bpHomeP = ssoLoginP.getSharpIdField().type(sharpId2)
+		 * .getPasswordField().type(password2)
+		 * .getLoginButton().click(BPHomeP::new).get();
+		 * 
+		 * bpHomeP.getBPLogo().waitForImage();;
+		 * 
+		 * softAssert.assertTrue(bpHomeP.getXpathPartBanner().waitForImage(title).
+		 * verifyImage(), "[Falla Assert - no encuentra banner");
+		 * 
+		 * bpHomeP.getExitButton().click();
+		 */
 	}
+
 }

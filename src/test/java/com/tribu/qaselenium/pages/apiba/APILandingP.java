@@ -8,6 +8,7 @@ public class APILandingP extends BasePO<APILandingP> {
 
 	private final String pageUrl = "https://api-beerambassador-dev.somosmaz.com/";
 	private By loginButton = By.xpath("//a[@href='/user/login']");
+	
 
 	public APILandingP getLoginButton() {
 		this.locator = loginButton;

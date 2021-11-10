@@ -53,9 +53,8 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By mainImage = By.xpath("//html//input[contains(@id,'edit-field-image-0-upload')]");
 	private By previewMainImage = By
 			.xpath("/html//div[contains(@id,'ajax-wrapper')]//img[@data-drupal-selector='edit-field-image-0-preview']");
-	private By previewHighLImage = By
-			.xpath("/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//img");
-	
+	private By previewHighLImage = By.xpath("/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//img");
+
 	private By mainImageIcon = By.xpath("//img[contains(@src,'diversidad') and contains(@src,'.jpg')]");
 	private By highLImage = By.xpath("/html//input[@id='edit-field-imagen-destacada-0-upload']");
 	private By miniImage = By.xpath("/html//input[@id='edit-field-imagen-miniatura-0-upload']");
@@ -77,7 +76,7 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By direccion = By.xpath("/html//input[@id='edit-field-direccion-0-value']");
 	private By date = By.xpath("/html//input[@id='edit-field-fecha-0-value-date']");
 	private By phone = By.xpath("/html//input[@id='edit-field-telefono-0-value']");
-	
+
 	private By socialUrl = By.xpath("//input[@name='field_referencia_social[0][subform][field_social_url][0][uri]']");
 	private By socialUrlText = By
 			.xpath("//input[@name='field_referencia_social[0][subform][field_social_url][0][title]']");
@@ -92,7 +91,26 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By published = By.xpath("//input[@id='edit-status-value']");
 	private By extLink = By.xpath("/html//input[@id='edit-field-enlace-externo-0-uri']");
 	private By textExtLink = By.xpath("/html//input[@id='edit-field-enlace-externo-0-title']");
-//	
+	private By diversityFocus = By.xpath("/html//input[@id='edit-field-section-0-target-id']");
+	private By alterTextHLImg = By.xpath(
+			"/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//input[@name='field_imagen_destacada[0][alt]']");
+	private By titleHLImg = By.xpath("/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//input[@name='field_imagen_destacada[0][title]']");
+
+	public APICreateContentP getAlterTextHLImg() {
+		this.locator = alterTextHLImg;
+		return this;
+	}
+
+	public APICreateContentP getTitleHLImg() {
+		this.locator = titleHLImg;
+		return this;
+	}
+
+	public APICreateContentP getDiversityFocus() {
+		this.locator = diversityFocus;
+		return this;
+	}
+
 	public APICreateContentP getTextExtLink() {
 		this.locator = textExtLink;
 		return this;
@@ -257,7 +275,7 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 		this.locator = highLImage;
 		return this;
 	}
-	
+
 	public APICreateContentP getPreviewHighLImage() {
 		this.locator = previewHighLImage;
 		return this;

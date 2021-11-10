@@ -23,6 +23,13 @@ public class APIHomeP extends BasePO<APIHomeP> {
 	private By addLinkList = By.xpath("//div/ul[@class='toolbar-menu']//a[@href='/node/add/content']");
 	private By addBrandRef = By.xpath("//div/ul[@class='toolbar-menu']//a[@href='/node/add/referencia_marca']");
 	private By addVideo = By.xpath("//div/ul[@class='toolbar-menu']//a[@href='/node/add/video']");
+	private By configurationButton = By
+			.xpath("//nav[@role='navigation']/div[@class='toolbar-menu-administration']/ul//a[@href='/admin/config']");
+
+	public APIHomeP getConfigurationButton() {
+		this.locator = configurationButton;
+		return this;
+	}
 
 	public APIHomeP getTitle() {
 		this.locator = title;
