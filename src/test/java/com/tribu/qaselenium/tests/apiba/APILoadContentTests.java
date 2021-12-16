@@ -2,7 +2,9 @@ package com.tribu.qaselenium.tests.apiba;
 
 import java.io.File;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -104,14 +106,21 @@ public class APILoadContentTests extends TestBase {
 	String diversityFocus;
 	String titleHLImg;
 	String alterTextHLImg;
+	String ficha1;
+	String ficha2;
+	String ficha3;
+	String banner1;
+	String banner2;
+	String banner3;
+	String tarjeta1;
+	String tarjeta2;
 
 	BiFunction<String, String, APIHomeP> apiLogin = (s, p) -> {
 		log.info("Login to API Beer Ambassador");
 		apiLandingP = openUrl(APILandingP::new).get();
 		apiLoginP = apiLandingP.getLoginButton().click(APILoginP::new).get();
-		return apiLoginP.getSharpIdField().type(s)
-				.getPasswordField().type(p)
-				.getLoginButton().click(APIHomeP::new).get();
+		return apiLoginP.getSharpIdField().type(s).getPasswordField().type(p).getLoginButton().click(APIHomeP::new)
+				.get();
 	};
 
 	BiFunction<String, String, BPHomeP> bpLogin = (s, p) -> {
@@ -119,113 +128,147 @@ public class APILoadContentTests extends TestBase {
 		log.info("Login to Beer Passion");
 		ssoLandingP = bpLandingP.getLoginButton().click(SSOLandingP::new).get();
 		ssoLoginP = ssoLandingP.getSharpIdButton().click(SSOLoginP::new).get();
-		return ssoLoginP.getSharpIdField().type(s)
-				.getPasswordField().type(p)
-				.getLoginButton().click(BPHomeP::new).get();
+		return ssoLoginP.getSharpIdField().type(s).getPasswordField().type(p).getLoginButton().click(BPHomeP::new)
+				.get();
 	};
 
 	Consumer<APIHomeP> cleanAPICache = (apiHomeP) -> {
 		log.info("Cleaning API cache");
 		apiConfigurationP = apiHomeP.getConfigurationButton().click(APIConfigurationP::new).get();
-		apiConfigurationP.getPerformance().click()
-		.getClearCache().click();
+		apiConfigurationP.getPerformance().click().getClearCache().click();
 	};
 
-	@Test(dataProvider = "csvReaderMapList", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
+	@Test(dataProvider = "csvReaderCredentials", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
 			"loadContent" })
-	public void loadContent(Method method, List<Map<String, String>> dataList) {
+	public void loadContent(Method method, Map<String, String> dataList) {
 		log.info("loadMethod");
 		SoftAssert softAssert = new SoftAssert();
-
-		String lastSharpId1 = "";
-		String lastPassword1 = "";
+		sharpId1 = dataList.get("sharpId1");
+		password1 = dataList.get("password1");
 		String infographicTitle = null;
+		
+		// list for store multiple content type ficha
+		List<String> fichaList = new ArrayList<String>();
+		Iterator<String> fichaListIterator = null;
+		String fichaTitle;
 
-		for (Map<String, String> testData : dataList) {
+		// list for store multiple content type banner
+		List<String> bannerList = new ArrayList<String>();
+		Iterator<String> bannerListIterator = null;
+		String bannerTitle;
+
+		// list for store multiple content type tarjeta
+		List<String> tarjetaList = new ArrayList<String>();
+		Iterator<String> tarjetaListIterator = null;
+		String tarjetaTitle;
+
+		/* load content file */
+		String pathName1 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+				+ File.separator + "resources" + File.separator + "APILoadContentTests" + File.separator
+				+ "dataproviders" + File.separator + "loadContent.csv";
+
+		/* login */
+		apiHomeP = apiLogin.apply(sharpId1, password1);
+		// cleanAPICache.accept(apiHomeP);
+
+		softAssert.assertTrue(apiHomeP.getMenuContentButton().isDisplayed(),
+				"[Falla Assert - no encuentra boton de contenido");
+
+		//read csv data file
+		Iterator<Map<String, String>> dataSet;
+		dataSet = csvReader(pathName1);
+		
+		while (dataSet.hasNext()) {
+
+			Map<String, String> dataMap = dataSet.next();
 
 			// content variables
-			title = testData.get("title");
-			video = testData.get("addVideo");
-			frame = testData.get("frame");
-			multimediaContent = testData.get("multimediaContent");
-			country = testData.get("country");
-			miniImage = testData.get("miniImage");
-			mainImage = testData.get("mainImage");
-			brand = testData.get("brand");
-			refAtributeTitle = testData.get("refAtributeTitle");
-			refAtributeValue = testData.get("refAtributeValue");
-			refAtributeTitleDescription = testData.get("refAtributeTitleDescription");
-			refAtributeIcon = testData.get("refAtributeIcon");
-			refAtributeDescription = testData.get("refAtributeDescription");
-			socialIcon = testData.get("socialIcon");
-			socialUrl = testData.get("socialUrl");
-			socialUrlText = testData.get("socialUrlText");
-			column = testData.get("column");
-			columnItem = testData.get("columnItem");
-			link = testData.get("link");
-			section = testData.get("section");
-			hubCategoryItem = testData.get("hubCategoryItem");
-			highLImage = testData.get("highLImage");
-			articleType = testData.get("articleType");
-			articleTypeItem = testData.get("articleTypeItem");
-			autor = testData.get("autor");
-			wellnessPillar = testData.get("wellnessPillar");
-			direccion = testData.get("direccion");
-			date = testData.get("date");
-			information = testData.get("information");
-			textLink = testData.get("textLink");
-			phone = testData.get("phone");
-			subtitle = testData.get("subtitle");
-			contentTitle = testData.get("contentTitle");
-			published = testData.get("published");
-			guardar = testData.get("guardar");
-			focoName = testData.get("focoName");
-			focoRelations = testData.get("focoRelations");
-			focoRelationsItem = testData.get("focoRelationsItem");
-			focoRelationsWeight = testData.get("focoRelationsWeight");
-			focoUrlAlias = testData.get("focoUrlAlias");
-			sharpId1 = testData.get("sharpId1");
-			password1 = testData.get("password1");
-			expectedMessage1 = testData.get("expectedMessage1");
-			expectedMessage2 = testData.get("expectedMessage2");
-			testDescription = testData.get("testDescription");
-			extLink = testData.get("extLink");
-			textExtLink = testData.get("textExtLink");
-			diversityFocus = testData.get("diversityFocus");
-			titleHLImg = testData.get("titleHLImg");
-			alterTextHLImg = testData.get("alterTextHLImg");
+			title = dataMap.get("title");
+			video = dataMap.get("addVideo");
+			frame = dataMap.get("frame");
+			multimediaContent = dataMap.get("multimediaContent");
+			country = dataMap.get("country");
+			miniImage = dataMap.get("miniImage");
+			mainImage = dataMap.get("mainImage");
+			brand = dataMap.get("brand");
+			refAtributeTitle = dataMap.get("refAtributeTitle");
+			refAtributeValue = dataMap.get("refAtributeValue");
+			refAtributeTitleDescription = dataMap.get("refAtributeTitleDescription");
+			refAtributeIcon = dataMap.get("refAtributeIcon");
+			refAtributeDescription = dataMap.get("refAtributeDescription");
+			socialIcon = dataMap.get("socialIcon");
+			socialUrl = dataMap.get("socialUrl");
+			socialUrlText = dataMap.get("socialUrlText");
+			column = dataMap.get("column");
+			columnItem = dataMap.get("columnItem");
+			link = dataMap.get("link");
+			section = dataMap.get("section");
+			hubCategoryItem = dataMap.get("hubCategoryItem");
+			highLImage = dataMap.get("highLImage");
+			articleType = dataMap.get("articleType");
+			articleTypeItem = dataMap.get("articleTypeItem");
+			autor = dataMap.get("autor");
+			wellnessPillar = dataMap.get("wellnessPillar");
+			direccion = dataMap.get("direccion");
+			date = dataMap.get("date");
+			information = dataMap.get("information");
+			textLink = dataMap.get("textLink");
+			phone = dataMap.get("phone");
+			subtitle = dataMap.get("subtitle");
+			contentTitle = dataMap.get("contentTitle");
+			published = dataMap.get("published");
+			guardar = dataMap.get("guardar");
+			focoName = dataMap.get("focoName");
+			focoRelations = dataMap.get("focoRelations");
+			focoRelationsItem = dataMap.get("focoRelationsItem");
+			focoRelationsWeight = dataMap.get("focoRelationsWeight");
+			focoUrlAlias = dataMap.get("focoUrlAlias");
+			expectedMessage1 = dataMap.get("expectedMessage1");
+			expectedMessage2 = dataMap.get("expectedMessage2");
+			testDescription = dataMap.get("testDescription");
+			extLink = dataMap.get("extLink");
+			textExtLink = dataMap.get("textExtLink");
+			diversityFocus = dataMap.get("diversityFocus");
+			titleHLImg = dataMap.get("titleHLImg");
+			alterTextHLImg = dataMap.get("alterTextHLImg");
+			ficha1 = dataMap.get("ficha1");
+			ficha2 = dataMap.get("ficha2");
+			ficha3 = dataMap.get("ficha3");
+			banner1 = dataMap.get("banner1");
+			banner2 = dataMap.get("banner2");
+			banner3 = dataMap.get("banner3");
+			tarjeta1 = dataMap.get("tarjeta1");
+			tarjeta2 = dataMap.get("tarjeta2");
 
+			log.info("Creating content = * " + dataMap.get("contentType") + " *");
+
+			apiCreateContentP = apiHomeP.getMenuContentButton().hoverElement().getAddContentButton()
+					.click(APICreateContentP::new).get();
+			
 			/* path for mainImage */
 			String dirMainImg = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 					+ File.separator + "resources" + File.separator + "images" + File.separator
 					+ method.getDeclaringClass().getSimpleName() + File.separator + mainImage;
+			
+			/* path for miniImage */
+			String dirMiniImg = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+					+ File.separator + "resources" + File.separator + "images" + File.separator
+					+ method.getDeclaringClass().getSimpleName() + File.separator + miniImage;
 
 			/* path for highLightImg */
 			String dirHLImg = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 					+ File.separator + "resources" + File.separator + "images" + File.separator
 					+ method.getDeclaringClass().getSimpleName() + File.separator + highLImage;
 
-			if (!sharpId1.equals(lastSharpId1) || !password1.equals(lastPassword1)) {
-
-				/* login */
-				apiHomeP = apiLogin.apply(sharpId1, password1);
-				lastSharpId1 = sharpId1;
-				lastPassword1 = password1;
-				// cleanAPICache.accept(apiHomeP);
-				softAssert.assertTrue(apiHomeP.getMenuContentButton().isDisplayed(),
-						"[Falla Assert - no encuentra boton de contenido");
-			}
-
-			log.info("Creating content = * " + testData.get("contentType") + " *");
-
-			apiCreateContentP = apiHomeP.getMenuContentButton().hoverElement().getAddContentButton()
-					.click(APICreateContentP::new).get();
-
-			switch (testData.get("contentType")) {
+			switch (dataMap.get("contentType")) {
 
 			case "banner":
+				//store multiple content type banner in a list
+				bannerTitle = title + getTodaysDate() + getSystemTime();
+				bannerList.add(bannerTitle);
+
 				apiCreateContentP.getAddBannerButton().click()
-								.getTitle().type(title + getTodaysDate() + getSystemTime())
+								.getTitle().type(bannerTitle)
 								.getFrame().swichToFrame()
 								.getBody().type(frame)
 								.swichToMain()
@@ -244,8 +287,8 @@ public class APILoadContentTests extends TestBase {
 
 			case "bienestarEventos":
 
-				apiCreateContentP.getAddWellnessEventButton().click().getTitle()
-								.type(title + getTodaysDate() + getSystemTime())
+				apiCreateContentP.getAddWellnessEventButton().click()
+								.getTitle().type(title + getTodaysDate() + getSystemTime())
 								.getFrame().swichToFrame()
 								.getBody().type(frame)
 								.swichToMain()
@@ -268,9 +311,61 @@ public class APILoadContentTests extends TestBase {
 						"doesn't contain the expected message: \"" + expectedMessage1 + "\"");
 
 				break;
+				
+			case "ficha":
+				//store multiple content type ficha in a list
+				fichaTitle = title + getTodaysDate() + getSystemTime();
+				fichaList.add(fichaTitle);
 
+				apiCreateContentP.getAddFichaButton().click()
+								.getTitle().type(fichaTitle)
+								.getFrame().swichToFrame()
+								.getBody().type(frame)
+								.swichToMain()
+								.getMiniImage().type(dirMiniImg)
+								.getPreviewMiniLImage().waitForImage()
+								.getMultimediaContent().type(infographicTitle)
+								.getCountry().type(country)
+								.getSaveButton().click();
+				
+				softAssert.assertTrue(apiCreateContentP.getMessageCreation().contains(expectedMessage1),
+						"doesn't contain the expected message: \"" + expectedMessage1 + "\"");	
+				break;
+
+			case "tarjeta":
+				//store multiple content type tarjeta in a list
+				tarjetaTitle = title + getTodaysDate() + getSystemTime();
+				tarjetaList.add(tarjetaTitle);
+
+				fichaListIterator = fichaList.iterator();
+				bannerListIterator =  bannerList.iterator();
+				
+				apiCreateContentP.getAddTarjetaButton().click()
+								.getTitle().type(tarjetaTitle)
+								.getHighLImage().type(dirHLImg)
+								.getPreviewHighLImage().waitForImage()
+								.getCountry().type(country)
+								.getFicha1Tarjeta().type(fichaListIterator.next())
+								.getAddFichaToTarjetaButton().click()
+								.getFicha2Tarjeta().type(fichaListIterator.next())
+								.getAddFichaToTarjetaButton().click()
+								.getFicha3Tarjeta().type(fichaListIterator.next())
+								.getBanner1Tarjeta().type(bannerListIterator.next())
+								.getAddBannerToTarjetaButton().click()
+								.getBanner2Tarjeta().type(bannerListIterator.next())
+								.getAddBannerToTarjetaButton().click()
+								.getBanner3Tarjeta().type(bannerListIterator.next())
+								.getSaveButton().click();
+				
+				softAssert.assertTrue(apiCreateContentP.getMessageCreation().contains(expectedMessage1),
+						"doesn't contain the expected message: \"" + expectedMessage1 + "\"");
+				break;
+				
 			case "bienestarPilares":
-
+				
+				tarjetaListIterator =  tarjetaList.iterator();
+				bannerListIterator =  bannerList.iterator();
+				
 				apiCreateContentP.getAddWellnessPillarButton().click()
 								.getTitle().type(title + getTodaysDate() + getSystemTime()).getHighLImage().type(dirMainImg)
 								.getPreviewHighLImage().waitForImage()
@@ -285,8 +380,15 @@ public class APILoadContentTests extends TestBase {
 								.getMultimediaContent().type(infographicTitle)
 								.getCountry().type(country)
 								.getLink().type(link)
-								.getTextLink()
-								.type(textLink)
+								.getTextLink().type(textLink)
+								.getBanner1Pilar().type(bannerListIterator.next())
+								.getAddBannerToPilarButton().click()
+								.getBanner2Pilar().type(bannerListIterator.next())
+								.getAddBannerToPilarButton().click()
+								.getBanner3Pilar().type(bannerListIterator.next())
+								.getTarjeta1Pilar().type(tarjetaListIterator.next())
+								.getAddTarjetaToPilarButton().click()
+								.getTarjeta2Pilar().type(tarjetaListIterator.next())
 								.getSaveButton().click();
 
 				softAssert.assertTrue(apiCreateContentP.getMessageCreation().contains(expectedMessage1),
@@ -393,11 +495,10 @@ public class APILoadContentTests extends TestBase {
 
 				break;
 			default:
-				log.info("new content type = " + testData.get("contentType"));
+				log.info("new content type = " + dataMap.get("contentType"));
 				break;
 			}
 		}
 		softAssert.assertAll();
 	}
-
 }

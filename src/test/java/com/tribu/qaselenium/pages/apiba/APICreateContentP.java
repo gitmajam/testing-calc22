@@ -12,30 +12,34 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By saveButton = By.xpath("//input[@id='edit-submit']");
 	private By messageCreation = By.xpath(
 			"/html//div[@id='page']/div[@class='highlighted']/aside[@role='complementary']//div[@role='contentinfo']");
-	private By addArticleButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/article']/span[@class='label']");
-	private By addBannerButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/content_banner']/span[@class='label']");
-	private By addWellnessEventButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_eventos']/span[@class='label']");
-	private By addWellnessPillarButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_pilares']/span[@class='label']");
+	private By addArticleButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/article']");
+	private By addBannerButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/content_banner']");
+	private By addWellnessEventButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_eventos']");
+	private By addWellnessPillarButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_pilares']");
 	private By addWellnessProgramsButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_programas']/span[@class='label']");
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/bienestar_programas']");
 	private By addDiversityArticleButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/diversidad_articulos']/span[@class='label']");
-	private By addGalleryButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/galeria']/span[@class='label']");
-	private By addHubAppButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/hub']/span[@class='label']");
-	private By addInfograPhicButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/infografia']/span[@class='label']");
-	private By addLinkListButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/content']/span[@class='label']");
-	private By addBrandRefButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/referencia_marca']/span[@class='label']");
-	private By addVideoButton = By.xpath(
-			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/video']/span[@class='label']");
+			"//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/diversidad_articulos']");
+	private By addGalleryButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/galeria']");
+	private By addHubAppButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/hub']");
+	private By addInfograPhicButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/infografia']");
+	private By addLinkListButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/content']");
+	private By addBrandRefButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/referencia_marca']");
+	private By addVideoButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/video']");
+	private By addFichaButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/ficha']");
+	private By addTarjetaButton = By
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/tarjeta']");
 
 	// content variables
 	private By brand = By.xpath("/html//input[@id='edit-field-marca-0-target-id']");
@@ -54,6 +58,7 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By previewMainImage = By
 			.xpath("/html//div[contains(@id,'ajax-wrapper')]//img[@data-drupal-selector='edit-field-image-0-preview']");
 	private By previewHighLImage = By.xpath("/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//img");
+	private By previewMiniLImage = By.xpath("/html//div/div/div//div/div//img");
 
 	private By mainImageIcon = By.xpath("//img[contains(@src,'diversidad') and contains(@src,'.jpg')]");
 	private By highLImage = By.xpath("/html//input[@id='edit-field-imagen-destacada-0-upload']");
@@ -94,7 +99,114 @@ public class APICreateContentP extends BasePO<APICreateContentP> {
 	private By diversityFocus = By.xpath("/html//input[@id='edit-field-section-0-target-id']");
 	private By alterTextHLImg = By.xpath(
 			"/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//input[@name='field_imagen_destacada[0][alt]']");
-	private By titleHLImg = By.xpath("/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//input[@name='field_imagen_destacada[0][title]']");
+	private By titleHLImg = By.xpath(
+			"/html//div[@id='edit-field-imagen-destacada-wrapper']/div/div//input[@name='field_imagen_destacada[0][title]']");
+
+	private By ficha1Tarjeta = By.xpath("/html//form//table//tr[1]//input[contains(@id,'ficha')]");
+	private By ficha2Tarjeta = By.xpath("/html//form//table//tr[2]//input[contains(@id,'ficha')]");
+	private By ficha3Tarjeta = By.xpath("/html//form//table//tr[3]//input[contains(@id,'ficha')]");
+	private By addFichaToTarjetaButton = By.xpath("/html//form//div/div[3]/input[contains(@id,'ficha')]");
+	private By banner1Tarjeta = By.xpath("/html//form//table//tr[1]//input[contains(@id,'banner')]");
+	private By banner2Tarjeta = By.xpath("/html//form//table//tr[2]//input[contains(@id,'banner')]");
+	private By banner3Tarjeta = By.xpath("/html//form//table//tr[3]//input[contains(@id,'banner')]");
+	private By addBannerToTarjetaButton = By.xpath("/html//form//div/div[3]/input[contains(@id,'banner')]");
+	private By banner1Pilar = By.xpath("/html//form//table//tr[1]//input[contains(@id,'banner')]");
+	private By banner2Pilar = By.xpath("/html//form//table//tr[2]//input[contains(@id,'banner')]");
+	private By banner3Pilar = By.xpath("/html//form//table//tr[3]//input[contains(@id,'banner')]");
+	private By addBannerToPilarButton = By.xpath("/html//form//div/div[3]/input[contains(@id,'banner')]");
+	private By tarjeta1Pilar = By.xpath("/html//form//table//tr[1]//input[contains(@id,'tarjeta')]");
+	private By tarjeta2Pilar = By.xpath("/html//form//table//tr[2]//input[contains(@id,'tarjeta')]");
+	private By addTarjetaToPilarButton = By.xpath("/html//form//div/div[3]/input[contains(@id,'tarjeta')]");
+
+	public APICreateContentP getFicha1Tarjeta() {
+		this.locator = ficha1Tarjeta;
+		return this;
+	}
+
+	public APICreateContentP getFicha2Tarjeta() {
+		this.locator = ficha2Tarjeta;
+		return this;
+	}
+
+	public APICreateContentP getFicha3Tarjeta() {
+		this.locator = ficha3Tarjeta;
+		return this;
+	}
+
+	public APICreateContentP getBanner1Tarjeta() {
+		this.locator = banner1Tarjeta;
+		return this;
+	}
+
+	public APICreateContentP getBanner2Tarjeta() {
+		this.locator = banner2Tarjeta;
+		return this;
+	}
+
+	public APICreateContentP getBanner3Tarjeta() {
+		this.locator = banner3Tarjeta;
+		return this;
+	}
+
+	public APICreateContentP getBanner1Pilar() {
+		this.locator = banner1Pilar;
+		return this;
+	}
+
+	public APICreateContentP getBanner2Pilar() {
+		this.locator = banner2Pilar;
+		return this;
+	}
+
+	public APICreateContentP getBanner3Pilar() {
+		this.locator = banner3Pilar;
+		return this;
+	}
+
+	public APICreateContentP getAddBannerToPilarButton() {
+		this.locator = addBannerToPilarButton;
+		return this;
+	}
+
+	public APICreateContentP getTarjeta1Pilar() {
+		this.locator = tarjeta1Pilar;
+		return this;
+	}
+
+	public APICreateContentP getTarjeta2Pilar() {
+		this.locator = tarjeta2Pilar;
+		return this;
+	}
+
+	public APICreateContentP getAddTarjetaToPilarButton() {
+		this.locator = addTarjetaToPilarButton;
+		return this;
+	}
+
+	public APICreateContentP getAddFichaToTarjetaButton() {
+		this.locator = addFichaToTarjetaButton;
+		return this;
+	}
+
+	public APICreateContentP getAddBannerToTarjetaButton() {
+		this.locator = addBannerToTarjetaButton;
+		return this;
+	}
+
+	public APICreateContentP getPreviewMiniLImage() {
+		this.locator = previewMiniLImage;
+		return this;
+	}
+
+	public APICreateContentP getAddFichaButton() {
+		this.locator = addFichaButton;
+		return this;
+	}
+
+	public APICreateContentP getAddTarjetaButton() {
+		this.locator = addTarjetaButton;
+		return this;
+	}
 
 	public APICreateContentP getAlterTextHLImg() {
 		this.locator = alterTextHLImg;

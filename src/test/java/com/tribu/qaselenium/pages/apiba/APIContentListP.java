@@ -17,8 +17,7 @@ public class APIContentListP extends BasePO<APIContentListP> {
 			"//form[@id='views-form-content-page-1']/table/tbody/tr[1]/td[@class='views-field views-field-title']");
 	private By actionSelect = By.xpath("/html//select[@id='edit-action']");
 	private By actionDeleteItem = By.xpath("/html//select[@id='edit-action']/option[@value='node_delete_action']");
-	private By selectItemCheck = By
-			.xpath("//tbody/tr[1]//input[@type='checkbox']");
+	private By selectItemCheck = By.xpath("//tbody/tr[1]//input[@type='checkbox']");
 	private By applyAction = By.xpath("/html//input[@id='edit-submit--2']");
 	private By deleteButton = By.xpath("/html//input[@id='edit-submit']");
 	private By contentTypeFilter = By.xpath("/html//select[@id='edit-type']");
@@ -36,6 +35,13 @@ public class APIContentListP extends BasePO<APIContentListP> {
 	private By videoFilter = By.xpath("/html//select[@id='edit-type']/option[@value='video']");
 	private By actionMessage = By
 			.xpath("/html/body//main[@role='main']/div[@class='region region-highlighted']/div[2]/div[1]");
+	private By selectAllCheck = By.xpath(
+			"/html//form[@id='views-form-content-page-1']/table//input[@title='Seleccionar todas las filas de esta tabla']");
+
+	public APIContentListP getSelectAllCheck() {
+		this.locator = selectAllCheck;
+		return this;
+	}
 
 	public APIContentListP getProfileMenuButton() {
 		this.locator = profileMenuButton;

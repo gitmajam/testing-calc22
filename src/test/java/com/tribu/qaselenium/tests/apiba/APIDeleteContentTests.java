@@ -1,6 +1,9 @@
 package com.tribu.qaselenium.tests.apiba;
 
+import java.io.File;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
@@ -35,14 +38,14 @@ public class APIDeleteContentTests extends TestBase {
 	String actualSuccessMessage;
 
 	// content variables
-	
-	String title;
+
 	String sharpId1;
 	String password1;
 	String expectedMessage1;
 	String expectedMessage2;
 	String testDescription;
-
+	String userId;
+	String email;
 
 	BiFunction<String, String, APIHomeP> apiLogin = (s, p) -> {
 		apiLandingP = openUrl(APILandingP::new).get();
@@ -51,52 +54,36 @@ public class APIDeleteContentTests extends TestBase {
 				.get();
 	};
 
-
-	@Test(dataProvider = "csvReaderMapList", dataProviderClass = CsvDataProviders.class, dependsOnGroups = {
-			"loadContent" }, groups = { "smoke", "deleteContent" })
-	public void deleteContent(Method method, List<Map<String, String>> dataList) {
+	@Test(dataProvider = "csvReaderCredentials", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
+			"deleteContent" })
+	public void deleteContent(Method method, Map<String, String> dataList) {
 		log.info("deleteMethod");
 		SoftAssert softAssert = new SoftAssert();
-		String lastSharpId1 = "";
-		String lastPassword1 = "";
+		sharpId1 = dataList.get("sharpId1");
+		password1 = dataList.get("password1");
+		expectedMessage2 = "Eliminado";
 
-		for (Map<String, String> testData : dataList) {
-			title = testData.get("title");
-			sharpId1 = testData.get("sharpId1");
-			password1 = testData.get("password1");
-			expectedMessage1 = testData.get("expectedMessage1");
-			expectedMessage2 = testData.get("expectedMessage2");
-			
-			if (!sharpId1.equals(lastSharpId1) || !password1.equals(lastPassword1) ) {
-				
-				/* login */
-				apiHomeP = apiLogin.apply(sharpId1, password1);
-				lastSharpId1 = sharpId1;
-				lastPassword1 = password1;
-				softAssert.assertTrue(apiHomeP.getMenuContentButton().isDisplayed(),
-						"[Falla Assert - no encuentra boton de contenido");
-			}
-			
-			log.info("Deleting content = * " + testData.get("contentType") + " *");
-			softAssert.assertTrue(apiHomeP.getMenuContentButton().isDisplayed(),
-					"[Falla Assert - no encuentra boton de contenido");
+		/* login */
+		apiHomeP = apiLogin.apply(sharpId1, password1);
+
+		softAssert.assertTrue(apiHomeP.getMenuContentButton().isDisplayed(),
+				"[Falla Assert - no encuentra boton de contenido");
 
 			apiContentListP = apiHomeP.getMenuContentButton().click(APIContentListP::new).get();
 
-			apiContentListP.getTitlefilterField().type(title + this.getTodaysDate())
+			apiContentListP.getTitlefilterField().type(this.getTodaysDate() + "-")
 			.getActionSelect().click()
 			.getActionDeleteItem().click()
 			.getActionSelect().click()
 			.getfilterButton().click()
-			.getSelectItemCheck().click()
+			.getSelectAllCheck().click()
 			.getApplyAction().click()
 			.getDeleteButton().click();
 
 			// Assertions
 			softAssert.assertTrue(apiContentListP.getActionMessage().contains(expectedMessage2),
 					"doesn't contain the expected message: \"" + expectedMessage2 + "\"");
+
 			softAssert.assertAll();
 		}
 	}
-
-}

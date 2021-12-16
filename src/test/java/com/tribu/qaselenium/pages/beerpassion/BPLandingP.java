@@ -3,9 +3,10 @@ package com.tribu.qaselenium.pages.beerpassion;
 import org.openqa.selenium.By;
 
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
+import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 
 public class BPLandingP extends BasePO<BPLandingP> {
-	private String pageUrl = "https://beerpassionperu-dev.somosmaz.com/";
+	private String pageUrl = PropertiesFile.getProperties(PropertiesFile.getProperties("env") + "_bp_url");
 
 	private By loginButton = By
 			.xpath("/html//div[@id='root']/div[@class='main-pe']//button[@class='btn login-without btn-secondary']");
