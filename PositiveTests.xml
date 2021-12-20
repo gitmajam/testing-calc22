@@ -11,10 +11,14 @@
 			</run>
 		</groups>
 		<classes>
-			<class
-				name="com.tribu.qaselenium.tests.apiba.APILoadContentTests" />
+		<!-- 	<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MACreateCourseTests" /> -->
 				<class
-				name="com.tribu.qaselenium.tests.apiba.APIDeleteContentTests" />
+				name="com.tribu.qaselenium.tests.mazaprendo.MAAssingCourseTests" />
+			<!-- 	<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" /> -->
+				<!-- <class
+				name="com.tribu.qaselenium.tests.mazaprendo.MADeleteContentTests" /> -->
 		</classes>
 	</test>
 </suite>
