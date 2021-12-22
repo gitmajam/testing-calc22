@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.tribu.qaselenium.pages.mazaprendo.MAContentListP;
+import com.tribu.qaselenium.pages.mazaprendo.MACourseP;
 import com.tribu.qaselenium.pages.mazaprendo.MAHomeP;
 import com.tribu.qaselenium.pages.mazaprendo.MALandingP;
 import com.tribu.qaselenium.pages.sso.SSOLandingP;
@@ -23,7 +24,7 @@ public class MAPerformCourseTests extends TestBase {
 	// page variables
 	MALandingP maLandingP;
 	MAHomeP maHomeP;
-	MAContentListP maContentListP;
+	MACourseP maCourseP;
 
 	SSOLandingP ssoLandingP;
 	SSOLoginP ssoLoginP;
@@ -33,8 +34,8 @@ public class MAPerformCourseTests extends TestBase {
 
 	// content variables
 
-	String sharpId1;
-	String password1;
+	String sharpId2;
+	String password2;
 	String expectedMessage1;
 	String expectedMessage2;
 	String testDescription;
@@ -54,33 +55,27 @@ public class MAPerformCourseTests extends TestBase {
 
 	@Test(dataProvider = "csvReaderCredentials", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
 			"deleteContent" })
-	public void deleteContent(Method method, Map<String, String> dataList) {
+	public void performCourse(Method method, Map<String, String> dataList) {
 		log.info("deleteMethod");
 		SoftAssert softAssert = new SoftAssert();
-		sharpId1 = dataList.get("sharpId1");
-		password1 = dataList.get("password1");
+		sharpId2 = dataList.get("sharpId2");
+		password2 = dataList.get("password2");
 		expectedMessage2 = "Eliminado";
 
 		/* login */
-		maHomeP = maLogin.apply(sharpId1, password1);
+		maHomeP = maLogin.apply(sharpId2, password2);
 
-		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
-				"[Falla Assert - no encuentra boton de contenido");
+		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
+				"[Falla Assert - no encuentra logo");
 
-			maContentListP = maHomeP.getMenuContentButton().click(MAContentListP::new).get();
+		maCourseP = maHomeP.getPlayCourseButton().click(MACourseP::new).get();
 
-			maContentListP.getTitlefilterField().type(this.getTodaysDate() + "-")
-			.getActionSelect().click()
-			.getActionDeleteItem().click()
-			.getActionSelect().click()
-			.getfilterButton().click()
-			.getSelectAllCheck().click()
-			.getApplyAction().click()
-			.getDeleteButton().click();
-
-			// Assertions
-			softAssert.assertTrue(maContentListP.getActionMessage().contains(expectedMessage2),
-					"doesn't contain the expected message: \"" + expectedMessage2 + "\"");
+		/*
+		 * // Assertions
+		 * softAssert.assertTrue(maContentListP.getActionMessage().contains(
+		 * expectedMessage2), "doesn't contain the expected message: \"" +
+		 * expectedMessage2 + "\"");
+		 */
 
 			softAssert.assertAll();
 		}

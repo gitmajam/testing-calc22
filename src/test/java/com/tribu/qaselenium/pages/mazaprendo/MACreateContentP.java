@@ -44,8 +44,8 @@ public class MACreateContentP extends BasePO<MACreateContentP> {
 	private By orderInsideCourse = By.xpath("/html//input[@id='edit-field-orden-0-value']");
 	private By leccionType = By.xpath("/html//select[@id='edit-field-tipo']");
 	private By leccionInfogrphicItem = By.xpath("/html//select[@id='edit-field-tipo']/option[2]");
-	private By leccionVideoItem = By.xpath("/html//select[@id='edit-field-tipo']/option[2]");
-	private By leccionScormItem = By.xpath("/html//select[@id='edit-field-tipo']/option[2]");
+	private By leccionVideoItem = By.xpath("/html//select[@id='edit-field-tipo']/option[3]");
+	private By leccionScormItem = By.xpath("/html//select[@id='edit-field-tipo']/option[4]");
 	private By infographic = By.xpath("/html//input[@id='edit-field-infografia-0-upload']");
 	private By scorm = By.xpath("/html//input[@id='edit-field-scorm-0-upload']");
 	private By uploadingIcon = By.xpath("//div[@id='edit-field-scorm-0']//div[@class='throbber']");

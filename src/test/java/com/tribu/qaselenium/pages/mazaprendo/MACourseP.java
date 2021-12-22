@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 
-public class MAHomeP extends BasePO<MAHomeP> {
+public class MACourseP extends BasePO<MACourseP> {
 
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
@@ -26,92 +26,92 @@ public class MAHomeP extends BasePO<MAHomeP> {
 	private By reportButton = By.xpath("//button[@id='report-courses-button']/i");
 	private By playCourseButton = By.xpath("/html//div[@id='block-mazaprendotheme-content']/div[@class='content']//img[contains(@src,'Test-cover-image_1')]/following::i");
 	
-	public MAHomeP getPlayCourseButton() {
+	public MACourseP getPlayCourseButton() {
 		this.locator = playCourseButton;
 		return this;
 	}
 
-	public MAHomeP getAssingCoursesButton() {
+	public MACourseP getAssingCoursesButton() {
 		this.locator = assingCoursesButton;
 		return this;
 	}
 
-	public MAHomeP getReportButton() {
+	public MACourseP getReportButton() {
 		this.locator = reportButton;
 		return this;
 	}
 	
-	public MAHomeP getMenuContentButton() {
+	public MACourseP getMenuContentButton() {
 		this.locator = menuContentButton;
 		return this;
 	}
 
-	public MAHomeP getMenuStructureButton() {
+	public MACourseP getMenuStructureButton() {
 		this.locator = menuStructureButton;
 		return this;
 	}
 
-	public MAHomeP getMenuAparienciaButton() {
+	public MACourseP getMenuAparienciaButton() {
 		this.locator = menuAparienciaButton;
 		return this;
 	}
 
-	public MAHomeP getMenuAmpliarButton() {
+	public MACourseP getMenuAmpliarButton() {
 		this.locator = menuAmpliarButton;
 		return this;
 	}
 
-	public MAHomeP getMenuConfigurationButton() {
+	public MACourseP getMenuConfigurationButton() {
 		this.locator = menuConfigurationButton;
 		return this;
 	}
 
-	public MAHomeP getMenuUsersButton() {
+	public MACourseP getMenuUsersButton() {
 		this.locator = menuUsersButton;
 		return this;
 	}
 
-	public MAHomeP getMenuReportButton() {
+	public MACourseP getMenuReportButton() {
 		this.locator = menuReportButton;
 		return this;
 	}
 
-	public MAHomeP getMenuHelpButton() {
+	public MACourseP getMenuHelpButton() {
 		this.locator = menuHelpButton;
 		return this;
 	}
 
-	public MAHomeP getProfileButton() {
+	public MACourseP getProfileButton() {
 		this.locator = profileButton;
 		return this;
 	}
 
-	public MAHomeP getLearningButton() {
+	public MACourseP getLearningButton() {
 		this.locator = learningButton;
 		return this;
 	}
 
-	public MAHomeP getAppLogo() {
+	public MACourseP getAppLogo() {
 		this.locator = appLogo;
 		return this;
 	}
 
-	public MAHomeP getTermsConditionsButton() {
+	public MACourseP getTermsConditionsButton() {
 		this.locator = termsConditionsButton;
 		return this;
 	}
 
-	public MAHomeP getSearchButton() {
+	public MACourseP getSearchButton() {
 		this.locator = searchButton;
 		return this;
 	}
 
-	public MAHomeP getSearchField() {
+	public MACourseP getSearchField() {
 		this.locator = searchField;
 		return this;
 	}
 
-	public MAHomeP getNumCursosText() {
+	public MACourseP getNumCursosText() {
 		this.locator = numCursosText;
 		return this;
 	}

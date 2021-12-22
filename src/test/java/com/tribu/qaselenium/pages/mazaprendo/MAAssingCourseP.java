@@ -7,6 +7,9 @@ import com.tribu.qaselenium.testframework.pagebase.BasePO;
 public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 
 	private String pageUrl = "https://mazaprendo-stage.somosmaz.com/admin/structure/maz_aprendo_admin_courses/create";
+	private String xpathPart1 = "/html//select[@id='edit-type']/option[contains(text(),";
+	private String xpathPart2 = "/html//select[@id='edit-type']/option[contains(text(),";
+
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
 	private By menuAparienciaButton = By.xpath("//div//a[@href='/admin/appearance']");
@@ -21,7 +24,7 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[@href='/admin/structure/maz_aprendo_admin_courses/edit']");
 	private By assingCourse = By.xpath(
 			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[@href='/admin/structure/maz_aprendo_admin_courses/assing']");
-	private By selectCourse = By.xpath("/html//select[@id='edit-type']/option[2]");
+	private By selectCourse = By.xpath("/html//select[@id='edit-type']");
 	private By selectCourseItem = By.xpath("/html//select[@id='edit-type']/option[contains(text(),'Test-Curso')]");
 	private By titleSonCourse = By.xpath("/html//input[@id='input-title']");
 	private By initEndDateCheck = By.xpath("/html//input[@id='input-date']");
@@ -31,8 +34,18 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 	private By selectAssingSonCourseItem = By
 			.xpath("/html//select[@id='edit-type']/option[contains(text(),'Test-Son-Curso')]");
 	private By initEndDateAssingCheck = By.xpath("/html//select[@id='edit-type']");
-	private By chooseAssingFileButton = By.xpath("/html//input[@id='input-excel']");
-
+	private By uploadAssingFile = By.xpath("/html//input[@id='input-excel']");
+	private By assignCourseButton = By.xpath("/html//input[@id='submit-save']");
+	private By regValidationText = By.xpath("/html//table[@id='success_table']//td[4]");
+	
+	public MAAssingCourseP getAssignCourseButton() {
+		this.locator = assignCourseButton;
+		return this;
+	}
+	public MAAssingCourseP getRegValidationText() {
+		this.locator = regValidationText;
+		return this;
+	}
 	public MAAssingCourseP getCreateCourse() {
 		this.locator = createCourse;
 		return this;
@@ -88,8 +101,8 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 		return this;
 	}
 
-	public MAAssingCourseP getChooseAssingFileButton() {
-		this.locator = chooseAssingFileButton;
+	public MAAssingCourseP getUploadAssingFile() {
+		this.locator = uploadAssingFile;
 		return this;
 	}
 
@@ -132,7 +145,20 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 		this.locator = menuHelpButton;
 		return this;
 	}
-
+	//part xpath
+	public MAAssingCourseP getXpathPart1(String locatorPart) {
+		this.xpathPart = xpathPart1;
+		By question = By.xpath(this.xpathPart + locatorPart);
+		this.locator = question;
+		return this;
+	}
+	
+	public MAAssingCourseP getXpathPart2(String locatorPart) {
+		this.xpathPart = xpathPart2;
+		By question = By.xpath(this.xpathPart + locatorPart);
+		this.locator = question;
+		return this;
+	}
 	@Override
 	public String getPageUrl() {
 		return pageUrl;

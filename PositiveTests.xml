@@ -11,14 +11,14 @@
 			</run>
 		</groups>
 		<classes>
-		<!-- 	<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MACreateCourseTests" /> -->
+			<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MACreateCourseTests" />
 				<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAAssingCourseTests" />
-			<!-- 	<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" /> -->
 				<!-- <class
-				name="com.tribu.qaselenium.tests.mazaprendo.MADeleteContentTests" /> -->
+				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" /> -->
+				<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" />
 		</classes>
 	</test>
 </suite>

@@ -53,11 +53,16 @@ public class MAAssingCourseTests extends TestBase {
 		SoftAssert softAssert = new SoftAssert();
 		String sharpId1 = dataList.get("sharpId1");
 		String password1 = dataList.get("password1");
+		String sonCourseTitle = "Test-Curso-Hijo" + getTodaysDate() + getSystemTime();
 
 		/* load content file */
 		String pathName1 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 				+ File.separator + "resources" + File.separator + "MACreateCourseTests" + File.separator
 				+ "dataproviders" + File.separator + "loadContent.csv";
+		
+		String pathName2 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+				+ File.separator + "resources" + File.separator + method.getDeclaringClass().getSimpleName() + File.separator
+				+ "Upload.xlsx";
 
 		/* login */
 		maHomeP = maLogin.apply(sharpId1, password1);
@@ -65,7 +70,9 @@ public class MAAssingCourseTests extends TestBase {
 		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
 				"[Falla Assert - no encuentra boton de contenido");
 
-		maAssingCourseP = openUrl(MAAssingCourseP::new).get();
+		maAssingCourseP = maHomeP.getAppLogo().click()
+				.getAssingCoursesButton().click(MAAssingCourseP::new).get();
+		//maAssingCourseP = openUrl(MAAssingCourseP::new).get();
 
 		// read csv data file
 		Iterator<Map<String, String>> dataSet;
@@ -75,18 +82,22 @@ public class MAAssingCourseTests extends TestBase {
 	
 			Map<String, String> dataMap = dataSet.next();
 			
-			
 			if (dataMap.get("contentType").equals("curso")) {
 				String title = dataMap.get("title");
 				log.info("titulo" + title + getTodaysDate());
 				maAssingCourseP.getCreateCourse().click()
-				.getSelectCourse().type(title + getTodaysDate())
-				.getTitleSonCourse().type("Test-Curso-Hijo")
-				.getInitEndDateCheck().click();
-// .getSaveCourseButton();
+				.getSelectCourse().click()
+				.getXpathPart1("'" + title + getTodaysDate() + "')]").click()
+				.getTitleSonCourse().type(sonCourseTitle);
+				maAssingCourseP.getSaveCourseButton().click()
+				.getSaveCourseButton().waitForNotVisivility()
+				.getAssingCourse().click()
+				.getXpathPart2("'" + sonCourseTitle + "')]").click()
+				.getUploadAssingFile().type(pathName2);
+				maAssingCourseP.getRegValidationText().waitForVisivility()
+				.getAssignCourseButton().click();
 			}
 		}
 		softAssert.assertAll();
-
 	}
 }

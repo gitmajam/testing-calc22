@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite data-provider-thread-count="5" name="Failed suite [PositiveLoginTestSuite]" guice-stage="DEVELOPMENT" verbose="5">
+  <listeners>
+    <listener class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter"/>
+  </listeners>
+  <test thread-count="5" name="APILoadContent(failed)" verbose="5">
+    <parameter name="browser" value="chrome"/>
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="performCourse" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests -->
+    </classes>
+  </test> <!-- APILoadContent(failed) -->
+</suite> <!-- Failed suite [PositiveLoginTestSuite] -->
