@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.tribu.qaselenium.pages.mazaprendo.MAContentListP;
-import com.tribu.qaselenium.pages.mazaprendo.MACourseP;
+import com.tribu.qaselenium.pages.mazaprendo.MAPerfomCourseP;
 import com.tribu.qaselenium.pages.mazaprendo.MAHomeP;
 import com.tribu.qaselenium.pages.mazaprendo.MALandingP;
 import com.tribu.qaselenium.pages.sso.SSOLandingP;
@@ -24,7 +24,7 @@ public class MAPerformCourseTests extends TestBase {
 	// page variables
 	MALandingP maLandingP;
 	MAHomeP maHomeP;
-	MACourseP maCourseP;
+	MAPerfomCourseP maPerformCourseP;
 
 	SSOLandingP ssoLandingP;
 	SSOLoginP ssoLoginP;
@@ -43,13 +43,12 @@ public class MAPerformCourseTests extends TestBase {
 	String email;
 
 	BiFunction<String, String, MAHomeP> maLogin = (s, p) -> {
-		//open an url with a delay
+		// open an url with a delay
 		maLandingP = openUrl(MALandingP::new, 2000).get();
 		ssoLandingP = maLandingP.getLoginButton().click(SSOLandingP::new).get();
 		ssoLoginP = ssoLandingP.getSharpIdButton().click(SSOLoginP::new).get();
-		maHomeP = ssoLoginP.getSharpIdField().type(s)
-				.getPasswordField().type(p)
-				.getLoginButton().click(MAHomeP::new).get();
+		maHomeP = ssoLoginP.getSharpIdField().type(s).getPasswordField().type(p).getLoginButton().click(MAHomeP::new)
+				.get();
 		return maHomeP;
 	};
 
@@ -61,22 +60,75 @@ public class MAPerformCourseTests extends TestBase {
 		sharpId2 = dataList.get("sharpId2");
 		password2 = dataList.get("password2");
 		expectedMessage2 = "Eliminado";
+		String leccion = null;
+		Boolean courseFinal = false;
 
 		/* login */
 		maHomeP = maLogin.apply(sharpId2, password2);
 
-		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
-				"[Falla Assert - no encuentra logo");
+		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(), "[Falla Assert - no encuentra logo");
 
-		maCourseP = maHomeP.getPlayCourseButton().click(MACourseP::new).get();
+		maPerformCourseP = maHomeP.getXpathPart1(getTodaysDate()).click(MAPerfomCourseP::new).get();
+		maPerformCourseP.getStartCourseButton().click();
 
-		/*
-		 * // Assertions
-		 * softAssert.assertTrue(maContentListP.getActionMessage().contains(
-		 * expectedMessage2), "doesn't contain the expected message: \"" +
-		 * expectedMessage2 + "\"");
-		 */
+		
 
-			softAssert.assertAll();
+
+
+		for (int i = 0; i < 3; i++) {
+			maPerformCourseP.swichToMain().swichToActiveElement().getContinuarPopupButton().click(5000);
+			leccion = maPerformCourseP.getLeccionTitle().waitForVisivility().getText().substring(0, 14);
+			log.info("Leccion : " + leccion);
+
+			switch (leccion) {
+			case "Test-leccion-1":
+				log.info("Leccion 1");
+				softAssert.assertTrue(maPerformCourseP.getCourseProgress().getText().equals("0%"), "it doesn't found 0%");
+				maPerformCourseP.getIFrame().swichToFrame() // get into iframe
+				.getFrame().swichToFrame() // get into sub frame
+				.getVideo().waitForVisivility(); // wait for ensure visivility of video element
+				// get duration and pass it as an argument to set currentTime to the final of
+				// the video
+				maPerformCourseP.getVideo().videoCurrentTime(maPerformCourseP.getVideo().videoDuration())
+						.getAceptarQuizButton().click(2000).getQuizAnswerA().click(2000).getNextQuizQuestion().click()
+						.getQuizAnswerC().click(2000).getNextQuizQuestion().click().getQuizAnswerB().click(2000)
+						.getNextQuizQuestion().click();
+
+				break;
+
+			case "Test-leccion-2":
+				log.info("Leccion 2");
+				softAssert.assertTrue(maPerformCourseP.getCourseProgress().getText().equals("30%"), "it doesn't found 30%");
+				maPerformCourseP.getIFrame().swichToFrame() 
+				.getFrame().swichToFrame() 
+				.getVideo().waitForVisivility();
+				maPerformCourseP.getVideo().videoCurrentTime(maPerformCourseP.getVideo().videoDuration())
+						.getAceptarQuizButton().click(2000).getQuizAnswerB().click(2000).getNextQuizQuestion().click()
+						.getQuizAnswerC().click(2000).getNextQuizQuestion().click().getQuizAnswerB().click(2000)
+						.getNextQuizQuestion().click();
+
+				break;
+
+			case "Test-leccion-3":
+				log.info("Leccion 3");
+				softAssert.assertTrue(maPerformCourseP.getCourseProgress().getText().equals("60%"), "it doesn't found 60%");
+				maPerformCourseP.getIFrame().swichToFrame()
+				.getFrame().swichToFrame()
+				.getVideo().waitForVisivility();
+				maPerformCourseP.getVideo().videoCurrentTime(maPerformCourseP.getVideo().videoDuration())
+						.getAceptarQuizButton().click(2000).getQuizAnswerB().click(2000).getNextQuizQuestion().click()
+						.getQuizAnswerC().click(2000).getNextQuizQuestion().click().getQuizAnswerB().click(2000)
+						.getNextQuizQuestion().click();
+
+				break;
+			}
 		}
+		maPerformCourseP.swichToMain().getNps10().click().getNpsComents()
+				.type("Comentario-Test-NPS" + getTodaysDate() + getSystemTime())
+				.getSendQuizButton().click();
+
+		softAssert.assertTrue(maPerformCourseP.getCourseProgress().getText().equals("100%"), "it doesn't found 100%");
+
+		softAssert.assertAll();
 	}
+}

@@ -1,8 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="PositiveLoginTestSuite" verbose="5"
 	data-provider-thread-count="5">
-	<listeners> <listener class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" 
-		/> </listeners>
+	<listeners>
+		<listener
+			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
+	</listeners>
 	<test name="APILoadContent" preserve-order="true"> <!-- parallel = "methods" -->
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
@@ -12,13 +14,15 @@
 		</groups>
 		<classes>
 			<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MAClearCacheTests" />
+			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MACreateCourseTests" />
-				<class
+			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAAssingCourseTests" />
-				<!-- <class
-				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" /> -->
-				<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" />
+			<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" />
+			<!-- <class name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" 
+				/> -->
 		</classes>
 	</test>
 </suite>
