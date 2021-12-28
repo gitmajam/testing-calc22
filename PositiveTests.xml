@@ -21,8 +21,8 @@
 				name="com.tribu.qaselenium.tests.mazaprendo.MAAssingCourseTests" />
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" />
-			<!-- <class name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" 
-				/> -->
+			<class name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" 
+				/>
 		</classes>
 	</test>
 </suite>

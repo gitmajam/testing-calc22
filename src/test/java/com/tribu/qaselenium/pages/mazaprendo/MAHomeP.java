@@ -7,7 +7,7 @@ import com.tribu.qaselenium.testframework.pagebase.BasePO;
 public class MAHomeP extends BasePO<MAHomeP> {
 
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
-	private String xpathPart1= "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'Test-curso";
+	private String xpathPart1= "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
 	
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");

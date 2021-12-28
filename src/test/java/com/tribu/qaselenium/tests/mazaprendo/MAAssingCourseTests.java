@@ -49,16 +49,16 @@ public class MAAssingCourseTests extends TestBase {
 	@Test(dataProvider = "csvReaderCredentials", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
 			"deleteContent" })
 	public void assingCourse(Method method, Map<String, String> dataList) {
-		log.info("deleteMethod");
+		log.info("assingCourse");
 		SoftAssert softAssert = new SoftAssert();
 		String sharpId1 = dataList.get("sharpId1");
 		String password1 = dataList.get("password1");
-		String sonCourseTitle = "Test-Curso-Hijo" + getTodaysDate() + getSystemTime();
+		String sonCourseTitle = "Test-curso-hijo" + getTodaysDate() + getSystemTime();
 
 		/* load content file */
 		String pathName1 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 				+ File.separator + "resources" + File.separator + "MACreateCourseTests" + File.separator
-				+ "dataproviders" + File.separator + "loadContent.csv";
+				+ "dataproviders" + File.separator + "MACreateCourseTests.csv";
 		
 		String pathName2 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 				+ File.separator + "resources" + File.separator + method.getDeclaringClass().getSimpleName() + File.separator

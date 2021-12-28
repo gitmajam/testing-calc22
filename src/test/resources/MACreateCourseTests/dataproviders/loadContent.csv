@@ -1,5 +1,0 @@
-todo,contentType,title,frame,description,duracion,bu,country,viceprecidency,coverImage,altCoverText,cursoPadre,ordenCurso,tipoLeccion,topic,infografia,scorm,expectedMessage1,expectedMessage2
-TRUE,curso,Test-curso,Test-frame-curso,Test-curso,30,,,,Test-cover-image.jpeg,Test-alt-text-cover-image,,,,Onboarding,,,se ha creado.,Eliminado
-TRUE,leccion,Test-leccion-1,Test-frame-leccion,Test-description-leccion1,10,,,,,,Test-curso,1,scorm,Onboarding,,coronita-1.zip,se ha creado.,Eliminado
-TRUE,leccion,Test-leccion-2,Test-frame-leccion,Test-description-leccion2,10,,,,,,Test-curso,2,scorm,Onboarding,,coronita-2.zip,se ha creado.,Eliminado
-TRUE,leccion,Test-leccion-3,Test-frame-leccion,Test-description-leccion3,10,,,,,,Test-curso,3,scorm,Onboarding,,coronita-3.zip,se ha creado.,Eliminado
