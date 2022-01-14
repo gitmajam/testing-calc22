@@ -28,6 +28,9 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 	private By playVideoButton = By.xpath("//body//button[@title = 'Play']");
 	private By pauseVideoButton = By.xpath("//body//button[@title = 'Pause']");
 	private By contentCourseList = By.xpath("//div[@id='collapseMenu']/ul[@class='list-unstyled ps-0']//i[@class='bi bi-caret-down-fill']");
+	private By lesson1Item = By.xpath("//div[@id='collapseMenu']/ul/li/div/ul/li[1]");
+	private By lesson2Item = By.xpath("//div[@id='collapseMenu']/ul/li/div/ul/li[2]");
+	private By lesson3Item = By.xpath("//div[@id='collapseMenu']/ul/li/div/ul/li[3]");
 	private By video = By.xpath("//video");
 	private By aceptarQuizButton = By.xpath("//body//div[5]/div");
 	private By quizAttemps = By.xpath("//body//div[4]//div/p/span/span");
@@ -41,7 +44,34 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 	private By CourseProgress = By.xpath("//div/section/div/div[2]/*[name()='svg']/*[name()='text']");
 	private By backQuizImg = By.xpath("//body/div/div/img");
 	private By leccionTitle = By.xpath("/html//div[@id='block-mazaprendotheme-content']/div/div[2]/section//h2");
+	private By seeVideoButton = By.xpath("//body/div/div[3]");
+	private By testButton = By.xpath("//body/div/div[4]");
 	
+	public MAPerfomCourseP getLesson1Item() {
+		this.locator = lesson1Item;
+		return this;
+	}
+
+	public MAPerfomCourseP getLesson2Item() {
+		this.locator = lesson2Item;
+		return this;
+	}
+
+	public MAPerfomCourseP getLesson3Item() {
+		this.locator = lesson3Item;
+		return this;
+	}
+	
+	public MAPerfomCourseP getSeeVideoButton() {
+		this.locator = seeVideoButton;
+		return this;
+	}
+
+	public MAPerfomCourseP getTestButton() {
+		this.locator = testButton;
+		return this;
+	}
+
 	public MAPerfomCourseP getLeccionTitle() {
 		this.locator = leccionTitle;
 		return this;

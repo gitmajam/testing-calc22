@@ -44,7 +44,8 @@ public class MACreateCourseTests extends TestBase {
 		// open an url with a delay
 		maLandingP = openUrl(MALandingP::new, 2000).get();
 		ssoLandingP = maLandingP.getLoginButton().click(SSOLandingP::new).get();
-		ssoLoginP = ssoLandingP.getSharpIdButton().click(SSOLoginP::new).get();
+		ssoLoginP = ssoLandingP.getVideoCloseButton().click()
+				.getSharpIdButton().click(SSOLoginP::new).get();
 		maHomeP = ssoLoginP.getSharpIdField().type(s).getPasswordField().type(p).getLoginButton().click(MAHomeP::new)
 				.get();
 		return maHomeP;

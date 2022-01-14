@@ -5,7 +5,7 @@
 		<listener
 			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
 	</listeners>
-	<test name="APILoadContent" preserve-order="true"> <!-- parallel = "methods" -->
+    	<test name="APILoadContent" preserve-order="true"> <!-- parallel = "methods" -->
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
 			<run>
@@ -13,16 +13,18 @@
 			</run>
 		</groups>
 		<classes>
-			<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MAClearCacheTests" />
-			<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MACreateCourseTests" />
+			<!-- <class
+				name="com.tribu.qaselenium.tests.mazaprendo.MAClearCacheTests" /> -->
+			<!-- <class
+				name="com.tribu.qaselenium.tests.mazaprendo.MACreateCourseTests" /> -->
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAAssingCourseTests" />
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" />
-			<class name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" 
-				/>
+				<!-- <class
+				name="com.tribu.qaselenium.tests.mazaprendo.MALessonAttemptTests2" /> -->
+			<!-- <class name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" 
+				/> -->
 		</classes>
 	</test>
 </suite>

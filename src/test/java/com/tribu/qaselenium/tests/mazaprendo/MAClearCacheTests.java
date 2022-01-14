@@ -36,7 +36,8 @@ public class MAClearCacheTests extends TestBase {
 		// open an url with a delay
 		maLandingP = openUrl(MALandingP::new, 2000).get();
 		ssoLandingP = maLandingP.getLoginButton().click(SSOLandingP::new).get();
-		ssoLoginP = ssoLandingP.getSharpIdButton().click(SSOLoginP::new).get();
+		ssoLoginP = ssoLandingP.getVideoCloseButton().click()
+				.getSharpIdButton().click(SSOLoginP::new).get();
 		maHomeP = ssoLoginP.getSharpIdField().type(s).getPasswordField().type(p).getLoginButton().click(MAHomeP::new)
 				.get();
 		return maHomeP;
@@ -45,7 +46,7 @@ public class MAClearCacheTests extends TestBase {
 	@Test(dataProvider = "csvReaderCredentials", dataProviderClass = CsvDataProviders.class, groups = { "smoke" })
 	public void clearCacheDrupal(Method method, Map<String, String> testData, ITestContext testContext) {
 
-		log.info("preRegisterMethod");
+		log.info("clearCacheDrupal");
 		SoftAssert softAssert = new SoftAssert();
 
 		// content variables

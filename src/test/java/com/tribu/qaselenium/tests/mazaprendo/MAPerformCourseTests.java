@@ -47,7 +47,8 @@ public class MAPerformCourseTests extends TestBase {
 		// open an url with a delay
 		maLandingP = openUrl(MALandingP::new, 2000).get();
 		ssoLandingP = maLandingP.getLoginButton().click(SSOLandingP::new).get();
-		ssoLoginP = ssoLandingP.getSharpIdButton().click(SSOLoginP::new).get();
+		ssoLoginP = ssoLandingP.getVideoCloseButton().click()
+				.getSharpIdButton().click(SSOLoginP::new).get();
 		maHomeP = ssoLoginP.getSharpIdField().type(s).getPasswordField().type(p).getLoginButton().click(MAHomeP::new)
 				.get();
 		return maHomeP;
@@ -109,10 +110,9 @@ public class MAPerformCourseTests extends TestBase {
 				// get duration and pass it as an argument to set currentTime to the final of
 				// the video
 				maPerformCourseP.getVideo().videoCurrentTime(maPerformCourseP.getVideo().videoDuration())
-						.getAceptarQuizButton().click(3000).getQuizAnswerA().click(2000).getNextQuizQuestion().click()
-						.getQuizAnswerC().click(2000).getNextQuizQuestion().click().getQuizAnswerB().click(2000)
-						.getNextQuizQuestion().click();
-
+				.getAceptarQuizButton().click(3000).getQuizAnswerA().click(2000).getNextQuizQuestion().click()
+				.getQuizAnswerC().click(2000).getNextQuizQuestion().click().getQuizAnswerB().click(2000)
+				.getNextQuizQuestion().click();
 				break;
 
 			case "Test-leccion-2":
@@ -140,16 +140,18 @@ public class MAPerformCourseTests extends TestBase {
 						.getAceptarQuizButton().click(3000).getQuizAnswerB().click(2000).getNextQuizQuestion().click()
 						.getQuizAnswerC().click(2000).getNextQuizQuestion().click().getQuizAnswerB().click(2000)
 						.getNextQuizQuestion().click();
-
 				break;
 			}
-		}
+		}	
 		sleep(3000);
+		log.info("course progress: " + maPerformCourseP.swichToMain().getCourseProgress().getText());
 		/*softAssert.assertTrue(maPerformCourseP.getCourseProgress().getText().contains("100%"),
 				"it doesn't found 100%");*/
-		maPerformCourseP.swichToMain().getNps10().click().getNpsComents()
-				.type("Comentario-Test-NPS" + getTodaysDate() + getSystemTime()).getSendQuizButton().click();
-
+		maHomeP = maPerformCourseP.swichToMain().getNps10().click().getNpsComents()
+				.type("Comentario-Test-NPS" + getTodaysDate() + getSystemTime()).getSendQuizButton().click(MAHomeP::new).get();
+		
+		softAssert.assertTrue(maHomeP.getNumCursosText().waitForVisivility().getText().contains("Tienes 0 cursos asignados en total"));
+		
 		softAssert.assertAll();
 	}
 }
