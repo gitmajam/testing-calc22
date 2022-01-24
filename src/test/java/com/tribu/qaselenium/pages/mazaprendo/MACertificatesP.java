@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 
-public class MAHomeP extends BasePO<MAHomeP> {
+public class MACertificatesP extends BasePO<MACertificatesP> {
 
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 	private String xpathPart1= "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
@@ -19,7 +19,14 @@ public class MAHomeP extends BasePO<MAHomeP> {
 	private By menuHelpButton = By.xpath("/html//a[@id='toolbar-link-help-main']");
 	private By profileButton = By.xpath("/html//a[@id='dropdownUser1']");
 	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[@href='/my-learning']");
-	private By showCertificatesButton = By.xpath("/html//header[@id='site-header']/div/div/div[2]/ul//a[@href='/my-certificates']");
+	private By pageTitle = By.xpath("/html//div[@id='block-mazaprendotheme-content']//div/div[1]/section//h2");
+	private By certificadoName = By.xpath("/html//h4[@id='course_certificate_name']");
+	private By showCertificate = By.xpath("/html//button[@id='preview_certificate_button']");
+	private By certificateText1 = By.xpath("//div[@id='certificateHtml']//p[@class='certificate-content-p-label-credit']");
+	private By certificateText2 = By.xpath("//div[@id='certificateHtml']//h3[@class='certificate-content--user']");
+	private By certificateText3 = By.xpath("//div[@id='certificateHtml']//p[@class='certificate-content-p-label-completed']");
+	private By downloadCertButton = By.xpath("/html//button[@id='download-certificate-action']");
+	private By exitCertButton = By.xpath("/html//div[@id='mainModal']//div[@class='modal-footer']/button[1]");
 	private By appLogo = By.xpath("//header[@id='site-header']/div/div/a//img");
 	private By termsConditionsButton = By.xpath("//footer[@id='site-footer']//a[@title='Política de privacidad - Términos y Condiciones']");
 	private By searchButton = By.xpath("/html//header[@id='site-header']//i[@class='bi bi-search']");
@@ -29,103 +36,138 @@ public class MAHomeP extends BasePO<MAHomeP> {
 	private By reportButton = By.xpath("//button[@id='report-courses-button']/i");
 	private By playCourseButton = By.xpath("/html//div[@id='block-mazaprendotheme-content']/div[@class='content']//img[contains(@src,'Test-cover-image')]/following::i");
 	
-	public MAHomeP getShowCertificatesButton() {
-		this.locator = showCertificatesButton;
+	public MACertificatesP getPageTitle() {
+		this.locator = pageTitle;
+		return this;
+	}
+
+	public MACertificatesP getCertificadoName() {
+		this.locator = certificadoName;
+		return this;
+	}
+
+	public MACertificatesP getShowCertificate() {
+		this.locator = showCertificate;
+		return this;
+	}
+
+	public MACertificatesP getCertificateText1() {
+		this.locator = certificateText1;
+		return this;
+	}
+
+	public MACertificatesP getCertificateText2() {
+		this.locator = certificateText2;
+		return this;
+	}
+
+	public MACertificatesP getCertificateText3() {
+		this.locator = certificateText3;
+		return this;
+	}
+
+	public MACertificatesP getDownloadCertButton() {
+		this.locator = downloadCertButton;
+		return this;
+	}
+
+	public MACertificatesP getExitCertButton() {
+		this.locator = exitCertButton;
 		return this;
 	}
 	
-	public MAHomeP getPlayCourseButton() {
+	public MACertificatesP getPlayCourseButton() {
 		this.locator = playCourseButton;
 		return this;
 	}
 
-	public MAHomeP getAssingCoursesButton() {
+	public MACertificatesP getAssingCoursesButton() {
 		this.locator = assingCoursesButton;
 		return this;
 	}
 
-	public MAHomeP getReportButton() {
+	public MACertificatesP getReportButton() {
 		this.locator = reportButton;
 		return this;
 	}
 	
-	public MAHomeP getMenuContentButton() {
+	public MACertificatesP getMenuContentButton() {
 		this.locator = menuContentButton;
 		return this;
 	}
 
-	public MAHomeP getMenuStructureButton() {
+	public MACertificatesP getMenuStructureButton() {
 		this.locator = menuStructureButton;
 		return this;
 	}
 
-	public MAHomeP getMenuAparienciaButton() {
+	public MACertificatesP getMenuAparienciaButton() {
 		this.locator = menuAparienciaButton;
 		return this;
 	}
 
-	public MAHomeP getMenuAmpliarButton() {
+	public MACertificatesP getMenuAmpliarButton() {
 		this.locator = menuAmpliarButton;
 		return this;
 	}
 
-	public MAHomeP getMenuConfigurationButton() {
+	public MACertificatesP getMenuConfigurationButton() {
 		this.locator = menuConfigurationButton;
 		return this;
 	}
 
-	public MAHomeP getMenuUsersButton() {
+	public MACertificatesP getMenuUsersButton() {
 		this.locator = menuUsersButton;
 		return this;
 	}
 
-	public MAHomeP getMenuReportButton() {
+	public MACertificatesP getMenuReportButton() {
 		this.locator = menuReportButton;
 		return this;
 	}
 
-	public MAHomeP getMenuHelpButton() {
+	public MACertificatesP getMenuHelpButton() {
 		this.locator = menuHelpButton;
 		return this;
 	}
 
-	public MAHomeP getProfileButton() {
+	public MACertificatesP getProfileButton() {
 		this.locator = profileButton;
 		return this;
 	}
 
-	public MAHomeP getLearningButton() {
+	public MACertificatesP getLearningButton() {
 		this.locator = learningButton;
 		return this;
 	}
 
-	public MAHomeP getAppLogo() {
+	public MACertificatesP getAppLogo() {
 		this.locator = appLogo;
 		return this;
 	}
 
-	public MAHomeP getTermsConditionsButton() {
+	public MACertificatesP getTermsConditionsButton() {
 		this.locator = termsConditionsButton;
 		return this;
 	}
 
-	public MAHomeP getSearchButton() {
+	public MACertificatesP getSearchButton() {
 		this.locator = searchButton;
 		return this;
 	}
 
-	public MAHomeP getSearchField() {
+	public MACertificatesP getSearchField() {
 		this.locator = searchField;
 		return this;
 	}
 
-	public MAHomeP getNumCursosText() {
+	public MACertificatesP getNumCursosText() {
 		this.locator = numCursosText;
 		return this;
 	}
 
 	//part xpath
-		public MAHomeP getXpathPart1(String locatorPart) {
+		public MACertificatesP getXpathPart1(String locatorPart) {
 			this.xpathPart = xpathPart1;
 			By question = By.xpath(this.xpathPart + locatorPart + "')]/following::div/a");
 			this.locator = question;
