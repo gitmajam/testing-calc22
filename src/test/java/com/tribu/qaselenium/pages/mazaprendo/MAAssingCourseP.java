@@ -3,10 +3,14 @@ package com.tribu.qaselenium.pages.mazaprendo;
 import org.openqa.selenium.By;
 
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
+import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
+import com.tribu.qaselenium.tests.mazaprendo.data.UserCourseAssign;
+import com.tribu.qaselenium.tests.mazaprendo.data.UserCourseAssignDAO;
+import com.tribu.qaselenium.tests.mazaprendo.data.UserLessonAssign;
+import com.tribu.qaselenium.tests.mazaprendo.data.UserLessonAssignDAO;
 
 public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
-
-	private String pageUrl = "https://mazaprendo-stage.somosmaz.com/admin/structure/maz_aprendo_admin_courses/create";
+	private final String pageUrl = PropertiesFile.getProperties(PropertiesFile.getProperties("env") + "_ma_assing_url");
 	private String xpathPart1 = "/html//select[@id='edit-type']/option[contains(text(),";
 	private String xpathPart2 = "/html//select[@id='edit-type']/option[contains(text(),";
 
@@ -29,7 +33,6 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 	private By titleSonCourse = By.xpath("/html//input[@id='input-title']");
 	private By initEndDateCheck = By.xpath("/html//input[@id='input-date']");
 	private By saveCourseButton = By.xpath("/html//input[@id='submit-save']");
-
 	private By selectAssingSonCourse = By.xpath("/html//select[@id='edit-type']");
 	private By selectAssingSonCourseItem = By
 			.xpath("/html//select[@id='edit-type']/option[contains(text(),'Test-Son-Curso')]");
@@ -37,15 +40,65 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 	private By uploadAssingFile = By.xpath("/html//input[@id='input-excel']");
 	private By assignCourseButton = By.xpath("/html//input[@id='submit-save']");
 	private By regValidationText = By.xpath("/html//table[@id='success_table']//td[4]");
+	private By teacherOption = By.xpath("/html//input[@id='input-professor']");
+	private By evidenceOption = By.xpath("/html//input[@id='input-evidence']");
+	private By feedbackOption = By.xpath("/html//input[@id='input-feedback']");
+	private By datekOption = By.xpath("/html//input[@id='input-date']");
+	private By teacherSharpId = By.xpath("/html//input[@id='input-professor-id']");
+	private By checkTeacherSharpIdButton = By.xpath("/html//input[@id='submit-professor-id']");
+	private By dateStart = By.xpath("/html//input[@id='input-date-start']");
+	private By dateEnd = By.xpath("/html//input[@id='input-date-end']");
 	
+	public MAAssingCourseP getDateStart() {
+		this.locator = dateStart;
+		return this;
+	}
+
+	public MAAssingCourseP getDateEnd() {
+		this.locator = dateEnd;
+		return this;
+	}
+	
+	public MAAssingCourseP getDatekOption() {
+		this.locator = datekOption;
+		return this;
+	}
+	
+	public MAAssingCourseP getTeacherSharpId() {
+		this.locator = teacherSharpId;
+		return this;
+	}
+
+	public MAAssingCourseP getCheckTeacherSharpIdButton() {
+		this.locator = checkTeacherSharpIdButton;
+		return this;
+	}
+	
+	public MAAssingCourseP getTeacherOption() {
+		this.locator = teacherOption;
+		return this;
+	}
+
+	public MAAssingCourseP getEvidenceOption() {
+		this.locator = evidenceOption;
+		return this;
+	}
+
+	public MAAssingCourseP getFeedbackOption() {
+		this.locator = feedbackOption;
+		return this;
+	}
+
 	public MAAssingCourseP getAssignCourseButton() {
 		this.locator = assignCourseButton;
 		return this;
 	}
+
 	public MAAssingCourseP getRegValidationText() {
 		this.locator = regValidationText;
 		return this;
 	}
+
 	public MAAssingCourseP getCreateCourse() {
 		this.locator = createCourse;
 		return this;
@@ -145,20 +198,23 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 		this.locator = menuHelpButton;
 		return this;
 	}
-	//part xpath
+
+	// part xpath
 	public MAAssingCourseP getXpathPart1(String locatorPart) {
 		this.xpathPart = xpathPart1;
 		By question = By.xpath(this.xpathPart + locatorPart);
 		this.locator = question;
 		return this;
 	}
-	
+
 	public MAAssingCourseP getXpathPart2(String locatorPart) {
 		this.xpathPart = xpathPart2;
 		By question = By.xpath(this.xpathPart + locatorPart);
 		this.locator = question;
 		return this;
 	}
+
+
 	@Override
 	public String getPageUrl() {
 		return pageUrl;

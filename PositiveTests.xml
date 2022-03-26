@@ -1,11 +1,52 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="PositiveLoginTestSuite" verbose="5"
 	data-provider-thread-count="5">
+
 	<listeners>
 		<listener
 			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
 	</listeners>
-	<test name="MACourseLifecycle" preserve-order="true"> <!-- parallel = "methods" -->
+		<test name="apiClearCache" preserve-order="true">   
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MAClearCacheTests" />
+		</classes>
+	</test>
+	
+		<test name="preconditions" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MAPreconditionTests" />
+		</classes>
+	</test>
+
+	<test name="apiCreateDigitalCourse" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MACreateDigitalCourseTests" />
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MACreateDigitalLessonTests" />
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignDigitalCourseTests" />
+		</classes>
+	</test>
+
+	<test name="apiCreateF2FCourse" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FCourseTests" />
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FLessonTests" />
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignF2FCourseTests" />
+		</classes>
+	</test>
+
+	<test name="lifecycleDigitalCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
 			<run>
@@ -14,24 +55,41 @@
 		</groups>
 		<classes>
 			<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MAClearCacheTests" />
+				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformDigitalCourseTests" />
 			<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MACreateCourseTests" />
-			<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MAAssingCourseTests" />
-			<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformCourseTests" />
-			<class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
-				/>
-			<class
-				name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" />
-
+				name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" />
 		</classes>
 	</test>
-	<!-- <test name="MALessonsAttempts" preserve-order="true"> parallel = "methods" 
-		<parameter name="browser" value="chrome"></parameter> <groups> <run> <include 
-		name="smoke" /> </run> </groups> <classes> <class name="com.tribu.qaselenium.tests.mazaprendo.MAAssingCourseTests" 
-		/> <class name="com.tribu.qaselenium.tests.mazaprendo.MALessonAttemptTests" 
-		/> <class name="com.tribu.qaselenium.tests.mazaprendo.MADeleteCourseTests" 
-		/> </classes> </test> -->
+
+	<test name="lifecycleF2FCourse" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<groups>
+			<run>
+				<include name="smoke" />
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformF2FCourseTests" />
+			<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" />
+		</classes>
+	</test>
+
+	<test name="lessonsAttempts" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<groups>
+			<run>
+				<include name="smoke" />
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignDigitalCourseTests" />
+			<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MALessonAttemptTests" />
+		</classes>
+	</test>
+
+
 </suite>

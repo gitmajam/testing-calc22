@@ -1,0 +1,2 @@
+todo,method,contentType,title,description,courseType,duracion,topic,bu,country,viceprecidency,coverImage,altCoverText,minScore,attempts,expectedMessage1,expectedMessage2,lessonAttempts,recordCheck
+TRUE,,curso,Test-curso-digital-padre,Test-body-curso-padre,digital,120,Onboarding,,,,Test-cover-image.jpeg,Test-alt-text-cover-image,100,1,se ha creado.,Eliminado,,FALSE

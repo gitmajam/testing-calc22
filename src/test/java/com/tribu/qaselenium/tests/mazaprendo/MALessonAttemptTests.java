@@ -1,13 +1,10 @@
 package com.tribu.qaselenium.tests.mazaprendo;
 
-import java.io.File;
 import java.lang.reflect.Method;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.function.BiFunction;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.UnhandledAlertException;
+import org.junit.runners.Parameterized.Parameters;
+import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -23,141 +20,74 @@ import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
 public class MALessonAttemptTests extends TestBase {
+	
+	public static String dataProviderFilePath = "src/test/resources/providerFiles/digitalLessons.csv";
 
-	// page variables
-	MALandingP maLandingP;
-	MAHomeP maHomeP;
-	MAPerfomCourseP maPerformCourseP;
-
-	SSOLandingP ssoLandingP;
-	SSOLoginP ssoLoginP;
-
-	// assert variables
-	String actualSuccessMessage;
-
-	// content variables
-
-	String sharpId2;
-	String password2;
-	String expectedMessage1;
-	String expectedMessage2;
-	String testDescription;
-	String userId;
-	String email;
-
-	BiFunction<String, String, MAHomeP> maLogin = (s, p) -> {
-		// open an url with a delay
-		maLandingP = openUrl(MALandingP::new, 2000).get();
-		ssoLandingP = maLandingP.getLoginButton().click(SSOLandingP::new).get();
-		ssoLoginP = ssoLandingP.getVideoCloseButton().click().getSharpIdButton().click(SSOLoginP::new).get();
-		maHomeP = ssoLoginP.getSharpIdField().type(s).getPasswordField().type(p).getLoginButton().click(MAHomeP::new)
-				.get();
-		return maHomeP;
-	};
-
-	@Test(dataProvider = "csvReaderCredentials", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
+	@Test(dataProvider = "csvReaderMethodFile", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
 			"deleteContent" })
-	public void performCourse(Method method, Map<String, String> dataList) {
+	public void lessonAtempts(Method method, ITestContext context, Map<String, String> provider) {
 		log.info("performCourse");
-		SoftAssert softAssert = new SoftAssert();
-		sharpId2 = dataList.get("sharpId2");
-		password2 = dataList.get("password2");
-		expectedMessage2 = "Eliminado";
+		// page variables
+		MALandingP maLandingP;
+		MAHomeP maHomeP;
+		MAPerfomCourseP maPerformCourseP;
+
 		String leccion = null;
 		Boolean courseFinal = false;
+		SoftAssert softAssert = new SoftAssert();
+		String courseTitle = jsonFileReader(context,"apiCreateDigitalCourse","MACreateDigitalCourseTests","digital");
+		String lessonTitle = jsonFileReader(context,"apiCreateDigitalCourse","MACreateDigitalLessonTests",provider.get("order"));
+		int lessonAttempts = Integer.parseInt(provider.get("attempts"));
 
-		/* load content file */
-		String pathName1 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator + "MACreateCourseTests" + File.separator
-				+ "dataproviders" + File.separator + "MACreateCourseTests.csv";
-
-		// read csv create course and lessons file depends on environment
-		Iterator<Map<String, String>> dataSet;
-		dataSet = csvReader(pathName1);
-		Map<String, String> dataMap = null;
-		String courseTitle = null;
-		String lessonTitle = null;
+		// read csv credentials file depends on environment
+		Map<String, String> credentialMap = readCredentials();
 
 		/* login */
-		maHomeP = maLogin.apply(sharpId2, password2);
-		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(), "[Falla Assert - no encuentra logo");
+		maLandingP = openUrl(MALandingP::new, 2000).get();
+		maHomeP = maLandingP.login(credentialMap.get("sharpId2"), credentialMap.get("password2"));
 
-		// reading course content
-		while (dataSet.hasNext()) {
-
-			// search course
-			dataMap = dataSet.next();
-			if (dataMap.get("todo").equals("TRUE")) {
-				if (dataMap.get("contentType").equals("curso")) {
-					courseTitle = dataMap.get("title");
-
-					// start course
-					maPerformCourseP = maHomeP.getXpathPart1(courseTitle + getTodaysDate()).click(MAPerfomCourseP::new)
-							.get();
-					maPerformCourseP.getStartCourseButton().click();
-					while (dataSet.hasNext()) {
-
-						// search lesson
-						dataMap = dataSet.next();
-						if (dataMap.get("todo").equals("TRUE")) {
-							if (dataMap.get("contentType").equals("leccion")) {
-								lessonTitle = dataMap.get("title");
-								int lessonAttempts = Integer.parseInt(dataMap.get("lessonAttempts"));
-
-								// get the name of current running lesson
-								sleep(8000);
-								leccion = maPerformCourseP.swichToMain().getLeccionTitle().getText().substring(0, 14);
-								log.info("Leccion : " + leccion);
-								softAssert.assertEquals(leccion, lessonTitle);
-
-								// try lessons attempts
-								for (int lessonAttempt = 0; lessonAttempt < lessonAttempts; lessonAttempt++) {
-									log.info("course progress" + maPerformCourseP.getCourseProgress().getText());
-									log.info("lesson attempt : " + lessonAttempt);
-									softAssert.assertTrue(maPerformCourseP.getCourseProgress().getText().contains("0%"),
-											"it doesn't found 0%");
-									// get into iframe
-									maPerformCourseP.getIFrame().waitForVisivility().swichToFrame()
-											// get into sub frame
-											.getFrame().swichToFrame().getVideo().waitForVisivility();
-
-									// get duration and pass it as an argument to set currentTime to the final of
-									// the video
-									maPerformCourseP.getVideo()
-											.videoCurrentTime(maPerformCourseP.getVideo().videoDuration());
-
-									// try scorm attempts
-									for (int scormAttempt = 0; scormAttempt < 3; scormAttempt++) {
-										log.info("scorm attempt : " + scormAttempt);
-										maPerformCourseP.getAceptarQuizButton().click(3000).getQuizAnswerA().click(2000)
-												.getNextQuizQuestion().click().getQuizAnswerA().click(2000)
-												.getNextQuizQuestion().click().getQuizAnswerA().click(2000)
-												.getNextQuizQuestion().click().getTestButton().click();
-									}
-									if (lessonAttempt < 2) {
-										switch (lessonTitle) {
-										case "Test-leccion-1":
-											maPerformCourseP.swichToMain().getContentCourseList().click()
-													.getLesson1Item().click();
-											break;
-										case "Test-leccion-2":
-											maPerformCourseP.swichToMain().getContentCourseList().click()
-													.getLesson2Item().click();
-											break;
-										default:
-											break;
-										}
-									}
-
-								}
-
-							}
-						}
-					}
-				}
-			}
-		}
-
+		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
+				"Falla Assert login - no encuentra boton de contenido");
+		log.info("Leccion : " + lessonTitle);
+		maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
+		maPerformCourseP.getStartCourseButton().click()
+						.getModalMessage().existElement(maPerformCourseP::closeModal)
+						.getLessonsButton().click()
+						.getLessonsList().click(lessonTitle);	
+//	
+//		
+//		 //get the name of current running lesson
+//		sleep(8000);
+//		leccion = maPerformCourseP.getLeccionTitle().getText().substring(0, 38);
+//		log.info("Leccion : " + leccion);
+//		softAssert.assertEquals(leccion, lessonTitle);
+//		
+//		// try lessons attempts
+//		for (int lessonAttempt = 0; lessonAttempt < 1; lessonAttempt++) {
+//			log.info("course progress : " + maPerformCourseP.getCourseProgress().getText());
+//			log.info("lesson attempt : " + lessonAttempt);
+//			softAssert.assertTrue(maPerformCourseP.getCourseProgress().getText().contains("0%"), "it doesn't found 0%");
+//			// get into iframe
+//			maPerformCourseP.getIFrame().waitForVisivility().swichToFrame()
+//							// get into sub frame
+//							.getFrame().swichToFrame().getVideo().waitForVisivility();
+//
+//			// get duration and pass it as an argument to set currentTime to the final of the video
+//			maPerformCourseP.getVideo().videoCurrentTime(maPerformCourseP.getVideo().videoDuration());
+//
+//			// try scorm attempts
+//			for (int scormAttempt = 0; scormAttempt < 3; scormAttempt++) {
+//				log.info("scorm attempt : " + scormAttempt);
+//				maPerformCourseP.getAceptarQuizButton().click(3000)
+//							.getQuizAnswerA().click(2000)
+//							.getNextQuizQuestion().click()
+//							.getQuizAnswerA().click(2000)
+//							.getNextQuizQuestion().click()
+//							.getQuizAnswerA().click(2000)
+//							.getNextQuizQuestion().click()
+//							.getTestButton().click();
+//			}
+//		}
 		softAssert.assertAll();
 	}
 }

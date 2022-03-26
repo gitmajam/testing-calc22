@@ -37,6 +37,12 @@ public class MAContentListP extends BasePO<MAContentListP> {
 			.xpath("/html/body//main[@role='main']/div[@class='region region-highlighted']/div[2]/div[1]");
 	private By selectAllCheck = By.xpath(
 			"/html//form[@id='views-form-content-page-1']/table//input[@title='Seleccionar todas las filas de esta tabla']");
+	private By emptyMessage = By.xpath("//form[@id='views-form-content-page-1']/table//td[@class='views-empty']");
+	
+	public MAContentListP getEmptyMessage() {
+		this.locator = emptyMessage;
+		return this;
+	}
 
 	public MAContentListP getSelectAllCheck() {
 		this.locator = selectAllCheck;

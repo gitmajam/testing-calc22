@@ -1,5 +1,7 @@
 package com.tribu.qaselenium.pages.mazaprendo;
 
+import java.util.function.Consumer;
+
 import org.openqa.selenium.By;
 
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
@@ -46,7 +48,29 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 	private By leccionTitle = By.xpath("/html//div[@id='block-mazaprendotheme-content']/div/div[2]/section//h2");
 	private By seeVideoButton = By.xpath("//body/div/div[3]");
 	private By testButton = By.xpath("//body/div/div[4]");
+	private By lessonsButton = By.xpath("//div[@class='visualizator']//div[@id='collapseMenu']//button");
+	private By lessonsList = By.xpath("//div[@class='visualizator']//ul[@id='ul-home-collapse']/li/a");
+	private By modalMessage = By.xpath("//div[contains(@class,'modal')]//div[@id='modal_message']");
+	private By modalCloseButton = By.xpath("//div[contains(@class,'modal')]//div[@class='modal-header']/button");
 	
+	public MAPerfomCourseP getModalCloseButton() {
+		this.locator = modalCloseButton;
+		return this;
+	}
+	public MAPerfomCourseP getModalMessage() {
+		this.locator = modalMessage;
+		return this;
+	}
+	public MAPerfomCourseP getLessonsButton() {
+		this.locator = lessonsButton;
+		return this;
+	}
+	
+	public MAPerfomCourseP getLessonsList() {
+		this.locator = lessonsList;
+		return this;
+	}
+
 	public MAPerfomCourseP getLesson1Item() {
 		this.locator = lesson1Item;
 		return this;
@@ -240,6 +264,10 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 	public MAPerfomCourseP getSearchField() {
 		this.locator = searchField;
 		return this;
+	}
+	
+	public void closeModal() {
+			this.getModalCloseButton().click();
 	}
 
 	@Override

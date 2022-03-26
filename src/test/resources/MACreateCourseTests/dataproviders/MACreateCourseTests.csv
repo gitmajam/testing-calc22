@@ -1,5 +1,0 @@
-todo,method,contentType,title,frame,description,duracion,bu,country,viceprecidency,coverImage,altCoverText,cursoPadre,ordenCurso,tipoLeccion,topic,infografia,scorm,expectedMessage1,expectedMessage2,lessonAttempts
-TRUE,createCourse,curso,Test-curso-padre,Test-frame-curso-padre,Test-curso-padre,30,,,,Test-cover-image.jpeg,Test-alt-text-cover-image,,,,Onboarding,,,se ha creado.,Eliminado,
-TRUE,createLeccion,leccion,Test-leccion-1,Test-frame-leccion,Test-description-leccion1,10,,,,,,Test-curso-padre,1,scorm,Onboarding,,coronita-1.zip,se ha creado.,Eliminado,3
-TRUE,createLeccion,leccion,Test-leccion-2,Test-frame-leccion,Test-description-leccion2,10,,,,,,Test-curso-padre,2,scorm,Onboarding,,coronita-2.zip,se ha creado.,Eliminado,3
-TRUE,createLeccion,leccion,Test-leccion-3,Test-frame-leccion,Test-description-leccion3,10,,,,,,Test-curso-padre,3,scorm,Onboarding,,coronita-3.zip,se ha creado.,Eliminado,3
