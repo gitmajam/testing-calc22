@@ -66,7 +66,7 @@ public class MAAssignF2FCourseTests extends TestBase {
 					.getAssignCourseButton().click()
 					.getAssignCourseButton().waitForNotVisivility();
 		
-		softAssert.assertEquals(maAssingCourseP.getAssignCourseButton().existElement(),false);
+		softAssert.assertEquals(maAssingCourseP.getAssignCourseButton().existElement(),false, "Assign task not done");
 		
 		softAssert.assertAll();
 	}
