@@ -114,9 +114,7 @@
 					<properties>
 						<property>
 							<name>testnames</name>
-							<value>apiClearCache</value>
-							<value>preconditions</value>
-							<value>apiCreateF2FCourse</value>
+							<value>apiClearCache,preconditions,apiCreateF2FCourse</value>
 		
 						</property>
 						<property>
