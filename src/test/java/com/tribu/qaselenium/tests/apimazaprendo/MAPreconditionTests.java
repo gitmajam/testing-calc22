@@ -2,8 +2,9 @@ package com.tribu.qaselenium.tests.apimazaprendo;
 
 import java.io.File;
 import java.lang.reflect.Method;
-import java.util.Map;
+import java.util.Objects;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -23,6 +24,7 @@ import com.tribu.qaselenium.tests.mazaprendo.data.UserLessonAssignDAO;
 @Listeners(TestsListenerManager.class)
 public class MAPreconditionTests extends TestBase {
 
+	@SuppressWarnings("unchecked")
 	@Test(groups = { "smoke", "deleteContent" })
 	public void preconditions(Method method) {
 		SoftAssert softAssert = new SoftAssert();
@@ -34,12 +36,9 @@ public class MAPreconditionTests extends TestBase {
 		String path = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 				+ File.separator + "resources" + File.separator + "uploadFiles" + File.separator + "upload.xlsx";
 
-		/* read csv credentials file depends on environment */
-		Map<String, String> credentialMap = readCredentials();
-
 		/* login */
-		maLandingP = openUrl(MALandingP::new, 2000).get();
-		maHomeP = maLandingP.login(credentialMap.get("sharpId1"), credentialMap.get("password1"));
+		maLandingP = openUrl(MALandingP::new, 3000).get();
+		maHomeP = maLandingP.login(readCredentials("admin"));
 
 		maContentListP = maHomeP.getMenuContentButton().click(MAContentListP::new).get();
 		
@@ -48,15 +47,9 @@ public class MAPreconditionTests extends TestBase {
 					.getActionSelect().click()
 					.getActionDeleteItem().click()
 					.getActionSelect().click()
-					.getfilterButton().click();
+					.getFilterButton().click()
+					.getEmptyMessage().check(e->Objects.nonNull(e)).andThen(maContentListP::removeContent);
 		
-		if(!maContentListP.getEmptyMessage().existElement()) {
-			maContentListP.getSelectAllCheck().click()
-							.getApplyAction().click()
-							.getDeleteButton().click();
-		}
-		log.info("past courses removed");
-
 		/* remove past courses assigned to the user */
 		
 		//teacher precondition

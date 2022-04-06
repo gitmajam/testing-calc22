@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.tribu.qaselenium.testframework.pagebase.BasePO" project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/testframework/pagebase/BasePO.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="51" width="205" x="736" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.tribu.qaselenium.testframework.pagebase.GUtils" project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/testframework/pagebase/GUtils.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="51" width="205" x="42" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignDigitalCourseTests" 
+    project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/tests/apimazaprendo/MAAssignDigitalCourseTests.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="51" width="192" x="42" y="219"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.tribu.qaselenium.testframework.testbase.TestUtilities" 
+    project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/testframework/testbase/TestUtilities.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="51" width="201" x="287" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.tribu.qaselenium.testframework.testbase.TestBase" 
+    project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/testframework/testbase/TestBase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="51" width="201" x="274" y="128"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.tribu.qaselenium.pages.mazaprendo.MALandingP" project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/pages/mazaprendo/MALandingP.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="51" width="181" x="736" y="128"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.tribu.qaselenium.pages.mazaprendo.MAAssingCourseP" 
+    project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/pages/mazaprendo/MAAssingCourseP.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="51" width="181" x="515" y="128"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.tribu.qaselenium.pages.mazaprendo.MACreateContentP" 
+    project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/pages/mazaprendo/MACreateContentP.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="51" width="181" x="957" y="128"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignF2FCourseTests" 
+    project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/tests/apimazaprendo/MAAssignF2FCourseTests.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="51" width="189" x="503" y="219"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.tribu.qaselenium.tests.apimazaprendo.MAClearCacheTests" 
+    project="testing-maz-aprendo" 
+    file="/testing-maz-aprendo/src/test/java/com/tribu/qaselenium/tests/apimazaprendo/MAClearCacheTests.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="51" width="189" x="274" y="219"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="11">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="12">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="13">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="14">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="15">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="16">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

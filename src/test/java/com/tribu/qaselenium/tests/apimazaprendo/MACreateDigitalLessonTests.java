@@ -20,6 +20,7 @@ public class MACreateDigitalLessonTests extends TestBase {
 	
 	public static String dataProviderFilePath = "src/test/resources/providerFiles/digitalLessons.csv";
 	
+	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "csvReaderMethodFile", dataProviderClass = CsvDataProviders.class, groups = { "smoke" })
 	public void createDigitalLesson(Method method, ITestContext context, Map<String, String> provider) {
 		// page variables
@@ -31,12 +32,9 @@ public class MACreateDigitalLessonTests extends TestBase {
 		editTestJSON(method,context,provider.get("order"),lessonTitle);
 		String courseTitle = jsonFileReader(context,"apiCreateDigitalCourse", "MACreateDigitalCourseTests", "courseName" );
 
-		// read csv credentials file depends on environment
-		Map<String, String> credentialMap = readCredentials();
-
 		/* login */
-		maLandingP = openUrl(MALandingP::new, 2000).get();
-		maHomeP = maLandingP.login(credentialMap.get("sharpId1"), credentialMap.get("password1"));
+		maLandingP = openUrl(MALandingP::new, 3000).get();
+		maHomeP = maLandingP.login(readCredentials("admin"));
 
 		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
 				"Falla Assert login - no encuentra boton de contenido");
@@ -45,7 +43,7 @@ public class MACreateDigitalLessonTests extends TestBase {
 		maCreateContentP.getAddContentButton().click()
 					.getAddLeccionButton().click()
 					.getTitle().type(lessonTitle)
-					.getFrame().waitForVisivility().swichToFrame()
+					.getFrame().waitForVisibility().swichToFrame()
 					.getBody().type(provider.get("title"))
 					.swichToMain()
 					.getCursoPadre().type(courseTitle)

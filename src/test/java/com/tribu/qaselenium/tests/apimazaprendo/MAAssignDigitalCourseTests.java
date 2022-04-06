@@ -18,7 +18,8 @@ import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 @Listeners(TestsListenerManager.class)
 public class MAAssignDigitalCourseTests extends TestBase {
 
-	@Test(groups = { "smoke" })
+	@SuppressWarnings("unchecked")
+	@Test(groups = { "smoke", "regression" })
 	public void assingDigitalCourse(Method method, ITestContext context) {
 		SoftAssert softAssert = new SoftAssert();
 		// page variables
@@ -33,12 +34,9 @@ public class MAAssignDigitalCourseTests extends TestBase {
 		String pathName2 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 				+ File.separator + "resources" + File.separator + "uploadFiles"	+ File.separator + "upload.xlsx";
 
-		// read csv credentials file depends on environment
-		Map<String, String> credentialMap = readCredentials();
-	
 		/* login */
-		maLandingP = openUrl(MALandingP::new, 2000).get();
-		maHomeP = maLandingP.login(credentialMap.get("sharpId1"), credentialMap.get("password1"));
+		maLandingP = openUrl(MALandingP::new, 3000).get();
+		maHomeP = maLandingP.login(readCredentials("admin"));
 
 		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
 				"Falla Assert login - no encuentra boton de contenido");
@@ -50,13 +48,13 @@ public class MAAssignDigitalCourseTests extends TestBase {
 					.getSelectCourse().type(courseTitle)
 					.getTitleSonCourse().type(sonCourseTitle)
 					.getSaveCourseButton().click()
-					.getSaveCourseButton().waitForNotVisivility()
+					.getSaveCourseButton().waitForNotVisibility()
 					.getAssingCourse().click()
 					.getXpathPart2("'" + sonCourseTitle + "')]").click()
 					.getUploadAssingFile().type(pathName2)
-					.getRegValidationText().waitForVisivility()
+					.getRegValidationText().waitForVisibility()
 					.getAssignCourseButton().click()
-					.getAssignCourseButton().waitForNotVisivility();
+					.getAssignCourseButton().waitForNotVisibility();
 		
 		softAssert.assertAll();
 	}

@@ -6,7 +6,7 @@
 		<listener
 			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
 	</listeners>
-		<test name="apiClearCache" preserve-order="true">   
+<!-- 		<test name="apiClearCache" preserve-order="true">   
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
@@ -20,9 +20,9 @@
 			<class
 				name="com.tribu.qaselenium.tests.apimazaprendo.MAPreconditionTests" />
 		</classes>
-	</test>
+	</test> -->
 
-	<test name="apiCreateDigitalCourse" preserve-order="true">
+	<!-- <test name="apiCreateDigitalCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
@@ -32,7 +32,7 @@
 			<class
 				name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignDigitalCourseTests" />
 		</classes>
-	</test>
+	</test> -->
 
 	<test name="apiCreateF2FCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
@@ -46,7 +46,7 @@
 		</classes>
 	</test>
 
-	<test name="lifecycleDigitalCourse" preserve-order="true">
+	<!-- <test name="lifecycleDigitalCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
 			<run>
@@ -59,9 +59,9 @@
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" />
 		</classes>
-	</test>
+	</test> -->
 
-	<test name="lifecycleF2FCourse" preserve-order="true">
+<!-- 	<test name="lifecycleF2FCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
 			<run>
@@ -73,10 +73,15 @@
 				name="com.tribu.qaselenium.tests.mazaprendo.MAPerformF2FCourseTests" />
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" />
-		</classes>
-	</test>
+				<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MAUploadEvidenceTests" />
+				<class
+				name="com.tribu.qaselenium.tests.mazaprendo.MAScoreCourseTests" />
 
-	<test name="lessonsAttempts" preserve-order="true">
+		</classes>
+	</test> -->
+
+	<!-- <test name="lessonsAttempts" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
 			<run>
@@ -89,7 +94,7 @@
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MALessonAttemptTests" />
 		</classes>
-	</test>
+	</test> -->
 
 
 </suite>

@@ -23,6 +23,7 @@ public class MALessonAttemptTests extends TestBase {
 	
 	public static String dataProviderFilePath = "src/test/resources/providerFiles/digitalLessons.csv";
 
+	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "csvReaderMethodFile", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
 			"deleteContent" })
 	public void lessonAtempts(Method method, ITestContext context, Map<String, String> provider) {
@@ -39,21 +40,18 @@ public class MALessonAttemptTests extends TestBase {
 		String lessonTitle = jsonFileReader(context,"apiCreateDigitalCourse","MACreateDigitalLessonTests",provider.get("order"));
 		int lessonAttempts = Integer.parseInt(provider.get("attempts"));
 
-		// read csv credentials file depends on environment
-		Map<String, String> credentialMap = readCredentials();
-
 		/* login */
-		maLandingP = openUrl(MALandingP::new, 2000).get();
-		maHomeP = maLandingP.login(credentialMap.get("sharpId2"), credentialMap.get("password2"));
+		maLandingP = openUrl(MALandingP::new, 3000).get();
+		maHomeP = maLandingP.login(readCredentials("student"));
 
 		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
 				"Falla Assert login - no encuentra boton de contenido");
 		log.info("Leccion : " + lessonTitle);
 		maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
 		maPerformCourseP.getStartCourseButton().click()
-						.getModalMessage().existElement(maPerformCourseP::closeModal)
+						.getModalMessage().check(e->e.isDisplayed()).andThen(maPerformCourseP::closeModal)
 						.getLessonsButton().click()
-						.getLessonsList().click(lessonTitle);	
+						.getLessonsList(e->e.getText().contains(courseTitle)).click();	
 //	
 //		
 //		 //get the name of current running lesson

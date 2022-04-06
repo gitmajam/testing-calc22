@@ -21,7 +21,7 @@ import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
-public class MACourseCertificateTests extends TestBase {
+public class MAStudentRecordsTests extends TestBase {
 
 	// page variables
 	MALandingP maLandingP;
@@ -55,6 +55,7 @@ public class MACourseCertificateTests extends TestBase {
 		return maHomeP;
 	};
 
+	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "csvReaderCredentials", dataProviderClass = CsvDataProviders.class, groups = { "smoke" })
 	public void checkCertificate(Method method, Map<String, String> dataList) {
 		log.info("performCourse");
@@ -95,9 +96,9 @@ public class MACourseCertificateTests extends TestBase {
 		
 		maCertificatesP.getShowCertificate().click();
 		
-		softAssert.assertEquals(maCertificatesP.getCertificateText1().waitForVisivility().getText(), "Este certificado acredita que:");
-		softAssert.assertEquals(maCertificatesP.getCertificateText2().waitForVisivility().getText(), "USER QA");
-		softAssert.assertEquals(maCertificatesP.getCertificateText3().waitForVisivility().getText(), "ha completado con éxito el curso:");				
+		softAssert.assertEquals(maCertificatesP.getCertificateText1().waitForVisibility().getText(), "Este certificado acredita que:");
+		softAssert.assertEquals(maCertificatesP.getCertificateText2().waitForVisibility().getText(), "USER QA");
+		softAssert.assertEquals(maCertificatesP.getCertificateText3().waitForVisibility().getText(), "ha completado con éxito el curso:");				
 		
 		maCertificatesP.getExitCertButton().click();
 		softAssert.assertTrue(maCertificatesP.getPageTitle().isDisplayed());

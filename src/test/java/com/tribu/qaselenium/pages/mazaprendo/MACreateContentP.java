@@ -4,11 +4,13 @@ import java.io.File;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 
 public class MACreateContentP extends BasePO<MACreateContentP> {
-
+	
 	// control variables
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/node/add/content";
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
@@ -70,250 +72,251 @@ public class MACreateContentP extends BasePO<MACreateContentP> {
 	private By minScore = By.xpath("/html//body//form/div/div//input[contains(@id,'minimum')]");
 	private By attempts = By.xpath("/html//body//form/div/div//input[contains(@id,'attemp')]");
 
-	public MACreateContentP getTitleSumary() {
-		this.locator = titleSumary;
-		return this;
+	public MACreateContentP getMenuContentButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuContentButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getDuracionF2FLesson() {
-		this.locator = duracionF2FLesson;
-		return this;
+	public MACreateContentP getSaveButton(Predicate<WebElement>... predicates){
+	this.setWebElement(saveButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAddLeccionF2FButton() {
-		this.locator = addLeccionF2FButton;
-		return this;
-	}
-	public MACreateContentP getInfoText() {
-		this.locator = infoText;
-		return this;
-	}
-	
-	public MACreateContentP getPdfUploadedLink() {
-		this.locator = pdfUploadedLink;
-		return this;
+	public MACreateContentP getMessageCursoCreation(Predicate<WebElement>... predicates){
+	this.setWebElement(messageCursoCreation,predicates);
+	return this;
 	}
 
-	public MACreateContentP getMiniImgInfo() {
-		this.locator = miniImgInfo;
-		return this;
+	public MACreateContentP getMessageLeccionCreation(Predicate<WebElement>... predicates){
+	this.setWebElement(messageLeccionCreation,predicates);
+	return this;
 	}
 
-	public MACreateContentP getPdf() {
-		this.locator = pdf;
-		return this;
+	public MACreateContentP getTitleSumary(Predicate<WebElement>... predicates){
+	this.setWebElement(titleSumary,predicates);
+	return this;
 	}
 
-	public MACreateContentP getVideo() {
-		this.locator = video;
-		return this;
+	public MACreateContentP getAddContentButton(Predicate<WebElement>... predicates){
+	this.setWebElement(addContentButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getMinScore() {
-		this.locator = minScore;
-		return this;
+	public MACreateContentP getAddArticleButton(Predicate<WebElement>... predicates){
+	this.setWebElement(addArticleButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAttempts() {
-		this.locator = attempts;
-		return this;
+	public MACreateContentP getAddCursoButton(Predicate<WebElement>... predicates){
+	this.setWebElement(addCursoButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getCursoDigital() {
-		this.locator = cursoDigital;
-		return this;
+	public MACreateContentP getAddLeccionButton(Predicate<WebElement>... predicates){
+	this.setWebElement(addLeccionButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getCursoPresencial() {
-		this.locator = cursoPresencial;
-		return this;
+	public MACreateContentP getAddLeccionF2FButton(Predicate<WebElement>... predicates){
+	this.setWebElement(addLeccionF2FButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getUploadingIcon() {
-		this.locator = uploadingIcon;
-		return this;
+	public MACreateContentP getAddPaginaBasicaButton(Predicate<WebElement>... predicates){
+	this.setWebElement(addPaginaBasicaButton,predicates);
+	return this;
 	}
 
-	public MACreateContentP getUploadedHref() {
-		this.locator = uploadedHref;
-		return this;
+	public MACreateContentP getTitle(Predicate<WebElement>... predicates){
+	this.setWebElement(title,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAltCoverText() {
-		this.locator = altCoverText;
-		return this;
+	public MACreateContentP getFrame(Predicate<WebElement>... predicates){
+	this.setWebElement(frame,predicates);
+	return this;
 	}
 
-	public MACreateContentP getPreviewCoverImage() {
-		this.locator = previewCoverImage;
-		return this;
+	public MACreateContentP getBody(Predicate<WebElement>... predicates){
+	this.setWebElement(body,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAddContentButton() {
-		this.locator = addContentButton;
-		return this;
+	public MACreateContentP getEtiqueta(Predicate<WebElement>... predicates){
+	this.setWebElement(etiqueta,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAddArticleButton() {
-		this.locator = addArticleButton;
-		return this;
+	public MACreateContentP getMainImage(Predicate<WebElement>... predicates){
+	this.setWebElement(mainImage,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAddCursoButton() {
-		this.locator = addCursoButton;
-		return this;
+	public MACreateContentP getPreviewMainImage(Predicate<WebElement>... predicates){
+	this.setWebElement(previewMainImage,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAddLeccionButton() {
-		this.locator = addLeccionButton;
-		return this;
+	public MACreateContentP getCursoType(Predicate<WebElement>... predicates){
+	this.setWebElement(cursoType,predicates);
+	return this;
 	}
 
-	public MACreateContentP getAddPaginaBasicaButton() {
-		this.locator = addPaginaBasicaButton;
-		return this;
+	public MACreateContentP getCursoDigital(Predicate<WebElement>... predicates){
+	this.setWebElement(cursoDigital,predicates);
+	return this;
 	}
 
-	public MACreateContentP getTitle() {
-		this.locator = title;
-		return this;
+	public MACreateContentP getCursoPresencial(Predicate<WebElement>... predicates){
+	this.setWebElement(cursoPresencial,predicates);
+	return this;
 	}
 
-	public MACreateContentP getFrame() {
-		this.locator = frame;
-		return this;
+	public MACreateContentP getDuracion(Predicate<WebElement>... predicates){
+	this.setWebElement(duracion,predicates);
+	return this;
 	}
 
-	public MACreateContentP getBody() {
-		this.locator = body;
-		return this;
+	public MACreateContentP getDuracionF2FLesson(Predicate<WebElement>... predicates){
+	this.setWebElement(duracionF2FLesson,predicates);
+	return this;
 	}
 
-	public MACreateContentP getEtiqueta() {
-		this.locator = etiqueta;
-		return this;
+	public MACreateContentP getTopic(Predicate<WebElement>... predicates){
+	this.setWebElement(topic,predicates);
+	return this;
 	}
 
-	public MACreateContentP getMainImage() {
-		this.locator = mainImage;
-		return this;
+	public MACreateContentP getBu(Predicate<WebElement>... predicates){
+	this.setWebElement(bu,predicates);
+	return this;
 	}
 
-	public MACreateContentP getPreviewMainImage() {
-		this.locator = previewMainImage;
-		return this;
+	public MACreateContentP getCountry(Predicate<WebElement>... predicates){
+	this.setWebElement(country,predicates);
+	return this;
 	}
 
-	public MACreateContentP getCursoType() {
-		this.locator = cursoType;
-		return this;
+	public MACreateContentP getViceprecidency(Predicate<WebElement>... predicates){
+	this.setWebElement(viceprecidency,predicates);
+	return this;
 	}
 
-	public MACreateContentP getDuracion() {
-		this.locator = duracion;
-		return this;
+	public MACreateContentP getCoverImg(Predicate<WebElement>... predicates){
+	this.setWebElement(coverImg,predicates);
+	return this;
 	}
 
-	public MACreateContentP getBu() {
-		this.locator = bu;
-		return this;
+	public MACreateContentP getCursoPadre(Predicate<WebElement>... predicates){
+	this.setWebElement(cursoPadre,predicates);
+	return this;
 	}
 
-	public MACreateContentP getCountry() {
-		this.locator = country;
-		return this;
+	public MACreateContentP getOrderInsideCourse(Predicate<WebElement>... predicates){
+	this.setWebElement(orderInsideCourse,predicates);
+	return this;
 	}
 
-	public MACreateContentP getViceprecidency() {
-		this.locator = viceprecidency;
-		return this;
+	public MACreateContentP getLeccionType(Predicate<WebElement>... predicates){
+	this.setWebElement(leccionType,predicates);
+	return this;
 	}
 
-	public MACreateContentP getCoverImg() {
-		this.locator = coverImg;
-		return this;
+	public MACreateContentP getLeccionInfogrphicItem(Predicate<WebElement>... predicates){
+	this.setWebElement(leccionInfogrphicItem,predicates);
+	return this;
 	}
 
-	public MACreateContentP getCursoPadre() {
-		this.locator = cursoPadre;
-		return this;
+	public MACreateContentP getLeccionVideoItem(Predicate<WebElement>... predicates){
+	this.setWebElement(leccionVideoItem,predicates);
+	return this;
 	}
 
-	public MACreateContentP getOrderInsideCourse() {
-		this.locator = orderInsideCourse;
-		return this;
+	public MACreateContentP getLeccionScormItem(Predicate<WebElement>... predicates){
+	this.setWebElement(leccionScormItem,predicates);
+	return this;
 	}
 
-	public MACreateContentP getLeccionType() {
-		this.locator = leccionType;
-		return this;
+	public MACreateContentP getInfographic(Predicate<WebElement>... predicates){
+	this.setWebElement(infographic,predicates);
+	return this;
 	}
 
-	public MACreateContentP getLeccionInfogrphicItem() {
-		this.locator = leccionInfogrphicItem;
-		return this;
+	public MACreateContentP getInfoText(Predicate<WebElement>... predicates){
+	this.setWebElement(infoText,predicates);
+	return this;
 	}
 
-	public MACreateContentP getLeccionVideoItem() {
-		this.locator = leccionVideoItem;
-		return this;
+	public MACreateContentP getScorm(Predicate<WebElement>... predicates){
+	this.setWebElement(scorm,predicates);
+	return this;
 	}
 
-	public MACreateContentP getLeccionScormItem() {
-		this.locator = leccionScormItem;
-		return this;
+	public MACreateContentP getPdf(Predicate<WebElement>... predicates){
+	this.setWebElement(pdf,predicates);
+	return this;
 	}
 
-	public MACreateContentP getTopic() {
-		this.locator = topic;
-		return this;
+	public MACreateContentP getPdfUploadedLink(Predicate<WebElement>... predicates){
+	this.setWebElement(pdfUploadedLink,predicates);
+	return this;
 	}
 
-	public MACreateContentP getInfographic() {
-		this.locator = infographic;
-		return this;
+	public MACreateContentP getMiniImgInfo(Predicate<WebElement>... predicates){
+	this.setWebElement(miniImgInfo,predicates);
+	return this;
 	}
 
-	public MACreateContentP getScorm() {
-		this.locator = scorm;
-		return this;
+	public MACreateContentP getVideo(Predicate<WebElement>... predicates){
+	this.setWebElement(video,predicates);
+	return this;
 	}
 
-	public MACreateContentP getMenuContentButton() {
-		this.locator = menuContentButton;
-		return this;
+	public MACreateContentP getUploadingIcon(Predicate<WebElement>... predicates){
+	this.setWebElement(uploadingIcon,predicates);
+	return this;
 	}
 
-	public MACreateContentP getSaveButton() {
-		this.locator = saveButton;
-		return this;
+	public MACreateContentP getUploadedHref(Predicate<WebElement>... predicates){
+	this.setWebElement(uploadedHref,predicates);
+	return this;
 	}
 
-	public MACreateContentP getMessageCursoCreation() {
-		this.locator = messageCursoCreation;
-		return this;
+	public MACreateContentP getPreviewCoverImage(Predicate<WebElement>... predicates){
+	this.setWebElement(previewCoverImage,predicates);
+	return this;
 	}
 
-	public MACreateContentP getMessageLeccionCreation() {
-		this.locator = messageLeccionCreation;
-		return this;
+	public MACreateContentP getAltCoverText(Predicate<WebElement>... predicates){
+	this.setWebElement(altCoverText,predicates);
+	return this;
 	}
 
+	public MACreateContentP getMinScore(Predicate<WebElement>... predicates){
+	this.setWebElement(minScore,predicates);
+	return this;
+	}
+
+	public MACreateContentP getAttempts(Predicate<WebElement>... predicates){
+	this.setWebElement(attempts,predicates);
+	return this;
+	}
+	@SuppressWarnings("unchecked")
 	public MACreateContentP loadContentType(Map<String, String>  provider) {
 
 		this.getLeccionType().type(provider.get("lessonType"));
 		switch (provider.get("lessonType")) {
 		case "scorm":
 			this.getScorm().type(resourcesPath + "media" + File.separator + "scorm" + File.separator + provider.get("scorm"));
-			this.getUploadedHref().waitForVisivility();
+			this.getUploadedHref().waitForVisibility();
 			break;
 		case "pdf":
 			this.getPdf().type(resourcesPath + "media" + File.separator + "pdf" + File.separator + provider.get("pdf"));
-			this.getPdfUploadedLink().waitForVisivility();
+			this.getPdfUploadedLink().waitForVisibility();
 			break;
 		case "infografia":
 			this.getInfographic().type(resourcesPath + "media" + File.separator + "image" + File.separator + provider.get("infografia"));
-			this.getMiniImgInfo().waitForVisivility();
+			this.getMiniImgInfo().waitForVisibility();
 			this.getInfoText().type("infografia");
 			break;
 		case "video":

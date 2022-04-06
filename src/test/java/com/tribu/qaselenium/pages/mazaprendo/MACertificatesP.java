@@ -1,14 +1,15 @@
 package com.tribu.qaselenium.pages.mazaprendo;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 
 public class MACertificatesP extends BasePO<MACertificatesP> {
 
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 	private String xpathPart1= "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
-	
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
 	private By menuAparienciaButton = By.xpath("//div//a[@href='/admin/appearance']");
@@ -36,134 +37,134 @@ public class MACertificatesP extends BasePO<MACertificatesP> {
 	private By reportButton = By.xpath("//button[@id='report-courses-button']/i");
 	private By playCourseButton = By.xpath("/html//div[@id='block-mazaprendotheme-content']/div[@class='content']//img[contains(@src,'Test-cover-image')]/following::i");
 	
-	public MACertificatesP getPageTitle() {
-		this.locator = pageTitle;
-		return this;
+	public MACertificatesP getMenuContentButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuContentButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getCertificadoName() {
-		this.locator = certificadoName;
-		return this;
+	public MACertificatesP getMenuStructureButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuStructureButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getShowCertificate() {
-		this.locator = showCertificate;
-		return this;
+	public MACertificatesP getMenuAparienciaButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuAparienciaButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getCertificateText1() {
-		this.locator = certificateText1;
-		return this;
+	public MACertificatesP getMenuAmpliarButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuAmpliarButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getCertificateText2() {
-		this.locator = certificateText2;
-		return this;
+	public MACertificatesP getMenuConfigurationButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuConfigurationButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getCertificateText3() {
-		this.locator = certificateText3;
-		return this;
+	public MACertificatesP getMenuUsersButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuUsersButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getDownloadCertButton() {
-		this.locator = downloadCertButton;
-		return this;
+	public MACertificatesP getMenuReportButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuReportButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getExitCertButton() {
-		this.locator = exitCertButton;
-		return this;
-	}
-	
-	public MACertificatesP getPlayCourseButton() {
-		this.locator = playCourseButton;
-		return this;
+	public MACertificatesP getMenuHelpButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuHelpButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getAssingCoursesButton() {
-		this.locator = assingCoursesButton;
-		return this;
+	public MACertificatesP getProfileButton(Predicate<WebElement>... predicates){
+	this.setWebElement(profileButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getReportButton() {
-		this.locator = reportButton;
-		return this;
-	}
-	
-	public MACertificatesP getMenuContentButton() {
-		this.locator = menuContentButton;
-		return this;
+	public MACertificatesP getLearningButton(Predicate<WebElement>... predicates){
+	this.setWebElement(learningButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getMenuStructureButton() {
-		this.locator = menuStructureButton;
-		return this;
+	public MACertificatesP getPageTitle(Predicate<WebElement>... predicates){
+	this.setWebElement(pageTitle,predicates);
+	return this;
 	}
 
-	public MACertificatesP getMenuAparienciaButton() {
-		this.locator = menuAparienciaButton;
-		return this;
+	public MACertificatesP getCertificadoName(Predicate<WebElement>... predicates){
+	this.setWebElement(certificadoName,predicates);
+	return this;
 	}
 
-	public MACertificatesP getMenuAmpliarButton() {
-		this.locator = menuAmpliarButton;
-		return this;
+	public MACertificatesP getShowCertificate(Predicate<WebElement>... predicates){
+	this.setWebElement(showCertificate,predicates);
+	return this;
 	}
 
-	public MACertificatesP getMenuConfigurationButton() {
-		this.locator = menuConfigurationButton;
-		return this;
+	public MACertificatesP getCertificateText1(Predicate<WebElement>... predicates){
+	this.setWebElement(certificateText1,predicates);
+	return this;
 	}
 
-	public MACertificatesP getMenuUsersButton() {
-		this.locator = menuUsersButton;
-		return this;
+	public MACertificatesP getCertificateText2(Predicate<WebElement>... predicates){
+	this.setWebElement(certificateText2,predicates);
+	return this;
 	}
 
-	public MACertificatesP getMenuReportButton() {
-		this.locator = menuReportButton;
-		return this;
+	public MACertificatesP getCertificateText3(Predicate<WebElement>... predicates){
+	this.setWebElement(certificateText3,predicates);
+	return this;
 	}
 
-	public MACertificatesP getMenuHelpButton() {
-		this.locator = menuHelpButton;
-		return this;
+	public MACertificatesP getDownloadCertButton(Predicate<WebElement>... predicates){
+	this.setWebElement(downloadCertButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getProfileButton() {
-		this.locator = profileButton;
-		return this;
+	public MACertificatesP getExitCertButton(Predicate<WebElement>... predicates){
+	this.setWebElement(exitCertButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getLearningButton() {
-		this.locator = learningButton;
-		return this;
+	public MACertificatesP getAppLogo(Predicate<WebElement>... predicates){
+	this.setWebElement(appLogo,predicates);
+	return this;
 	}
 
-	public MACertificatesP getAppLogo() {
-		this.locator = appLogo;
-		return this;
+	public MACertificatesP getTermsConditionsButton(Predicate<WebElement>... predicates){
+	this.setWebElement(termsConditionsButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getTermsConditionsButton() {
-		this.locator = termsConditionsButton;
-		return this;
+	public MACertificatesP getSearchButton(Predicate<WebElement>... predicates){
+	this.setWebElement(searchButton,predicates);
+	return this;
 	}
 
-	public MACertificatesP getSearchButton() {
-		this.locator = searchButton;
-		return this;
+	public MACertificatesP getSearchField(Predicate<WebElement>... predicates){
+	this.setWebElement(searchField,predicates);
+	return this;
 	}
 
-	public MACertificatesP getSearchField() {
-		this.locator = searchField;
-		return this;
+	public MACertificatesP getNumCursosText(Predicate<WebElement>... predicates){
+	this.setWebElement(numCursosText,predicates);
+	return this;
 	}
 
-	public MACertificatesP getNumCursosText() {
-		this.locator = numCursosText;
-		return this;
+	public MACertificatesP getAssingCoursesButton(Predicate<WebElement>... predicates){
+	this.setWebElement(assingCoursesButton,predicates);
+	return this;
+	}
+
+	public MACertificatesP getReportButton(Predicate<WebElement>... predicates){
+	this.setWebElement(reportButton,predicates);
+	return this;
+	}
+
+	public MACertificatesP getPlayCourseButton(Predicate<WebElement>... predicates){
+	this.setWebElement(playCourseButton,predicates);
+	return this;
 	}
 
 	//part xpath

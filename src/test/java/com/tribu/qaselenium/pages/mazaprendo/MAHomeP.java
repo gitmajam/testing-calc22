@@ -1,15 +1,17 @@
 package com.tribu.qaselenium.pages.mazaprendo;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 
 public class MAHomeP extends BasePO<MAHomeP> {
 	MAConfigurationP maConfigurationP;
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 	private String xpathPart1 = "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
-
 	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
+
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
 	private By menuAparienciaButton = By.xpath("//div//a[@href='/admin/appearance']");
 	private By menuAmpliarButton = By.xpath("//div//a[@href='/admin/modules']");
@@ -34,112 +36,142 @@ public class MAHomeP extends BasePO<MAHomeP> {
 	private By playCourseButton = By.xpath(
 			"/html//div[@id='block-mazaprendotheme-content']/div[@class='content']//img[contains(@src,'Test-cover-image')]/following::i");
 	private By cardsList = By.xpath("//div[@class='course-cards d-grid']//div[2]/span");
-
-	public MAHomeP getCardsList() {
-		this.locator = cardsList;
-		return this;
+	private By myCoursesButton = By.xpath("//span[text()='Mis cursos']");
+	private By myRecordsButton = By.xpath("//span[text()='Historial']");
+	private By myNPSButton = By.xpath("//span[text()='Mi NPS']");
+	private By myLearningButton = By.xpath("//span[text()='Mi Aprendizaje']");
+	private By myFilesButton = By.xpath("//span[text()='Mi Expediente']");
+	
+	public MAHomeP getMenuContentButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuContentButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getShowCertificatesButton() {
-		this.locator = showCertificatesButton;
-		return this;
+	public MAHomeP getMenuStructureButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuStructureButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getPlayCourseButton() {
-		this.locator = playCourseButton;
-		return this;
+	public MAHomeP getMenuAparienciaButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuAparienciaButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getAssingCoursesButton() {
-		this.locator = assingCoursesButton;
-		return this;
+	public MAHomeP getMenuAmpliarButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuAmpliarButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getReportButton() {
-		this.locator = reportButton;
-		return this;
+	public MAHomeP getMenuConfigurationButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuConfigurationButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuContentButton() {
-		this.locator = menuContentButton;
-		return this;
+	public MAHomeP getMenuUsersButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuUsersButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuStructureButton() {
-		this.locator = menuStructureButton;
-		return this;
+	public MAHomeP getMenuReportButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuReportButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuAparienciaButton() {
-		this.locator = menuAparienciaButton;
-		return this;
+	public MAHomeP getMenuHelpButton(Predicate<WebElement>... predicates){
+	this.setWebElement(menuHelpButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuAmpliarButton() {
-		this.locator = menuAmpliarButton;
-		return this;
+	public MAHomeP getProfileButton(Predicate<WebElement>... predicates){
+	this.setWebElement(profileButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuConfigurationButton() {
-		this.locator = menuConfigurationButton;
-		return this;
+	public MAHomeP getLearningButton(Predicate<WebElement>... predicates){
+	this.setWebElement(learningButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuUsersButton() {
-		this.locator = menuUsersButton;
-		return this;
+	public MAHomeP getShowCertificatesButton(Predicate<WebElement>... predicates){
+	this.setWebElement(showCertificatesButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuReportButton() {
-		this.locator = menuReportButton;
-		return this;
+	public MAHomeP getAppLogo(Predicate<WebElement>... predicates){
+	this.setWebElement(appLogo,predicates);
+	return this;
 	}
 
-	public MAHomeP getMenuHelpButton() {
-		this.locator = menuHelpButton;
-		return this;
+	public MAHomeP getTermsConditionsButton(Predicate<WebElement>... predicates){
+	this.setWebElement(termsConditionsButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getProfileButton() {
-		this.locator = profileButton;
-		return this;
+	public MAHomeP getSearchButton(Predicate<WebElement>... predicates){
+	this.setWebElement(searchButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getLearningButton() {
-		this.locator = learningButton;
-		return this;
+	public MAHomeP getSearchField(Predicate<WebElement>... predicates){
+	this.setWebElement(searchField,predicates);
+	return this;
 	}
 
-	public MAHomeP getAppLogo() {
-		this.locator = appLogo;
-		return this;
+	public MAHomeP getNumCursosText(Predicate<WebElement>... predicates){
+	this.setWebElement(numCursosText,predicates);
+	return this;
 	}
 
-	public MAHomeP getTermsConditionsButton() {
-		this.locator = termsConditionsButton;
-		return this;
+	public MAHomeP getAssingCoursesButton(Predicate<WebElement>... predicates){
+	this.setWebElement(assingCoursesButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getSearchButton() {
-		this.locator = searchButton;
-		return this;
+	public MAHomeP getReportButton(Predicate<WebElement>... predicates){
+	this.setWebElement(reportButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getSearchField() {
-		this.locator = searchField;
-		return this;
+	public MAHomeP getPlayCourseButton(Predicate<WebElement>... predicates){
+	this.setWebElement(playCourseButton,predicates);
+	return this;
 	}
 
-	public MAHomeP getNumCursosText() {
-		this.locator = numCursosText;
-		return this;
+	public MAHomeP getCardsList(Predicate<WebElement>... predicates){
+	this.setWebElement(cardsList,predicates);
+	return this;
 	}
 
+	public MAHomeP getMyCoursesButton(Predicate<WebElement>... predicates){
+	this.setWebElement(myCoursesButton,predicates);
+	return this;
+	}
+
+	public MAHomeP getMyRecordsButton(Predicate<WebElement>... predicates){
+	this.setWebElement(myRecordsButton,predicates);
+	return this;
+	}
+ 
+	public MAHomeP getMyNPSButton(Predicate<WebElement>... predicates){
+	this.setWebElement(myNPSButton,predicates);
+	return this;
+	}
+
+	public MAHomeP getMyLearningButton(Predicate<WebElement>... predicates){
+	this.setWebElement(myLearningButton,predicates);
+	return this;
+	}
+
+	public MAHomeP getMyFilesButton(Predicate<WebElement>... predicates){
+	this.setWebElement(myFilesButton,predicates);
+	return this;
+	}
+	
 	// part xpath
 	public MAHomeP getXpathPart1(String locatorPart) {
 		this.xpathPart = xpathPart1;
 		By question = By.xpath(this.xpathPart + locatorPart + "')]/following::div/a");
-		this.locator = question;
+		this.setWebElement(question);
 		return this;
 	}
 

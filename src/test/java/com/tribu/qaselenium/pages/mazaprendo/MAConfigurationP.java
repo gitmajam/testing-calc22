@@ -1,7 +1,9 @@
 package com.tribu.qaselenium.pages.mazaprendo;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 
 public class MAConfigurationP extends BasePO<MAConfigurationP> {
@@ -13,27 +15,25 @@ public class MAConfigurationP extends BasePO<MAConfigurationP> {
 	private By performance = By.xpath("//a[@href='/admin/config/development/performance']/span[@class='label']");
 	private By clearCache = By.xpath("/html//input[@id='edit-clear']");
 	
-	public MAConfigurationP getConfigurationButton() {
-		this.locator = configurationButton;
-		return this;
+	public MAConfigurationP getConfigurationButton(Predicate<WebElement>... predicates){
+	this.setWebElement(configurationButton,predicates);
+	return this;
 	}
 
-	public MAConfigurationP getEmptyCacheAlert() {
-		this.locator = emptyCacheAlert;
-		return this;
-	}
-	
-	public MAConfigurationP getPerformance() {
-		this.locator = performance;
-		return this;
+	public MAConfigurationP getEmptyCacheAlert(Predicate<WebElement>... predicates){
+	this.setWebElement(emptyCacheAlert,predicates);
+	return this;
 	}
 
-	public MAConfigurationP getClearCache() {
-		this.locator = clearCache;
-		return this;
+	public MAConfigurationP getPerformance(Predicate<WebElement>... predicates){
+	this.setWebElement(performance,predicates);
+	return this;
 	}
 
-
+	public MAConfigurationP getClearCache(Predicate<WebElement>... predicates){
+	this.setWebElement(clearCache,predicates);
+	return this;
+	}
 
 	@Override
 	public String getPageUrl() {

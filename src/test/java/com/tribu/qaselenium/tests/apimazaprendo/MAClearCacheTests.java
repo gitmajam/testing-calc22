@@ -26,12 +26,9 @@ public class MAClearCacheTests extends TestBase {
 		MAHomeP maHomeP;
 		MAConfigurationP maConfigurationP;
 
-		// read csv credentials file depends on environment
-		Map<String, String> dataMap = readCredentials();
-
 		/* login */
-		maLandingP = openUrl(MALandingP::new, 2000).get();
-		maHomeP = maLandingP.login(dataMap.get("sharpId1"), dataMap.get("password1"));
+		maLandingP = openUrl(MALandingP::new, 3000).get();
+		maHomeP = maLandingP.login(readCredentials("admin"));
 
 		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
 				"Falla Assert login - no encuentra boton de contenido");

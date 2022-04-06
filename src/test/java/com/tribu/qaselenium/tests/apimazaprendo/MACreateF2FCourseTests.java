@@ -21,6 +21,7 @@ public class MACreateF2FCourseTests extends TestBase {
 	
 	public static String dataProviderFilePath = "src/test/resources/providerFiles/f2FCourses.csv";
 
+	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "csvReaderMethodFile", dataProviderClass = CsvDataProviders.class, groups = { "smoke" })
 	public void createF2FCourse(Method method,ITestContext context, Map<String, String> provider) {
 		SoftAssert softAssert = new SoftAssert();
@@ -37,12 +38,9 @@ public class MACreateF2FCourseTests extends TestBase {
 		String dirMainImg = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 				+ File.separator + "resources" + File.separator + "media" + File.separator + "image" + File.separator + provider.get("coverImage");
 
-		// read csv credentials file depends on environment
-		Map<String, String> dataMap = readCredentials();
-		
 		/* login */
-		maLandingP = openUrl(MALandingP::new, 2000).get();
-		maHomeP = maLandingP.login(dataMap.get("sharpId1"), dataMap.get("password1"));
+		maLandingP = openUrl(MALandingP::new, 3000).get();
+		maHomeP = maLandingP.login(readCredentials("admin"));
 
 		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
 				"Falla Assert login - no encuentra boton de contenido");
