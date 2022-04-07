@@ -13,16 +13,16 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 
-	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
+	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
-	private By menuAparienciaButton = By.xpath("//div//a[@href='/admin/appearance']");
-	private By menuAmpliarButton = By.xpath("//div//a[@href='/admin/modules']");
-	private By menuConfigurationButton = By.xpath("//div//a[@href='/admin/config']");
-	private By menuUsersButton = By.xpath("//div//a[@href='/admin/people']");
-	private By menuReportButton = By.xpath("//div//a[@href='/admin/reports']");
+	private By menuAparienciaButton = By.xpath("//div//a[contains(@href,'/admin/appearance')]");
+	private By menuAmpliarButton = By.xpath("//div//a[contains(@href,'/admin/modules')]");
+	private By menuConfigurationButton = By.xpath("//div//a[contains(@href,'/admin/config')]");
+	private By menuUsersButton = By.xpath("//div//a[contains(@href,'/admin/people')]");
+	private By menuReportButton = By.xpath("//div//a[contains(@href,'/admin/reports')]");
 	private By menuHelpButton = By.xpath("/html//a[@id='toolbar-link-help-main']");
 	private By profileButton = By.xpath("/html//a[@id='dropdownUser1']");
-	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[@href='/my-learning']");
+	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[contains(@href,'/my-learning')]");
 	private By appLogo = By.xpath("//header[@id='site-header']/div/div/a//img");
 	private By termsConditionsButton = By
 			.xpath("//footer[@id='site-footer']//a[@title='Política de privacidad - Términos y Condiciones']");
@@ -300,7 +300,7 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 			.getEvidenceButton().type(resourcesPath + "media" + File.separator + "image" + File.separator + "Test-miniImage1.jpeg",1000)
 			.getEvidenceButton().type(resourcesPath + "uploadFiles" + File.separator + "upload.xlsx",1000)
 			.getEvidencesList();
-			GUtils.waitForVisibilityOf(webElement);
+			GUtils.waitForVisibilityOf(locator);
 			return this;
 	}
 	

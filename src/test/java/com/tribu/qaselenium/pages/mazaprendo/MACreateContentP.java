@@ -13,24 +13,24 @@ public class MACreateContentP extends BasePO<MACreateContentP> {
 	
 	// control variables
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/node/add/content";
-	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
+	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
 	private By saveButton = By.xpath("//input[@id='edit-submit']");
 	private By messageCursoCreation = By.xpath("html//div//section/div/div/h3");
 	private By messageLeccionCreation = By.xpath("html//div//section/div/div/h2");
 	private By titleSumary = By.xpath("//div[contains(@class,'node__content clearfix')]//p");
 	
 	private By addContentButton = By
-			.xpath("//div[@id='block-seven-local-actions']/ul[@class='action-links']//a[@href='/node/add']");
+			.xpath("//div[@id='block-seven-local-actions']/ul[@class='action-links']//a[contains(@href,'/node/add')]");
 	private By addArticleButton = By
-			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/article']");
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[contains(@href,'/node/add/article')]");
 	private By addCursoButton = By
-			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/curso']");
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[contains(@href,'/node/add/curso')]");
 	private By addLeccionButton = By
-			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/leccion']");
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[contains(@href,'/node/add/leccion')]");
 	private By addLeccionF2FButton = By
-			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/leccion_presencial']");
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[contains(@href,'/node/add/leccion_presencial')]");
 	private By addPaginaBasicaButton = By
-			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[@href='/node/add/page']");
+			.xpath("//div[@id='block-seven-content']/ul[@class='admin-list']//a[contains(@href,'/node/add/page')]");
 
 	// fields
 	private By title = By.xpath("/html//input[@id='edit-title-0-value']");

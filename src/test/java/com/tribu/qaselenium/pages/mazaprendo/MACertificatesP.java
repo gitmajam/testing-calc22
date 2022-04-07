@@ -10,13 +10,13 @@ public class MACertificatesP extends BasePO<MACertificatesP> {
 
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 	private String xpathPart1= "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
-	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
+	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
-	private By menuAparienciaButton = By.xpath("//div//a[@href='/admin/appearance']");
-	private By menuAmpliarButton = By.xpath("//div//a[@href='/admin/modules']");
-	private By menuConfigurationButton = By.xpath("//div//a[@href='/admin/config']");
-	private By menuUsersButton = By.xpath("//div//a[@href='/admin/people']");
-	private By menuReportButton = By.xpath("//div//a[@href='/admin/reports']");
+	private By menuAparienciaButton = By.xpath("//div//a[contains(@href,'/admin/appearance')]");
+	private By menuAmpliarButton = By.xpath("//div//a[contains(@href,'/admin/modules')]");
+	private By menuConfigurationButton = By.xpath("//div//a[contains(@href,'/admin/config')]");
+	private By menuUsersButton = By.xpath("//div//a[contains(@href,'/admin/people')]");
+	private By menuReportButton = By.xpath("//div//a[contains(@href,'/admin/reports')]");
 	private By menuHelpButton = By.xpath("/html//a[@id='toolbar-link-help-main']");
 	private By profileButton = By.xpath("/html//a[@id='dropdownUser1']");
 	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[@href='/my-learning']");

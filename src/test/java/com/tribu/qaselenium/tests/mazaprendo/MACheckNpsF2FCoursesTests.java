@@ -32,18 +32,15 @@ public class MACheckNpsF2FCoursesTests extends TestBase {
 		
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student"));
+		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
 
-		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
 		log.info("Leccion : " + courseTitle);
 		maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
-		maPerformCourseP.getModalMessage().check(e->e.isDisplayed()).andThen(maPerformCourseP::closeModal)
+		maPerformCourseP.getModalMessage().ifExist(maPerformCourseP::closeModal)
 						.uploadEvidence()
-						.getEvidencesList().check(e->e.getText().contains("certs.pdf")).assess(softAssert::assertTrue)
-						.getEvidencesList().check(e->e.getText().contains("Test-miniImage1.jpeg")).assess(softAssert::assertTrue)
-						.getEvidencesList().check(e->e.getText().contains("upload.xlsx")).assess(softAssert::assertTrue);
-		
-		softAssert.assertAll();
+						.getEvidencesList(e->e.getText().contains("certs.pdf")).assertExist(softAssert::assertTrue)
+						.getEvidencesList(e->e.getText().contains("Test-miniImage1.jpeg")).assertExist(softAssert::assertTrue)
+						.getEvidencesList(e->e.getText().contains("upload.xlsx")).assertExist(softAssert::assertTrue)
+						.exec(softAssert::assertAll);
 	}
 }

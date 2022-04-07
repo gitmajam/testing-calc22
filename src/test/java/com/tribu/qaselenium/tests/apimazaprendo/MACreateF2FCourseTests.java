@@ -9,6 +9,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.google.common.base.Supplier;
 import com.tribu.qaselenium.pages.mazaprendo.MACreateContentP;
 import com.tribu.qaselenium.pages.mazaprendo.MAHomeP;
 import com.tribu.qaselenium.pages.mazaprendo.MALandingP;
@@ -29,9 +30,9 @@ public class MACreateF2FCourseTests extends TestBase {
 		MALandingP maLandingP;
 		MAHomeP maHomeP;
 		MACreateContentP maCreateContentP;
-		
-		String cursoTitle = provider.get("title") + getTodaysDate() + getSystemTime();
-		editTestJSON(method,context,"courseName" ,cursoTitle);
+	
+		String courseTitle = provider.get("title") + getTodaysDate() + getSystemTime();
+		editTestJSON(method,context,"courseName" ,courseTitle);
 		editTestJSON(method,context,"recordCheck",provider.get("recordCheck"));
 
 		/* path for mainImage */
@@ -40,15 +41,12 @@ public class MACreateF2FCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin"));
-
-		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
 					.getAddCursoButton().click()
-					.getTitle().type(cursoTitle)
+					.getTitle().type(courseTitle)
 					.getFrame().swichToFrame()
 					.getBody().type(provider.get("description"))
 					.swichToMain()
@@ -60,11 +58,9 @@ public class MACreateF2FCourseTests extends TestBase {
 					.getAltCoverText().type(provider.get("altCoverText"))
 					.getMinScore().clear().type(provider.get("minScore"))
 					.getAttempts().clear().type(provider.get("attempts"))
-					.getSaveButton().click();
-
-		softAssert.assertTrue(maCreateContentP.getMessageCursoCreation().contains(cursoTitle),
-				"doesn't contain the expected message: " + cursoTitle);
-
-		softAssert.assertAll();
+					.getSaveButton().click()
+					.getMessageCursoCreation(e->e.getText().contains(courseTitle)).assertExist(softAssert::assertTrue)
+					.exec(softAssert::assertAll);
+	
 	}
 }

@@ -21,6 +21,7 @@ public class MACreateDigitalCourseTests extends TestBase {
 	
 	public static String dataProviderFilePath = "src/test/resources/providerFiles/digitalCourses.csv";
 
+	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "csvReaderMethodFile", dataProviderClass = CsvDataProviders.class, groups = { "smoke" })
 	public void createDigitalCourse(Method method,ITestContext context, Map<String, String> provider) {
 		SoftAssert softAssert = new SoftAssert();
@@ -40,10 +41,7 @@ public class MACreateDigitalCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin"));
-
-		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
@@ -60,11 +58,9 @@ public class MACreateDigitalCourseTests extends TestBase {
 					.getAltCoverText().type(provider.get("altCoverText"))
 					.getMinScore().clear().type(provider.get("minScore"))
 					.getAttempts().clear().type(provider.get("attempts"))
-					.getSaveButton().click();
+					.getSaveButton().click()
+					.getMessageCursoCreation(e->e.getText().contains(cursoTitle)).assertExist(softAssert::assertTrue)
+					.exec(softAssert::assertAll);
 
-		softAssert.assertTrue(maCreateContentP.getMessageCursoCreation().contains(cursoTitle),
-				"doesn't contain the expected message: " + cursoTitle);
-
-		softAssert.assertAll();
 	}
 }

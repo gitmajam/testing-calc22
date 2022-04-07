@@ -9,7 +9,7 @@ import com.tribu.qaselenium.testframework.pagebase.BasePO;
 public class MAMyCoursesP extends BasePO<MAMyCoursesP> {
 
 	private By profileButton = By.xpath("/html//a[@id='dropdownUser1']");
-	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[@href='/my-learning']");
+	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[contains(@href,'/my-learning')]");
 	private By appLogo = By.xpath("//header[@id='site-header']/div/div/a//img");
 	private By termsConditionsButton = By
 			.xpath("//footer[@id='site-footer']//a[@title='Política de privacidad - Términos y Condiciones']");
@@ -18,7 +18,7 @@ public class MAMyCoursesP extends BasePO<MAMyCoursesP> {
 	private By itemsList = By.xpath("//section/div[3]//div/ul/li");
 	private By feedback = By.xpath(".//ul/li");
 	private By downloadGuide = By.xpath(
-			"//div[@id='block-mazaprendotheme-content']/div[@class='content']/div[3]/section/div[2]//a[@href='http://']");
+			"//div[@id='block-mazaprendotheme-content']/div[@class='content']/div[3]/section/div[2]//a[contains(@href,'http://')]");
 	private By teacherComments = By.xpath("//div[@id='nav-tabContent']/div[2]/ul/li//textarea");
 	private By saveButton = By.xpath(".//div[2]/button");
 	private By continueButton = By.xpath("//button[@id='modal_continue']");

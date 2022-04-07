@@ -36,10 +36,7 @@ public class MAAssignDigitalCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin"));
-
-		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
 
 //		maAssingCourseP = maHomeP.getAppLogo().click()
 //								.getAssingCoursesButton().click(MAAssingCourseP::new).get();
@@ -50,12 +47,13 @@ public class MAAssignDigitalCourseTests extends TestBase {
 					.getSaveCourseButton().click()
 					.getSaveCourseButton().waitForNotVisibility()
 					.getAssingCourse().click()
-					.getXpathPart2("'" + sonCourseTitle + "')]").click()
-					.getUploadAssingFile().type(pathName2)
-					.getRegValidationText().waitForVisibility()
-					.getAssignCourseButton().click()
-					.getAssignCourseButton().waitForNotVisibility();
+//					.getXpathPart2("'" + sonCourseTitle + "')]").click()
+//					.getUploadAssingFile().type(pathName2)
+//					.getRegValidationText().waitForVisibility()
+//					.getAssignCourseButton().click()
+//					.getAssignCourseButton().waitForNotVisibility();
+					.exec(softAssert::assertAll);
 		
-		softAssert.assertAll();
+		
 	}
 }

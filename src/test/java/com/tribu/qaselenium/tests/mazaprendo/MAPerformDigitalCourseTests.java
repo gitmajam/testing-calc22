@@ -25,6 +25,7 @@ public class MAPerformDigitalCourseTests extends TestBase {
 	
 	public static String dataProviderFilePath = "src/test/resources/providerFiles/digitalLessons.csv";
 
+	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "csvReaderMethodFile", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
 			"deleteContent" })
 	public void performCourse(Method method, ITestContext context, Map<String, String> provider) {
@@ -47,15 +48,13 @@ public class MAPerformDigitalCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student"));
-
-				softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
-						"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
+		
 				log.info("Leccion : " + lessonTitle);
 				log.info("Leccion : " + courseTitle);
 				maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
 				maPerformCourseP.getStartCourseButton().click()
-								.getModalMessage().waitForVisibility().check(e->e.isDisplayed()).andThen(maPerformCourseP::closeModal);
+								.getModalMessage().ifExist(maPerformCourseP::closeModal);
 
 //		for (int i = 0; i < 3; i++) {
 //			sleep(8000);

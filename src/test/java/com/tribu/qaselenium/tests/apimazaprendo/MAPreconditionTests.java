@@ -38,7 +38,7 @@ public class MAPreconditionTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin"));
+		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		maContentListP = maHomeP.getMenuContentButton().click(MAContentListP::new).get();
 		
@@ -48,8 +48,11 @@ public class MAPreconditionTests extends TestBase {
 					.getActionDeleteItem().click()
 					.getActionSelect().click()
 					.getFilterButton().click()
-					.getEmptyMessage().check(e->Objects.nonNull(e)).andThen(maContentListP::removeContent);
-		
+					.getEmptyMessage()
+					.ifNotExist(()->maContentListP.removeContent(softAssert))
+					.ifExist(()->log.info("Not found elements to remove"))
+					.exec(softAssert::assertAll);
+					
 		/* remove past courses assigned to the user */
 		
 		//teacher precondition

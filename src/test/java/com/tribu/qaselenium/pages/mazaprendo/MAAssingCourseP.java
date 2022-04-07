@@ -13,23 +13,22 @@ import com.tribu.qaselenium.tests.mazaprendo.data.UserLessonAssignDAO;
 
 public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 	private final String pageUrl = PropertiesFile.getProperties(PropertiesFile.getProperties("env") + "_ma_assing_url");
-	private String xpathPart1 = "/html//select[@id='edit-type']/option[contains(text(),";
-	private String xpathPart2 = "/html//select[@id='edit-type']/option[contains(text(),";
-	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
+	private By selectCourse = By.xpath("/html//select");
+	private By course = By.xpath(".//option");
+	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
-	private By menuAparienciaButton = By.xpath("//div//a[@href='/admin/appearance']");
-	private By menuAmpliarButton = By.xpath("//div//a[@href='/admin/modules']");
-	private By menuConfigurationButton = By.xpath("//div//a[@href='/admin/config']");
-	private By menuUsersButton = By.xpath("//div//a[@href='/admin/people']");
-	private By menuReportButton = By.xpath("//div//a[@href='/admin/reports']");
+	private By menuAparienciaButton = By.xpath("//div//a[contains(@href,'/admin/appearance')]");
+	private By menuAmpliarButton = By.xpath("//div//a[contains(@href,'/admin/modules')]");
+	private By menuConfigurationButton = By.xpath("//div//a[contains(@href,'/admin/config')]");
+	private By menuUsersButton = By.xpath("//div//a[contains(@href,'/admin/people')]");
+	private By menuReportButton = By.xpath("//div//a[contains(@href,'/admin/reports')]");
 	private By menuHelpButton = By.xpath("/html//a[@id='toolbar-link-help-main']");
 	private By createCourse = By.xpath(
-			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[@href='/admin/structure/maz_aprendo_admin_courses/create']");
+			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[contains(@href,'/admin/structure/maz_aprendo_admin_courses/create')]");
 	private By editCourse = By.xpath(
-			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[@href='/admin/structure/maz_aprendo_admin_courses/edit']");
+			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[contains(@href,'/admin/structure/maz_aprendo_admin_courses/edit')]");
 	private By assingCourse = By.xpath(
-			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[@href='/admin/structure/maz_aprendo_admin_courses/assing']");
-	private By selectCourse = By.xpath("/html//select[@id='edit-type']");
+			"//div[@id='block-seven-content']/nav[@role='navigation']/nav[@role='navigation']//a[contains(@href,'/admin/structure/maz_aprendo_admin_courses/assing')]");
 	private By selectCourseItem = By.xpath("/html//select[@id='edit-type']/option[contains(text(),'Test-Curso')]");
 	private By titleSonCourse = By.xpath("/html//input[@id='input-title']");
 	private By initEndDateCheck = By.xpath("/html//input[@id='input-date']");
@@ -49,6 +48,11 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 	private By checkTeacherSharpIdButton = By.xpath("/html//input[@id='submit-professor-id']");
 	private By dateStart = By.xpath("/html//input[@id='input-date-start']");
 	private By dateEnd = By.xpath("/html//input[@id='input-date-end']");
+	
+	public MAAssingCourseP getCourse(Predicate<WebElement>... predicates){
+	this.setWebElement(course,predicates);
+	return this;
+	}
 	
 	public MAAssingCourseP getMenuContentButton(Predicate<WebElement>... predicates){
 	this.setWebElement(menuContentButton,predicates);
@@ -199,22 +203,6 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 	this.setWebElement(dateEnd,predicates);
 	return this;
 	}
-
-	// part xpath
-	public MAAssingCourseP getXpathPart1(String locatorPart) {
-		this.xpathPart = xpathPart1;
-		By question = By.xpath(this.xpathPart + locatorPart);
-		this.locator = question;
-		return this;
-	}
-
-	public MAAssingCourseP getXpathPart2(String locatorPart) {
-		this.xpathPart = xpathPart2;
-		By question = By.xpath(this.xpathPart + locatorPart);
-		this.locator = question;
-		return this;
-	}
-
 
 	@Override
 	public String getPageUrl() {

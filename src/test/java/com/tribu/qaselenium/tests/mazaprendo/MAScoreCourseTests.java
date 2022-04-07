@@ -36,30 +36,27 @@ public class MAScoreCourseTests extends TestBase {
 		
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("teacher"))
-				.getAppLogo().check(WebElement::isDisplayed).assess(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("teacher")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		log.info("Leccion : " + courseTitle);
 		maMyCoursesP = maHomeP.getAppLogo().click().getMyCoursesButton().click(MAMyCoursesP::new).get();
 		maMyCoursesP.getCoursesList(e->e.getText().contains(courseTitle)).click()
-//					.getTabList(e->e.getText().contains("Retroalimentación")).click(500)
-//					.getItemsList(e->e.getText().contains("100000004")).click()
-//					.stayBaseElement()
-//					.getFeedback(e->e.getText().contains("Muy participativo")).click()
-//					.getSaveButton().click()
-//					.quitBaseElement()
-//					.getContinueButton().click()
-//					.getTabList(e->e.getText().contains("Evaluar")).click(500)
-//					.getItemsList(e->e.getText().contains("100000003")).click()
-//					.stayBaseElement()
-//					.getScore().type("100")
-//					.getSaveButton().click()
-//					.quitBaseElement()
-//					.getContinueButton().click()
+					.getTabList(e->e.getText().contains("Retroalimentación")).click()
+					.getItemsList(e->e.getText().contains("100000004")).click()
+					.stayBaseElement()
+					.getFeedback(e->e.getText().contains("Muy participativo")).click()
+					.getSaveButton().click()
+					.quitBaseElement()
+					.getContinueButton().click()
+					.getTabList(e->e.getText().contains("Evaluar")).click()
+					.getItemsList(e->e.getText().contains("100000003")).click()
+					.stayBaseElement()
+					.getScore().type("100")
+					.getSaveButton().click()
+					.quitBaseElement()
+					.getContinueButton().click()
 					.getCloseCourse(e->e.getText().contains("finalizar Curso")).click()
-					.getContinueButton().click();
-
-		softAssert.assertAll();
-		//e->e.getText().contains(courseTitle)
+					.getContinueButton().click()
+					.exec(softAssert::assertAll);
 	}
 }

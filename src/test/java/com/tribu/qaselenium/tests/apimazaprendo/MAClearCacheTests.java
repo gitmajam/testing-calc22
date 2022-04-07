@@ -17,6 +17,7 @@ import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 @Listeners(TestsListenerManager.class)
 public class MAClearCacheTests extends TestBase {
 
+	@SuppressWarnings("unchecked")
 	@Test(groups = { "smoke" })
 	public void clearCacheDrupal(Method method, ITestContext testContext) {
 		SoftAssert softAssert = new SoftAssert();
@@ -28,18 +29,13 @@ public class MAClearCacheTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin"));
-
-		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		// remove from api drupal
 		maConfigurationP = maHomeP.getMenuConfigurationButton().click(MAConfigurationP::new).get();
 		maConfigurationP.getPerformance().click()
-						.getClearCache().click();
-
-		softAssert.assertTrue(maConfigurationP.getEmptyCacheAlert().getText().contains("vaciadas"));
-
-		softAssert.assertAll();
+						.getClearCache().click()
+						.getEmptyCacheAlert(e->e.getText().contains("vaciadas")).assertExist(softAssert::assertTrue)
+						.exec(softAssert::assertAll);
 	}
 }

@@ -33,20 +33,22 @@ public class MAUploadEvidenceTests extends TestBase {
 		
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student"))
-				.getAppLogo().check(WebElement::isDisplayed).assess(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		log.info("Leccion : " + courseTitle);
-		maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
-		maPerformCourseP.getModalMessage().check(WebElement::isDisplayed).andThen(maPerformCourseP::closeModal)
-						.uploadEvidence()
-						.getEvidencesList().check((e)->e.getText().contentEquals("certs.pdf"))
-						.assess(softAssert::assertTrue)
-						.getEvidencesList().check((e)->e.getText().contentEquals("Test-miniImage1.jpeg"))
-						.assess(softAssert::assertTrue)
-						.getEvidencesList().check((e)->e.getText().contentEquals("upload.xlsx"))
-						.assess(softAssert::assertTrue);
+		maPerformCourseP = maHomeP.getCardList(e->e.getText().contains(courseTitle))
+								.stayBaseElement()
+								.getCardButton(e->e.getText().contains("Ver Mas")).click(MAPerfomCourseP::new).get();
 		
-		softAssert.assertAll();
+		maPerformCourseP.getModalMessage().ifExist(maPerformCourseP::closeModal)
+						.getEvidenceButton().assertExist(softAssert::assertTrue)
+						.uploadEvidence()
+						.getEvidencesList((e)->e.getText().contentEquals("certs.pdf"))
+						.assertExist(softAssert::assertTrue)
+						.getEvidencesList((e)->e.getText().contentEquals("Test-minoImage1.jpeg"))
+						.assertExist(softAssert::assertTrue)
+						.getEvidencesList((e)->e.getText().contentEquals("uploas.xlsx"))
+						.assertExist(softAssert::assertTrue)
+						.exec(softAssert::assertAll);
 	}
 }

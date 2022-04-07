@@ -18,6 +18,7 @@ import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 @Listeners(TestsListenerManager.class)
 public class MATeacherCoursesRecordsTests extends TestBase {
 	
+	@SuppressWarnings("unchecked")
 	@Test( groups = { "smoke",
 			"deleteContent" })
 	public void uploadEvidence(Method method, ITestContext context) {
@@ -31,15 +32,12 @@ public class MATeacherCoursesRecordsTests extends TestBase {
 		
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student"));
-
-		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
+		
 		log.info("Leccion : " + courseTitle);
 		maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
-		maPerformCourseP.getModalMessage().check(e->e.isDisplayed()).andThen(maPerformCourseP::closeModal)
-						.uploadEvidence();
-		
-		softAssert.assertAll();
+		maPerformCourseP.getModalMessage().ifExist(maPerformCourseP::closeModal)
+						.uploadEvidence()
+						.exec(softAssert::assertAll);
 	}
 }

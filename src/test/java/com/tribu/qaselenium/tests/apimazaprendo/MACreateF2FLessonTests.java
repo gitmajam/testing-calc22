@@ -34,27 +34,22 @@ public class MACreateF2FLessonTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin"));
-
-		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
 					.getAddLeccionF2FButton().click()
 					.getTitle().type(lessonTitle)
-					.getFrame().waitForVisibility().swichToFrame()
+					.getFrame().waitForVisibility()
+					.getFrame().swichToFrame()
 					.getBody().type(provider.get("title"))
 					.swichToMain()
 					.getCursoPadre().type(courseTitle)
 					.getOrderInsideCourse().type(provider.get("order"))
 					.getTopic().type(provider.get("topic"))
 					.getDuracionF2FLesson().clear().type(provider.get("duracion"))
-					.getSaveButton().click();
-
-		softAssert.assertTrue(lessonTitle.contains(maCreateContentP.getTitleSumary().getText()),
-				"doesn't contain the expected message: " + lessonTitle);
-
-		softAssert.assertAll();
+					.getSaveButton().click()
+					.getTitleSumary(e->lessonTitle.contains(e.getText())).assertExist(softAssert::assertTrue)
+					.exec(softAssert::assertAll);
 	}
 }

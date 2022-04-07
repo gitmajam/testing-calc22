@@ -28,6 +28,7 @@ public class MALandingP extends BasePO<MALandingP> {
 		return pageUrl;
 	}
 
+	@SuppressWarnings("unchecked")
 	public MAHomeP login(Map<String, String> credentialMap) {
 		log.info("login");
 

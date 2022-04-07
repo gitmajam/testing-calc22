@@ -34,10 +34,7 @@ public class MACreateDigitalLessonTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin"));
-
-		softAssert.assertTrue(maHomeP.getMenuContentButton().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
+		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
@@ -53,11 +50,9 @@ public class MACreateDigitalLessonTests extends TestBase {
 					.getDuracion().clear().type(provider.get("duracion"))
 					.getAttempts().clear().type(provider.get("attempts"))
 					.getMinScore().clear().type(provider.get("minScore"))
-					.getSaveButton().click();
+					.getSaveButton().click()
+					.getMessageLeccionCreation(e->e.getText().contains(lessonTitle)).assertExist(softAssert::assertTrue)
+					.exec(softAssert::assertAll);
 
-		softAssert.assertTrue(maCreateContentP.getMessageLeccionCreation().contains(lessonTitle),
-				"doesn't contain the expected message: " + lessonTitle);
-
-		softAssert.assertAll();
 	}
 }

@@ -1,7 +1,10 @@
 package com.tribu.qaselenium.pages.mazaprendo;
 
+import java.util.function.Consumer;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
@@ -11,9 +14,9 @@ public class MAContentListP extends BasePO<MAContentListP> {
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/admin/content?title=&type=content_banner&status=All&langcode=All&field_country_target_id=All";
 
 	private By profileMenuButton = By.xpath("//li/a[contains(text(),'Mi cuenta')]");
-	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
-	private By addContentButton = By.xpath("//li/a[@href='/node/add']");
-	private By addLinksButton = By.xpath("//a[@href='/node/add/content' and contains(text(),'Lista de Enlaces')]");
+	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
+	private By addContentButton = By.xpath("//li/a[contains(@href,'/node/add')]");
+	private By addLinksButton = By.xpath("//a[contains(@href,'/node/add/content' and contains(text(),'Lista de Enlaces')]");
 	private By titlefilterField = By.xpath("/html//input[@id='edit-title']");
 	private By filterButton = By.xpath("/html//input[@id='edit-submit-content']");
 	private By listItem = By.xpath(
@@ -173,11 +176,12 @@ public class MAContentListP extends BasePO<MAContentListP> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public MAContentListP removeContent() {
+	public MAContentListP removeContent(SoftAssert assertion) {
 		this.getSelectAllCheck().click()
 			.getApplyAction().click()
-			.getDeleteButton().click();
-		log.info("past courses removed");
+			.getDeleteButton().click()
+			.getActionMessage(e->e.getText().contains("Eliminado")).assertExist(assertion::assertTrue);
+			log.info("past courses removed");
 		return this;
 	}
 

@@ -10,19 +10,20 @@ public class MAHomeP extends BasePO<MAHomeP> {
 	MAConfigurationP maConfigurationP;
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 	private String xpathPart1 = "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
-	private By menuContentButton = By.xpath("//li/a[@href='/admin/content']");
-
+	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
+	private By cardList = By.xpath("//section/div/div");
+	private By cardButton = By.xpath(".//a[contains(@class,'btn')]");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
-	private By menuAparienciaButton = By.xpath("//div//a[@href='/admin/appearance']");
-	private By menuAmpliarButton = By.xpath("//div//a[@href='/admin/modules']");
-	private By menuConfigurationButton = By.xpath("//div//a[@href='/admin/config']");
-	private By menuUsersButton = By.xpath("//div//a[@href='/admin/people']");
-	private By menuReportButton = By.xpath("//div//a[@href='/admin/reports']");
+	private By menuAparienciaButton = By.xpath("//div//a[contains(@href,'/admin/appearance')]");
+	private By menuAmpliarButton = By.xpath("//div//a[contains(@href,'/admin/modules')]");
+	private By menuConfigurationButton = By.xpath("//div//a[contains(@href,'/admin/config')]");
+	private By menuUsersButton = By.xpath("//div//a[contains(@href,'/admin/people')]");
+	private By menuReportButton = By.xpath("//div//a[contains(@href,'/admin/reports')]");
 	private By menuHelpButton = By.xpath("/html//a[@id='toolbar-link-help-main']");
 	private By profileButton = By.xpath("/html//a[@id='dropdownUser1']");
-	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[@href='/my-learning']");
+	private By learningButton = By.xpath("/html//header[@id='site-header']/div/div/ul//a[contains(@href,'/my-learning')]");
 	private By showCertificatesButton = By
-			.xpath("/html//header[@id='site-header']/div/div/div[2]/ul//a[@href='/my-certificates']");
+			.xpath("/html//header[@id='site-header']/div/div/div[2]/ul//a[contains(@href,'/my-certificates')]");
 	private By appLogo = By.xpath("//header[@id='site-header']/div/div/a//img");
 	private By termsConditionsButton = By
 			.xpath("//footer[@id='site-footer']//a[@title='Política de privacidad - Términos y Condiciones']");
@@ -35,12 +36,21 @@ public class MAHomeP extends BasePO<MAHomeP> {
 	private By reportButton = By.xpath("//button[@id='report-courses-button']/i");
 	private By playCourseButton = By.xpath(
 			"/html//div[@id='block-mazaprendotheme-content']/div[@class='content']//img[contains(@src,'Test-cover-image')]/following::i");
-	private By cardsList = By.xpath("//div[@class='course-cards d-grid']//div[2]/span");
 	private By myCoursesButton = By.xpath("//span[text()='Mis cursos']");
 	private By myRecordsButton = By.xpath("//span[text()='Historial']");
 	private By myNPSButton = By.xpath("//span[text()='Mi NPS']");
 	private By myLearningButton = By.xpath("//span[text()='Mi Aprendizaje']");
 	private By myFilesButton = By.xpath("//span[text()='Mi Expediente']");
+	
+	public MAHomeP getCardButton(Predicate<WebElement>... predicates){
+	this.setWebElement(cardButton,predicates);
+	return this;
+	}
+	
+	public MAHomeP getCardList(Predicate<WebElement>... predicates){
+	this.setWebElement(cardList,predicates);
+	return this;
+	}
 	
 	public MAHomeP getMenuContentButton(Predicate<WebElement>... predicates){
 	this.setWebElement(menuContentButton,predicates);
@@ -134,11 +144,6 @@ public class MAHomeP extends BasePO<MAHomeP> {
 
 	public MAHomeP getPlayCourseButton(Predicate<WebElement>... predicates){
 	this.setWebElement(playCourseButton,predicates);
-	return this;
-	}
-
-	public MAHomeP getCardsList(Predicate<WebElement>... predicates){
-	this.setWebElement(cardsList,predicates);
 	return this;
 	}
 

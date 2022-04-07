@@ -42,14 +42,12 @@ public class MALessonAttemptTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student"));
+		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
 
-		softAssert.assertTrue(maHomeP.getAppLogo().isDisplayed(),
-				"Falla Assert login - no encuentra boton de contenido");
 		log.info("Leccion : " + lessonTitle);
 		maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
 		maPerformCourseP.getStartCourseButton().click()
-						.getModalMessage().check(e->e.isDisplayed()).andThen(maPerformCourseP::closeModal)
+						.getModalMessage().ifExist(maPerformCourseP::closeModal)
 						.getLessonsButton().click()
 						.getLessonsList(e->e.getText().contains(courseTitle)).click();	
 //	
