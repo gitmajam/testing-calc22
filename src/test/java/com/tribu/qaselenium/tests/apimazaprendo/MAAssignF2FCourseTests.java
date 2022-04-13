@@ -57,12 +57,17 @@ public class MAAssignF2FCourseTests extends TestBase {
 					.getCourse(e->e.getText().contentEquals(sonCourseTitle)).click()
 					.getSelectCourse().click()
 					.getUploadAssingFile().type(pathName2)
-					.getRegValidationText()
+					.getRegValidationText(e->e.getText().contains("100000003"))
+					.assess(softAssert::assertTrue)
 					.getTeacherSharpId().type("100000002")
 					.getCheckTeacherSharpIdButton().click()
+					.getTeacherSharpIDValidation(e->e.getText().contains("100000002"))
+					.assess(softAssert::assertTrue,"teacher validation is not correct")
 					.getDateStart().type(getDatePlus(1))
 					.getDateEnd().type(getDatePlus(3))
 					.getAssignCourseButton().click().waitForNotVisibility()
+					.assess(softAssert::assertFalse)
+					.getUploadAssingFile().waitForNotVisibility()
 					.assess(softAssert::assertFalse)
 					.exec(softAssert::assertAll);
 	}

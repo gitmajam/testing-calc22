@@ -6,7 +6,7 @@
 		<listener
 			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
 	</listeners>
-	<test name="apiClearCache" preserve-order="true">
+<!-- 	<test name="apiClearCache" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
@@ -19,7 +19,7 @@
 			<class
 				name="com.tribu.qaselenium.tests.apimazaprendo.MAPreconditionTests" />
 		</classes>
-	</test>
+	</test> -->
 
 <!-- 	<test name="apiCreateDigitalCourse" preserve-order="true"> <parameter 
 		name="browser" value="chrome"></parameter> <classes> <class name="com.tribu.qaselenium.tests.apimazaprendo.MACreateDigitalCourseTests" 
@@ -30,10 +30,10 @@
 	<test name="apiCreateF2FCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class
+		<!-- 	<class
 				name="com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FCourseTests" />
 			<class
-				name="com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FLessonTests" />
+				name="com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FLessonTests" /> -->
 			<class
 				name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignF2FCourseTests" />
 		</classes>
@@ -45,7 +45,7 @@
 		/> <class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
 		/> </classes> </test> -->
 
-	<test name="lifecycleF2FCourse" preserve-order="true">
+<!-- 	<test name="lifecycleF2FCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
 			<run>
@@ -61,10 +61,10 @@
 				name="com.tribu.qaselenium.tests.mazaprendo.MAFeedbackCourseTests" />
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAScoreCourseTests" />
-<!-- 	<class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
-		/> -->
+	<class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
+		/>
 		</classes>
-	</test>
+	</test> -->
 
 	<!-- <test name="lessonsAttempts" preserve-order="true"> <parameter name="browser" 
 		value="chrome"></parameter> <groups> <run> <include name="smoke" /> </run> 

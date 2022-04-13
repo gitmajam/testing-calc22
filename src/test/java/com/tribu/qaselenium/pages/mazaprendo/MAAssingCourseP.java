@@ -39,169 +39,175 @@ public class MAAssingCourseP extends BasePO<MAAssingCourseP> {
 	private By initEndDateAssingCheck = By.xpath("/html//select[@id='edit-type']");
 	private By uploadAssingFile = By.xpath("/html//input[@id='input-excel']");
 	private By assignCourseButton = By.xpath("/html//input[@id='submit-save']");
-	private By regValidationText = By.xpath("/html//table[@id='success_table']//td[4]");
+	private By regValidationText = By.xpath("/html//table[@id='success_table']//td");
 	private By teacherOption = By.xpath("/html//input[@id='input-professor']");
 	private By evidenceOption = By.xpath("/html//input[@id='input-evidence']");
 	private By feedbackOption = By.xpath("/html//input[@id='input-feedback']");
 	private By datekOption = By.xpath("/html//input[@id='input-date']");
 	private By teacherSharpId = By.xpath("/html//input[@id='input-professor-id']");
 	private By checkTeacherSharpIdButton = By.xpath("/html//input[@id='submit-professor-id']");
+	private By teacherSharpIDValidation = By.xpath("//div[@id='data-professor']/p/strong");
 	private By dateStart = By.xpath("/html//input[@id='input-date-start']");
 	private By dateEnd = By.xpath("/html//input[@id='input-date-end']");
-	
-	public MAAssingCourseP getCourse(Predicate<WebElement>... predicates){
-	this.setWebElement(course,predicates);
-	return this;
-	}
-	
-	public MAAssingCourseP getMenuContentButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuContentButton,predicates);
-	return this;
+
+	public MAAssingCourseP getTeacherSharpIDValidation(Predicate<WebElement>... predicates) {
+		this.setWebElement(teacherSharpIDValidation, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getMenuStructureButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuStructureButton,predicates);
-	return this;
+	public MAAssingCourseP getCourse(Predicate<WebElement>... predicates) {
+		this.setWebElement(course, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getMenuAparienciaButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuAparienciaButton,predicates);
-	return this;
+	public MAAssingCourseP getMenuContentButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuContentButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getMenuAmpliarButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuAmpliarButton,predicates);
-	return this;
+	public MAAssingCourseP getMenuStructureButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuStructureButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getMenuConfigurationButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuConfigurationButton,predicates);
-	return this;
+	public MAAssingCourseP getMenuAparienciaButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuAparienciaButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getMenuUsersButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuUsersButton,predicates);
-	return this;
+	public MAAssingCourseP getMenuAmpliarButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuAmpliarButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getMenuReportButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuReportButton,predicates);
-	return this;
+	public MAAssingCourseP getMenuConfigurationButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuConfigurationButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getMenuHelpButton(Predicate<WebElement>... predicates){
-	this.setWebElement(menuHelpButton,predicates);
-	return this;
+	public MAAssingCourseP getMenuUsersButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuUsersButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getCreateCourse(Predicate<WebElement>... predicates){
-	this.setWebElement(createCourse,predicates);
-	return this;
+	public MAAssingCourseP getMenuReportButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuReportButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getEditCourse(Predicate<WebElement>... predicates){
-	this.setWebElement(editCourse,predicates);
-	return this;
+	public MAAssingCourseP getMenuHelpButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(menuHelpButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getAssingCourse(Predicate<WebElement>... predicates){
-	this.setWebElement(assingCourse,predicates);
-	return this;
+	public MAAssingCourseP getCreateCourse(Predicate<WebElement>... predicates) {
+		this.setWebElement(createCourse, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getSelectCourse(Predicate<WebElement>... predicates){
-	this.setWebElement(selectCourse,predicates);
-	return this;
+	public MAAssingCourseP getEditCourse(Predicate<WebElement>... predicates) {
+		this.setWebElement(editCourse, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getSelectCourseItem(Predicate<WebElement>... predicates){
-	this.setWebElement(selectCourseItem,predicates);
-	return this;
+	public MAAssingCourseP getAssingCourse(Predicate<WebElement>... predicates) {
+		this.setWebElement(assingCourse, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getTitleSonCourse(Predicate<WebElement>... predicates){
-	this.setWebElement(titleSonCourse,predicates);
-	return this;
+	public MAAssingCourseP getSelectCourse(Predicate<WebElement>... predicates) {
+		this.setWebElement(selectCourse, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getInitEndDateCheck(Predicate<WebElement>... predicates){
-	this.setWebElement(initEndDateCheck,predicates);
-	return this;
+	public MAAssingCourseP getSelectCourseItem(Predicate<WebElement>... predicates) {
+		this.setWebElement(selectCourseItem, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getSaveCourseButton(Predicate<WebElement>... predicates){
-	this.setWebElement(saveCourseButton,predicates);
-	return this;
+	public MAAssingCourseP getTitleSonCourse(Predicate<WebElement>... predicates) {
+		this.setWebElement(titleSonCourse, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getSelectAssingSonCourse(Predicate<WebElement>... predicates){
-	this.setWebElement(selectAssingSonCourse,predicates);
-	return this;
+	public MAAssingCourseP getInitEndDateCheck(Predicate<WebElement>... predicates) {
+		this.setWebElement(initEndDateCheck, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getSelectAssingSonCourseItem(Predicate<WebElement>... predicates){
-	this.setWebElement(selectAssingSonCourseItem,predicates);
-	return this;
+	public MAAssingCourseP getSaveCourseButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(saveCourseButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getInitEndDateAssingCheck(Predicate<WebElement>... predicates){
-	this.setWebElement(initEndDateAssingCheck,predicates);
-	return this;
+	public MAAssingCourseP getSelectAssingSonCourse(Predicate<WebElement>... predicates) {
+		this.setWebElement(selectAssingSonCourse, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getUploadAssingFile(Predicate<WebElement>... predicates){
-	this.setWebElement(uploadAssingFile,predicates);
-	return this;
+	public MAAssingCourseP getSelectAssingSonCourseItem(Predicate<WebElement>... predicates) {
+		this.setWebElement(selectAssingSonCourseItem, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getAssignCourseButton(Predicate<WebElement>... predicates){
-	this.setWebElement(assignCourseButton,predicates);
-	return this;
+	public MAAssingCourseP getInitEndDateAssingCheck(Predicate<WebElement>... predicates) {
+		this.setWebElement(initEndDateAssingCheck, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getRegValidationText(Predicate<WebElement>... predicates){
-	this.setWebElement(regValidationText,predicates);
-	return this;
+	public MAAssingCourseP getUploadAssingFile(Predicate<WebElement>... predicates) {
+		this.setWebElement(uploadAssingFile, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getTeacherOption(Predicate<WebElement>... predicates){
-	this.setWebElement(teacherOption,predicates);
-	return this;
+	public MAAssingCourseP getAssignCourseButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(assignCourseButton, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getEvidenceOption(Predicate<WebElement>... predicates){
-	this.setWebElement(evidenceOption,predicates);
-	return this;
+	public MAAssingCourseP getRegValidationText(Predicate<WebElement>... predicates) {
+		this.setWebElement(regValidationText, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getFeedbackOption(Predicate<WebElement>... predicates){
-	this.setWebElement(feedbackOption,predicates);
-	return this;
+	public MAAssingCourseP getTeacherOption(Predicate<WebElement>... predicates) {
+		this.setWebElement(teacherOption, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getDatekOption(Predicate<WebElement>... predicates){
-	this.setWebElement(datekOption,predicates);
-	return this;
+	public MAAssingCourseP getEvidenceOption(Predicate<WebElement>... predicates) {
+		this.setWebElement(evidenceOption, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getTeacherSharpId(Predicate<WebElement>... predicates){
-	this.setWebElement(teacherSharpId,predicates);
-	return this;
+	public MAAssingCourseP getFeedbackOption(Predicate<WebElement>... predicates) {
+		this.setWebElement(feedbackOption, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getCheckTeacherSharpIdButton(Predicate<WebElement>... predicates){
-	this.setWebElement(checkTeacherSharpIdButton,predicates);
-	return this;
+	public MAAssingCourseP getDatekOption(Predicate<WebElement>... predicates) {
+		this.setWebElement(datekOption, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getDateStart(Predicate<WebElement>... predicates){
-	this.setWebElement(dateStart,predicates);
-	return this;
+	public MAAssingCourseP getTeacherSharpId(Predicate<WebElement>... predicates) {
+		this.setWebElement(teacherSharpId, predicates);
+		return this;
 	}
 
-	public MAAssingCourseP getDateEnd(Predicate<WebElement>... predicates){
-	this.setWebElement(dateEnd,predicates);
-	return this;
+	public MAAssingCourseP getCheckTeacherSharpIdButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(checkTeacherSharpIdButton, predicates);
+		return this;
+	}
+
+	public MAAssingCourseP getDateStart(Predicate<WebElement>... predicates) {
+		this.setWebElement(dateStart, predicates);
+		return this;
+	}
+
+	public MAAssingCourseP getDateEnd(Predicate<WebElement>... predicates) {
+		this.setWebElement(dateEnd, predicates);
+		return this;
 	}
 
 	@Override
