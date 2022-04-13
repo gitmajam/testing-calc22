@@ -308,15 +308,15 @@ public class MACreateContentP extends BasePO<MACreateContentP> {
 		switch (provider.get("lessonType")) {
 		case "scorm":
 			this.getScorm().type(resourcesPath + "media" + File.separator + "scorm" + File.separator + provider.get("scorm"));
-			this.getUploadedHref().waitForVisibility();
+			this.getUploadedHref(e->e.isDisplayed());
 			break;
 		case "pdf":
 			this.getPdf().type(resourcesPath + "media" + File.separator + "pdf" + File.separator + provider.get("pdf"));
-			this.getPdfUploadedLink().waitForVisibility();
+			this.getPdfUploadedLink(e->e.isDisplayed());
 			break;
 		case "infografia":
 			this.getInfographic().type(resourcesPath + "media" + File.separator + "image" + File.separator + provider.get("infografia"));
-			this.getMiniImgInfo().waitForVisibility();
+			this.getMiniImgInfo(e->e.isDisplayed());
 			this.getInfoText().type("infografia");
 			break;
 		case "video":

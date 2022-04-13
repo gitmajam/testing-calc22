@@ -9,9 +9,11 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.google.common.base.Predicate;
 import com.tribu.qaselenium.pages.mazaprendo.MAHomeP;
 import com.tribu.qaselenium.pages.mazaprendo.MALandingP;
 import com.tribu.qaselenium.pages.mazaprendo.MAPerfomCourseP;
+import com.tribu.qaselenium.testframework.pagebase.GUtils;
 import com.tribu.qaselenium.testframework.testbase.CsvDataProviders;
 import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
@@ -33,22 +35,24 @@ public class MAUploadEvidenceTests extends TestBase {
 		
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
-
+		maHomeP = maLandingP.login(readCredentials("student"),softAssert);
+		
 		log.info("Leccion : " + courseTitle);
 		maPerformCourseP = maHomeP.getCardList(e->e.getText().contains(courseTitle))
-								.stayBaseElement()
 								.getCardButton(e->e.getText().contains("Ver Mas")).click(MAPerfomCourseP::new).get();
 		
-		maPerformCourseP.getModalMessage().ifExist(maPerformCourseP::closeModal)
-						.getEvidenceButton().assertExist(softAssert::assertTrue)
+		maPerformCourseP.getEvidenceFormText().assess(softAssert::assertTrue, "evidence form")
+						.getCourseTitle(e->e.getText().contains(courseTitle))
+						.assess(softAssert::assertTrue,"course title")
 						.uploadEvidence()
-						.getEvidencesList((e)->e.getText().contentEquals("certs.pdf"))
-						.assertExist(softAssert::assertTrue)
-						.getEvidencesList((e)->e.getText().contentEquals("Test-minoImage1.jpeg"))
-						.assertExist(softAssert::assertTrue)
-						.getEvidencesList((e)->e.getText().contentEquals("uploas.xlsx"))
-						.assertExist(softAssert::assertTrue)
+						.getEvidencesList(e->e.getText().contains("certs.pdf"))
+						.assess(softAssert::assertTrue,"certs.pdf")
+						.getEvidencesList(e->e.getText().contains("upload.xlsx"))
+						.assess(softAssert::assertTrue,"upload.xlsx")
+						.getEvidencesList(e->e.getText().contains("Test-miniImage1.jpeg"))
+						.assess(softAssert::assertTrue,"Test-miniImage1.jpeg")
+						.getDeleteFileButton().click().waitForNotVisibility()
+						.assess(softAssert::assertFalse,"Test-miniImage1.jpeg")
 						.exec(softAssert::assertAll);
 	}
 }

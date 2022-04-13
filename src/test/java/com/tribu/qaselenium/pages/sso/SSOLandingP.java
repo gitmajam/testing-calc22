@@ -12,6 +12,12 @@ public class SSOLandingP extends BasePO<SSOLandingP> {
 	private By emailButton = By.xpath("//button[contains(text(),'SI')]");
 	private By abLogo = By.xpath("/html//div[@id='second']//img[@alt='AbInBev']");
 	private By videoCloseButton = By.xpath("//div[@id='myVideo']/div[@role='document']//div[@class='modal-footer']/button[@type='button']");
+	private By modalVideo = By.xpath("//div[@class='modal-content']");
+
+	public SSOLandingP getModalVideo(Predicate<WebElement>... predicates){
+	this.setWebElement(modalVideo,predicates);
+	return this;
+	}
 
 	public SSOLandingP getSharpIdButton(Predicate<WebElement>... predicates){
 	this.setWebElement(sharpIdButton,predicates);

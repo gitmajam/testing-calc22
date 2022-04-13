@@ -4,13 +4,14 @@ import java.io.File;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 import com.tribu.qaselenium.testframework.pagebase.GUtils;
 
 public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
-
+	
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
 
 	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
@@ -54,6 +55,7 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 	private By CourseProgress = By.xpath("//div/section/div/div[2]/*[name()='svg']/*[name()='text']");
 	private By backQuizImg = By.xpath("//body/div/div/img");
 	private By leccionTitle = By.xpath("/html//div[@id='block-mazaprendotheme-content']/div/div[2]/section//h2");
+	private By courseTitle = By.xpath("//section/div/div/h3");
 	private By seeVideoButton = By.xpath("//body/div/div[3]");
 	private By testButton = By.xpath("//body/div/div[4]");
 	private By lessonsButton = By.xpath("//div[@class='visualizator']//div[@id='collapseMenu']//button");
@@ -61,7 +63,24 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 	private By modalMessage = By.xpath("//div[contains(@class,'modal')]//div[@id='modal_message']");
 	private By modalCloseButton = By.xpath("//div[contains(@class,'modal')]//div[@class='modal-header']/button");
 	private By evidenceButton = By.xpath("//input[@id='archivoSoporte']");
+	private By evidenceFormText = By.xpath("//div[@id='evidence_files']");
 	private By evidencesList = By.xpath("//ul[@id='files_list']/li");
+	private By deleteFileButton = By.xpath(".//button[@class='delete_file']");
+	
+	public MAPerfomCourseP getDeleteFileButton(Predicate<WebElement>... predicates){
+	this.setWebElement(deleteFileButton,predicates);
+	return this;
+	}
+
+	public MAPerfomCourseP getEvidenceFormText(Predicate<WebElement>... predicates){
+	this.setWebElement(evidenceFormText,predicates);
+	return this;
+	}
+	
+	public MAPerfomCourseP getCourseTitle(Predicate<WebElement>... predicates){
+	this.setWebElement(courseTitle,predicates);
+	return this;
+	}
 	
 	public MAPerfomCourseP getMenuContentButton(Predicate<WebElement>... predicates){
 	this.setWebElement(menuContentButton,predicates);
@@ -295,12 +314,9 @@ public class MAPerfomCourseP extends BasePO<MAPerfomCourseP> {
 
 	@SuppressWarnings("unchecked")
 	public MAPerfomCourseP uploadEvidence() {
-
-			this.getEvidenceButton().type(resourcesPath + "media" + File.separator + "pdf" + File.separator + "certs.pdf",1000)	
-			.getEvidenceButton().type(resourcesPath + "media" + File.separator + "image" + File.separator + "Test-miniImage1.jpeg",1000)
-			.getEvidenceButton().type(resourcesPath + "uploadFiles" + File.separator + "upload.xlsx",1000)
-			.getEvidencesList();
-			GUtils.waitForVisibilityOf(locator);
+				getEvidenceButton().type(resourcesPath + "media" + File.separator + "image" + File.separator + "Test-miniImage1.jpeg",1000)
+				.getEvidenceButton().type(resourcesPath + "media" + File.separator + "pdf" + File.separator + "certs.pdf",1000)	
+				.getEvidenceButton().type(resourcesPath + "uploadFiles" + File.separator + "upload.xlsx",1000);
 			return this;
 	}
 	

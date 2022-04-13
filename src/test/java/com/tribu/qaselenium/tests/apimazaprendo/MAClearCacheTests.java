@@ -3,6 +3,7 @@ package com.tribu.qaselenium.tests.apimazaprendo;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -29,13 +30,13 @@ public class MAClearCacheTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 		// remove from api drupal
 		maConfigurationP = maHomeP.getMenuConfigurationButton().click(MAConfigurationP::new).get();
 		maConfigurationP.getPerformance().click()
 						.getClearCache().click()
-						.getEmptyCacheAlert(e->e.getText().contains("vaciadas")).assertExist(softAssert::assertTrue)
+						.getEmptyCacheAlert(e->e.getText().contains("vaciadas")).assess(softAssert::assertTrue)
 						.exec(softAssert::assertAll);
 	}
 }

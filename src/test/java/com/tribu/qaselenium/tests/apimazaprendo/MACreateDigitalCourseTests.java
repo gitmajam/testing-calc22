@@ -4,6 +4,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -41,7 +42,7 @@ public class MACreateDigitalCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
@@ -59,7 +60,7 @@ public class MACreateDigitalCourseTests extends TestBase {
 					.getMinScore().clear().type(provider.get("minScore"))
 					.getAttempts().clear().type(provider.get("attempts"))
 					.getSaveButton().click()
-					.getMessageCursoCreation(e->e.getText().contains(cursoTitle)).assertExist(softAssert::assertTrue)
+					.getMessageCursoCreation(e->e.getText().contains(cursoTitle)).assess(softAssert::assertTrue)
 					.exec(softAssert::assertAll);
 
 	}

@@ -3,6 +3,7 @@ package com.tribu.qaselenium.tests.apimazaprendo;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -34,13 +35,13 @@ public class MACreateF2FLessonTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
 					.getAddLeccionF2FButton().click()
 					.getTitle().type(lessonTitle)
-					.getFrame().waitForVisibility()
+					.getFrame(e->e.isDisplayed())
 					.getFrame().swichToFrame()
 					.getBody().type(provider.get("title"))
 					.swichToMain()
@@ -49,7 +50,7 @@ public class MACreateF2FLessonTests extends TestBase {
 					.getTopic().type(provider.get("topic"))
 					.getDuracionF2FLesson().clear().type(provider.get("duracion"))
 					.getSaveButton().click()
-					.getTitleSumary(e->lessonTitle.contains(e.getText())).assertExist(softAssert::assertTrue)
+					.getTitleSumary(e->lessonTitle.contains(e.getText())).assess(softAssert::assertTrue)
 					.exec(softAssert::assertAll);
 	}
 }

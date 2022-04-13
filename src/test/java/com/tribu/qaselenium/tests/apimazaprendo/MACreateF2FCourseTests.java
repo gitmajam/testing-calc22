@@ -4,6 +4,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -41,14 +42,14 @@ public class MACreateF2FCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
 					.getAddCursoButton().click()
 					.getTitle().type(courseTitle)
-					.getFrame().swichToFrame()
-					.getBody().type(provider.get("description"))
+					.getFrame(e->e.isDisplayed()).swichToFrame()
+					.getBody(e->e.isDisplayed()).type(provider.get("description"))
 					.swichToMain()
 					.getCursoType().type(provider.get("courseType"))
 					.getDuracion().clear().type(provider.get("duracion"))
@@ -59,8 +60,7 @@ public class MACreateF2FCourseTests extends TestBase {
 					.getMinScore().clear().type(provider.get("minScore"))
 					.getAttempts().clear().type(provider.get("attempts"))
 					.getSaveButton().click()
-					.getMessageCursoCreation(e->e.getText().contains(courseTitle)).assertExist(softAssert::assertTrue)
+					.getMessageCursoCreation(e->e.getText().contains(courseTitle)).assess(softAssert::assertTrue)
 					.exec(softAssert::assertAll);
-	
 	}
 }

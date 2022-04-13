@@ -21,11 +21,11 @@ import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
-public class MAScoreCourseTests extends TestBase {
+public class MAFeedbackCourseTests extends TestBase {
 	
 	@SuppressWarnings("unchecked")
 	@Test( groups = { "smoke", "aceptance" })
-	public void scoreCourse(Method method, ITestContext context) {
+	public void feedbackCourse(Method method, ITestContext context) {
 		// page variables
 		MALandingP maLandingP;
 		MAHomeP maHomeP;
@@ -42,23 +42,21 @@ public class MAScoreCourseTests extends TestBase {
 		maMyCoursesP = maHomeP.getAppLogo().click()
 							.getMyCoursesButton().click(MAMyCoursesP::new).get();
 		maMyCoursesP//.getCoursesList(e->e.getText().contains(courseTitle)).click()
-					.getTabList(e->e.getText().contains("Evaluar")).click()
+					.getTabList(e->e.getText().contains("Retroalimentación")).click()
 					.getItemsList(e->e.getText().contains("100000003")).click()
-					.getScore().type("100")
+					.getFeedback(e->e.getText().contains("Muy participativo")).click()
 					.getSaveButton().click()
 					.getContinueButton().click().waitForNotVisibility()
-					.getItemsList(e->e.getText().contains("100000003"),e->e.getAttribute("style").contains("rgb(206, 235, 207)"))
-					.assess(softAssert::assertFalse, "button has not saved color")
+					.getItemsList(e->e.getText().contains("100000003"))
+					.getFeedback(e->e.getText().contains("en algunas ocasiones"))
+					.assess(softAssert::assertFalse, "option still visible")
 					.getItemsList(e->e.getText().contains("100000004")).click()
-					.getScore().type("100")
+					.getFeedback(e->e.getText().contains("Muy participativo")).click()
 					.getSaveButton().click()
 					.getContinueButton().click().waitForNotVisibility()
-					.getItemsList(e->e.getText().contains("100000004"),e->e.getAttribute("style").contains("rgb(206, 235, 207)"))
-					.assess(softAssert::assertFalse, "button has not saved color")
-					.getCloseCourse(e->e.getText().contains("finalizar Curso")).click()
-					.getContinueButton().click().waitForNotVisibility()
-					.getCloseCourse(e->e.getText().contains("finalizar Curso")).waitForNotVisibility()
-					.assess(softAssert::assertFalse, "close course button is still displayed")
+					.getItemsList(e->e.getText().contains("100000004"))
+					.getFeedback(e->e.getText().contains("en algunas ocasiones"))
+					.assess(softAssert::assertFalse, "option still visible")
 					.exec(softAssert::assertAll);
 	}
 }

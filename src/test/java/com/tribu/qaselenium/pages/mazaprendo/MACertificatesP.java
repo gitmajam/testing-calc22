@@ -9,7 +9,7 @@ import com.tribu.qaselenium.testframework.pagebase.BasePO;
 public class MACertificatesP extends BasePO<MACertificatesP> {
 
 	private String pageUrl = "https://api-beerambassador-stage.somosmaz.com/user/36";
-	private String xpathPart1= "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
+//	private String xpathPart1= "/html//div[@id='block-mazaprendotheme-content']/div//span[contains(text(),'";
 	private By menuContentButton = By.xpath("//li/a[contains(@href,'/admin/content')]");
 	private By menuStructureButton = By.xpath("/html//a[@id='toolbar-link-system-admin_structure']");
 	private By menuAparienciaButton = By.xpath("//div//a[contains(@href,'/admin/appearance')]");
@@ -166,14 +166,6 @@ public class MACertificatesP extends BasePO<MACertificatesP> {
 	this.setWebElement(playCourseButton,predicates);
 	return this;
 	}
-
-	//part xpath
-		public MACertificatesP getXpathPart1(String locatorPart) {
-			this.xpathPart = xpathPart1;
-			By question = By.xpath(this.xpathPart + locatorPart + "')]/following::div/a");
-			this.locator = question;
-			return this;
-		}
 		
 	@Override
 	public String getPageUrl() {

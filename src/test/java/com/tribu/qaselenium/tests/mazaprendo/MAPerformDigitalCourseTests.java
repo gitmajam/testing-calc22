@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.function.BiFunction;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -48,13 +49,14 @@ public class MAPerformDigitalCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 		
 				log.info("Leccion : " + lessonTitle);
 				log.info("Leccion : " + courseTitle);
-				maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
+				maPerformCourseP = maHomeP.getCardList(e->e.getText().contains(courseTitle))
+						.getCardButton(e->e.getText().contains("Ver Mas")).click(MAPerfomCourseP::new).get();
 				maPerformCourseP.getStartCourseButton().click()
-								.getModalMessage().ifExist(maPerformCourseP::closeModal);
+								.getModalMessage().ifFoundOrElse(maPerformCourseP::closeModal,null);
 
 //		for (int i = 0; i < 3; i++) {
 //			sleep(8000);

@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -37,7 +38,7 @@ public class MAAssignF2FCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 //		maAssingCourseP = maHomeP.getAppLogo().click()
 //								.getAssingCoursesButton().click(MAAssingCourseP::new).get();
@@ -49,22 +50,19 @@ public class MAAssignF2FCourseTests extends TestBase {
 					.getEvidenceOption().click()
 					.getFeedbackOption().click()
 					.getDatekOption().click()
-					.getSaveCourseButton().click()
-					.getSaveCourseButton().waitForNotVisibility()
+					.getSaveCourseButton().click().waitForNotVisibility()
 					.getAssingCourse().click()
 					.getSelectCourse().click()
-					.stayBaseElement()
 					.getCourse(e->e.getText().contentEquals(sonCourseTitle)).click()
-					.quitBaseElement()
 					.getSelectCourse().click()
 					.getUploadAssingFile().type(pathName2)
-					.getRegValidationText().waitForVisibility()
+					.getRegValidationText()
 					.getTeacherSharpId().type("100000002")
 					.getCheckTeacherSharpIdButton().click()
 					.getDateStart().type(getDatePlus(1))
 					.getDateEnd().type(getDatePlus(3))
-					.getAssignCourseButton().click()
-					.getAssignCourseButton().waitForNotVisibility()
+					.getAssignCourseButton().click().waitForNotVisibility()
+					.assess(softAssert::assertFalse)
 					.exec(softAssert::assertAll);
 	}
 }

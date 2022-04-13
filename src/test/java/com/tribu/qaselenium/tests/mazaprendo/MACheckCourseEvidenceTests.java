@@ -1,5 +1,6 @@
 package com.tribu.qaselenium.tests.mazaprendo;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -21,16 +22,19 @@ import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
-public class MAScoreCourseTests extends TestBase {
+public class MACheckCourseEvidenceTests extends TestBase {
 	
 	@SuppressWarnings("unchecked")
 	@Test( groups = { "smoke", "aceptance" })
-	public void scoreCourse(Method method, ITestContext context) {
+	public void CheckCourseEvidence(Method method, ITestContext context) {
 		// page variables
 		MALandingP maLandingP;
 		MAHomeP maHomeP;
 		MAMyCoursesP maMyCoursesP;
-
+		
+		String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
+		log.info(downloadPath);
+		
 		SoftAssert softAssert = new SoftAssert();
 		String courseTitle = jsonFileReader(context,"apiCreateF2FCourse","MACreateF2FCourseTests","courseName");
 		
@@ -41,24 +45,15 @@ public class MAScoreCourseTests extends TestBase {
 		log.info("Leccion : " + courseTitle);
 		maMyCoursesP = maHomeP.getAppLogo().click()
 							.getMyCoursesButton().click(MAMyCoursesP::new).get();
-		maMyCoursesP//.getCoursesList(e->e.getText().contains(courseTitle)).click()
-					.getTabList(e->e.getText().contains("Evaluar")).click()
+		maMyCoursesP.getCoursesList(e->e.getText().contains(courseTitle)).click()
+					.getTabList(e->e.getText().contains("Evidencia")).click()
 					.getItemsList(e->e.getText().contains("100000003")).click()
-					.getScore().type("100")
-					.getSaveButton().click()
-					.getContinueButton().click().waitForNotVisibility()
-					.getItemsList(e->e.getText().contains("100000003"),e->e.getAttribute("style").contains("rgb(206, 235, 207)"))
-					.assess(softAssert::assertFalse, "button has not saved color")
-					.getItemsList(e->e.getText().contains("100000004")).click()
-					.getScore().type("100")
-					.getSaveButton().click()
-					.getContinueButton().click().waitForNotVisibility()
-					.getItemsList(e->e.getText().contains("100000004"),e->e.getAttribute("style").contains("rgb(206, 235, 207)"))
-					.assess(softAssert::assertFalse, "button has not saved color")
-					.getCloseCourse(e->e.getText().contains("finalizar Curso")).click()
-					.getContinueButton().click().waitForNotVisibility()
-					.getCloseCourse(e->e.getText().contains("finalizar Curso")).waitForNotVisibility()
-					.assess(softAssert::assertFalse, "close course button is still displayed")
+					.getEvidenceLink(e->e.getText().contains("certs.pdf"))
+					.assess(softAssert::assertTrue,"certs.pdf")
+					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
+					.assess(softAssert::assertTrue,"upload.xlsx")
+					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
+					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
 					.exec(softAssert::assertAll);
 	}
 }

@@ -180,7 +180,7 @@ public class MAContentListP extends BasePO<MAContentListP> {
 		this.getSelectAllCheck().click()
 			.getApplyAction().click()
 			.getDeleteButton().click()
-			.getActionMessage(e->e.getText().contains("Eliminado")).assertExist(assertion::assertTrue);
+			.getActionMessage(e->e.getText().contains("Eliminado")).assess(assertion::assertTrue);
 			log.info("past courses removed");
 		return this;
 	}

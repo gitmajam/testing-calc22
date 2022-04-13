@@ -3,6 +3,7 @@ package com.tribu.qaselenium.tests.mazaprendo;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -32,15 +33,16 @@ public class MACheckNpsF2FCoursesTests extends TestBase {
 		
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("student")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 		log.info("Leccion : " + courseTitle);
-		maPerformCourseP = maHomeP.getXpathPart1(courseTitle).click(MAPerfomCourseP::new).get();
-		maPerformCourseP.getModalMessage().ifExist(maPerformCourseP::closeModal)
+		maPerformCourseP = maHomeP.getCardList(e->e.getText().contains(courseTitle))
+				.getCardButton(e->e.getText().contains("Ver Mas")).click(MAPerfomCourseP::new).get();
+		maPerformCourseP.getModalMessage().ifFoundOrElse(maPerformCourseP::closeModal,null)
 						.uploadEvidence()
-						.getEvidencesList(e->e.getText().contains("certs.pdf")).assertExist(softAssert::assertTrue)
-						.getEvidencesList(e->e.getText().contains("Test-miniImage1.jpeg")).assertExist(softAssert::assertTrue)
-						.getEvidencesList(e->e.getText().contains("upload.xlsx")).assertExist(softAssert::assertTrue)
+						.getEvidencesList(e->e.getText().contains("certs.pdf")).assess(softAssert::assertTrue)
+						.getEvidencesList(e->e.getText().contains("Test-miniImage1.jpeg")).assess(softAssert::assertTrue)
+						.getEvidencesList(e->e.getText().contains("upload.xlsx")).assess(softAssert::assertTrue)
 						.exec(softAssert::assertAll);
 	}
 }

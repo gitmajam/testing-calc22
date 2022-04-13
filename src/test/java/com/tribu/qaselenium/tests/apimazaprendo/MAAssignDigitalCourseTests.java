@@ -4,6 +4,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -36,7 +37,7 @@ public class MAAssignDigitalCourseTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 //		maAssingCourseP = maHomeP.getAppLogo().click()
 //								.getAssingCoursesButton().click(MAAssingCourseP::new).get();
@@ -45,13 +46,13 @@ public class MAAssignDigitalCourseTests extends TestBase {
 					.getSelectCourse().type(courseTitle)
 					.getTitleSonCourse().type(sonCourseTitle)
 					.getSaveCourseButton().click()
-					.getSaveCourseButton().waitForNotVisibility()
+					.getSaveCourseButton(e->!e.isDisplayed())
 					.getAssingCourse().click()
-//					.getXpathPart2("'" + sonCourseTitle + "')]").click()
-//					.getUploadAssingFile().type(pathName2)
-//					.getRegValidationText().waitForVisibility()
-//					.getAssignCourseButton().click()
-//					.getAssignCourseButton().waitForNotVisibility();
+					.getSelectAssingSonCourseItem(e->e.getText().contains(courseTitle)).click()
+					.getUploadAssingFile().type(pathName2)
+					.getRegValidationText(e->e.isDisplayed())
+					.getAssignCourseButton().click()
+					.getAssignCourseButton(e->!e.isDisplayed())
 					.exec(softAssert::assertAll);
 		
 		

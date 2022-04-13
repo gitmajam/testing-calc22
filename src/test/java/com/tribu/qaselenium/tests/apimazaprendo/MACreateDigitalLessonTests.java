@@ -3,6 +3,7 @@ package com.tribu.qaselenium.tests.apimazaprendo;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -34,13 +35,13 @@ public class MACreateDigitalLessonTests extends TestBase {
 
 		/* login */
 		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 		maCreateContentP = maHomeP.getMenuContentButton().click(MACreateContentP::new).get();
 		maCreateContentP.getAddContentButton().click()
 					.getAddLeccionButton().click()
 					.getTitle().type(lessonTitle)
-					.getFrame().waitForVisibility().swichToFrame()
+					.getFrame(e->e.isDisplayed()).swichToFrame()
 					.getBody().type(provider.get("title"))
 					.swichToMain()
 					.getCursoPadre().type(courseTitle)
@@ -51,7 +52,7 @@ public class MACreateDigitalLessonTests extends TestBase {
 					.getAttempts().clear().type(provider.get("attempts"))
 					.getMinScore().clear().type(provider.get("minScore"))
 					.getSaveButton().click()
-					.getMessageLeccionCreation(e->e.getText().contains(lessonTitle)).assertExist(softAssert::assertTrue)
+					.getMessageLeccionCreation(e->e.getText().contains(lessonTitle)).assess(softAssert::assertTrue)
 					.exec(softAssert::assertAll);
 
 	}

@@ -37,8 +37,8 @@ public class MAPreconditionTests extends TestBase {
 				+ File.separator + "resources" + File.separator + "uploadFiles" + File.separator + "upload.xlsx";
 
 		/* login */
-		maLandingP = openUrl(MALandingP::new, 3000).get();
-		maHomeP = maLandingP.login(readCredentials("admin")).getAppLogo().assertExist(softAssert::assertTrue);
+		maLandingP = openUrl(MALandingP::new).get();
+		maHomeP = maLandingP.login(readCredentials("admin"),softAssert);
 
 		maContentListP = maHomeP.getMenuContentButton().click(MAContentListP::new).get();
 		
@@ -49,8 +49,7 @@ public class MAPreconditionTests extends TestBase {
 					.getActionSelect().click()
 					.getFilterButton().click()
 					.getEmptyMessage()
-					.ifNotExist(()->maContentListP.removeContent(softAssert))
-					.ifExist(()->log.info("Not found elements to remove"))
+					.ifFoundOrElse(()->log.info("Not found elements to remove"),()->maContentListP.removeContent(softAssert))
 					.exec(softAssert::assertAll);
 					
 		/* remove past courses assigned to the user */

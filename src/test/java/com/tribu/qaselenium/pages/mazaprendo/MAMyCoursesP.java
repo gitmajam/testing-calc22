@@ -15,8 +15,9 @@ public class MAMyCoursesP extends BasePO<MAMyCoursesP> {
 			.xpath("//footer[@id='site-footer']//a[@title='Política de privacidad - Términos y Condiciones']");
 	private By coursesList = By.xpath("//div[contains(@class,'sidebar')]//ul/li");
 	private By tabList = By.xpath("//section/div//nav/div/button");
-	private By itemsList = By.xpath("//section/div[3]//div/ul/li");
+	private By itemsList = By.xpath("//section/div[contains(@id,'teacher-content')]//div/ul/li");
 	private By feedback = By.xpath(".//ul/li");
+	private By evidenceLink = By.xpath(".//a/span");
 	private By downloadGuide = By.xpath(
 			"//div[@id='block-mazaprendotheme-content']/div[@class='content']/div[3]/section/div[2]//a[contains(@href,'http://')]");
 	private By teacherComments = By.xpath("//div[@id='nav-tabContent']/div[2]/ul/li//textarea");
@@ -25,6 +26,11 @@ public class MAMyCoursesP extends BasePO<MAMyCoursesP> {
 	private By score = By.xpath(".//input[contains(@name,'score')]");
 	private By closeCourse = By.xpath("//button");
 	private By closeCourse2 = By.xpath("//button");
+	
+	public MAMyCoursesP getEvidenceLink(Predicate<WebElement>... predicates){
+	this.setWebElement(evidenceLink,predicates);
+	return this;
+	}
 	
 	public MAMyCoursesP getCloseCourse2(Predicate<WebElement>... predicates){
 	this.setWebElement(closeCourse2,predicates);
