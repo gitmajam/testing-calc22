@@ -61,8 +61,8 @@
 				name="com.tribu.qaselenium.tests.mazaprendo.MAFeedbackCourseTests" />
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAScoreCourseTests" />
-	<class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
-		/>
+<!-- 	<class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
+		/> -->
 		</classes>
 	</test>
 
