@@ -52,8 +52,8 @@ public class MACheckCourseEvidenceTests extends TestBase {
 					.assess(softAssert::assertTrue,"certs.pdf")
 					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
 					.assess(softAssert::assertTrue,"upload.xlsx")
-					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
-					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
+//					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
+//					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
 					.exec(softAssert::assertAll);
 	}
 }
