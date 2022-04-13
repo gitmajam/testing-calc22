@@ -51,6 +51,7 @@ public class MAAssignF2FCourseTests extends TestBase {
 					.getFeedbackOption().click()
 					.getDatekOption().click()
 					.getSaveCourseButton().click().waitForNotVisibility()
+					.assess(softAssert::assertFalse)
 					.getAssingCourse().click()
 					.getSelectCourse().click()
 					.getCourse(e->e.getText().contentEquals(sonCourseTitle)).click()
