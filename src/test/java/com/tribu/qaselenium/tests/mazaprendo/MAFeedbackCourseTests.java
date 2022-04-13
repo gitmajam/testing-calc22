@@ -48,14 +48,14 @@ public class MAFeedbackCourseTests extends TestBase {
 					.getSaveButton().click()
 					.getContinueButton().click().waitForNotVisibility()
 					.getItemsList(e->e.getText().contains("100000003"))
-					.getFeedback(e->e.getText().contains("en algunas ocasiones"))
+					.getFeedback(e->e.getText().contains("en algunas ocasiones")).waitForNotVisibility()
 					.assess(softAssert::assertFalse, "option still visible")
 					.getItemsList(e->e.getText().contains("100000004")).click()
 					.getFeedback(e->e.getText().contains("Muy participativo")).click()
 					.getSaveButton().click()
 					.getContinueButton().click().waitForNotVisibility()
 					.getItemsList(e->e.getText().contains("100000004"))
-					.getFeedback(e->e.getText().contains("en algunas ocasiones"))
+					.getFeedback(e->e.getText().contains("en algunas ocasiones")).waitForNotVisibility()
 					.assess(softAssert::assertFalse, "option still visible")
 					.exec(softAssert::assertAll);
 	}
