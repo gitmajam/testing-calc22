@@ -32,16 +32,15 @@ public class MALandingP extends BasePO<MALandingP> {
 	@SuppressWarnings("unchecked")
 	public MAHomeP login(Map<String, String> credentialMap, SoftAssert softAssert) {
 		log.info("login");
-		driverFunc.get().get(getPageUrl());
 		
-		ssoLandingP = this.getLoginButton(WebElement::isDisplayed).click(SSOLandingP::new,2000).get();	
+		ssoLandingP = this.getLoginButton().click(SSOLandingP::new,2000).get();	
 		ssoLoginP = ssoLandingP.getVideoCloseButton().click()
 								.getSharpIdButton().click(SSOLoginP::new).get();
 		
 		maHomeP = ssoLoginP.getSharpIdField().type(credentialMap.get("sharpId"))
 							.getPasswordField().type(credentialMap.get("password"))
 							.getLoginButton().click(MAHomeP::new).get()
-							.getAppLogo(WebElement::isDisplayed).assess(softAssert::assertTrue);
+							.getAppLogo().assess(softAssert::assertTrue);
 		return maHomeP;
 	}
 }

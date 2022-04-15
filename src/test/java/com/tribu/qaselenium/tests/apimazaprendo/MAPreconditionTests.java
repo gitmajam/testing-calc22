@@ -49,11 +49,9 @@ public class MAPreconditionTests extends TestBase {
 					.getActionSelect().click()
 					.getFilterButton().click()
 					.getEmptyMessage()
-					.ifFoundOrElse(()->log.info("Not found elements to remove"),()->maContentListP.removeContent(softAssert))
-					.exec(softAssert::assertAll);
-					
+					.ifFoundOrElse(()->log.info("Not found elements to remove"),()->maContentListP.removeContent(softAssert));
+
 		/* remove past courses assigned to the user */
-		
 		//teacher precondition
 		TeacherCourseAssignDAO teacherCourseAssignDao = new TeacherCourseAssignDAO();
 		TeacherCourseAssign teacherCourseCheckAssign = new TeacherCourseAssign("100000002");
