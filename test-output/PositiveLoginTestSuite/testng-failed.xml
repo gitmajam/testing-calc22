@@ -4,32 +4,6 @@
   <listeners>
     <listener class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter"/>
   </listeners>
-  <test thread-count="5" name="apiCreateF2FCourse(failed)" verbose="5">
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FCourseTests">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="createF2FCourse" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FCourseTests -->
-      <class name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignF2FCourseTests">
-        <methods>
-          <include name="assingF2FCourse" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.tribu.qaselenium.tests.apimazaprendo.MAAssignF2FCourseTests -->
-      <class name="com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FLessonTests">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="createF2FLesson" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.tribu.qaselenium.tests.apimazaprendo.MACreateF2FLessonTests -->
-    </classes>
-  </test> <!-- apiCreateF2FCourse(failed) -->
   <test thread-count="5" name="lifecycleF2FCourse(failed)" verbose="5">
     <parameter name="browser" value="chrome"/>
     <groups>
@@ -45,27 +19,6 @@
           <include name="CheckCourseEvidence" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.tribu.qaselenium.tests.mazaprendo.MACheckCourseEvidenceTests -->
-      <class name="com.tribu.qaselenium.tests.mazaprendo.MAFeedbackCourseTests">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="feedbackCourse" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.tribu.qaselenium.tests.mazaprendo.MAFeedbackCourseTests -->
-      <class name="com.tribu.qaselenium.tests.mazaprendo.MAUploadEvidenceTests">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="uploadEvidence" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com.tribu.qaselenium.tests.mazaprendo.MAUploadEvidenceTests -->
-      <class name="com.tribu.qaselenium.tests.mazaprendo.MAScoreCourseTests">
-        <methods>
-          <include name="scoreCourse" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.tribu.qaselenium.tests.mazaprendo.MAScoreCourseTests -->
     </classes>
   </test> <!-- lifecycleF2FCourse(failed) -->
 </suite> <!-- Failed suite [PositiveLoginTestSuite] -->

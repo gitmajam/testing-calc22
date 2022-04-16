@@ -55,7 +55,7 @@ public class MACreateDigitalCourseTests extends TestBase {
 					.getDuracion().clear().type(provider.get("duracion"))
 					.getTopic().type(provider.get("topic"))
 					.getCoverImg().type(dirMainImg)
-					.getPreviewCoverImage().waitForImage()
+					.getPreviewCoverImage()
 					.getAltCoverText().type(provider.get("altCoverText"))
 					.getMinScore().clear().type(provider.get("minScore"))
 					.getAttempts().clear().type(provider.get("attempts"))
