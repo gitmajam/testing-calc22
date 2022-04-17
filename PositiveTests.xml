@@ -13,13 +13,13 @@
 				name="com.tribu.qaselenium.tests.apimazaprendo.MAClearCacheTests" />
 		</classes>
 	</test>
-	<test name="preconditions" preserve-order="true">
+	<!-- <test name="preconditions" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
 				name="com.tribu.qaselenium.tests.apimazaprendo.MAPreconditionTests" />
 		</classes>
-	</test>
+	</test> -->
 
 <!-- 	<test name="apiCreateDigitalCourse" preserve-order="true"> <parameter 
 		name="browser" value="chrome"></parameter> <classes> <class name="com.tribu.qaselenium.tests.apimazaprendo.MACreateDigitalCourseTests" 
@@ -27,7 +27,7 @@
 		/> <class name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignDigitalCourseTests" 
 		/> </classes> </test> -->
 
-	<test name="apiCreateF2FCourse" preserve-order="true">
+	<!-- <test name="apiCreateF2FCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
@@ -37,7 +37,7 @@
 			<class
 				name="com.tribu.qaselenium.tests.apimazaprendo.MAAssignF2FCourseTests" />
 		</classes>
-	</test>
+	</test> -->
 
 	<!-- <test name="lifecycleDigitalCourse" preserve-order="true"> <parameter 
 		name="browser" value="chrome"></parameter> <groups> <run> <include name="smoke" 
@@ -45,7 +45,7 @@
 		/> <class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
 		/> </classes> </test> -->
 
-	<test name="lifecycleF2FCourse" preserve-order="true">
+	<!-- <test name="lifecycleF2FCourse" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<groups>
 			<run>
@@ -61,10 +61,10 @@
 				name="com.tribu.qaselenium.tests.mazaprendo.MAFeedbackCourseTests" />
 			<class
 				name="com.tribu.qaselenium.tests.mazaprendo.MAScoreCourseTests" />
-<!-- 	<class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
-		/> -->
+	<class name="com.tribu.qaselenium.tests.mazaprendo.MACourseCertificateTests" 
+		/>
 		</classes>
-	</test>
+	</test> -->
 
 	<!-- <test name="lessonsAttempts" preserve-order="true"> <parameter name="browser" 
 		value="chrome"></parameter> <groups> <run> <include name="smoke" /> </run> 

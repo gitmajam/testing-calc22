@@ -1,5 +1,6 @@
 package com.tribu.qaselenium.tests.apimazaprendo;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -35,8 +36,13 @@ public class MAClearCacheTests extends TestBase {
 		// remove from api drupal
 		maConfigurationP = maHomeP.getMenuConfigurationButton().click(MAConfigurationP::new).get();
 		maConfigurationP.getPerformance().click()
-						.getClearCache().click()
-						.getEmptyCacheAlert(e->e.getText().contains("vaciadas")).assess(softAssert::assertTrue)
+//						.getClearCache().click()
+//						.getEmptyCacheAlert(e->e.getText().contains("vaciadas")).assess(softAssert::assertTrue)
 						.exec(softAssert::assertAll);
+		
+		String resourcesPath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+				+ File.separator + "resources" + File.separator;
+		log.info("resources path : "  + resourcesPath);
+		log.info("resources path : "  + System.getProperty("user.dir"));
 	}
 }
