@@ -44,5 +44,6 @@ public class MAClearCacheTests extends TestBase {
 				+ File.separator + "resources" + File.separator;
 		log.info("resources path : "  + resourcesPath);
 		log.info("resources path : "  + System.getProperty("user.dir"));
+		log.info("resources path : "  + System.getProperty("user.home"));
 	}
 }
