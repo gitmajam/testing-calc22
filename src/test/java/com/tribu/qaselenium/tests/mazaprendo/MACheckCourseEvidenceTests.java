@@ -1,26 +1,15 @@
 package com.tribu.qaselenium.tests.mazaprendo;
 
-import java.io.File;
-import java.io.FilenameFilter;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import org.openqa.selenium.WebElement;
-
 import com.tribu.qaselenium.pages.mazaprendo.MAHomeP;
 import com.tribu.qaselenium.pages.mazaprendo.MALandingP;
 import com.tribu.qaselenium.pages.mazaprendo.MAMyCoursesP;
-import com.tribu.qaselenium.pages.mazaprendo.MAPerfomCourseP;
-import com.tribu.qaselenium.testframework.testbase.CsvDataProviders;
 import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
@@ -51,44 +40,12 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		maMyCoursesP.getCoursesList(e->e.getText().contains(courseTitle)).click()
 					.getTabList(e->e.getText().contains("Evidencia")).click()
 					.getItemsList(e->e.getText().contains("100000003")).click()
+					.getEvidenceLink(e->e.getText().contains("certs.pdf"))
+					.assess(softAssert::assertTrue,"certs.pdf")
+					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
+					.assess(softAssert::assertTrue,"upload.xlsx")
 					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
-//					.assess(softAssert::assertTrue,"certs.pdf")
-//					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
-//					.assess(softAssert::assertTrue,"upload.xlsx")
-//					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
 					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
-					.exec(softAssert::assertAll);
-		
-//		
-//		String homePath = System.getProperty("user.home");
-//		String workPath = System.getProperty("user.home") + File.separator + "work";
-//		String unoPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1";
-//		String testResultsPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "TestResults";
-//		String sPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s";
-//	
-//		
-//		log.info("homePath : "  + homePath + "\n");
-//		List<String> paths = new ArrayList<String>();
-//		paths.add(homePath);
-////		paths.add(workPath);
-////		paths.add(unoPath);
-////		paths.add(testResultsPath);
-////		paths.add(sPath);
-//		recFind(homePath);
-
-		
+					.exec(softAssert::assertAll);	
 	}
-//	public void recFind(String p){
-//		File dir = new File(p);
-//		File[] dir_contents = dir.listFiles();
-//		if(dir_contents!=null) {
-//			for (int i = 0; i < dir_contents.length; i++) {
-//				log.info("file : "  + dir_contents[i].getName());
-//				log.info(p  + "\n");
-//				String newPath = p + File.separator + dir_contents[i].getName();
-//				recFind(newPath);
-//			}	
-//		}
-//		
-//	}
 }
