@@ -63,6 +63,14 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		String taskPath = System.getProperty("user.home") + File.separator + "work"+ File.separator + "_tasks";
 		String tempPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s"+ File.separator + "_temp";
 		
+		
+		File[] roots = File.listRoots();
+	      System.out.println("Root directories in your system are:");
+	      
+	      for (int i = 0; i < roots.length; i++) {
+	         System.out.println(roots[i].toString());
+	      } 
+	   }
 
 		log.info("taskPath : "  + taskPath + "\n");
 
