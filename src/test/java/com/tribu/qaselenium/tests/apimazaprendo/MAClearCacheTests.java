@@ -39,11 +39,17 @@ public class MAClearCacheTests extends TestBase {
 //						.getClearCache().click()
 //						.getEmptyCacheAlert(e->e.getText().contains("vaciadas")).assess(softAssert::assertTrue)
 						.exec(softAssert::assertAll);
-		
-		String resourcesPath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator;
-		log.info("resources path : "  + resourcesPath);
+
+		String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
 		log.info("resources path : "  + System.getProperty("user.dir"));
 		log.info("resources path : "  + System.getProperty("user.home"));
+		
+		File dir = new File(downloadPath);
+		File[] dir_contents = dir.listFiles();
+		for (int i = 0; i < dir_contents.length; i++) {
+			log.info("resources path : "  + dir_contents[i].getName());
+//			if (dir_contents[i].getName().contains(fileName))
+//				return flag = true;
+		}
 	}
 }
