@@ -64,6 +64,8 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		String workPath = System.getProperty("user.home") + File.separator + "work";
 		String unoPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1";
 		String sPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s";
+		String aPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "a";
+		String bPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "b";
 		
 		
 		log.info("homePath : "  + homePath + "\n");
@@ -72,10 +74,12 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		paths.add(workPath);
 		paths.add(unoPath);
 		paths.add(sPath);
+		paths.add(aPath);
+		paths.add(bPath);
 
 		
 		paths.forEach((p)->{
-			log.info("p " + "\n");
+			log.info(p  + "\n");
 			File dir = new File(p);
 			File[] dir_contents = dir.listFiles();
 			for (int i = 0; i < dir_contents.length; i++) {
