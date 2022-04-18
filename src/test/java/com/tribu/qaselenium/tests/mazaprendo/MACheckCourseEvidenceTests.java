@@ -72,10 +72,10 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		List<String> paths = new ArrayList<String>();
 		paths.add(homePath);
 		paths.add(workPath);
-		paths.add(unoPath);
-		paths.add(sPath);
-		paths.add(taskPath);
-		paths.add(tempPath);
+//		paths.add(unoPath);
+//		paths.add(sPath);
+//		paths.add(taskPath);
+//		paths.add(tempPath);
 		
 		paths.forEach((p)->{
 			File dir = new File(p);
