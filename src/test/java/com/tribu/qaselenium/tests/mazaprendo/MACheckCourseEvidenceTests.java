@@ -35,7 +35,7 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		MAHomeP maHomeP;
 		MAMyCoursesP maMyCoursesP;
 		
-		String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
+		String downloadPath = System.getProperty("user.dir");
 		log.info(downloadPath);
 		
 		SoftAssert softAssert = new SoftAssert();
@@ -56,35 +56,39 @@ public class MACheckCourseEvidenceTests extends TestBase {
 //					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
 //					.assess(softAssert::assertTrue,"upload.xlsx")
 //					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
-//					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
+					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
 					.exec(softAssert::assertAll);
 		
-		
-		String homePath = System.getProperty("user.home");
-		String workPath = System.getProperty("user.home") + File.separator + "work";
-		String unoPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1";
-		String sPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s";
-		String aPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "a";
-		String bPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "b";
-		
-		
-		log.info("homePath : "  + homePath + "\n");
-		List<String> paths = new ArrayList<String>();
-		paths.add(homePath);
-		paths.add(workPath);
-		paths.add(unoPath);
-		paths.add(sPath);
-		paths.add(aPath);
-		paths.add(bPath);
+//		
+//		String homePath = System.getProperty("user.home");
+//		String workPath = System.getProperty("user.home") + File.separator + "work";
+//		String unoPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1";
+//		String testResultsPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "TestResults";
+//		String sPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s";
+//	
+//		
+//		log.info("homePath : "  + homePath + "\n");
+//		List<String> paths = new ArrayList<String>();
+//		paths.add(homePath);
+////		paths.add(workPath);
+////		paths.add(unoPath);
+////		paths.add(testResultsPath);
+////		paths.add(sPath);
+//		recFind(homePath);
 
 		
-		paths.forEach((p)->{
-			log.info(p  + "\n");
-			File dir = new File(p);
-			File[] dir_contents = dir.listFiles();
-			for (int i = 0; i < dir_contents.length; i++) {
-				log.info("taskPath : "  + dir_contents[i].getName());
-			}
-		});
 	}
+//	public void recFind(String p){
+//		File dir = new File(p);
+//		File[] dir_contents = dir.listFiles();
+//		if(dir_contents!=null) {
+//			for (int i = 0; i < dir_contents.length; i++) {
+//				log.info("file : "  + dir_contents[i].getName());
+//				log.info(p  + "\n");
+//				String newPath = p + File.separator + dir_contents[i].getName();
+//				recFind(newPath);
+//			}	
+//		}
+//		
+//	}
 }
