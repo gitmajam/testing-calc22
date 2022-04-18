@@ -64,10 +64,10 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		String tempPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s"+ File.separator + "_temp";
 		
 
-		log.info("unoPath : "  + unoPath + "\n");
+		log.info("workPath : "  + workPath + "\n");
 
 		
-		File dir = new File(unoPath);
+		File dir = new File(workPath);
 		File[] dir_contents = dir.listFiles();
 		for (int i = 0; i < dir_contents.length; i++) {
 			log.info("resources path : "  + dir_contents[i].getName());
