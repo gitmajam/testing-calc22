@@ -41,10 +41,11 @@ public class MAClearCacheTests extends TestBase {
 						.exec(softAssert::assertAll);
 
 		String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
+		String homePath = System.getProperty("user.home");
 		log.info("resources path : "  + System.getProperty("user.dir"));
 		log.info("resources path : "  + System.getProperty("user.home"));
 		
-		File dir = new File(downloadPath);
+		File dir = new File(homePath);
 		File[] dir_contents = dir.listFiles();
 		for (int i = 0; i < dir_contents.length; i++) {
 			log.info("resources path : "  + dir_contents[i].getName());
