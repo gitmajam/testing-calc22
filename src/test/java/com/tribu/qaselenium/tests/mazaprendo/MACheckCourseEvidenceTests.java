@@ -3,10 +3,12 @@ package com.tribu.qaselenium.tests.mazaprendo;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.ITestContext;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -57,6 +59,7 @@ public class MACheckCourseEvidenceTests extends TestBase {
 //					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
 					.exec(softAssert::assertAll);
 		
+		
 		String homePath = System.getProperty("user.home");
 		String workPath = System.getProperty("user.home") + File.separator + "work";
 		String unoPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1";
@@ -65,31 +68,21 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		String tempPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s"+ File.separator + "_temp";
 		
 		
-		log.info("taskPath : "  + homePath + "\n");
-
+		log.info("homePath : "  + homePath + "\n");
+		List<String> paths = new ArrayList<String>();
+		paths.add(homePath);
+		paths.add(workPath);
+		paths.add(unoPath);
+		paths.add(sPath);
+		paths.add(taskPath);
+		paths.add(tempPath);
 		
-//		File dir = new File(taskPath);
-//		File[] dir_contents = dir.listFiles();
-//		for (int i = 0; i < dir_contents.length; i++) {
-//			log.info("resources path : "  + dir_contents[i].getName());
-////			if (dir_contents[i].getName().contains(fileName))
-////				return flag = true;
-//		}
-		
-		File dir = new File(homePath);
-	      FilenameFilter filter = new FilenameFilter() {
-	         public boolean accept (File dir, String name) { 
-	            return name.startsWith("certs");
-	         } 
-	      }; 
-	      String[] children = dir.list(filter);
-	      if (children == null) {
-	    	  log.info("Either dir does not exist or is not a directory"); 
-	      } else { 
-	         for (int i = 0; i< children.length; i++) {
-	            String filename = children[i];
-	            log.info(filename);
-	         } 
-	      } 
+		paths.forEach((p)->{
+			File dir = new File(p);
+			File[] dir_contents = dir.listFiles();
+			for (int i = 0; i < dir_contents.length; i++) {
+				log.info("taskPath : "  + dir_contents[i].getName());
+			}
+		});
 	}
 }
