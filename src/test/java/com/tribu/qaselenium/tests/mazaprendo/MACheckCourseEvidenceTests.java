@@ -1,6 +1,7 @@
 package com.tribu.qaselenium.tests.mazaprendo;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -64,23 +65,31 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		String tempPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s"+ File.separator + "_temp";
 		
 		
-		File[] roots = File.listRoots();
-	      System.out.println("Root directories in your system are:");
-	      
-	      for (int i = 0; i < roots.length; i++) {
-	         System.out.println(roots[i].toString());
-	      } 
-	   }
-
-		log.info("taskPath : "  + taskPath + "\n");
+		log.info("taskPath : "  + homePath + "\n");
 
 		
-		File dir = new File(taskPath);
-		File[] dir_contents = dir.listFiles();
-		for (int i = 0; i < dir_contents.length; i++) {
-			log.info("resources path : "  + dir_contents[i].getName());
-//			if (dir_contents[i].getName().contains(fileName))
-//				return flag = true;
-		}
+//		File dir = new File(taskPath);
+//		File[] dir_contents = dir.listFiles();
+//		for (int i = 0; i < dir_contents.length; i++) {
+//			log.info("resources path : "  + dir_contents[i].getName());
+////			if (dir_contents[i].getName().contains(fileName))
+////				return flag = true;
+//		}
+		
+		File dir = new File(homePath);
+	      FilenameFilter filter = new FilenameFilter() {
+	         public boolean accept (File dir, String name) { 
+	            return name.startsWith("certs");
+	         } 
+	      }; 
+	      String[] children = dir.list(filter);
+	      if (children == null) {
+	    	  log.info("Either dir does not exist or is not a directory"); 
+	      } else { 
+	         for (int i = 0; i< children.length; i++) {
+	            String filename = children[i];
+	            log.info(filename);
+	         } 
+	      } 
 	}
 }
