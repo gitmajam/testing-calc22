@@ -48,12 +48,12 @@ public class MACheckCourseEvidenceTests extends TestBase {
 		maMyCoursesP.getCoursesList(e->e.getText().contains(courseTitle)).click()
 					.getTabList(e->e.getText().contains("Evidencia")).click()
 					.getItemsList(e->e.getText().contains("100000003")).click()
-					.getEvidenceLink(e->e.getText().contains("certs.pdf"))
-					.assess(softAssert::assertTrue,"certs.pdf")
-					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
-					.assess(softAssert::assertTrue,"upload.xlsx")
-					.getItemsList(e->e.getText().contains("100000003"))
 					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
+//					.assess(softAssert::assertTrue,"certs.pdf")
+//					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
+//					.assess(softAssert::assertTrue,"upload.xlsx")
+//					.getItemsList(e->e.getText().contains("100000003"))
+//					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
 //					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
 					.exec(softAssert::assertAll);
 		
