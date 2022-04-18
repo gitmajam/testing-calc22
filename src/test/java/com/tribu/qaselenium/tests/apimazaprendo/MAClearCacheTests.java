@@ -40,36 +40,6 @@ public class MAClearCacheTests extends TestBase {
 //						.getEmptyCacheAlert(e->e.getText().contains("vaciadas")).assess(softAssert::assertTrue)
 						.exec(softAssert::assertAll);
 
-		String downloadPath = System.getProperty("user.home") + File.separator + "Downloads";
-		String homePath = System.getProperty("user.home");
-		String workPath = System.getProperty("user.home") + File.separator + "work";
-		String unoPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1";
-		String sPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s";
-		log.info("downloadPath : "  + System.getProperty("user.dir"));
-		log.info("homePath : "  + System.getProperty("user.home"));
 		
-		File dir = new File(workPath);
-		File[] dir_contents = dir.listFiles();
-		for (int i = 0; i < dir_contents.length; i++) {
-			log.info("resources path : "  + dir_contents[i].getName());
-//			if (dir_contents[i].getName().contains(fileName))
-//				return flag = true;
-		}
-		
-		File dir1 = new File(unoPath);
-		File[] dir_contents1 = dir.listFiles();
-		for (int i = 0; i < dir_contents.length; i++) {
-			log.info("resources path : "  + dir_contents[i].getName());
-//			if (dir_contents[i].getName().contains(fileName))
-//				return flag = true;
-		}
-		
-		File dir2 = new File(sPath);
-		File[] dir_contents2 = dir.listFiles();
-		for (int i = 0; i < dir_contents.length; i++) {
-			log.info("resources path : "  + dir_contents[i].getName());
-//			if (dir_contents[i].getName().contains(fileName))
-//				return flag = true;
-		}
 	}
 }

@@ -52,8 +52,45 @@ public class MACheckCourseEvidenceTests extends TestBase {
 					.assess(softAssert::assertTrue,"certs.pdf")
 					.getEvidenceLink(e->e.getText().contains("upload.xlsx"))
 					.assess(softAssert::assertTrue,"upload.xlsx")
-//					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
+					.getItemsList(e->e.getText().contains("100000003"))
+					.getEvidenceLink(e->e.getText().contains("certs.pdf")).click()
 //					.exec(()-> softAssert.assertTrue(maMyCoursesP.isFileDownloaded(downloadPath, "certs.pdf"), "file not downloaded"))
 					.exec(softAssert::assertAll);
+		
+		String homePath = System.getProperty("user.home");
+		String workPath = System.getProperty("user.home") + File.separator + "work";
+		String unoPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1";
+		String sPath = System.getProperty("user.home") + File.separator + "work" + File.separator + "1"+ File.separator + "s";
+		
+		log.info("workPath : "  + workPath + "\n");
+
+		
+		File dir = new File(workPath);
+		File[] dir_contents = dir.listFiles();
+		for (int i = 0; i < dir_contents.length; i++) {
+			log.info("resources path : "  + dir_contents[i].getName());
+//			if (dir_contents[i].getName().contains(fileName))
+//				return flag = true;
+		}
+		
+		log.info("unoPath : "  + unoPath+ "\n");
+		
+		File dir1 = new File(unoPath);
+		File[] dir_contents1 = dir.listFiles();
+		for (int i = 0; i < dir_contents.length; i++) {
+			log.info("resources path : "  + dir_contents[i].getName());
+//			if (dir_contents[i].getName().contains(fileName))
+//				return flag = true;
+		}
+		
+		log.info("sPath : "  + sPath+ "\n");
+		
+		File dir2 = new File(sPath);
+		File[] dir_contents2 = dir.listFiles();
+		for (int i = 0; i < dir_contents.length; i++) {
+			log.info("resources path : "  + dir_contents[i].getName());
+//			if (dir_contents[i].getName().contains(fileName))
+//				return flag = true;
+		}
 	}
 }
