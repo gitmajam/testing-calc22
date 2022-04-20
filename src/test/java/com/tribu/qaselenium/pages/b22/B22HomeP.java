@@ -10,6 +10,13 @@ public class B22HomeP extends BasePO<B22HomeP> {
 	private String pageUrl = "https://b22-stage.somosmaz.com/";
 	private By logo = By.xpath("//img[contains(@src,'logo-b22')]");
 	private By targets = By.linkText("Targets");
+	private By dashboards = By.linkText("Dashboards");
+
+
+	public B22HomeP getDashboards(Predicate<WebElement>... predicates) {
+		this.setWebElement(dashboards, predicates);
+		return this;
+	}
 
 	public B22HomeP getTargets(Predicate<WebElement>... predicates) {
 		this.setWebElement(targets, predicates);

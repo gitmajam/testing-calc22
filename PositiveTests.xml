@@ -11,9 +11,13 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<!-- <class
-				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" /> -->
+				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22TargetsTests" />
+				name="com.tribu.qaselenium.tests.b22.B22InitialLoadInitiativesTests" /> -->
+			<class
+				name="com.tribu.qaselenium.tests.b22.B22SummaryTableAmountTests" />
+			<class name="com.tribu.qaselenium.tests.b22.B22TargetsTests" />
+
 		</classes>
 	</test>
 

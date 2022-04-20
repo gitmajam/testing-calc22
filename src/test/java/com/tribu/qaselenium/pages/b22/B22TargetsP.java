@@ -88,12 +88,12 @@ public class B22TargetsP extends BasePO<B22TargetsP> {
 				.collect(Collectors.groupingBy(map -> map.get("country")));
 
 		for (String country : groupsByCountry.keySet()) {
-			this.getCountry(e -> e.getText().contains(country)).click(1000);
+			this.getCountry(e -> e.getText().contains(country)).click(2000);
 			for (Map<String, String> targetsMap : groupsByCountry.get(country)) {
 				this.getTargetPackageRow(e -> e.getText().equalsIgnoreCase(targetsMap.get("package"))).getPackageTargetInput()
 						.clear().type(targetsMap.get("target"));
 			}
-			this.getSaveButton(e -> e.getText().contains("Save")).click(1000).getAcceptButton().click()
+			this.getSaveButton(e -> e.getText().contains("Save")).click(2000).getAcceptButton().click()
 					.waitForNotVisibility();
 		}
 		return this;
