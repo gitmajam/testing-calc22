@@ -19,7 +19,7 @@ import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 
 @Listeners(TestsListenerManager.class)
-public class B22InitialLoadInitiativesTests extends TestBase {
+public class B22DiscardInitiativesTests extends TestBase {
 	
 	public static String dataProviderFilePath = "src/test/resources/providerFiles/amounts.csv";
 
@@ -34,7 +34,7 @@ public class B22InitialLoadInitiativesTests extends TestBase {
 		B22DashboardsP b22DashboardsP;
 		
 		String pathName = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator + "uploadFiles"	+ File.separator + "template.xlsx";
+				+ File.separator + "resources" + File.separator + "uploadFiles"	+ File.separator + "discardTemplate.xlsx";
 
 		/* login */
 		b22LandingP = openUrl(B22LandingP::new).get();

@@ -25,7 +25,7 @@ public class B22SummaryTableAmountTests extends TestBase {
 
 	@SuppressWarnings("unchecked")
 	@Test(dataProvider = "csvReaderMatrix", dataProviderClass = CsvDataProviders.class,groups = { "smoke", "deleteContent" })
-	public void initialLoadInitiatives(Method method,List<Map<String, String>> provider) {
+	public void sumaryTableAmounts(Method method,List<Map<String, String>> provider) {
 		SoftAssert softAssert = new SoftAssert();
 		// page variables
 		B22LandingP b22LandingP;

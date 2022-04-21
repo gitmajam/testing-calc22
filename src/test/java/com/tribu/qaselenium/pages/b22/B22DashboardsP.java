@@ -1,16 +1,24 @@
 package com.tribu.qaselenium.pages.b22;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.asserts.SoftAssert;
 
 import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
+import com.tribu.qaselenium.tests.data.JobsDAO;
 
 public class B22DashboardsP extends BasePO<B22DashboardsP> {
 
@@ -25,6 +33,12 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	private By button = By.xpath("//button");
 	private By closeButton = By.xpath("//button[@class='btn-close']");
 	private By succesUploadMessage = By.xpath("//div[@class='msg-alert']");
+	private By registerInitiatives = By.xpath("//div[@class='col-md-6 data-total']/strong");
+
+	public B22DashboardsP getRegisterInitiatives(Predicate<WebElement>... predicates) {
+		this.setWebElement(registerInitiatives, predicates);
+		return this;
+	}
 
 	public B22DashboardsP getSuccesUploadMessage(Predicate<WebElement>... predicates) {
 		this.setWebElement(succesUploadMessage, predicates);
@@ -83,7 +97,7 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
 					String tableValue = mapT.get(mapP.get("package") + " Target").replace("M", "");
 					softAssert.assertTrue(tableValue.contentEquals(mapP.get("targetM")),
-							"value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
+							"Traget value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
 									+ mapP.get("targetM") + " table: " + tableValue);
 				}
 			}
@@ -98,11 +112,28 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
 					String tableValue = mapT.get(mapP.get("package") + " Real").replace("M", "").replace("k", "");
 					softAssert.assertTrue(tableValue.contentEquals(mapP.get("amount")),
-							"value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
+							"Amount value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
 									+ mapP.get("amount") + " table: " + tableValue);
 				}
 			}
 		}
+		return this;
+	}
+
+	public B22DashboardsP verifyLoadFinish(SoftAssert softAssert) {
+		JobsDAO jobsDAO = new JobsDAO();
+		Boolean loadFinished = false;
+		try {
+			Wait<JobsDAO> wait = new FluentWait<JobsDAO>(jobsDAO)
+					.withTimeout(Duration.ofMinutes(10L))
+					.pollingEvery(Duration.ofMinutes(1L))
+					.ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
+
+			loadFinished = wait.until((j)->j.verifyEmptyJobs());
+		} catch (Exception e) {
+			log.info("WaitForImage timeout");
+		}
+		softAssert.assertTrue(loadFinished,"Load not finished");
 		return this;
 	}
 
