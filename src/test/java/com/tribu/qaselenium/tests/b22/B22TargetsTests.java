@@ -26,7 +26,6 @@ public class B22TargetsTests extends TestBase {
 	@Test(dataProvider = "csvReaderMatrix", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
 			"deleteContent" })
 	public void loadTargets(Method method, List<Map<String, String>> provider) {
-		SoftAssert softAssert = new SoftAssert();
 		// page variables
 		B22LandingP b22LandingP;
 		B22HomeP b22HomeP;
@@ -35,14 +34,13 @@ public class B22TargetsTests extends TestBase {
 
 		/* login */
 		b22LandingP = openUrl(B22LandingP::new).get();
-		b22HomeP = b22LandingP.login(readCredentials("admin"), softAssert).getLogo().assess(softAssert::assertTrue,
-				"main logo is not displayed");
+		b22HomeP = b22LandingP.login(readCredentials("admin")).getLogo().assertExist("main logo is not displayed");
 		b22TargetsP = b22HomeP.getTargets().click(B22TargetsP::new).get();
 		b22DashboardsP = b22TargetsP.getYear(e -> e.getText().contains("2022")).click()
 					.setTargets(provider)
 					.getDashboards().click(B22DashboardsP::new).get();
 		
-		b22DashboardsP.verifyTargets(provider, b22DashboardsP.getSummaryTable().readTable(),softAssert);
-		softAssert.assertAll();
+		b22DashboardsP.verifyTargets(provider, b22DashboardsP.getSummaryTable().readTable())
+					.assertAll();
 	}
 }

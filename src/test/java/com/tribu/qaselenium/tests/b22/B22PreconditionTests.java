@@ -24,15 +24,14 @@ public class B22PreconditionTests extends TestBase {
 	@SuppressWarnings("unchecked")
 	@Test(groups = { "smoke", "deleteContent" })
 	public void preconditions(Method method) {
-		SoftAssert softAssert = new SoftAssert();
 		// page variables
 		B22LandingP b22LandingP;
 		B22HomeP b22HomeP;
 		
 		/* login */
 		b22LandingP = openUrl(B22LandingP::new).get();
-		b22HomeP = b22LandingP.login(readCredentials("admin"),softAssert).getLogo()
-								.assess(softAssert::assertTrue, "main logo is not displayed");
+		b22HomeP = b22LandingP.login(readCredentials("admin")).getLogo().assertExist("main logo is not displayed")
+							.assertAll();
 		
 		UploadInitiativesDAO uploadInitiativesDao = new UploadInitiativesDAO();
 		uploadInitiativesDao.remove();
@@ -44,7 +43,5 @@ public class B22PreconditionTests extends TestBase {
 		uploadsDao.remove();
 		
 		log.info("initiatives were removed");
-
-		softAssert.assertAll();
 	}
 }

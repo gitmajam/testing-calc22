@@ -30,7 +30,7 @@ public class B22LandingP extends BasePO<B22LandingP> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public B22HomeP login(Map<String, String> credentialMap, SoftAssert softAssert) {
+	public B22HomeP login(Map<String, String> credentialMap) {
 		log.info("login");
 		
 		ssoLandingP = this.getLoginButton().click(SSOLandingP::new,2000).get();	

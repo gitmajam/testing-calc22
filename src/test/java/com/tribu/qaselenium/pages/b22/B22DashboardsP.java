@@ -90,13 +90,12 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 		return this;
 	}
 
-	public B22DashboardsP verifyTargets(List<Map<String, String>> provider, List<Map<String, String>> table,
-			SoftAssert softAssert) {
+	public B22DashboardsP verifyTargets(List<Map<String, String>> provider, List<Map<String, String>> table) {
 		for (Map<String, String> mapP : provider) {
 			for (Map<String, String> mapT : table) {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
 					String tableValue = mapT.get(mapP.get("package") + " Target").replace("M", "");
-					softAssert.assertTrue(tableValue.contentEquals(mapP.get("targetM")),
+					softAssertSupplier.get().assertTrue(tableValue.contentEquals(mapP.get("targetM")),
 							"Traget value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
 									+ mapP.get("targetM") + " table: " + tableValue);
 				}
@@ -105,13 +104,12 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 		return this;
 	}
 
-	public B22DashboardsP verifyAmounts(List<Map<String, String>> provider, List<Map<String, String>> table,
-			SoftAssert softAssert) {
+	public B22DashboardsP verifyAmounts(List<Map<String, String>> provider, List<Map<String, String>> table) {
 		for (Map<String, String> mapP : provider) {
 			for (Map<String, String> mapT : table) {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
 					String tableValue = mapT.get(mapP.get("package") + " Real").replace("M", "").replace("k", "");
-					softAssert.assertTrue(tableValue.contentEquals(mapP.get("amount")),
+					softAssertSupplier.get().assertTrue(tableValue.contentEquals(mapP.get("amount")),
 							"Amount value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
 									+ mapP.get("amount") + " table: " + tableValue);
 				}
@@ -120,7 +118,7 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 		return this;
 	}
 
-	public B22DashboardsP verifyLoadFinish(SoftAssert softAssert) {
+	public B22DashboardsP verifyLoadFinish() {
 		JobsDAO jobsDAO = new JobsDAO();
 		Boolean loadFinished = false;
 		try {
@@ -133,7 +131,7 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 		} catch (Exception e) {
 			log.info("WaitForImage timeout");
 		}
-		softAssert.assertTrue(loadFinished,"Load not finished");
+		softAssertSupplier.get().assertTrue(loadFinished,"Load not finished");
 		return this;
 	}
 

@@ -7,29 +7,22 @@
 			class-name="com.tribu.qaselenium.testframework.testbase.EmailableTestingReporter" />
 	</listeners>
 
-<!-- 	<test name="preconditions" preserve-order="true">
-		<parameter name="browser" value="chrome"></parameter>
-		<classes>
-			<class
-				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" />
-		</classes>
-	</test> -->
+	<!-- <test name="preconditions" preserve-order="true"> <parameter name="browser" 
+		value="chrome"></parameter> <classes> <class name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" 
+		/> </classes> </test> -->
 
 	<test name="loadInitiatives" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<!-- <class
+			<class
 				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22InitialLoadInitiativesTests" /> -->
-			<class
-				name="com.tribu.qaselenium.tests.b22.B22SummaryTableAmountTests" />
+				name="com.tribu.qaselenium.tests.b22.B22InitialLoadInitiativesTests" />
 			<class name="com.tribu.qaselenium.tests.b22.B22TargetsTests" />
-
 		</classes>
 	</test>
 
-<!-- 	<test name="discardInitiatives" preserve-order="true">
+	<test name="discardInitiatives" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
@@ -37,6 +30,6 @@
 			<class
 				name="com.tribu.qaselenium.tests.b22.B22DiscardInitiativesTests" />
 		</classes>
-	</test> -->
+	</test>
 
 </suite>
