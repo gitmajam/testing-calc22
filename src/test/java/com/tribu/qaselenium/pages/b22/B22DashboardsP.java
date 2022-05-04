@@ -170,8 +170,8 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	@SuppressWarnings("unchecked")
 	public B22DashboardsP verifyFilters(List<Map<String, String>> provider) {
 		for (Map<String, String> mapP : provider) {
-			this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click()
-					.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
+			this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click(500)
+					.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click(500)
 					.getButton(e -> e.getText().contentEquals("Search")).click(2000)
 					.getTotalInitiatives(e -> e.getText().contentEquals(mapP.get("initiatives")))
 					.assertExist("filter: " + mapP.get("filter") + " item: " + mapP.get("item") + " doesn't match")

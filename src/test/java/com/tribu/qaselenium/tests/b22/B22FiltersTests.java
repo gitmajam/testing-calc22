@@ -36,7 +36,7 @@ public class B22FiltersTests extends TestBase {
 		b22LandingP = openUrl(B22LandingP::new).get();
 		b22HomeP = b22LandingP.login(readCredentials("admin")).getLogo().assertExist("main logo is not displayed");
 		b22DashboardsP = b22HomeP.getDashboards().click(B22DashboardsP::new,3000).get();
-		b22DashboardsP.getGraphics().centerElement(500)
+		b22DashboardsP.getGraphics().centerElement(1000)
 						.verifyFilters(provider)
 						.verifyCombinedFilters(provider)
 						.assertAll();
