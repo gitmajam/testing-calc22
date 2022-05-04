@@ -40,7 +40,8 @@ public class B22TargetsTests extends TestBase {
 					.setTargets(provider)
 					.getDashboards().click(B22DashboardsP::new).get();
 		
-		b22DashboardsP.verifyTargets(provider, b22DashboardsP.getSummaryTable().readTable())
+		b22DashboardsP.getAppBusy().waitForNotPresence()
+					.verifyTargets(provider, b22DashboardsP.getSummaryTable().readTable())
 					.assertAll();
 	}
 }

@@ -25,6 +25,12 @@ public class B22TargetsP extends BasePO<B22TargetsP> {
 	private By saveButton = By.xpath("//button[@class='btn btn-primary']");
 	private By acceptButton = By.xpath("//button[@data-bs-dismiss='modal']");
 	private By dashboards = By.linkText("Dashboards");
+	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
+
+	public B22TargetsP getAppBusy(Predicate<WebElement>... predicates) {
+		this.setWebElement(appBusy, predicates);
+		return this;
+	}
 
 	public B22TargetsP getDashboards(Predicate<WebElement>... predicates) {
 		this.setWebElement(dashboards, predicates);
@@ -88,13 +94,15 @@ public class B22TargetsP extends BasePO<B22TargetsP> {
 				.collect(Collectors.groupingBy(map -> map.get("country")));
 
 		for (String country : groupsByCountry.keySet()) {
-			this.getCountry(e -> e.getText().contains(country)).click(2000);
+			this.getCountry(e -> e.getText().contains(country)).click()
+			.getAppBusy().waitForNotPresence();
 			for (Map<String, String> targetsMap : groupsByCountry.get(country)) {
-				this.getTargetPackageRow(e -> e.getText().equalsIgnoreCase(targetsMap.get("package"))).getPackageTargetInput()
-						.clear().type(targetsMap.get("target"));
+				this.getTargetPackageRow(e -> e.getText().equalsIgnoreCase(targetsMap.get("package")))
+					.getPackageTargetInput().clear().type(targetsMap.get("target"));
 			}
-			this.getSaveButton(e -> e.getText().contains("Save")).click(2000).getAcceptButton().click()
-					.waitForNotVisibility();
+			this.getSaveButton(e -> e.getText().contains("Save")).click()
+				.getAppBusy().waitForNotPresence()
+				.getAcceptButton().click().waitForNotVisibility();
 		}
 		return this;
 	}

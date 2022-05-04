@@ -38,13 +38,6 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	private By inputSearch = By.xpath(".//input[@id='single-select']");
 	private By graphics = By.xpath("//div[@id='capture']");
 	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
-	private By html = By.xpath("/html");
-
-
-	public B22DashboardsP getHtml(Predicate<WebElement>... predicates) {
-		this.setWebElement(html, predicates);
-		return this;
-	}
 
 	public B22DashboardsP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
@@ -172,9 +165,9 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 					.pollingEvery(Duration.ofMinutes(1L))
 					.ignoring(NoSuchElementException.class, StaleElementReferenceException.class);
 
-			loadFinished = wait.until((j) -> j.verifyEmptyJobs());
+			loadFinished = wait.until((jobs) -> jobs.verifyEmptyJobs());
 		} catch (Exception e) {
-			log.info("WaitForImage timeout");
+			log.info("Wait for load file timeout");
 		}
 		softAssertSupplier.get().assertTrue(loadFinished, "Load not finished");
 		return this;
