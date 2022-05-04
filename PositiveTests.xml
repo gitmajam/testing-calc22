@@ -10,11 +10,11 @@
 	<test name="loadInitiatives" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class
+	<!-- 		<class
 				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" />
 			<class
 				name="com.tribu.qaselenium.tests.b22.B22InitialLoadInitiativesTests" />
-			<class name="com.tribu.qaselenium.tests.b22.B22TargetsTests" />
+			<class name="com.tribu.qaselenium.tests.b22.B22TargetsTests" /> -->
 			<class name="com.tribu.qaselenium.tests.b22.B22FiltersTests" />
 		</classes>
 	</test>

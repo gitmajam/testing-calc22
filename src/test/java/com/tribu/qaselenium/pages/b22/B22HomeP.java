@@ -11,6 +11,12 @@ public class B22HomeP extends BasePO<B22HomeP> {
 	private By logo = By.xpath("//img[contains(@src,'logo-b22')]");
 	private By targets = By.linkText("Targets");
 	private By dashboards = By.linkText("Dashboards");
+	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
+
+	public B22HomeP getAppBusy(Predicate<WebElement>... predicates) {
+		this.setWebElement(appBusy, predicates);
+		return this;
+	}
 
 
 	public B22HomeP getDashboards(Predicate<WebElement>... predicates) {

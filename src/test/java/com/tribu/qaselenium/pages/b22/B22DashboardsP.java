@@ -179,7 +179,8 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 				.collect(Collectors.groupingBy(map -> map.get("filter")));
 		for (String filter : filterGroups.keySet()) {
 			for (Map<String, String> mapP : filterGroups.get(filter)) {
-				this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click()
+				this.getFilter(e -> e.getText().contains(mapP.get("filter")))
+						.getSelect().click()
 						.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
 						.getButton(e -> e.getText().contentEquals("Search")).click()
 						.getAppBusy().waitForNotPresence()
@@ -202,7 +203,8 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 			for (Map<String, String> mapP : filterGroups.get(filter)) {
 				if (mapP.get("type").contentEquals("combined")) {
 					acum = acum + Integer.parseInt(mapP.get("initiatives"));
-					this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click()
+					this.getFilter(e -> e.getText().contains(mapP.get("filter")))
+							.getSelect().click()
 							.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
 							.getButton(e -> e.getText().contentEquals("Search")).click()
 							.getAppBusy().waitForNotPresence();

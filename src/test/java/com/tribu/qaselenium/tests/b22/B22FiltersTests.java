@@ -35,10 +35,12 @@ public class B22FiltersTests extends TestBase {
 		/* login */
 		b22LandingP = openUrl(B22LandingP::new).get();
 		b22HomeP = b22LandingP.login(readCredentials("admin")).getLogo().assertExist("main logo is not displayed");
-		b22DashboardsP = b22HomeP.getDashboards().click(B22DashboardsP::new).get();
+		b22DashboardsP = b22HomeP.getAppBusy().waitForNotPresence()
+								.getDashboards().click(B22DashboardsP::new).get();
 		b22DashboardsP.getAppBusy().waitForNotPresence()
 						.getGraphics().centerElement(1000)
 						.verifyFilters(provider)
+						.getAppBusy().waitForNotPresence()
 						.verifyCombinedFilters(provider)
 						.assertAll();
 	}
