@@ -37,6 +37,19 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	private By item = By.xpath(".//span[@data-deselect='X']");
 	private By inputSearch = By.xpath(".//input[@id='single-select']");
 	private By graphics = By.xpath("//div[@id='capture']");
+	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
+	private By html = By.xpath("/html");
+
+
+	public B22DashboardsP getHtml(Predicate<WebElement>... predicates) {
+		this.setWebElement(html, predicates);
+		return this;
+	}
+
+	public B22DashboardsP getAppBusy(Predicate<WebElement>... predicates) {
+		this.setWebElement(appBusy, predicates);
+		return this;
+	}
 
 	public B22DashboardsP getGraphics(Predicate<WebElement>... predicates) {
 		this.setWebElement(graphics, predicates);
@@ -169,13 +182,20 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 
 	@SuppressWarnings("unchecked")
 	public B22DashboardsP verifyFilters(List<Map<String, String>> provider) {
-		for (Map<String, String> mapP : provider) {
-			this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click(500)
-					.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click(500)
-					.getButton(e -> e.getText().contentEquals("Search")).click(2000)
-					.getTotalInitiatives(e -> e.getText().contentEquals(mapP.get("initiatives")))
-					.assertExist("filter: " + mapP.get("filter") + " item: " + mapP.get("item") + " doesn't match")
-					.getButton(e -> e.getText().contentEquals("Clear filters")).click(2000);
+		Map<String, List<Map<String, String>>> filterGroups = provider.stream()
+				.collect(Collectors.groupingBy(map -> map.get("filter")));
+		for (String filter : filterGroups.keySet()) {
+			for (Map<String, String> mapP : filterGroups.get(filter)) {
+				this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click()
+						.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
+						.getButton(e -> e.getText().contentEquals("Search")).click()
+						.getAppBusy().waitForNotPresence()
+						.getTotalInitiatives(e -> e.getText().contentEquals(mapP.get("initiatives")))
+						.assertExist("filter: " + mapP.get("filter") + " item: " + mapP.get("item") + " doesn't match")
+						.getButton(e -> e.getText().contentEquals("Clear filters")).click()
+						.getAppBusy().waitForNotPresence();
+			}
+			this.getFilter(e -> e.getText().contains(filter)).getSelect().click();
 		}
 		return this;
 	}
@@ -187,17 +207,21 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 		for (String filter : filterGroups.keySet()) {
 			int acum = 0;
 			for (Map<String, String> mapP : filterGroups.get(filter)) {
-				if(mapP.get("type").contentEquals("combined")){
+				if (mapP.get("type").contentEquals("combined")) {
 					acum = acum + Integer.parseInt(mapP.get("initiatives"));
 					this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click()
-						.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
-						.getButton(e -> e.getText().contentEquals("Search")).click(2000);
+							.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
+							.getButton(e -> e.getText().contentEquals("Search")).click()
+							.getAppBusy().waitForNotPresence();
 				}
 			}
 			String acumS = Integer.toString(acum);
 			this.getTotalInitiatives(e -> e.getText().contentEquals(acumS))
-			.assertExist("combinated filter: " + filter + " valueFile: " + acumS + " valueFound: " + this.getWebElement().getText())
-			.getButton(e -> e.getText().contentEquals("Clear filters")).click(2000);
+					.assertExist("combinated filter: " + filter + " valueFile: " + acumS + " valueFound: "
+							+ this.getWebElement().getText())
+					.getButton(e -> e.getText().contentEquals("Clear filters")).click()
+					.getAppBusy().waitForNotPresence()
+					.getFilter(e -> e.getText().contains(filter)).getSelect().click();
 		}
 		return this;
 	}
