@@ -1,0 +1,38 @@
+todo,method,type,filter,item,initiatives
+TRUE,,,BU,CAC,413
+TRUE,,combined,BU,CO,369
+TRUE,,combined,BU,EC,205
+TRUE,,combined,BU,H&S,325
+TRUE,,,BU,MX,581
+TRUE,,,BU,PE,364
+TRUE,,,BU,ZHQ,23
+TRUE,,,Country,Barbados,35
+TRUE,,,Country,Caribbean,2
+TRUE,,,Country,Colombia,369
+TRUE,,,Country,Dominican Republic,224
+TRUE,,combined,Country,Ecuador,205
+TRUE,,combined,Country,El Salvador,178
+TRUE,,,Country,Guatemala,62
+TRUE,,combined,Country,Honduras,147
+TRUE,,,Country,Mexico,581
+TRUE,,,Country,Panama,87
+TRUE,,,Country,Peru,364
+TRUE,,,Country,Puerto Rico,3
+TRUE,,,Country,ZHQ MidAm,23
+TRUE,,,Function,VIC,769
+TRUE,,combined,Function,VLC,520
+TRUE,,combined,Function,S&M,211
+TRUE,,combined,Function,PEOPLE,96
+TRUE,,,Function,NON PEOPLE,677
+TRUE,,,Function,OTHERS,7
+TRUE,,,Saving,CI,696
+TRUE,,,Saving,DPO,167
+TRUE,,combined,Saving,Footprint,14
+TRUE,,combined,Saving,PI,645
+TRUE,,combined,Saving,VE,225
+TRUE,,,Saving,VPO,526
+TRUE,,,Saving,Other,7
+TRUE,,,Risk level,High,362
+TRUE,,combined,Risk level,Low,890
+TRUE,,combined,Risk level,Medium,953
+TRUE,,,Risk level,Very High,75

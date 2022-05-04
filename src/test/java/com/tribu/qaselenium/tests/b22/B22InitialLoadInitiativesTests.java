@@ -43,8 +43,9 @@ public class B22InitialLoadInitiativesTests extends TestBase {
 					.assertExist("success message upload does is not displayed")
 					.getButton(e -> e.getText().contains("Accept")).click().waitForNotVisibility()
 					.getCloseButton().click()
-					.verifyLoadFinish()
+					.verifyLoadFinish().refresh()				
 					.verifyAmounts(provider, b22DashboardsP.getSummaryTable().readTable())
+					.getTotalInitiatives(e -> e.getText().contentEquals("2280")).assertExist("total initiatives doesn't match")
 					.assertAll();
 	}
 }
