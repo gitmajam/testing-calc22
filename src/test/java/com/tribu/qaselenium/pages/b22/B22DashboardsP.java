@@ -185,7 +185,10 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 						.getButton(e -> e.getText().contentEquals("Search")).click()
 						.getAppBusy().waitForNotPresence()
 						.getTotalInitiatives(e -> e.getText().contentEquals(mapP.get("initiatives")))
-						.assertExist("filter: " + mapP.get("filter") + " item: " + mapP.get("item") + " doesn't match")
+						.assertExist("filter: " + mapP.get("filter") 
+									+ " item: " + mapP.get("item") + " doesn't match" 
+									+ " valueFile: " + mapP.get("initiatives")
+									+ " valueFound: " + this.getWebElement().getText())
 						.getButton(e -> e.getText().contentEquals("Clear filters")).click()
 						.getAppBusy().waitForNotPresence();
 			}
@@ -200,23 +203,25 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 				.collect(Collectors.groupingBy(map -> map.get("filter")));
 		for (String filter : filterGroups.keySet()) {
 			int acum = 0;
+			this.getFilter(e -> e.getText().contains(filter))
+				.getSelect().click();
 			for (Map<String, String> mapP : filterGroups.get(filter)) {
 				if (mapP.get("type").contentEquals("combined")) {
 					acum = acum + Integer.parseInt(mapP.get("initiatives"));
-					this.getFilter(e -> e.getText().contains(mapP.get("filter")))
-							.getSelect().click()
-							.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
-							.getButton(e -> e.getText().contentEquals("Search")).click()
-							.getAppBusy().waitForNotPresence();
+					this.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click();
 				}
 			}
+			this.getButton(e -> e.getText().contentEquals("Search")).click()
+			.getAppBusy().waitForNotPresence();
 			String acumS = Integer.toString(acum);
 			this.getTotalInitiatives(e -> e.getText().contentEquals(acumS))
-					.assertExist("combinated filter: " + filter + " valueFile: " + acumS + " valueFound: "
-							+ this.getWebElement().getText())
+					.assertExist("combinated filter: " + filter 
+								+ " valueFile: " + acumS 
+								+ " valueFound: " + this.getWebElement().getText())
 					.getButton(e -> e.getText().contentEquals("Clear filters")).click()
 					.getAppBusy().waitForNotPresence()
-					.getFilter(e -> e.getText().contains(filter)).getSelect().click();
+					.getFilter(e -> e.getText().contains(filter))
+					.getSelect().click();
 		}
 		return this;
 	}
