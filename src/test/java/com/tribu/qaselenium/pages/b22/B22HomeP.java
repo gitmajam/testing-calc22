@@ -12,12 +12,17 @@ public class B22HomeP extends BasePO<B22HomeP> {
 	private By targets = By.linkText("Targets");
 	private By dashboards = By.linkText("Dashboards");
 	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
+	private By unmapped = By.linkText("Unmapped");
+
+	public B22HomeP getUnmapped(Predicate<WebElement>... predicates) {
+		this.setWebElement(unmapped, predicates);
+		return this;
+	}
 
 	public B22HomeP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
 		return this;
 	}
-
 
 	public B22HomeP getDashboards(Predicate<WebElement>... predicates) {
 		this.setWebElement(dashboards, predicates);
