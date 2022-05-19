@@ -24,7 +24,25 @@ public class B22UnmappedP extends BasePO<B22UnmappedP> {
 	private By inputUnmapped = By.xpath(".//td[12]/input");
 	private By modal = By.xpath("//div[@class='modal-content']");
 	private By saveButton = By.xpath("//button[@data-bs-placement='top']");
-	
+	private By notiModal = By.xpath("//div[@id='NotificationModalId']");
+	private By respModal = By.xpath("//div[@id='unmapped-response-modal']");
+	private By closeButton = By.xpath(".//button[@aria-label='Close']");
+
+	public B22UnmappedP getNotiModal(Predicate<WebElement>... predicates) {
+		this.setWebElement(notiModal, predicates);
+		return this;
+	}
+
+	public B22UnmappedP getRespModal(Predicate<WebElement>... predicates) {
+		this.setWebElement(respModal, predicates);
+		return this;
+	}
+
+	public B22UnmappedP getCloseButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(closeButton, predicates);
+		return this;
+	}
+
 	public B22UnmappedP getModal(Predicate<WebElement>... predicates) {
 		this.setWebElement(modal, predicates);
 		return this;

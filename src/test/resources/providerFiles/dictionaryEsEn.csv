@@ -1,0 +1,386 @@
+Mis cursos completados,My completed Courses
+Índice de satisfacción,Satisfaction index
+Atención,Warning
+Hola,Hello
+Usuario Administrador,Administrator User
+Reportes,Reports
+Asignación de cursos,Course Assignment
+Usuario Profesor,Professor User
+Historial,History
+Mi NPS,My NPS
+Usuario Alumno,Student User
+Mi Aprendizaje,My Learning
+Mi expediente,My History
+Creación de cursos,Course creation
+Asigna el curso hijo,Assign the child course
+Regresar,Go back
+Nombre del curso padre,Title of the parent course
+Folio,Folder
+Fecha de inicio,Start date
+Fecha de cierre,Closing date
+BU,BU
+Profesor,Professor
+País,Country
+VP,VP
+UEN,UEN
+Carga un archivo en formato Excel con el ID de los usuarios,Upload a file in Excel format with the ID of the users
+Añadir usuarios,Add users
+Para añadir más usuarios debes volver a cargar el archivo excel con la actualización de los usuarios,To add more users you must reload the excel file with the updated users
+Usuarios,Users
+Asignar usuarios,Assign users
+Cancelar,Cancel
+Usuarios asignados,Assigned users
+Nombre del usuario,User name
+ID,ID
+Correo,Email
+Registrado,Registered
+Fecha de asignación,Date of assignment
+Eliminar,Delete
+Anterior,Previous
+Siguiente,Next
+Asignación de Cursos Hijo,Child Course Assignment
+Crear,Create
+Editar,Edit
+Asignar,Assign
+Tipo de contenido,Content type
+Seleccionar,Select
+Estudiantes,Students
+Id,Id
+Correo,Email
+Nombre,Name
+Registrado,Registered
+Creacion de Cursos Hijo,Child Course Creation
+Crear,Create
+Editar,Edit
+Asignar,Assign
+Tipo de contenido,Content type
+Seleccionar,Select
+Creación de cursos,Course creation
+Busca el curso del cuál deseas crear un curso hijo,Find the course for which you want to create a child course
+Regresar,Go back
+Buscar el curso,Find the course
+Tipo,Type
+Selecciona,Select
+Todos,All
+Categoría,Category
+Selecciona,Select
+Todos,All
+Buscar,Search
+Resultados,Results
+Nombre del curso,Course Name
+Categoria,Category
+Tipo,Type
+Fecha de creación,Creation date
+Detalle,More details
+Crear curso hijo,Create child course
+Ver detalle,View details
+Edición de Cursos Hijo,Editing Child Courses
+Crear,Create
+Editar,Edit
+Asignar,Assign
+Tipo de contenido,Content type
+Seleccionar,Select
+Creación de cursos,Course creation
+Personaliza el curso hijo,Customize the child course
+Regresar,Go back
+Curso padre,Parent course
+Tipo de curso,Course type
+Duración aproximada,Estimated duration
+Nota mínima,Minimum grade
+Número de intentos permitido,Number of attempts allowed
+Fecha de inicio,Start date
+Fecha de cierre,Closing date
+Profesor,Professor
+BU,BU
+Selecciona,Select
+Todos,All
+País,Country
+VP,VP
+UEN,UEN
+Nombre de la UEN,UEN Name
+Cancelar,Cancel
+Crear curso,Course create
+Crear Curso,Course Create
+Editar Curso,Course Edit
+Mailing de Cursos,Course Mailing
+Tipo de contenido,Type of content
+Seleccionar,Select
+Estudiantes,Students
+uId,uld
+Sharp,Sharp
+Correo,Email
+Guardando,Saving
+Url,Url
+Este certificado acredita que ha completado con éxito el curso,This certificate proves that you have successfully completed this course
+Salir,Exit
+Descargar Certificado,Download Certificate
+Mis certificados,My certificates
+Certificados obtenidos,Certificates earned
+Ver Certificado,View Certificate
+Mi expediente,My file
+Historial de aprendizaje,Learning History
+Buscar mis cursos,Find my courses
+Nombre del curso,Course name
+Organizar por,Sort by
+Categoría,Category
+Fecha,Date
+Mis cursos completados,My completed courses
+Fecha de inicio y fin,Start and end date
+Calificación,Score
+Profesor,Professor
+Certificado,Certificate
+Ver,View
+Este certificado acredita que ha completado con éxito el curso,This certificate proves that you have successfully completed this course
+Salir,Exit
+Descargar Certificado,Download Certificate
+Mi expediente,My file
+Historial de aprendizaje,Learning history
+Buscar mis cursos,Find my courses
+Categoria,Category
+Fecha,Date
+Buscar,Search
+Borrar,Delete
+Mis cursos completados,My completed courses
+Fecha de inicio y fin,Start and end date
+Calificación,Score
+Profesor,Professor
+Certificado,Certificate
+VER,VIEW
+Mi aprendizaje,My learning
+Tienes,You have
+cursos asignados en total,total assigned courses
+Digitales,Digitals
+Ver detalles del curso,View course details
+Iniciar,Start
+Continuar,Continue
+Calificar Experiencia,Rate Experience
+Presenciales,Classroom
+presencial,classroom
+digital,digital
+Ver Mas,View More
+Mi perfil,My profile
+Configurar cuenta,View account
+Nombre Completo,Full Name
+Correo electrónico,Email
+Sharp ID,Sharp ID
+BU,BU
+Subir Imagen,Upload a new photo
+Reportar inconsistencia,Report bug
+Reenviar mail curso,Forward course mail
+Estudiantes,Students
+Id,Id
+Correo,Email
+Nombre,Name
+Registrado,Registered
+Historial,History
+Mis cursos cómo profesor,My courses as a professor
+Buscar mis cursos,Find my courses
+Categoria,Category
+Fecha,Date
+Buscar,Search
+Borrar,Delete
+Descargar Evidencias,Download Evidences
+Evidencias,Evidences
+Mis cursos completados,My completed courses
+Categoría,Category
+Fecha de inicio,Start date
+Fecha finalización,End Date
+No Alumnos,No Students
+Aprobado,Approved
+No aprobado,Not approved
+En curso,In progress
+Aquí puedes revisar las evidencias de las actividades correspondientes a este curso,Here you can review the evidences of the activities corresponding to this course
+Descargar archivos,Download files
+Nombre,Name
+Fecha de carga,Date uploaded
+Tamaño,Size
+Este usuario no tiene evidencias disponibles para este curso,This user has no evidences available for this course
+Mi NPS,My NPS
+Índice de satisfacción,Satisfaction Index
+Usamos como instrumento de evaluación el NPS (Net Promoter Score) para medir la satisfacción de la experiencia que tuvieron tus alumnos contigo como profesor,We use the NPS (Net Promoter Score) as an evaluation instrument to measure the satisfaction of the experience your students had with you as a professor
+¿Cómo funciona?,How does it work?
+"Al finalizar cada curso, tus alumnos califican en escala del 1 al 10 la siguiente pregunta: ¿Recomendarías a tu profesor para que continue impartiendo este curso?","At the end of each course, your students rate on a scale of 1 to 10 the following question: Would you recommend your professor to continue teaching this course?"
+"Lo que ves en este dashboard es tu puntuación de NPS general y por curso, también puedes ver el detalle de cada curso y comentarios que te han dejado tus alumnos de manera anónima","What you see on this dashboard is your overall NPS score and by course, you can also see the detail of each course and comments that your students have left you anonymously"
+Escala NPS: Net Promoter Score,NPS Scale: Net Promoter Score
+Promotores,Promoters
+Neutrales,Neutrals
+Detractores,Detractors
+NPS general,Overall NPS
+NPS Total,Total NPS
+Te han calificado,You have been rated
+Alumnos,Students
+Total de cursos,Total courses
+cursos,courses
+NPS por curso,NPS by course
+Ver detalle,View details
+NPS,NPS
+Fecha del curso,Course date
+Escala NPS,NPS Scale
+Total de alumnos,Total students
+alumnos,students
+NPS,NPS
+Conoce lo que opinan tus alumnos de ti,Find out what your students think of you
+Atención,Attention
+Salir,Exit
+Continuar,Continue
+Hola,Hello
+cursos en total,total courses
+Eres profesor (a) de,You are a professor of
+Mis cursos,My courses
+Categoría,Category
+Fecha Inicio Curso,Course Start Date
+Fecha Finalización Curso,Course End Date
+Descargar Guia,Download Guide
+Descripción general,Course Overview
+Mis alumnos,My Students
+Retroalimentación,Feedback
+Evidencias,Evidence
+Evaluar,Rate
+finalizar Curso,end Course
+Tu retroalimentación es muy importante para impulsar el crecimiento de tus alumnos,Your feedback is important for your student's growth
+Tus comentarios serán vistos por tu alumno,Your comments will be seen by your student
+¿Cómo fue su participación?,How was the participation?
+Muy participativo,Very participative
+Participó en algunas ocasiones,Participated on some occasions
+No participó,Did not participate
+Muy participativo,Very participative
+Participó en algunas ocasiones,Participated on some occasions
+No participó,Did not participate
+Escribe un poco sobre el desempeño del alumno,Write a short review of the student's performance
+Comentarios,Comments
+Guardar,Save
+Aquí puedes revisar las evidencias de las actividades correspondientes a este curso,Here you can review the evidences of the activities corresponding to this course
+Descargar archivos,Download files
+Nombre,Name
+Fecha de carga,Date uploaded
+Tamaño,Size
+Califica a tu alumno del 0 al 100 de acuerdo al criterio y guarda,Grade your student from 0 to 100 according to the criteria and save
+Recuerda que esta es la calificación total final del curso,Remember that this is the final total grade for the course
+Calificación,Score
+El puntaje mínimo aprobatorio para este curso es de,The minimum passing score for this course is
+Escribe solo números,Write numbers only
+Guardar,Save
+Abrir modal,Open modal
+Atención,Attention
+Salir,Exit
+Continuar,Continue
+Profesor,Professor
+Descripción general,General description
+Contenidos,Contents
+Mi retroalimentación,My feedback
+Mi calificación,My score
+El puntaje mínimo aprobatorio para este curso es de puntos,The minimum passing score for this course is
+Puntos,Points
+Recuerda que esta es tu calificación total final del curso,Remember that this is your final total grade for the course
+Importante para poder finalizar este curso y obtener tu certificado por favor califica tu experiencia,Important in order to finish this course and obtain your certificate please rate your experience
+Escribe ID de la persona que será el profesor,Write ID of the person who will be the teacher
+Calificar experiencia,Rate experience
+Información del curso,Course Information
+Estado,Status
+En curso,In progress
+Categoría,Category
+Mis evidencias,My evidences
+Selecciona el archivo que quieras cargar,Select the file you want to upload
+Subir archivo,Upload file
+Felicitaciones,Congratulations
+"Haz completado el curso, para poder finalizar por favor califica tu experiencia","You have completed the course, in order to finish please rate your experience"
+CURSO,COURSE
+Del 1 al 10 ¿Qué tanto te gusto este curso?,From 1 to 10 How did you like this course?
+Escribe un poco sobre tu experiencia con el curso,Write a short review of your experience with the course
+PROFESOR,PROFESSOR
+Del 1 al 10 ¿Qué tanto recomendarías al profesor de este curso?,From 1 to 10 How highly would you recommend the professor of this course?
+Escribe un poco sobre tu experiencia con el profesor,Write a little about your experience with the professor
+Guardar,Save
+Gracias por tu feedback,Thanks for your feedback
+Este certificado acredita que ha completado con éxito el curso,This certificate certifies that you have successfully completed this course
+Atención,Attention
+Salir,Exit
+Continuar,Continue
+Ir al inicio,Go to Home
+Tu Progreso,Your Progress
+CONTINUAR,CONTINUE
+MENU,MENU
+Categoría,Category
+Contenido,Content
+Lecciones,Lessons
+Felicitaciones,Congratulations
+"Haz completado el curso, para poder finalizar por favor califica tu experiencia","You have completed the course, in order to finish please rate your experience"
+CURSO,COURSE
+Del 1 al 10 ¿Qué tanto te gusto este curso?,From 1 to 10 How did you like this course?
+Escribe un poco sobre tu experiencia con el curso,Write a short review of your experience with the course
+Finalizar,Finish
+MAZ APRENDO - Tu plataforma de aprendizaje,MAZ APRENDO - Your learning platform
+Mi Aprendizaje,My Learning
+Buscar,Search
+Mi Perfil,My Profile
+Mis Certificados,My Certificates
+Cerrar sesión,Logout
+Política de privacidad - Términos y Condiciones,Privacy Policy - Terms and Conditions
+Anterior,Previous
+Siguiente,Next
+Bienvenido,Welcome
+"MAZ Aprendo es tu plataforma de aprendizaje, encuentra el curso que hará tu futuro brillante","MAZ Aprendo is your learning platform, find the course that will make your future bright"
+Completa los cursos desde tu celular o computador,Complete courses from your cell phone or computer
+Descarga contenido para revisar sin conexión,Download content for offline review
+Obtén certificados,Receive certificates
+Política de privacidad - Términos y Condiciones,Privacy Policy - Terms and Conditions
+MAZ APRENDO - Tu plataforma de aprendizaje,MAZ APRENDO - Your learning platform
+Mi Aprendizaje,My Learning
+Cerrar sesión,Logout
+Ir al inicio,Go to home
+Tu Progreso,Your Progress
+Política de privacidad - Términos y Condiciones,Privacy Policy - Terms and Conditions
+Categoría,Category
+Fecha de vencimiento,Expiration Date
+Nota minima aprobatoria,Minimum approval mark
+Accion,Action
+Fecha Finalizacion Curso,Course End Date
+duracion,duration
+Fecha Finalizacion,End Date
+Duración apróximada,Approx time
+Duración apróximada,Approx time
+Editar Folio,Folder Edit
+Elije el curso hijo que quieres editar,Choose the child course you want to edit
+Carga un archivo en formato Excel con el ID de los usuarios en la primera columna,Upload a file in Excel format with the user ID in the first column
+"Para modificar los usuarios, puedes volver a cargar el archivo excel con la actualización de los usuarios","To modify the users, you can reload the excel file with the updated users"
+Usuarios encontrados,Found users
+"Si, eliminar","yes, delete"
+Curso,Course
+Usuario Duplicado en Archivo,Duplicate User on File
+Usuario Tiene Cursos Activos,User Has Active Courses
+Usuario ya Completo este Curso,User already Completed this Course
+Tienes usuarios duplicados en tu listado de excel,You have duplicate users in your excel list
+Este curso se encuentra finalizado. Por lo tanto no se pueden modificar los alumnos,"This course is finished. Therefore, the students cannot be modified."
+Algunos usuarios en tu lista no han finalizado este curso,Some users in your list have not completed this course
+"Para modificar los usuarios, puedes volver a cargar el archivo excel con la actualización de los usuarios","To modify the users, you can reload the excel file with the updated users"
+Usuarios Asignados Correctamente,Correctly Assigned Users
+Error de Asignacion,Assignment Error
+Extensión no permitida,extension not allowed
+Si,Yes
+Campo obligatorio,Obligatory field
+Faltan campos por Completar,Missing fields to complete
+Fecha de inicio es menor a fecha actual,Start date must not be before than current date
+Fecha de cierre es menor a Fecha de inicio,Closing Date must not be before than Start Date
+Datos de Profesor asignado,Assigned Professor Data
+Sharp Profesor no valido,Invalid Teacher Sharp Number
+Sharp Profesor Fuera de limite,Sharp Teacher Number out of Range
+Eliminar Estudiante,Student Delete
+Curso Finalizado,Completed Course
+Curso Iniciado,Course Started
+Usuario Duplicado en Archivo,Duplicate User on File
+Usuario Tiene Cursos Activos,User Has Active Courses
+Usuario ya Completo este Curso,User already Completed this Course
+¿Estas seguro de eliminar este Alumno?,Are you sure you want to delete this Student?
+Elije el Folio que quieres editar,Choose the Folder you want to edit
+Por favor elige el nivel de participacion antes de guardar,Please choose the level of participation before saving
+Se guardaran los cambios sin comentarios sobre el alumno,Changes will be saved without comments on the student
+¿Confirma guardar datos?,Confirm save data?
+Por favor digite una nota DEFINITIVA antes de guardar,Please type a FINAL grade value before saving
+Por favor digite una nota entre 0 y 100,Please type a value between 0 and 100
+¿Confirma guardar calificacion FINAL para este alumno?,Do you confirm to save FINAL grade for this student?
+¿Confirma FINALIZAR CURSO para todos los alumnos?,Confirm END COURSE for all students?
+Tu opinión nos interesa,we are looking for your opinion
+Para finalizar este curso y obtener tu certificado por favor califica tu experiencia,"To finish this course and obtain your certificate, please rate your experience"
+"Has alcanzado el número máximo de oportunidades para esta lección, por lo tanto se tomará la calificación del último intento como la definitiva","You have reached the maximum number of opportunities for this lesson, therefore the grade of the last attempt will be taken as the final one"
+Estas a punto de comenzar tu último intento para pasar esta lección,This is your last chance to pass this lesson
+Vamos tú puedes,Go for It

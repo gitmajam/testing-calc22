@@ -21,18 +21,9 @@ import com.tribu.qaselenium.tests.data.UploadsDAO;
 @Listeners(TestsListenerManager.class)
 public class B22PreconditionTests extends TestBase {
 
-	@SuppressWarnings("unchecked")
 	@Test(groups = { "smoke", "deleteContent" })
 	public void preconditions(Method method) {
-		// page variables
-		B22LandingP b22LandingP;
-		B22HomeP b22HomeP;
-		
-		/* login */
-		b22LandingP = openUrl(B22LandingP::new).get();
-		b22HomeP = b22LandingP.login(readCredentials("admin")).getLogo().assertExist("main logo is not displayed")
-							.assertAll();
-		
+	
 		UploadInitiativesDAO uploadInitiativesDao = new UploadInitiativesDAO();
 		uploadInitiativesDao.remove();
 		PlanInitiativesDAO planInitiativesDao = new PlanInitiativesDAO();

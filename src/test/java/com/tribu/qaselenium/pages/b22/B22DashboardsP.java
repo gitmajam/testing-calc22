@@ -28,7 +28,9 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	private By saveUploadButton = By.xpath("//button[@id='btnActualizarDashboard']");
 	private By cancelUploadButton = By.xpath("//button[contains(text(),'Cancel')]");
 	private By button = By.xpath("//button");
-	private By closeButton = By.xpath("//button[@class='btn-close']");
+	private By modalUpload = By.xpath("//div[@id='ModalUploadFile']");
+	private By modalRespUpload = By.xpath("//div[@id='upload-response-modal']");
+	private By closeButton = By.xpath(".//button[@aria-label='Close']");
 	private By succesUploadMessage = By.xpath("//div[@class='msg-alert']");
 	private By registerInitiatives = By.xpath("//div[@class='col-md-6 data-total']/strong");
 	private By totalInitiatives = By.xpath("//div[@class='col-md-6 data-total']/strong");
@@ -38,6 +40,21 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	private By inputSearch = By.xpath(".//input[@id='single-select']");
 	private By graphics = By.xpath("//div[@id='capture']");
 	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
+
+	public B22DashboardsP getModalUpload(Predicate<WebElement>... predicates) {
+		this.setWebElement(modalUpload, predicates);
+		return this;
+	}
+
+	public B22DashboardsP getModalRespUpload(Predicate<WebElement>... predicates) {
+		this.setWebElement(modalRespUpload, predicates);
+		return this;
+	}
+
+	public B22DashboardsP getButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(button, predicates);
+		return this;
+	}
 
 	public B22DashboardsP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
@@ -86,11 +103,6 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 
 	public B22DashboardsP getCloseButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(closeButton, predicates);
-		return this;
-	}
-
-	public B22DashboardsP getButton(Predicate<WebElement>... predicates) {
-		this.setWebElement(button, predicates);
 		return this;
 	}
 
@@ -179,18 +191,15 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 				.collect(Collectors.groupingBy(map -> map.get("filter")));
 		for (String filter : filterGroups.keySet()) {
 			for (Map<String, String> mapP : filterGroups.get(filter)) {
-				this.getFilter(e -> e.getText().contains(mapP.get("filter")))
-						.getSelect().click()
+				this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click()
 						.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
-						.getButton(e -> e.getText().contentEquals("Search")).click()
-						.getAppBusy().waitForNotPresence()
+						.getButton(e -> e.getText().contentEquals("Search")).click().getAppBusy().waitForNotPresence()
 						.getTotalInitiatives(e -> e.getText().contentEquals(mapP.get("initiatives")))
-						.assertExist("filter: " + mapP.get("filter") 
-									+ " item: " + mapP.get("item") + " doesn't match" 
-									+ " valueFile: " + mapP.get("initiatives")
-									+ " valueFound: " + this.getWebElement().getText())
-						.getButton(e -> e.getText().contentEquals("Clear filters")).click()
-						.getAppBusy().waitForNotPresence();
+						.assertExist("filter: " + mapP.get("filter") + " item: " + mapP.get("item") + " doesn't match"
+								+ " valueFile: " + mapP.get("initiatives") + " valueFound: "
+								+ this.getWebElement().getText())
+						.getButton(e -> e.getText().contentEquals("Clear filters")).click().getAppBusy()
+						.waitForNotPresence();
 			}
 			this.getFilter(e -> e.getText().contains(filter)).getSelect().click();
 		}
@@ -203,25 +212,20 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 				.collect(Collectors.groupingBy(map -> map.get("filter")));
 		for (String filter : filterGroups.keySet()) {
 			int acum = 0;
-			this.getFilter(e -> e.getText().contains(filter))
-				.getSelect().click();
+			this.getFilter(e -> e.getText().contains(filter)).getSelect().click();
 			for (Map<String, String> mapP : filterGroups.get(filter)) {
 				if (mapP.get("type").contentEquals("combined")) {
 					acum = acum + Integer.parseInt(mapP.get("initiatives"));
 					this.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click();
 				}
 			}
-			this.getButton(e -> e.getText().contentEquals("Search")).click()
-			.getAppBusy().waitForNotPresence();
+			this.getButton(e -> e.getText().contentEquals("Search")).click().getAppBusy().waitForNotPresence();
 			String acumS = Integer.toString(acum);
 			this.getTotalInitiatives(e -> e.getText().contentEquals(acumS))
-					.assertExist("combinated filter: " + filter 
-								+ " valueFile: " + acumS 
-								+ " valueFound: " + this.getWebElement().getText())
-					.getButton(e -> e.getText().contentEquals("Clear filters")).click()
-					.getAppBusy().waitForNotPresence()
-					.getFilter(e -> e.getText().contains(filter))
-					.getSelect().click();
+					.assertExist("combinated filter: " + filter + " valueFile: " + acumS + " valueFound: "
+							+ this.getWebElement().getText())
+					.getButton(e -> e.getText().contentEquals("Clear filters")).click().getAppBusy()
+					.waitForNotPresence().getFilter(e -> e.getText().contains(filter)).getSelect().click();
 		}
 		return this;
 	}

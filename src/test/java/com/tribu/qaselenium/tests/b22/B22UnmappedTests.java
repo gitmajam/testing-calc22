@@ -45,8 +45,8 @@ public class B22UnmappedTests extends TestBase {
 					.fillUnmapped()
 					.getSaveButton(e -> e.isEnabled()).assertExist("save button is not enabled").click()
 					.getAppBusy().waitForNotPresence()
-					.getModal().assertExist("modal is not displayed")
-					.getButton(e -> e.getText().contains("Accept")).click()
+					.getRespModal().assertExist("modal is not displayed")
+					.getCloseButton().click()
 					.assertAll();
 		
 	}
