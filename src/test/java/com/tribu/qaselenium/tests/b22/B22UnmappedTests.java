@@ -40,12 +40,12 @@ public class B22UnmappedTests extends TestBase {
 								.getUnmapped().click(B22UnmappedP::new).get();
 		
 		b22UnmappedP.getAppBusy().waitForNotPresence()
-					.getSaveButton(e -> e.isEnabled()).assertNotExist("save button is enabled")
 					.getUnmappedTable()
 					.fillUnmapped()
 					.getSaveButton(e -> e.isEnabled()).assertExist("save button is not enabled").click()
 					.getAppBusy().waitForNotPresence()
-					.getRespModal().assertExist("modal is not displayed")
+					.getRespModal(e -> e.getText().contains("success")).assertExist("success modal is not displayed")
+					.getRespModal(e -> e.getText().contains("Something happened with Unmapped")).assertNotExist("error modal is displayed")
 					.getCloseButton().click()
 					.assertAll();
 		

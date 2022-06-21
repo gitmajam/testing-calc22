@@ -40,6 +40,7 @@ public class B22LandingP extends BasePO<B22LandingP> {
 		b22HomeP = ssoLoginP.getSharpIdField().type(credentialMap.get("sharpId"))
 							.getPasswordField().type(credentialMap.get("password"))
 							.getLoginButton().click(B22HomeP::new).get();
+		
 		return b22HomeP;
 	}
 }

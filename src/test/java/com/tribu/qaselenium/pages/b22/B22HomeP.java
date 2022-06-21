@@ -9,7 +9,10 @@ import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 
 public class B22HomeP extends BasePO<B22HomeP> {
 	
+	@SuppressWarnings("unchecked")
 	public B22HomeP() {
+		this.getModal().ifFoundOrElse(()-> this.getModalNoButton().click(), null)
+		.getLogo().assertExist("main logo is not displayed");
 		this.setLanguage();
 	}
 	
@@ -21,6 +24,18 @@ public class B22HomeP extends BasePO<B22HomeP> {
 	private By unmapped = By.linkText("Unmapped");
 	private By translateButton = By.xpath("//div[@class='dropdown language']");
 	private By englishButton = By.linkText("English");
+	private By modal = By.xpath("//div[@class='modal-nps']");
+	private By modalNoButton = By.xpath("//button[contains(@class,'btn-nps-no')]");
+	
+	public B22HomeP getModalNoButton(Predicate<WebElement>... predicates) {
+		this.setWebElement(modalNoButton, predicates);
+		return this;
+	}
+	
+	public B22HomeP getModal(Predicate<WebElement>... predicates) {
+		this.setWebElement(modal, predicates);
+		return this;
+	}
 
 	public B22HomeP getEnglishButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(englishButton, predicates);

@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -33,7 +35,7 @@ public class B22InitialLoadInitiativesTests extends TestBase {
 
 		/* login */
 		b22LandingP = openUrl(B22LandingP::new).get();
-		b22HomeP = b22LandingP.login(readCredentials("admin")).getLogo().assertExist("main logo is not displayed");
+		b22HomeP = b22LandingP.login(readCredentials("admin"));
 		b22DashboardsP = b22HomeP.getDashboards().click(B22DashboardsP::new).get();
 		b22DashboardsP.getUpdateDashboardButton().click()
 					.getInputLoadFile().type(pathName)
