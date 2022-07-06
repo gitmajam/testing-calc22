@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import org.apache.logging.log4j.Logger;
 
-import com.tribu.qaselenium.testframework.testbase.DBConnection;
+import com.tribu.qaselenium.testframework.utilities.DBConnection;
 import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 import com.tribu.qaselenium.testframework.testbase.TestLoggerFactory;
 

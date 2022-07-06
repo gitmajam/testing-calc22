@@ -3,19 +3,17 @@ package com.tribu.qaselenium.tests.b22;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import com.tribu.qaselenium.pages.b22.B22DashboardsP;
 import com.tribu.qaselenium.pages.b22.B22HomeP;
 import com.tribu.qaselenium.pages.b22.B22LandingP;
 import com.tribu.qaselenium.pages.b22.B22TargetsP;
-import com.tribu.qaselenium.testframework.testbase.CsvDataProviders;
 import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
+import com.tribu.qaselenium.testframework.utilities.DataProviders;
 
 @Listeners(TestsListenerManager.class)
 public class B22TargetsTests extends TestBase {
@@ -23,7 +21,7 @@ public class B22TargetsTests extends TestBase {
 	public static String dataProviderFilePath = "src/test/resources/providerFiles/targets.csv";
 
 	@SuppressWarnings("unchecked")
-	@Test(dataProvider = "csvReaderMatrix", dataProviderClass = CsvDataProviders.class, groups = { "smoke",
+	@Test(dataProvider = "csvReaderMatrix", dataProviderClass = DataProviders.class, groups = { "smoke",
 			"deleteContent" })
 	public void loadTargets(Method method, List<Map<String, String>> provider) {
 		// page variables

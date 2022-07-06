@@ -1,6 +1,5 @@
 package com.tribu.qaselenium.tests.b22;
 
-import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
@@ -16,35 +15,25 @@ import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 import com.tribu.qaselenium.testframework.utilities.DataProviders;
 
 @Listeners(TestsListenerManager.class)
-public class B22InitialLoadInitiativesTests extends TestBase {
+public class B22TableAmountsTests extends TestBase {
+	
+	public static String dataProviderFilePath = "src/test/resources/providerFiles/amounts.csv";
 
 	@SuppressWarnings("unchecked")
-	@Test(groups = { "smoke", "deleteContent" })
-	public void initialLoadInitiatives(Method method) {
+	@Test(dataProvider = "csvReaderMatrix", dataProviderClass = DataProviders.class,groups = { "smoke", "deleteContent" })
+	public void verifyMainTable(Method method,List<Map<String, String>> provider) {
 		// page variables
 		B22LandingP b22LandingP;
 		B22HomeP b22HomeP;
 		B22DashboardsP b22DashboardsP;
 		
-		String pathName = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator + "uploadFiles"	+ File.separator + "template.xlsx";
-
 		/* login */
 		b22LandingP = openUrl(B22LandingP::new).get();
 		b22HomeP = b22LandingP.login(readCredentials("admin"));
 		b22DashboardsP = b22HomeP.getDashboards().click(B22DashboardsP::new).get();
-		b22DashboardsP.getUpdateDashboardButton().click()
-					.getInputLoadFile().type(pathName)
-					.getPeriodSelect().type("0+12")
-					.getSaveUploadButton().click()
-					.getSuccesUploadMessage(e -> e.getText().contains("se envió correctamente"))
-					.assertExist("success message upload does is not displayed")
-					.getModalRespUpload()
-					.getCloseButton().click().waitForNotVisibility()
-					.getModalUpload()
-					.getCloseButton().click()
-					.verifyLoadFinish().refresh()
-					.getAppBusy().waitForNotPresence()
+		b22DashboardsP.getAppBusy().waitForNotPresence()
+					.verifyAmounts(provider, b22DashboardsP.getSummaryTable().readTable())
+					.getTotalInitiatives(e -> e.getText().contentEquals("2277")).assertExist("total initiatives doesn't match")
 					.assertAll();
 	}
 }
