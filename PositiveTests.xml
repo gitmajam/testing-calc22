@@ -13,12 +13,12 @@
 			<class
 				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22InitialLoadInitiativesTests" />
+				name="com.tribu.qaselenium.tests.b22.B22LoadInitiativesTests" />
 			<class
 				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
 			<class name="com.tribu.qaselenium.tests.b22.B22TargetsTests" />
 			<class name="com.tribu.qaselenium.tests.b22.B22FiltersTests" />
-		<!-- 	<class name="com.tribu.qaselenium.tests.b22.B22UnmappedTests" /> -->
+	<!-- 		<class name="com.tribu.qaselenium.tests.b22.B22UnmappedTests" /> -->
 		</classes>
 	</test>
 

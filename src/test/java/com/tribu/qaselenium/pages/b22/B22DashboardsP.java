@@ -1,6 +1,7 @@
 package com.tribu.qaselenium.pages.b22;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,7 +38,7 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	private By registerInitiatives = By.xpath("//div[@class='col-md-6 data-total']/strong");
 	private By totalInitiatives = By.xpath("//div[@class='col-md-6 data-total']/strong");
 	private By filter = By.xpath("//div[@class='col-sm-6 col-md-4 col-xl-2 py-2']");
-	private By select = By.xpath(".//div[@class='multiselect']");
+	private By select = By.xpath(".//div[@class='multiselect__select']");
 	private By item = By.xpath(".//span[@data-deselect='X']");
 	private By inputSearch = By.xpath(".//input[@id='single-select']");
 	private By graphics = By.xpath("//div[@id='capture']");
@@ -149,13 +150,16 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	}
 
 	public B22DashboardsP verifyTargets(List<Map<String, String>> provider, List<Map<String, String>> table) {
-		for (Map<String, String> mapP : provider) {
+		
+		List<Map<String, String>> buTarget = provider.stream().filter(m -> m.get("buTarget").contentEquals("TRUE"))
+																.collect(Collectors.toList());
+		for (Map<String, String> mapP : buTarget) {
 			for (Map<String, String> mapT : table) {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
 					String tableValue = mapT.get(mapP.get("package") + " Target").replace("M", "");
 					softAssertSupplier.get().assertTrue(tableValue.contentEquals(mapP.get("targetM")),
-							"Traget value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
-									+ mapP.get("targetM") + " table: " + tableValue);
+							"Target value is diferent, " + mapP.get("BU") + " " + mapP.get("package") + " expected: "
+									+ mapP.get("targetM") + " but found: " + tableValue + ", ");
 				}
 			}
 		}
@@ -168,8 +172,8 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
 					String tableValue = mapT.get(mapP.get("package") + " Real").replace("M", "").replace("k", "");
 					softAssertSupplier.get().assertTrue(tableValue.contentEquals(mapP.get("amount")),
-							"Amount value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " file: "
-									+ mapP.get("amount") + " table: " + tableValue);
+							"Amount value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " expected: "
+									+ mapP.get("amount") + " found: " + tableValue + ", ");
 				}
 			}
 		}
@@ -193,25 +197,27 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public B22DashboardsP verifyFilters(List<Map<String, String>> provider) {
-		Map<String, List<Map<String, String>>> filterGroups = provider.stream()
+	public B22DashboardsP verifyFilters(String filterL1, List<Map<String, String>> filters) {
+		Map<String, List<Map<String, String>>> filterGroups = filters.stream()
 				.collect(Collectors.groupingBy(map -> map.get("filter")));
 		for (String filter : filterGroups.keySet()) {
 			for (Map<String, String> mapP : filterGroups.get(filter)) {
-				this.getFilter(e -> e.getText().contains(mapP.get("filter"))).getSelect().click()
+				this.getAppBusy().waitForNotPresence()
+						.getFilter(e -> e.getText().contains(mapP.get("filter")))
+						.getSelect().click()
 						.getItem(e -> e.getText().contentEquals(mapP.get("item"))).click()
 						.getSearchButton().click().getAppBusy().waitForNotPresence()
-						.getTotalInitiatives(e -> e.getText().contentEquals(mapP.get("initiatives")))
-						.assertExist("filter: " + mapP.get("filter") + " item: " + mapP.get("item") + " doesn't match"
-								+ " valueFile: " + mapP.get("initiatives") + " valueFound: "
-								+ this.getWebElement().getText())
-						.getButton(e -> e.getText().contentEquals("Clear filters")).click().getAppBusy()
-						.waitForNotPresence();
+						.getTotalInitiatives(e -> e.getText().contentEquals(mapP.get(filterL1)))
+						.assertExist("Total filter doesn't match, expected: " + mapP.get(filterL1) + " but found: " + this.getTotalInitiatives().getWebElement().getText())
+						.getFilter(e -> e.getText().contains(mapP.get("filter")))
+						.getSelect().click()
+						.getItem(e -> e.getAttribute("class").contains("selected")).click()
+						.getSelect().click();
 			}
 		}
 		return this;
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	public B22DashboardsP verifyCombinedFilters(List<Map<String, String>> provider) {
 		Map<String, List<Map<String, String>>> filterGroups = provider.stream()

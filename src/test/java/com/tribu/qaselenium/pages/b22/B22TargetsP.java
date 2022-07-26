@@ -91,6 +91,7 @@ public class B22TargetsP extends BasePO<B22TargetsP> {
 	public B22TargetsP setTargets(List<Map<String, String>> provider) {
 		Map<String, List<Map<String, String>>> groupsByCountry = provider.stream()
 				.filter(map -> map.get("todo").contentEquals("TRUE"))
+				.filter(map -> map.get("countryTarget").contentEquals("TRUE"))
 				.collect(Collectors.groupingBy(map -> map.get("country")));
 
 		for (String country : groupsByCountry.keySet()) {

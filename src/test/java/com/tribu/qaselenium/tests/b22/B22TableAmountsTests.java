@@ -33,7 +33,7 @@ public class B22TableAmountsTests extends TestBase {
 		b22DashboardsP = b22HomeP.getDashboards().click(B22DashboardsP::new).get();
 		b22DashboardsP.getAppBusy().waitForNotPresence()
 					.verifyAmounts(provider, b22DashboardsP.getSummaryTable().readTable())
-					.getTotalInitiatives(e -> e.getText().contentEquals("2277")).assertExist("total initiatives doesn't match")
+					.getTotalInitiatives(e -> e.getText().contentEquals("2288")).assertExist("total initiatives doesn't match")
 					.assertAll();
 	}
 }
