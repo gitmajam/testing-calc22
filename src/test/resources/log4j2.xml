@@ -9,8 +9,13 @@
 		</Console>
 	</Appenders>
 	<Loggers>
-		<Root level="TRACE">
+		<Root level="TRACE" >
 			<AppenderRef ref="ConsoleAppender" />
 		</Root>
+		<Logger name="io.netty" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
 	</Loggers>
+
+
 </Configuration>
