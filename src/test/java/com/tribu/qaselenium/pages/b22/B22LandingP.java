@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
 
 import com.google.common.base.Predicate;
 import com.tribu.qaselenium.pages.sso.SSOLandingP;

@@ -166,14 +166,14 @@ public class B22DashboardsP extends BasePO<B22DashboardsP> {
 		return this;
 	}
 
-	public B22DashboardsP verifyAmounts(List<Map<String, String>> provider, List<Map<String, String>> table) {
+	public B22DashboardsP verifyAmounts(List<Map<String, String>> provider, List<Map<String, String>> table,String amount) {
 		for (Map<String, String> mapP : provider) {
 			for (Map<String, String> mapT : table) {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
 					String tableValue = mapT.get(mapP.get("package") + " Real").replace("M", "").replace("k", "");
-					softAssertSupplier.get().assertTrue(tableValue.contentEquals(mapP.get("amount")),
+					softAssertSupplier.get().assertTrue(tableValue.contentEquals(mapP.get(amount)),
 							"Amount value is diferent: " + mapP.get("BU") + " " + mapP.get("package") + " expected: "
-									+ mapP.get("amount") + " found: " + tableValue + ", ");
+									+ mapP.get(amount) + " found: " + tableValue + ", ");
 				}
 			}
 		}

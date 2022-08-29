@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -30,7 +31,7 @@ public class B22LoadInitiativesTests extends TestBase {
 		
 		String pathName = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
 				+ File.separator + "resources" + File.separator + "uploadFiles"	+ File.separator + provider.get("file");
-
+		
 		/* login */
 		b22LandingP = openUrl(B22LandingP::new).get();
 		b22HomeP = b22LandingP.login(readCredentials("admin"));
@@ -38,9 +39,8 @@ public class B22LoadInitiativesTests extends TestBase {
 		b22DashboardsP.getUpdateDashboardButton().click()
 					.getInputLoadFile().type(pathName)
 					.getPeriodSelect().type(provider.get("period"))
-					.getSaveUploadButton().click()
-					.getSuccesUploadMessage(e -> e.getText().contains("se envió correctamente"))
-					.assertExist("success message upload does is not displayed")
+					.getSaveUploadButton().click(2000)
+					.getSuccesUploadMessage().assertString(WebElement::getText,provider.get("message"),"success message upload does is not displayed")
 					.getModalRespUpload()
 					.getCloseButton().click().waitForNotVisibility()
 					.getModalUpload()

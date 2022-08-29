@@ -34,6 +34,7 @@ public class B22UnmappedTests extends TestBase {
 		
 		b22UnmappedP.getAppBusy().waitForNotPresence()
 					.getUnmappedTable()
+//					.resetUnmapped()
 					.fillUnmapped()
 					.getSaveButton().assess(WebElement::isEnabled,"save button is not enabled").click()
 					.getAppBusy().waitForNotPresence()

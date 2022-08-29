@@ -9,6 +9,8 @@
 
 	<test name="loadInitiatives" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="amount" value="amount1"></parameter>
+		<parameter name="initiatives" value="amount1"></parameter>
 		<classes>
 			<class
 				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" />
@@ -16,10 +18,51 @@
 				name="com.tribu.qaselenium.tests.b22.B22LoadInitiativesTests" />
 			<class
 				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
+		</classes>
+	</test>
+
+	<test name="loadTargets" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="amount" value="amount1"></parameter>
+		<classes>
 			<class name="com.tribu.qaselenium.tests.b22.B22TargetsTests" />
+			<class
+				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
+		</classes>
+	</test>
+
+	<test name="filters" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
 			<class name="com.tribu.qaselenium.tests.b22.B22FiltersTests" />
-			<class name="com.tribu.qaselenium.tests.b22.B22UnmappedTests" />
-			<class name="com.tribu.qaselenium.tests.b22.B22ReportsFunctionTests" />
+		</classes>
+	</test>
+
+	<test name="reports" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class
+				name="com.tribu.qaselenium.tests.b22.B22ReportsFunctionTests" />
+		</classes>
+	</test>
+
+	<test name="unmapped" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="amount" value="amount1"></parameter>
+		<classes>
+		<!-- 	<class name="com.tribu.qaselenium.tests.b22.B22UnmappedTests" />
+			<class
+				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" /> -->
+		</classes>
+	</test>
+
+	<test name="others" preserve-order="true">
+		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="amount" value="amount2"></parameter>
+		<classes>
+			<class name="com.tribu.qaselenium.tests.b22.B22OthersTests" />
+			<class
+				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
 		</classes>
 	</test>
 

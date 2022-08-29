@@ -21,13 +21,19 @@ public class B22HomeP extends BasePO<B22HomeP> {
 	private By targets = By.linkText("Targets");
 	private By dashboards = By.linkText("Dashboards");
 	private By reports = By.linkText("Reports");
-	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
 	private By unmapped = By.linkText("Unmapped");
+	private By others = By.linkText("Others");
+	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
 	private By translateButton = By.xpath("//div[@class='dropdown language']");
 	private By englishButton = By.linkText("English");
 	private By modal = By.xpath("//div[@class='modal-nps']");
 	private By modalNoButton = By.xpath("//button[contains(@class,'btn-nps-no')]");
 	
+	public B22HomeP getOthers(Predicate<WebElement>... predicates) {
+		this.setWebElement(others, predicates);
+		return this;
+	}
+
 	public B22HomeP getReports(Predicate<WebElement>... predicates){
 	this.setWebElement(reports,predicates);
 	return this;}

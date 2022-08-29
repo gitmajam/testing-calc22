@@ -104,8 +104,28 @@ public class B22UnmappedP extends BasePO<B22UnmappedP> {
 				if (!funcItem.findElements(this.funcUnmapped).isEmpty()) {
 					String value = this.setWebElement(funcItem).setBaseElement().getFuncUnmapped().getWebElement()
 							.getText();
-					this.getInputUnmapped().type(value);
+					this.getInputUnmapped().clear().type(value);
 				}
+			}
+		}
+		return this;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public B22UnmappedP resetUnmapped() {
+		List<WebElement> buItemList = this.getWebElement().findElements(this.buItem);
+		Iterator<WebElement> buItemListIt = buItemList.stream().filter(e -> e.isDisplayed())
+				.collect(Collectors.toList()).iterator();
+		while (buItemListIt.hasNext()) {
+			WebElement buItem = buItemListIt.next();
+			this.setWebElement(buItem).setBaseElement().getButton().click();
+			List<WebElement> funcItemList = buItem.findElements(this.funcItem);
+			Iterator<WebElement> funcItemListIT = funcItemList.stream().filter(e -> e.isDisplayed())
+					.collect(Collectors.toList()).iterator();
+			while (funcItemListIT.hasNext()) {
+				WebElement funcItem = funcItemListIT.next();
+					this.setWebElement(funcItem).setBaseElement()
+					.getInputUnmapped().clear().type("0");
 			}
 		}
 		return this;
