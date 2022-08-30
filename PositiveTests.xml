@@ -50,9 +50,9 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="amount" value="amount1"></parameter>
 		<classes>
-		<!-- 	<class name="com.tribu.qaselenium.tests.b22.B22UnmappedTests" />
+			<class name="com.tribu.qaselenium.tests.b22.B22UnmappedTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" /> -->
+				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
 		</classes>
 	</test>
 
