@@ -1,4 +1,4 @@
-package com.tribu.qaselenium.tests.b22;
+package com.tribu.qaselenium.tests.app;
 
 import java.lang.reflect.Method;
 
@@ -6,8 +6,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import com.tribu.qaselenium.pages.b22.B22HomeP;
-import com.tribu.qaselenium.pages.b22.B22LandingP;
+import com.tribu.qaselenium.pages.app.HomeP;
+import com.tribu.qaselenium.pages.app.LandingP;
 import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 import com.tribu.qaselenium.tests.data.InitiativesDAO;
@@ -19,7 +19,7 @@ import com.tribu.qaselenium.tests.data.UploadsDAO;
 
 
 @Listeners(TestsListenerManager.class)
-public class B22PreconditionTests extends TestBase {
+public class PreconditionTests extends TestBase {
 
 	@Test(groups = { "smoke", "deleteContent" })
 	public void preconditions(Method method) {

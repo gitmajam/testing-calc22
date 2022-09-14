@@ -1,4 +1,4 @@
-package com.tribu.qaselenium.pages.b22;
+package com.tribu.qaselenium.pages.app;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 
-public class B22TargetsP extends BasePO<B22TargetsP> {
+public class TargetsP extends BasePO<TargetsP> {
 
 	private final String pageUrl = PropertiesFile.getProperties(PropertiesFile.getProperties("env") + "_url");
 	private By countryList = By.xpath("//div[@id='collapseExample']/ul");
@@ -27,68 +27,68 @@ public class B22TargetsP extends BasePO<B22TargetsP> {
 	private By dashboards = By.linkText("Dashboards");
 	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
 
-	public B22TargetsP getAppBusy(Predicate<WebElement>... predicates) {
+	public TargetsP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
 		return this;
 	}
 
-	public B22TargetsP getDashboards(Predicate<WebElement>... predicates) {
+	public TargetsP getDashboards(Predicate<WebElement>... predicates) {
 		this.setWebElement(dashboards, predicates);
 		return this;
 	}
 
-	public B22TargetsP getAcceptButton(Predicate<WebElement>... predicates) {
+	public TargetsP getAcceptButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(acceptButton, predicates);
 		return this;
 	}
 
-	public B22TargetsP getCountryList(Predicate<WebElement>... predicates) {
+	public TargetsP getCountryList(Predicate<WebElement>... predicates) {
 		this.setWebElement(countryList, predicates);
 		return this;
 	}
 
-	public B22TargetsP getCountry(Predicate<WebElement>... predicates) {
+	public TargetsP getCountry(Predicate<WebElement>... predicates) {
 		this.setWebElement(country, predicates);
 		return this;
 	}
 
-	public B22TargetsP getYear(Predicate<WebElement>... predicates) {
+	public TargetsP getYear(Predicate<WebElement>... predicates) {
 		this.setWebElement(year, predicates);
 		return this;
 	}
 
-	public B22TargetsP getTargetList(Predicate<WebElement>... predicates) {
+	public TargetsP getTargetList(Predicate<WebElement>... predicates) {
 		this.setWebElement(targetList, predicates);
 		return this;
 	}
 
-	public B22TargetsP getTargetPackageRow(Predicate<WebElement>... predicates) {
+	public TargetsP getTargetPackageRow(Predicate<WebElement>... predicates) {
 		this.setWebElement(targetPackageRow, predicates);
 		return this;
 	}
 
-	public B22TargetsP getPackageItem(Predicate<WebElement>... predicates) {
+	public TargetsP getPackageItem(Predicate<WebElement>... predicates) {
 		this.setWebElement(packageItem, predicates);
 		return this;
 	}
 
-	public B22TargetsP getPackageTargetInput(Predicate<WebElement>... predicates) {
+	public TargetsP getPackageTargetInput(Predicate<WebElement>... predicates) {
 		this.setWebElement(packageTargetInput, predicates);
 		return this;
 	}
 
-	public B22TargetsP getCancelButton(Predicate<WebElement>... predicates) {
+	public TargetsP getCancelButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(cancelButton, predicates);
 		return this;
 	}
 
-	public B22TargetsP getSaveButton(Predicate<WebElement>... predicates) {
+	public TargetsP getSaveButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(saveButton, predicates);
 		return this;
 	}
 
 	@SuppressWarnings("unchecked")
-	public B22TargetsP setTargets(List<Map<String, String>> provider) {
+	public TargetsP setTargets(List<Map<String, String>> provider) {
 		Map<String, List<Map<String, String>>> groupsByCountry = provider.stream()
 				.filter(map -> map.get("todo").contentEquals("TRUE"))
 				.filter(map -> map.get("countryTarget").contentEquals("TRUE"))

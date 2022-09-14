@@ -1,4 +1,4 @@
-package com.tribu.qaselenium.pages.b22;
+package com.tribu.qaselenium.pages.app;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,10 +7,10 @@ import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 
-public class B22HomeP extends BasePO<B22HomeP> {
+public class HomeP extends BasePO<HomeP> {
 	
 	@SuppressWarnings("unchecked")
-	public B22HomeP() {
+	public HomeP() {
 		this.getModal().ifFoundOrElse(()-> this.getModalNoButton().click(), null)
 		.getLogo().assertExist("main logo is not displayed");
 		this.setLanguage();
@@ -29,62 +29,62 @@ public class B22HomeP extends BasePO<B22HomeP> {
 	private By modal = By.xpath("//div[@class='modal-nps']");
 	private By modalNoButton = By.xpath("//button[contains(@class,'btn-nps-no')]");
 	
-	public B22HomeP getOthers(Predicate<WebElement>... predicates) {
+	public HomeP getOthers(Predicate<WebElement>... predicates) {
 		this.setWebElement(others, predicates);
 		return this;
 	}
 
-	public B22HomeP getReports(Predicate<WebElement>... predicates){
+	public HomeP getReports(Predicate<WebElement>... predicates){
 	this.setWebElement(reports,predicates);
 	return this;}
 	
-	public B22HomeP getModalNoButton(Predicate<WebElement>... predicates) {
+	public HomeP getModalNoButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(modalNoButton, predicates);
 		return this;
 	}
 	
-	public B22HomeP getModal(Predicate<WebElement>... predicates) {
+	public HomeP getModal(Predicate<WebElement>... predicates) {
 		this.setWebElement(modal, predicates);
 		return this;
 	}
 
-	public B22HomeP getEnglishButton(Predicate<WebElement>... predicates) {
+	public HomeP getEnglishButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(englishButton, predicates);
 		return this;
 	}
 
-	public B22HomeP getTranslateButton(Predicate<WebElement>... predicates) {
+	public HomeP getTranslateButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(translateButton, predicates);
 		return this;
 	}
 
-	public B22HomeP getUnmapped(Predicate<WebElement>... predicates) {
+	public HomeP getUnmapped(Predicate<WebElement>... predicates) {
 		this.setWebElement(unmapped, predicates);
 		return this;
 	}
 
-	public B22HomeP getAppBusy(Predicate<WebElement>... predicates) {
+	public HomeP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
 		return this;
 	}
 
-	public B22HomeP getDashboards(Predicate<WebElement>... predicates) {
+	public HomeP getDashboards(Predicate<WebElement>... predicates) {
 		this.setWebElement(dashboards, predicates);
 		return this;
 	}
 
-	public B22HomeP getTargets(Predicate<WebElement>... predicates) {
+	public HomeP getTargets(Predicate<WebElement>... predicates) {
 		this.setWebElement(targets, predicates);
 		return this;
 	}
 
-	public B22HomeP getLogo(Predicate<WebElement>... predicates) {
+	public HomeP getLogo(Predicate<WebElement>... predicates) {
 		this.setWebElement(logo, predicates);
 		return this;
 	}
 
 	@SuppressWarnings("unchecked")
-	public B22HomeP setLanguage() {
+	public HomeP setLanguage() {
 		if (PropertiesFile.getProperties("language").contentEquals("en")) {
 			this.getAppBusy().waitForNotPresence().getTranslateButton().click()
 				.getEnglishButton().click();

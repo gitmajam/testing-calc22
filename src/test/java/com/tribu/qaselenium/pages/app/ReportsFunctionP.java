@@ -1,4 +1,4 @@
-package com.tribu.qaselenium.pages.b22;
+package com.tribu.qaselenium.pages.app;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +11,7 @@ import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 
-public class B22ReportsFunctionP extends BasePO<B22ReportsFunctionP> {
+public class ReportsFunctionP extends BasePO<ReportsFunctionP> {
 
 	private final String pageUrl = PropertiesFile.getProperties(PropertiesFile.getProperties("env") + "_url");
 	private By button = By.xpath("//button");
@@ -26,62 +26,62 @@ public class B22ReportsFunctionP extends BasePO<B22ReportsFunctionP> {
 	private By graphValue = By.xpath(".//span[@class='white-info']");
 	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
 
-	public B22ReportsFunctionP getMultiSelect(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getMultiSelect(Predicate<WebElement>... predicates) {
 		this.setWebElement(multiSelect, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getSingleSelect(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getSingleSelect(Predicate<WebElement>... predicates) {
 		this.setWebElement(singleSelect, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getMultiItem(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getMultiItem(Predicate<WebElement>... predicates) {
 		this.setWebElement(multiItem, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getSingleItem(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getSingleItem(Predicate<WebElement>... predicates) {
 		this.setWebElement(singleItem, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getInfoBox(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getInfoBox(Predicate<WebElement>... predicates) {
 		this.setWebElement(infoBox, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getInfoText(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getInfoText(Predicate<WebElement>... predicates) {
 		this.setWebElement(infoText, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getGraphBox(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getGraphBox(Predicate<WebElement>... predicates) {
 		this.setWebElement(graphBox, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getGraphValue(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getGraphValue(Predicate<WebElement>... predicates) {
 		this.setWebElement(graphValue, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getButton(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(button, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getAppBusy(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP getFilter(Predicate<WebElement>... predicates) {
+	public ReportsFunctionP getFilter(Predicate<WebElement>... predicates) {
 		this.setWebElement(filter, predicates);
 		return this;
 	}
 
-	public B22ReportsFunctionP verifyAmounts(List<Map<String, String>> provider, List<Map<String, String>> table) {
+	public ReportsFunctionP verifyAmounts(List<Map<String, String>> provider, List<Map<String, String>> table) {
 		for (Map<String, String> mapP : provider) {
 			for (Map<String, String> mapT : table) {
 				if (mapT.get("Function BU").contentEquals(mapP.get("BU"))) {
@@ -96,7 +96,7 @@ public class B22ReportsFunctionP extends BasePO<B22ReportsFunctionP> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public B22ReportsFunctionP verifyTargetPercentages(List<Map<String, String>> provider) {
+	public ReportsFunctionP verifyTargetPercentages(List<Map<String, String>> provider) {
 		
 		List<Map<String, String>> functionList = provider.stream()
 				.filter(m -> m.get("filter").contains("Function"))

@@ -1,4 +1,4 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="PositiveLoginTestSuite" verbose="5"
 	data-provider-thread-count="5">
 
@@ -13,11 +13,11 @@
 		<parameter name="initiatives" value="amount1"></parameter>
 		<classes>
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22PreconditionTests" />
+				name="com.tribu.qaselenium.tests.app.PreconditionTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22LoadInitiativesTests" />
+				name="com.tribu.qaselenium.tests.app.LoadInitiativesTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
+				name="com.tribu.qaselenium.tests.app.TableAmountsTests" />
 		</classes>
 	</test>
 
@@ -25,16 +25,16 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="amount" value="amount1"></parameter>
 		<classes>
-			<class name="com.tribu.qaselenium.tests.b22.B22TargetsTests" />
+			<class name="com.tribu.qaselenium.tests.app.TargetsTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
+				name="com.tribu.qaselenium.tests.app.TableAmountsTests" />
 		</classes>
 	</test>
 
 	<test name="filters" preserve-order="true">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="com.tribu.qaselenium.tests.b22.B22FiltersTests" />
+			<class name="com.tribu.qaselenium.tests.app.FiltersTests" />
 		</classes>
 	</test>
 
@@ -42,7 +42,7 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22ReportsFunctionTests" />
+				name="com.tribu.qaselenium.tests.app.ReportsFunctionTests" />
 		</classes>
 	</test>
 
@@ -50,9 +50,9 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="amount" value="amount1"></parameter>
 		<classes>
-			<class name="com.tribu.qaselenium.tests.b22.B22UnmappedTests" />
+			<class name="com.tribu.qaselenium.tests.app.UnmappedTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
+				name="com.tribu.qaselenium.tests.app.TableAmountsTests" />
 		</classes>
 	</test>
 
@@ -60,9 +60,9 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="amount" value="amount2"></parameter>
 		<classes>
-			<class name="com.tribu.qaselenium.tests.b22.B22OthersTests" />
+			<class name="com.tribu.qaselenium.tests.app.OthersTests" />
 			<class
-				name="com.tribu.qaselenium.tests.b22.B22TableAmountsTests" />
+				name="com.tribu.qaselenium.tests.app.TableAmountsTests" />
 		</classes>
 	</test>
 

@@ -1,4 +1,4 @@
-package com.tribu.qaselenium.tests.b22;
+package com.tribu.qaselenium.tests.app;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -8,15 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.tribu.qaselenium.pages.b22.B22HomeP;
-import com.tribu.qaselenium.pages.b22.B22LandingP;
-import com.tribu.qaselenium.pages.b22.B22OthersP;
+import com.tribu.qaselenium.pages.app.HomeP;
+import com.tribu.qaselenium.pages.app.LandingP;
+import com.tribu.qaselenium.pages.app.OthersP;
 import com.tribu.qaselenium.testframework.testbase.TestBase;
 import com.tribu.qaselenium.testframework.testbase.TestsListenerManager;
 import com.tribu.qaselenium.testframework.utilities.DataProviders;
 
 @Listeners(TestsListenerManager.class)
-public class B22OthersTests extends TestBase {
+public class OthersTests extends TestBase {
 
 	public static String dataProviderFilePath = resourcesPath + "providerFiles" +  File.separator + "others.csv";
 
@@ -25,16 +25,16 @@ public class B22OthersTests extends TestBase {
 			"deleteContent" })
 	public void createOthers(Method method, Map<String, String> provider) {
 		// page variables
-		B22LandingP b22LandingP;
-		B22HomeP b22HomeP;
-		B22OthersP b22OthersP;
+		LandingP b22LandingP;
+		HomeP b22HomeP;
+		OthersP b22OthersP;
 		
 		/* login */
-		b22LandingP = openUrl(B22LandingP::new).get();
+		b22LandingP = openUrl(LandingP::new).get();
 		b22HomeP = b22LandingP.login(readCredentials("admin"))	
 								.getLogo().assess(WebElement::isDisplayed,"main logo is not displayed");
 		b22OthersP = b22HomeP.getAppBusy().waitForNotPresence()
-								.getOthers().click(B22OthersP::new).get();
+								.getOthers().click(OthersP::new).get();
 		b22OthersP.getAppBusy().waitForNotPresence()
 		.getNewInitiative().click()
 		.getCode().type(provider.get("code"))

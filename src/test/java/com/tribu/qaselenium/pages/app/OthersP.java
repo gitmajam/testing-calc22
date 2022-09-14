@@ -1,4 +1,4 @@
-package com.tribu.qaselenium.pages.b22;
+package com.tribu.qaselenium.pages.app;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,7 @@ import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 
-public class B22OthersP extends BasePO<B22OthersP> {
+public class OthersP extends BasePO<OthersP> {
 
 	private final String pageUrl = PropertiesFile.getProperties(PropertiesFile.getProperties("env") + "_url");
 
@@ -45,164 +45,164 @@ public class B22OthersP extends BasePO<B22OthersP> {
 	private By modalAcceptButton = By
 			.xpath("//div[@id='registerOthersInitiativeModal']//div[@class='modal-content']/div[3]/button");
 
-	public B22OthersP getModalAcceptButton(Predicate<WebElement>... predicates) {
+	public OthersP getModalAcceptButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(modalAcceptButton, predicates);
 		return this;
 	}
 
 	private By saveButton = By.xpath("//div[@id='createOthersInitiativeModal']//button[2]");
 
-	public B22OthersP getSaveButton(Predicate<WebElement>... predicates) {
+	public OthersP getSaveButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(saveButton, predicates);
 		return this;
 	}
 
-	public B22OthersP getModal(Predicate<WebElement>... predicates) {
+	public OthersP getModal(Predicate<WebElement>... predicates) {
 		this.setWebElement(modal, predicates);
 		return this;
 	}
 
-	public B22OthersP getModalAcceptMessage(Predicate<WebElement>... predicates) {
+	public OthersP getModalAcceptMessage(Predicate<WebElement>... predicates) {
 		this.setWebElement(modalAcceptMessage, predicates);
 		return this;
 	}
 
-	public B22OthersP getSep(Predicate<WebElement>... predicates) {
+	public OthersP getSep(Predicate<WebElement>... predicates) {
 		this.setWebElement(sep, predicates);
 		return this;
 	}
 
-	public B22OthersP getCalendarized(Predicate<WebElement>... predicates) {
+	public OthersP getCalendarized(Predicate<WebElement>... predicates) {
 		this.setWebElement(calendarized, predicates);
 		return this;
 	}
 
-	public B22OthersP getCode(Predicate<WebElement>... predicates) {
+	public OthersP getCode(Predicate<WebElement>... predicates) {
 		this.setWebElement(code, predicates);
 		return this;
 	}
 
-	public B22OthersP getTitle(Predicate<WebElement>... predicates) {
+	public OthersP getTitle(Predicate<WebElement>... predicates) {
 		this.setWebElement(title, predicates);
 		return this;
 	}
 
-	public B22OthersP getOwnerName(Predicate<WebElement>... predicates) {
+	public OthersP getOwnerName(Predicate<WebElement>... predicates) {
 		this.setWebElement(ownerName, predicates);
 		return this;
 	}
 
-	public B22OthersP getDescription(Predicate<WebElement>... predicates) {
+	public OthersP getDescription(Predicate<WebElement>... predicates) {
 		this.setWebElement(description, predicates);
 		return this;
 	}
 
-	public B22OthersP getBu(Predicate<WebElement>... predicates) {
+	public OthersP getBu(Predicate<WebElement>... predicates) {
 		this.setWebElement(bu, predicates);
 		return this;
 	}
 
-	public B22OthersP getCountry(Predicate<WebElement>... predicates) {
+	public OthersP getCountry(Predicate<WebElement>... predicates) {
 		this.setWebElement(country, predicates);
 		return this;
 	}
 
-	public B22OthersP getStatus(Predicate<WebElement>... predicates) {
+	public OthersP getStatus(Predicate<WebElement>... predicates) {
 		this.setWebElement(status, predicates);
 		return this;
 	}
 
-	public B22OthersP getRisk(Predicate<WebElement>... predicates) {
+	public OthersP getRisk(Predicate<WebElement>... predicates) {
 		this.setWebElement(risk, predicates);
 		return this;
 	}
 
-	public B22OthersP getStartDate(Predicate<WebElement>... predicates) {
+	public OthersP getStartDate(Predicate<WebElement>... predicates) {
 		this.setWebElement(startDate, predicates);
 		return this;
 	}
 
-	public B22OthersP getDuration(Predicate<WebElement>... predicates) {
+	public OthersP getDuration(Predicate<WebElement>... predicates) {
 		this.setWebElement(duration, predicates);
 		return this;
 	}
 
-	public B22OthersP getInitiativeType(Predicate<WebElement>... predicates) {
+	public OthersP getInitiativeType(Predicate<WebElement>... predicates) {
 		this.setWebElement(initiativeType, predicates);
 		return this;
 	}
 
-	public B22OthersP getAnualized(Predicate<WebElement>... predicates) {
+	public OthersP getAnualized(Predicate<WebElement>... predicates) {
 		this.setWebElement(anualized, predicates);
 		return this;
 	}
 
-	public B22OthersP getJan(Predicate<WebElement>... predicates) {
+	public OthersP getJan(Predicate<WebElement>... predicates) {
 		this.setWebElement(jan, predicates);
 		return this;
 	}
 
-	public B22OthersP getFeb(Predicate<WebElement>... predicates) {
+	public OthersP getFeb(Predicate<WebElement>... predicates) {
 		this.setWebElement(feb, predicates);
 		return this;
 	}
 
-	public B22OthersP getMar(Predicate<WebElement>... predicates) {
+	public OthersP getMar(Predicate<WebElement>... predicates) {
 		this.setWebElement(mar, predicates);
 		return this;
 	}
 
-	public B22OthersP getApr(Predicate<WebElement>... predicates) {
+	public OthersP getApr(Predicate<WebElement>... predicates) {
 		this.setWebElement(apr, predicates);
 		return this;
 	}
 
-	public B22OthersP getMay(Predicate<WebElement>... predicates) {
+	public OthersP getMay(Predicate<WebElement>... predicates) {
 		this.setWebElement(may, predicates);
 		return this;
 	}
 
-	public B22OthersP getJun(Predicate<WebElement>... predicates) {
+	public OthersP getJun(Predicate<WebElement>... predicates) {
 		this.setWebElement(jun, predicates);
 		return this;
 	}
 
-	public B22OthersP getJul(Predicate<WebElement>... predicates) {
+	public OthersP getJul(Predicate<WebElement>... predicates) {
 		this.setWebElement(jul, predicates);
 		return this;
 	}
 
-	public B22OthersP getAug(Predicate<WebElement>... predicates) {
+	public OthersP getAug(Predicate<WebElement>... predicates) {
 		this.setWebElement(aug, predicates);
 		return this;
 	}
 
-	public B22OthersP getOct(Predicate<WebElement>... predicates) {
+	public OthersP getOct(Predicate<WebElement>... predicates) {
 		this.setWebElement(oct, predicates);
 		return this;
 	}
 
-	public B22OthersP getNov(Predicate<WebElement>... predicates) {
+	public OthersP getNov(Predicate<WebElement>... predicates) {
 		this.setWebElement(nov, predicates);
 		return this;
 	}
 
-	public B22OthersP getDec(Predicate<WebElement>... predicates) {
+	public OthersP getDec(Predicate<WebElement>... predicates) {
 		this.setWebElement(dec, predicates);
 		return this;
 	}
 
-	public B22OthersP getNewInitiative(Predicate<WebElement>... predicates) {
+	public OthersP getNewInitiative(Predicate<WebElement>... predicates) {
 		this.setWebElement(newInitiative, predicates);
 		return this;
 	}
 
-	public B22OthersP getButton(Predicate<WebElement>... predicates) {
+	public OthersP getButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(button, predicates);
 		return this;
 	}
 
-	public B22OthersP getAppBusy(Predicate<WebElement>... predicates) {
+	public OthersP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
 		return this;
 	}

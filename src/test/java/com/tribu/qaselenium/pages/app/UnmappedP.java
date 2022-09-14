@@ -1,4 +1,4 @@
-package com.tribu.qaselenium.pages.b22;
+package com.tribu.qaselenium.pages.app;
 
 import java.util.Iterator;
 import java.util.List;
@@ -12,7 +12,7 @@ import com.google.common.base.Predicate;
 import com.tribu.qaselenium.testframework.pagebase.BasePO;
 import com.tribu.qaselenium.testframework.testbase.PropertiesFile;
 
-public class B22UnmappedP extends BasePO<B22UnmappedP> {
+public class UnmappedP extends BasePO<UnmappedP> {
 
 	private final String pageUrl = PropertiesFile.getProperties(PropertiesFile.getProperties("env") + "_url");
 	private By appBusy = By.xpath("/html[@class='nprogress-busy']");
@@ -28,68 +28,68 @@ public class B22UnmappedP extends BasePO<B22UnmappedP> {
 	private By respModal = By.xpath("//div[@id='unmapped-response-modal']");
 	private By closeButton = By.xpath(".//button[@aria-label='Close']");
 
-	public B22UnmappedP getNotiModal(Predicate<WebElement>... predicates) {
+	public UnmappedP getNotiModal(Predicate<WebElement>... predicates) {
 		this.setWebElement(notiModal, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getRespModal(Predicate<WebElement>... predicates) {
+	public UnmappedP getRespModal(Predicate<WebElement>... predicates) {
 		this.setWebElement(respModal, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getCloseButton(Predicate<WebElement>... predicates) {
+	public UnmappedP getCloseButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(closeButton, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getModal(Predicate<WebElement>... predicates) {
+	public UnmappedP getModal(Predicate<WebElement>... predicates) {
 		this.setWebElement(modal, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getSaveButton(Predicate<WebElement>... predicates) {
+	public UnmappedP getSaveButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(saveButton, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getFuncItem(Predicate<WebElement>... predicates) {
+	public UnmappedP getFuncItem(Predicate<WebElement>... predicates) {
 		this.setWebElement(funcItem, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getButton(Predicate<WebElement>... predicates) {
+	public UnmappedP getButton(Predicate<WebElement>... predicates) {
 		this.setWebElement(button, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getBuItem(Predicate<WebElement>... predicates) {
+	public UnmappedP getBuItem(Predicate<WebElement>... predicates) {
 		this.setWebElement(buItem, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getFuncUnmapped(Predicate<WebElement>... predicates) {
+	public UnmappedP getFuncUnmapped(Predicate<WebElement>... predicates) {
 		this.setWebElement(funcUnmapped, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getInputUnmapped(Predicate<WebElement>... predicates) {
+	public UnmappedP getInputUnmapped(Predicate<WebElement>... predicates) {
 		this.setWebElement(inputUnmapped, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getUnmappedTable(Predicate<WebElement>... predicates) {
+	public UnmappedP getUnmappedTable(Predicate<WebElement>... predicates) {
 		this.setWebElement(unmappedTable, predicates);
 		return this;
 	}
 
-	public B22UnmappedP getAppBusy(Predicate<WebElement>... predicates) {
+	public UnmappedP getAppBusy(Predicate<WebElement>... predicates) {
 		this.setWebElement(appBusy, predicates);
 		return this;
 	}
 
 	@SuppressWarnings("unchecked")
-	public B22UnmappedP fillUnmapped() {
+	public UnmappedP fillUnmapped() {
 		List<WebElement> buItemList = this.getWebElement().findElements(this.buItem);
 		Iterator<WebElement> buItemListIt = buItemList.stream().filter(e -> e.isDisplayed())
 				.collect(Collectors.toList()).iterator();
@@ -112,7 +112,7 @@ public class B22UnmappedP extends BasePO<B22UnmappedP> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public B22UnmappedP resetUnmapped() {
+	public UnmappedP resetUnmapped() {
 		List<WebElement> buItemList = this.getWebElement().findElements(this.buItem);
 		Iterator<WebElement> buItemListIt = buItemList.stream().filter(e -> e.isDisplayed())
 				.collect(Collectors.toList()).iterator();
